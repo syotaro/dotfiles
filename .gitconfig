@@ -1,0 +1,71 @@
+[user]
+	name = Shotaro.Yamamoto
+	email = shotaro.yamamoto@gree.net
+[color]
+  ui            = auto
+  status        = auto
+  branch        = auto
+  grep          = auto
+[core]
+  pager         = lv -c
+;  excludesfile = /opt/boxen/config/git/gitignore
+  quotepath     = false
+  editor = vim
+  #  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[tig "bind"]
+  generic       = g move-first-line
+  generic       = G move-last-line
+[pull]
+  rebase         = true                # pullのデフォルトが--rebaseに
+[push]
+  default       = current
+[merge]
+  ff            = false               # mergeのデフォルトが--no-ffに
+[grep]
+  lineNumber    = true
+[include]
+  path          = .gitconfig.local
+[github]
+  user          = syotaro
+[url "git@github.com:syotaro/"]
+  insteadof     = gh:
+[alias]
+      # status
+  st            = status
+  co            = checkout
+  s             = status
+  ss            = status -s
+  po            = push origin         # push origin
+      # merge
+  mn            = merge --no-ff
+  co            = checkout
+      # branch
+  ba            = branch -a           # originも含めた全てのbranchを表示
+  bm            = branch --merged     # merge済みのbranchを表示
+  bn            = branch --no-merged  # mergeしてないbranchを表示
+; [difftool "Kaleidoscope"]
+;   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+; [diff]
+;   tool = Kaleidoscope
+; [difftool]
+;   prompt = false
+; 
+; [mergetool "Kaleidoscope"]
+;   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+;   trustExitCode = true
+; [mergetool]
+;   prompt = false
+; [merge]
+;   tool = Kaleidoscope
+; [difftool "sourcetree"]
+; 	cmd = /Applications/Kaleidoscope.app/Contents/MacOS/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+; 	path = 
+; [mergetool "sourcetree"]
+; 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+; 	trustExitCode = true
+
+;[credential]
+;helper = /opt/boxen/bin/boxen-git-credential
+
+[hub]
+protocol = https

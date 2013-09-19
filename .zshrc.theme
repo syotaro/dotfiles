@@ -1,0 +1,58 @@
+
+################################################## COLORS
+# ls colors
+autoload colors
+colors
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+zstyle ':completion:*' list-colors di=34 fi=0         # 色付きで補完する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin  # sudoも補完の対象
+export CLICOLOR=1                                     # Terminal Colorの設定
+
+
+################################################## PROMT
+setopt prompt_subst
+
+ZSH_RESET_COLOR="%{$reset_color%}"
+ZSH_PREFIX_L="%{$fg[blue]%}["
+ZSH_PREFIX_R="%{$fg[blue]%}]"
+# ZSH_DATE="$ZSH_PREFIX_L%{$fg[cyan]%}%w$ZSH_PREFIX_R"
+# ZSH_TIME="$ZSH_PREFIX_L%{$fg[cyan]%}%T$ZSH_PREFIX_R"
+ZSH_REMOTE_HOST="%M:%{$fg[blue]%}"
+ZSH_GIT_DIRTY="%{$fg[red]%}✘ "
+ZSH_GIT_CLEAN="%{$fg[green]%}✓ "
+
+
+
+#PROMPT='$(git_prompt_info)$ZSH_RESET_COLOR '
+
+#[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+PROMPT='%{$fg[black]%}[%~]$ZSH_RESET_COLOR$(git_prompt_info)$ZSH_RESET_COLOR%(!.#.$) '
+
+#SPROMPT='%{$fg[black]%}[%~]$ZSH_RESET_COLOR'
+setopt transient_rprompt
+
+
+
+
+
+
+# get the name of the branch we are on
+function git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "%{$fg[black]%}[${ref#refs/heads/}]%{$fg[red]%}$(parse_git_dirty)"
+}
+
+# Checks if working tree is dirty
+parse_git_dirty() {
+  local SUBMODULE_SYNTAX=''
+  if [[ -n $(git status -s ${SUBMODULE_SYNTAX}  2> /dev/null) ]]; then
+    echo "$ZSH_GIT_DIRTY"
+  else
+    echo "$ZSH_GIT_CLEAN"
+  fi
+}
+
+

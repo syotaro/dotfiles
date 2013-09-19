@@ -1,0 +1,85 @@
+
+########################################################################  BOXEN
+[ -f /opt/boxen/env.sh     ] && source /opt/boxen/env.sh
+[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
+########################################################################  rbenv
+
+[ -f /usr/local/README.md ] && export PATH=/usr/local/bin:/usr/local/share:$PATH && eval "$(rbenv init - zsh)"
+
+##pandoc
+
+PATH=${HOME}/Library/Haskell/bin:$PATH
+
+####################################################################### # vimref
+# export PATH="~/.local/bin:$PATH"
+
+########################################################################  tmux
+## クリップボードを使用する
+export PATH="$HOME/.tmux:$PATH"
+alias tmux='tmuxx'
+
+## シェル起動時にtmuxも起動
+#if which tmux 2>&1 >/dev/null; then
+#    #if not inside a tmux session, and if no session is started, start a new session
+#    test -z "$TMUX" && (tmux attach || tmux new-session)
+#fi
+
+########################################################################  z
+# z
+# . `brew --prefix`/etc/profile.d/z.sh
+# function precmd () {
+#    _z --add "$(pwd -P)"
+# }
+# 
+# 
+
+########################################################################  rabbit
+#export DYLD_LIBRARY_PATH=/usr/local/opt/cairo/lib
+
+
+
+
+########################################################################  terminalからweb検索
+
+# url: $1, delimiter: $2, prefix: $3, words: $4..
+
+# function web_search {
+#   local url=$1       && shift
+#   local delimiter=$1 && shift
+#   local prefix=$1    && shift
+#   local query
+# 
+#   while [ -n "$1" ]; do
+#     if [ -n "$query" ]; then
+#       query="${query}${delimiter}${prefix}$1"
+#     else
+#       query="${prefix}$1"
+#     fi
+#     shift
+#   done
+# 
+#   open "${url}${query}"
+# }
+# 
+# function qiita () {
+#   web_search "http://qiita.com/search?utf8=✓&q=" "+" "" $*
+# }
+# 
+# function google () {
+#   web_search "https://www.google.co.jp/search?&q=" "+" "" $* tbs=qdr:y
+# }
+# 
+# # search in rurima
+# function rurima () {
+#   web_search "http://rurema.clear-code.com" "/" "query:" $*
+# }
+# 
+# # search in rubygems
+# function gems () {
+#   web_search "http://rubygems.org/search?utf8=✓&query=" "+" "" $*
+# }
+# 
+# # search in github
+# function github () {
+#   web_search "https://github.com/search?type=Code&q=" "+" "" $*
+# }

@@ -1,0 +1,65 @@
+case $(uname -s) in
+    Darwin|FreeBSD)                                                           # OSX
+         export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"  # Java
+         export AWS_HOME=${HOME}/.aws                                         # my osx setting!
+    ;;
+    Linux)
+         export JAVA_HOME="/usr/lib/jvm/jre"                                  # Java
+         export AWS_HOME=/opt/aws                                             # my osx setting!
+    ;;
+    NetBSD|OpenBSD)
+    ;;
+esac
+
+
+# Keys
+export EC2_PRIVATE_KEY=${AWS_HOME}/keys/pk.pem
+export EC2_CERT=${AWS_HOME}/keys/cert.pem
+export AWS_CREDENTIAL_FILE=${AWS_HOME}/keys/credential-file-path
+
+# API Home
+export API_TOOLS_PATH="${AWS_HOME}/apitools"
+export EC2_HOME="${API_TOOLS_PATH}/ec2"
+export EC2_AMITOOL_HOME="${API_TOOLS_PATH}/ec2-ami-tools"
+export AWSDIAGNOSTIC_HOME="${API_TOOLS_PATH}/aws-diagnostic-tools"
+export AWS_CLOUDWATCH_HOME="${API_TOOLS_PATH}/mon"
+export AWS_AUTO_SCALING_HOME="${API_TOOLS_PATH}/as"
+export AWS_ELB_HOME="${API_TOOLS_PATH}/elb"
+export AWS_CLOUDFORMATION_HOME="${API_TOOLS_PATH}/cfn"
+export AWS_ELASTICACHE_HOME="${API_TOOLS_PATH}/elasticache"
+export AWS_SNS_HOME="${API_TOOLS_PATH}/sns"
+export AWS_IAM_HOME="${API_TOOLS_PATH}/iam"
+export AWS_RDS_HOME="${API_TOOLS_PATH}/rds"
+for x in ${API_TOOLS_PATH}/*/bin
+do
+  export PATH=$x:$PATH
+done
+#export PATH=$PATH:${API_TOOLS_PATH}/s3cmd
+
+
+
+# Region
+# export EC2_REGION=eu-west-1
+# export EC2_REGION=sa-east-1
+# export EC2_REGION=us-east-1
+export EC2_REGION=ap-northeast-1
+# export EC2_REGION=us-west-2
+# export EC2_REGION=us-west-1
+# export EC2_REGION=ap-southeast-1
+# export EC2_REGION=ap-southeast-2
+
+
+# EC2_URL
+# export EC2_URL=https://ec2.eu-west-1.amazonaws.com
+# export EC2_URL=https://ec2.us-east-1.amazonaws.com
+export EC2_URL=https://ec2.ap-northeast-1.amazonaws.com     # Tokyo
+# export EC2_URL=https://ec2.us-west-1.amazonaws.com
+# export EC2_URL=https://ec2.ap-southeast-1.amazonaws.com
+#
+
+
+
+# for AWS-CLI
+export AWS_CONFIG_FILE=${HOME}/.aws/keys/awscli.conf
+export AWS_DEFAULT_REGION=ap-northeast-1
+

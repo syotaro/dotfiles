@@ -1,0 +1,33 @@
+# 256色表示設定
+# term xterm-256color
+# defbce on
+# # 標準でログをとる
+# deflog on
+# # ログファイルのファイル名
+# logfile ".screen/%Y%m%d-%n-screen.log"
+# # 端末が落ちたら自動的にデタッチする
+# autodetach on
+# # スタートアップメッセージを消す
+# startup_message off
+# # スクロールバッファを最大10000行にする
+# defscrollback 10000
+# # ウィンドウのタイトル指定
+# shelltitle '$ |bash'
+# # コマンドキーをCtrl+Zにする
+# escape ^Zz
+# defencoding UTF-8
+# encoding UTF-8
+# #lessやviなどを閉じた時に、表示内容が残ることを防ぐ
+# altscreen on
+# # hardstatus and caption
+# hardstatus on
+# hardstatus alwayslastline '%{= .b}%H%{-} %L=%-w%45L>%{=u b.}%n %t%{-}%+w %-17<%=%m/%d %02c:%s'
+# caption always '%?%F%{= bw}%:%{= wk}%?%2n%f%07=%t%='
+# sorendition '+r .b'
+ 
+
+#escape ^]^]
+#zombie ^[
+ 
+#bind , prev
+#bind . next

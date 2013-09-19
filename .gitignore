@@ -1,0 +1,10 @@
+.idea/
+/.vim/bundle
+/.aws/keys/pk.pem
+/.aws/keys/KP.pem
+/.aws/keys/credential-file-path
+/.aws/keys/cert.pem
+/.aws/keys/*
+/.claws.yml
+.DS_Store
+Thumbs.db
