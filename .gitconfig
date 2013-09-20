@@ -26,7 +26,7 @@
 [include]
   path          = .gitconfig.local
 [github]
-  user          = syotaro
+	user = shotaro-yamamoto
 [url "git@github.com:syotaro/"]
   insteadof     = gh:
 [alias]

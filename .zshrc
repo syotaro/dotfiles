@@ -5,6 +5,12 @@ export TERM=xterm-256color
 #     ;;
 # esac
 
+
+
+
+
+
+
 ######################################################################## history
 export HISTFILE=~/.zsh_history           # historyファイル
 export HISTIGNORE=ls:history
@@ -16,6 +22,7 @@ setopt extended_history                  # 履歴ファイルに時刻を記録
 setopt hist_ignore_dups                  # 重複を記録しない
 setopt hist_reduce_blanks                # スペース排除
 setopt inc_append_history                # 履歴をインクリメンタルに追加
+setopt ignore_eof       # Ctrl+D では終了しないようになる（exit, logout などを使う）
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'       # 単語の区切り指定
 # setopt share_history                     # 履歴ファイルを、全ターミナルで共有
 
@@ -77,5 +84,4 @@ export XDEBUG_SESSION_START=DBGP
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# Ctrl+D では終了しないようになる（exit, logout などを使う）
-setopt ignore_eof
+

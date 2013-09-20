@@ -15,8 +15,8 @@ PATH=${HOME}/Library/Haskell/bin:$PATH
 
 ########################################################################  tmux
 ## クリップボードを使用する
-export PATH="$HOME/.tmux:$PATH"
-alias tmux='tmuxx'
+#export PATH="$HOME/.tmux:$PATH"
+#alias tmux='tmuxx'
 
 ## シェル起動時にtmuxも起動
 #if which tmux 2>&1 >/dev/null; then

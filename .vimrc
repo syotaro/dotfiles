@@ -55,7 +55,7 @@ NeoBundle 'Shougo/vimproc'
   " NeoBundle 'eregex.vim'
   " NeoBundle 'git://github.com/thinca/vim-showtime.git'
   " NeoBundle 'grep.vim'
-  " NeoBundle 'kana/vim-fakeclip'                " OS のクリップボードやら GNU Screen のバッファを yank, paste できる
+  NeoBundle 'kana/vim-fakeclip'                " tmuxでyankやpasteの時にOS clipboardを使う
   " NeoBundle 'kannokanno/previm'                       " markdown preview
   " NeoBundle 'mattn/benchvimrc-vim'
   " NeoBundle 'minibufexpl.vim'
@@ -70,6 +70,7 @@ NeoBundle 'Shougo/vimproc'
     " NeoBundle 'jQuery'
     NeoBundle 'scrooloose/syntastic'
     NeoBundle 'tpope/vim-markdown'
+  " NeoBundle 'joker1007/vim-markdown-quote-syntax'
     NeoBundle 'hail2u/vim-css3-syntax'
   " NeoBundle 'Markdown-syntax'
   " NeoBundle 'kchmck/vim-coffee-script'
@@ -113,7 +114,8 @@ NeoBundle 'Shougo/vimproc'
     " NeoBundle 'jktgr/phpcomplete.vim'
  
 " 他のvimpluginから必要にされるもの-----------
-  " NeoBundle 'mattn/webapi-vim.git'
+    NeoBundle 'mattn/gist-vim'
+    NeoBundle 'mattn/webapi-vim'  " gist-vimに必要
   " NeoBundle 'cecutil'
     NeoBundle 'L9'
   " NeoBundle 'tyru/open-browser.vim'
@@ -140,8 +142,9 @@ set fileencoding=utf-8
   set autoread                                                         " 他で書き換えられたら自動で読み直す
   set backspace=indent,eol,start                                       " バックスペースでなんでも消せるように
   set browsedir=buffer                                                 " ファイル保存の初期ディレクトリをバッファファイル位置に設定
-  set clipboard+=unnamed                                               " OSのクリップボードを使用する
-  set clipboard=unnamed                                                " ヤンクした文字は、システムのクリップボードに入れる
+  " set clipboard+=unnamed                                               " OSのクリップボードを使用する
+  set clipboard=unnamed,unnamedplus
+  set clipboard+=autoselect
   set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
   set ffs=unix,dos,mac                                                 " 改行コードをUnix系に変更：ffs(fileformats)にunix,dos,macを指定する
   set foldmethod=marker                                                " マーカー文字列による折り畳み(folding)機能有効化
@@ -163,6 +166,7 @@ set fileencoding=utf-8
   set smartcase                                                        " 大文字も含めた検索の場合はその通りに検索する
   set softtabstop=4                                                    " タブを入力した際にタブ文字の代わりに挿入されるホワイトスペースの量
   set tabstop=4
+  set updatetime=300
   set ttyfast                                                          " 高速ターミナル接続を行う
   set vb t_vb=                                                         " ビープをならさない
   set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
@@ -172,7 +176,7 @@ set fileencoding=utf-8
 " set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " set noimcmdline                                                      " insertモードを抜けるとIMEオフ
 " set nolinebreak                                                      " 勝手に改行するのをやめる
-  set nrformats=alpha,octal,hex                                        " <C-a> <C-x> で英字も増減させる
+  set nrformats=octal                                        " <C-a> <C-x> で英字も増減させる
 " set textwidth=0                                                      " 一行に長い文章を書いていても自動折り返しをしない
 " set undofile                                                         " アンドゥの履歴をファイルに保存し、Vim を一度終了したとしてもアンドゥやリドゥを行えるようにする
 " setlocal tabstop=2                                                   " タブ文字の幅を設定できます。デフォルトは8
@@ -459,5 +463,22 @@ augroup vimrc
   autocmd FileType phpunit EnableFastPHPFolds
 augroup END
 
+
+
+" Enable omni completation {{{
+augroup Omnifunc
+  autocmd!
+  " autocmd FileType c          setlocal omnifunc=ccomplete#Complete
+  " autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+  " autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+  " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
+  " autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+  " autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
+  " autocmd FileType haskell    setlocal omnifunc=necoghc#omnifunc
+augroup END
+setlocal omnifunc=syntaxcomplete#Complete
+" }}}
+"
 
 
