@@ -51,7 +51,7 @@ stty stop undef                                       # ctrl-sを押した時に
 case $(uname -s) in
     Darwin|FreeBSD)
         [ -f ~/.zshrc.osx     ] && source ~/.zshrc.osx
-        [ -f ~/.zshrc.antigen ] && source ~/.zshrc.antigen
+        # [ -f ~/.zshrc.antigen ] && source ~/.zshrc.antigen
         [ -f ~/.zshrc.aws     ] && source ~/.zshrc.aws
         export LANG="ja_JP.UTF-8"
         export LANGUAGE="ja_JP.UTF-8"

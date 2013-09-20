@@ -37,9 +37,9 @@ NeoBundle 'Shougo/vimproc'
     NeoBundle 'h1mesuke/vim-alignta.git'                " 整形プラグイン Alignのマルチバイト対応版
     NeoBundle 'html5.vim'
     NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
-    NeoBundle 'kien/ctrlp.vim'
+    " NeoBundle 'kien/ctrlp.vim'
     NeoBundle 'mattn/emmet-vim'
-    NeoBundle 'mattn/livestyle-vim'
+    " NeoBundle 'mattn/livestyle-vim'
     NeoBundle 'molokai'
     NeoBundle 'tell-k/vim-browsereload-mac'
     NeoBundle 'tomtom/tcomment_vim'                     " コメント処理 \c<Space>
@@ -64,9 +64,9 @@ NeoBundle 'Shougo/vimproc'
   " NeoBundle 'vimtaku/vim-mlh.git'        " ローマ字で文字を入力したあと /<Space> で文字を変換することができる
   " NeoBundle 'xmledit'
   " NeoBundle 'yoppi/fluentd.vim.git'
-  NeoBundle 'thinca/vim-quickrun'
+  " NeoBundle 'thinca/vim-quickrun'
 " Syntax------------------------------------------
-    NeoBundle 'JavaScript-syntax'
+    " NeoBundle 'JavaScript-syntax'
     " NeoBundle 'jQuery'
     NeoBundle 'scrooloose/syntastic'
     NeoBundle 'tpope/vim-markdown'
@@ -116,7 +116,7 @@ NeoBundle 'Shougo/vimproc'
   " NeoBundle 'mattn/webapi-vim.git'
   " NeoBundle 'cecutil'
     NeoBundle 'L9'
-  NeoBundle 'tyru/open-browser.vim'
+  " NeoBundle 'tyru/open-browser.vim'
 
 filetype plugin indent on     " Required!
 
@@ -427,17 +427,6 @@ nnoremap k gk
 " nnoremap <S-Up>    <C-w>-<CR>
 " nnoremap <S-Down>  <C-w>+<CR>
 
-
-
-
-
-" nnoremap <silent> <Space>p :<C-u>call <SID>unite_project('-start-insert')<CR>
-" function! s:unite_project(...)
-"   let opts = (a:0 ? join(a:000, ' ') : '')
-"   let dir = unite#util#path2project_directory(expand('%'))
-"   execute 'Unite' opts 'file_rec:' . dir
-" endfunction
-" set grepprg=ag
 
 
 
