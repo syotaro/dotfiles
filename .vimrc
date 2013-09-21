@@ -1,31 +1,444 @@
+" --------------------------------------------------------------------------------------------------------
+" - * File: .vimrc
+" - * Author: itchyny
+" - * Last Change: 21-Sep-2013.
+" --------------------------------------------------------------------------------------------------------
 
-"------------------------------------
-" 初期化
-"------------------------------------
-autocmd!
+" INITIALIZE {{{
+" --------------------------------------------------------------------------------------------------------
+set nocompatible
+filetype off
+scriptencoding utf-8
+set encoding=utf-8
+if !executable(&shell) | set shell=sh | endif
+let s:isunix = has('unix')
+let s:iswin = has('win16') || has('win32') || has('win64')
+let s:iscygwin = has('win32unix')
+let s:ismac = !s:iswin && !s:iscygwin && (has('mac') || has('macunix') || has('guimacvim') || system('uname') =~? '^darwin')
+let s:nosudo = $SUDO_USER == ''
+augroup ESC
+  autocmd!
+augroup END
+augroup SetLocal
+  autocmd!
+augroup END
+function! s:safeexecute(s, ...)
+  if a:0
+    let check = a:1
+  else
+    let check = a:s
+  endif
+  if exists(check)
+    try
+      silent execute a:s
+    catch
+      try
+        silent execute 'call '.a:s
+      catch
+      endtry
+    endtry
+  endif
+endfunction
+function! CompleteNothing(...)
+  return []
+endfunction
+" }}}
 
-"------------------------------------
-" Vundle Setup                                                                  {{{
-"------------------------------------
-set nocompatible               " Be iMproved
+" Bundles 
+let $VIM = expand('~/.vim')
+let $BUNDLE = $VIM.'/bundle'
+let s:neobundle_dir = $BUNDLE.'/neobundle.vim'
+if !isdirectory(s:neobundle_dir)
 
+" neobundle {{{
+" --------------------------------------------------------------------------------------------------------
+  if executable('git')
+    echo 'Initializing neobundle'
+    execute '!mkdir -p '.$BUNDLE
+       \.' && git clone https://github.com/Shougo/neobundle.vim '.$BUNDLE.'/neobundle.vim'
+       \.' && git clone https://github.com/Shougo/unite.vim '.$BUNDLE.'/unite.vim'
+       \.' && git clone https://github.com/Shougo/vimproc '.$BUNDLE.'/vimproc'
+    if s:ismac
+      if executable('llvm-gcc')
+        execute '!cd '.$BUNDLE.'/vimproc && make -f make_mac.mak'
+      elseif executable('gcc')
+        execute '!cd '.$BUNDLE.'/vimproc && '
+              \.'gcc -O3 -W -Wall -Wno-unused -bundle -fPIC -arch x86_64 -arch '
+              \.'i386 -o autoload/vimproc_mac.so autoload/proc.c -lutil'
+      else
+        echo 'gcc not found!'
+      endif
+    elseif s:iswin
+      echo 'access https://github.com/Shougo/vimproc/downloads to get dll'
+    else
+      if executable('gcc')
+        execute '!cd '.$BUNDLE.'/vimproc && make -f make_unix.mak'
+      else
+        echo 'gcc not found!'
+      endif
+    endif
+  else
+    echo 'git not found! Sorry, this .vimrc cannot be completely used without git.'
+  endif
+else
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  execute 'set runtimepath+='.expand(s:neobundle_dir)
 endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
+call neobundle#rc(expand($BUNDLE))
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
+  " nnoremap <silent> <S-b><S-b> :<C-u>NeoBundleUpdate<CR>
+  nnoremap <silent> <S-b><S-b> :<C-u>Unite neobundle/update<CR>
+" }}}
+
+
+" Complement {{{
+" --------------------------------------------------------------------------------------------------------
+if s:nosudo
+if has('lua') && v:version > 703
+NeoBundle 'Shougo/neocomplete.vim'
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_smart_case = 1
+  " let g:neocomplete#enable_cursor_hold_i = 1
+  let g:neocomplete#max_list = 1000
+  let g:neocomplete#skip_auto_completion_time = "0.50"
+  let g:neocomplete#enable_auto_close_preview = 1
+  let g:neocomplete#auto_completion_start_length = 1
+  let g:neocomplete#max_keyword_width = 50
+  if !exists('g:neocomplete#force_omni_input_patterns')
+      let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#force_overwrite_completefunc = 1
+  let g:neocomplete#force_omni_input_patterns.c =
+              \ '[^.[:digit:] *\t]\%(\.\|->\)'
+  let g:neocomplete#force_omni_input_patterns.cpp =
+              \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+  let g:neocomplete#force_omni_input_patterns.objc =
+              \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+  let g:neocomplete#force_omni_input_patterns.objcpp =
+              \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+  function! s:cancel_popup(key)
+    return a:key . neocomplete#cancel_popup()
+  endfunction
+  function! s:cancel_popup_reverse(key)
+    return neocomplete#cancel_popup() . a:key
+  endfunction
+  function! s:goback_insert(key)
+    return "gi" . a:key . neocomplete#cancel_popup()
+  endfunction
+else
+endif
+NeoBundle 'Shougo/neosnippet'
+  let g:neosnippet#snippets_directory = expand($VIM.'/snippets')
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable() <Bar><Bar> neosnippet#jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: "\<TAB>"
+NeoBundle 'ujihisa/neco-look'
+  " --| Requirement: look commnad
+else
+  function! s:cancel_popup(key)
+    return a:key . (pumvisible() ? "\<C-e>" : '')
+  endfunction
+  function! s:cancel_popup_reverse(key)
+    return (pumvisible() ? "\<C-e>" : '') . a:key
+  endfunction
+  function! s:goback_insert(key)
+    return "gi" . a:key . (pumvisible() ? "\<C-e>" : '')
+  endfunction
+endif
+" }}}
+
+" Unite ( "," ) {{{
+" --------------------------------------------------------------------------------------------------------
+let mapleader = ","
+if s:nosudo
+NeoBundle 'Shougo/unite.vim'
+  let g:unite_enable_start_insert = 1
+  let g:unite_cursor_line_highlight = 'CursorLine'
+  let g:unite_source_file_mru_limit = 1000
+  let g:unite_force_overwrite_statusline = 0
+  if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts =
+    \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'''
+    let g:unite_source_grep_recursive_opt = ''
+  else
+    let g:unite_source_grep_command = 'grep'
+    let g:unite_source_grep_default_opts = '-iHn'
+  endif
+  if s:ismac && has('multi_byte')
+    let g:unite_marked_icon = '✓'
+  else
+    let g:unite_marked_icon = 'v'
+  endif
+  let g:unite_candidate_icon = '-'
+  " nnoremap <C-u> :Unite<SPACE>
+  nnoremap <silent><C-p> :Unite buffer -buffer-name=buffer<CR>
+  nnoremap <silent><C-n> :Unite file/new directory/new -buffer-name=file/new,directory/new<CR>
+  nnoremap <silent><S-k> :Unite output:message -buffer-name=output<CR>
+  nnoremap <silent><C-o> :execute 'Unite file:'.<SID>change_directory().' file/new -buffer-name=file'<CR>
+  nnoremap <silent><C-z> :Unite file_mru -buffer-name=file_mru<CR>
+  nnoremap <silent><S-l> :Unite line -buffer-name=line<CR>
+  augroup Unite
+    autocmd!
+    autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+    autocmd FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+    autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-k> unite#do_action('vsplit')
+    autocmd FileType unite inoremap <silent> <buffer> <expr> <C-k> unite#do_action('vsplit')
+    autocmd FileType unite inoremap <silent> <buffer> <C-z> <Nop>
+    autocmd FileType unite inoremap <silent> <buffer> <C-o> <Nop>
+    autocmd FileType unite nmap <buffer> <C-a> <Plug>(unite_insert_enter)
+    autocmd FileType unite nmap <buffer> OA <Plug>(unite_rotate_previous_source)
+    autocmd FileType unite nnoremap <buffer> OB <Down>
+    autocmd FileType unite nmap <buffer> <Bs> <Plug>(unite_exit)
+  augroup END
+  autocmd ESC FileType unite nmap <silent> <buffer> <ESC><ESC> <Plug>(unite_exit)
+  let s:startfiletypes = '.*\.\(exe\|png\|gif\|jpg\|jpeg\|bmp\|eps\|pdf\|mp3\|mp4\|avi\|mkv\|tiff\)$'
+  let s:auto_open = {
+        \ 'description' : 'edit or open files',
+        \ 'is_selectable' : 1,
+        \ }
+  function! s:auto_open.func(candidates)
+    try
+      for candidate in a:candidates
+        if candidate.word =~? s:startfiletypes
+          call unite#take_action('start', candidate)
+        else
+          call unite#take_action('open', candidate)
+        endif
+      endfor
+    catch
+    endtry
+  endfunction
+  let s:eject = {
+        \ 'description': 'eject',
+        \ 'is_selectable': 0,
+        \ }
+  function! s:eject.func(candidate)
+    try
+      let c = 'sudo ' . (executable('eject') ? 'eject' : s:ismac ? 'diskutil umount' : '')
+            \ . ' "' . a:candidate.action__path . '"'
+      if strlen(c)
+        let s:eject.path = a:candidate.action__path
+        let s:eject.count = 0
+        exe 'VimShellInteractive --split="split | resize 20" ' . c
+      endif
+    catch
+    endtry
+  endfunction
+  let bundle = neobundle#get('unite.vim')
+  function! bundle.hooks.on_post_source(bundle)
+    if exists('*unite#custom_source')
+      call unite#custom_source('file', 'ignore_pattern'
+            \, '.*\.\(o\|exe\|dll\|bak\|sw[po]\|hi\|fff\|aux\|toc\|bbl\|blg\|DS_Store\)$')
+    endif
+    if exists('*unite#custom_action')
+      call unite#custom_action('file', 'auto_open', s:auto_open)
+    endif
+    if exists('*unite#custom_default_action')
+      call unite#custom_default_action('file', 'auto_open')
+    endif
+    if exists('*unite#custom_default_action')
+      call unite#custom_action('file', 'eject', s:eject)
+    endif
+    if exists('*unite#custom_source')
+      call unite#custom_source('haddock,hoogle', 'max_candidates', 20)
+    endif
+  endfunction
+NeoBundleLazy 'Shougo/unite-build', {'autoload': {'unite_sources': ['build']}}
+  nnoremap <silent><F5> :<C-u>Unite build -buffer-name=build<CR>
+NeoBundleLazy 'unite-colorscheme', {'autoload': {'unite_sources': ['colorscheme']}}
+NeoBundleLazy 'osyo-manga/unite-highlight', {'autoload': {'unite_sources': ['highlight']}}
+NeoBundleLazy 'ujihisa/vim-ref'
+if executable('hoogle')
+NeoBundleLazy 'eagletmt/unite-haddock', {'autoload': {'unite_sources': ['hoogle']}}
+  nnoremap <Leader>h :<C-u>Unite hoogle -buffer-name=hoogle<CR>
+  " --| Requirement: hoogle
+  " --|   $ cabal install hoogle
+  " --|   $ hoogle data
+endif
+NeoBundleLazy 'h1mesuke/unite-outline', {'autoload': {'unite_sources': ['outline']}}
+NeoBundleLazy 'ujihisa/unite-haskellimport', {'autoload': {'unite_sources': ['haskellimport']}}
+endif
+" }}}
+
+" QuickRun / Filer / Outer world of Vim ( "\\" ) {{{
+" --------------------------------------------------------------------------------------------------------
+let mapleader = "\\"
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \   },
+  \ }
+NeoBundle 'thinca/vim-quickrun'
+  let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', 'into': 1}}
+  let s:quickrun_command_list = map(split(
+        \ 'quickrun;cat,javascript;node,roy;roy,qcl;qcl,haskell;runhaskell,bf;bf', ','), 'split(v:val, ";")')
+  for [ft, exe] in s:quickrun_command_list
+    execute printf('if executable("%s") | let g:quickrun_config.%s = {"command":"%s"} | endif', exe, ft, exe)
+  endfor
+  if executable('pandoc')
+    let g:quickrun_config.markdown = {'type' : 'markdown/pandoc', 'outputter': 'browser', 'cmdopt': '-s'}
+  endif
+  if executable('autolatex')
+    let g:quickrun_config.tex = {'command' : 'autolatex'}
+  elseif executable('platex')
+    let g:quickrun_config.tex = {'command' : 'platex'}
+  endif
+  if executable('man')
+    let g:quickrun_config.nroff = {'command': 'man',
+          \ 'args': " -P cat | tr '\b' '\1' | sed -e 's/.\1//g'", 'filetype': 'man'}
+  endif
+  if executable('autognuplot')
+    let g:quickrun_config.gnuplot = {'command' : 'autognuplot'}
+  elseif executable('gnuplot')
+    let g:quickrun_config.gnuplot = {'command' : 'gnuplot'}
+  endif
+  let g:quickrun_config.objc = {'command': 'cc',
+        \ 'exec': ['%c %s -o %s:p:r -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
+        \ 'tempfile': '{tempname()}.m'}
+  if executable('scad3.exe')
+    let g:quickrun_config.spice = {'command': 'scad3.exe', 'exec': ['%c -b %s:t'] }
+  endif
+  if executable('abcm2ps')
+    let g:quickrun_config.abc = {'command': 'abcm2ps',
+          \ 'exec': ['%c %s -O %s:p:r.ps', 'ps2pdf %s:p:r.ps', 'open %s:p:r.pdf']}
+    if executable('abc2midi')
+      call extend(g:quickrun_config.abc.exec, ['abc2midi %s -o %s:p:r.mid', 'open %s:p:r.mid'])
+    endif
+  endif
+  nnoremap <Leader>r :<C-u>QuickRun<CR>
+  nnoremap <Leader><Leader>r :<C-u>QuickRun >file:temp.dat<CR>
+  nnoremap <Leader>e :<C-u>QuickRun <i <CR>
+  nnoremap <Leader>o :<C-u>QuickRun <i >file:output<CR>
+  autocmd ESC FileType quickrun nnoremap <silent> <buffer> <ESC><ESC> <ESC>:q!<CR>
+  autocmd ESC FileType quickrun vnoremap <silent> <buffer> <ESC><ESC> <ESC>:q!<CR>
+if s:nosudo
+NeoBundle 'Shougo/vimfiler'
+  let g:vimfiler_as_default_explorer = 1
+  let g:vimfiler_sort_type = 'TIME'
+  let g:vimfiler_safe_mode_by_default = 0
+  let g:vimfiler_force_overwrite_statusline = 0
+  if s:iswin || !has('multi_byte')
+    let g:vimfiler_tree_leaf_icon = '|'
+    let g:vimfiler_tree_opened_icon = '-'
+    let g:vimfiler_tree_closed_icon = '+'
+  else
+    let g:vimfiler_tree_leaf_icon = ' '
+    let g:vimfiler_tree_opened_icon = '▾'
+    let g:vimfiler_tree_closed_icon = '▸'
+  endif
+  let g:vimfiler_file_icon = '-'
+  if s:ismac && has('multi_byte')
+    let g:vimfiler_readonly_file_icon = '✗'
+    let g:vimfiler_marked_file_icon = '✓'
+  else
+    let g:vimfiler_readonly_file_icon = 'x'
+    let g:vimfiler_marked_file_icon = 'v'
+  endif
+  nnoremap <silent> <Leader>f :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+  nnoremap <silent> <Leader><Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+  nnoremap <silent> @<Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+  nnoremap <silent>@@ :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+  " nnoremap <silent> s :<C-u>execute 'VimShellCreate '.<SID>current_directory_auto()<CR>
+  nnoremap <silent> s :<C-u>VimShellBufferDir<CR>
+  let g:vimfiler_execute_file_list = {}
+  for ft in split('pdf,png,jpg,jpeg,gif,bmp,ico,ppt,html', ',')
+    let g:vimfiler_execute_file_list[ft] = 'open'
+  endfor
+  function! s:changetime()
+    let marked_files = vimfiler#get_marked_filenames()
+    if !empty(marked_files)
+      return
+    endif
+    let file = vimfiler#get_file()
+    if empty(file)
+      return
+    endif
+    let filepath = file.action__path
+    let vimfiler_current_dir = get(unite#get_context(), 'vimfiler__current_directory', '')
+    if vimfiler_current_dir == ''
+      let vimfiler_current_dir = getcwd()
+    endif
+    let current_dir = getcwd()
+    if system('stat -l . > /dev/null 2>&1; echo $?') =~ '^0'
+      let atime = system('stat -lt "%Y/%m/%d %H:%M" "'.filepath
+            \."\" | awk {'print $6\" \"$7'} | tr -d '\\n'")
+    else
+      let atime = system('stat --printf "%y" "'.filepath."\" | sed -e 's/\\..*//'")
+    endif
+    let atime = substitute(atime, '-', '/', 'g')
+    try
+      lcd `=vimfiler_current_dir`
+      let newtime = input(printf('New time: %s -> ', atime))
+      redraw
+      if newtime == ''
+        let newtime = atime
+      endif
+      let newtime = substitute(newtime, '\d\@<!\(\d\)$', '0\1', '')
+      let newtime = substitute(newtime, '\d\@<!\(\d\)\d\@!', '0\1', 'g')
+      let newtime = substitute(newtime, '[ -]', '', 'g')
+      if newtime =~? '^\d\+/\d\+/\d\+$' || len(newtime) <= 8
+        let newtime .= '0000'
+      endif
+      let newtime = substitute(newtime, '\(\d\+:\d\+\):\(\d\+\)$', '\1.\2', '')
+      let newtime = substitute(newtime, '[/:]', '', 'g')
+      call system('touch -at '.newtime.' -mt '.newtime.' "'.filepath.'"')
+    finally
+      lcd `=current_dir`
+    endtry
+  endfunction
+  augroup Vimfiler
+    autocmd!
+    autocmd FileType vimfiler nunmap <buffer> <C-l>
+    autocmd FileType vimfiler nunmap <buffer> \
+    autocmd FileType vimfiler nnoremap <buffer> <C-l> <ESC><C-w>l
+    autocmd FileType vimfiler nmap <buffer> <C-r> <Plug>(vimfiler_redraw_screen)
+    autocmd FileType vimfiler nmap <buffer> O <Plug>(vimfiler_sync_with_another_vimfiler)
+    autocmd FileType vimfiler nmap <buffer><expr> e
+          \ vimfiler#smart_cursor_map("\<Plug>(vimfiler_cd_file)", "\<Plug>(vimfiler_edit_file)")
+    " autocmd FileType vimfiler nnoremap <buffer><expr> t <SID>changetime()
+    autocmd FileType vimfiler if filereadable("Icon\r") | silent call delete("Icon\r") | endif
+  augroup END
+NeoBundle 'itchyny/vimfiler-preview', {'type': 'nosync'}
+  let g:vimfiler_preview_action = 'auto_preview'
+  let bundle = neobundle#get('vimfiler-preview')
+  function! bundle.hooks.on_post_source(bundle)
+    if exists('*unite#custom_action')
+      call unite#custom_action('file', 'auto_preview', g:vimfiler_preview)
+    endif
+  endfunction
+NeoBundle 'Shougo/vinarise'
+endif
+NeoBundleLazy 'eagletmt/ghci-vim', {'autoload': {'filetypes': ['haskell']}}
+  augroup Ghci
+    autocmd!
+    autocmd FileType haskell nnoremap <buffer> <Leader>l <expr> call s:safeexecute(':GhciLoad')
+    autocmd FileType haskell nnoremap <buffer> <Leader>i <expr> call s:safeexecute(':GhciInfo')
+    autocmd FileType haskell nnoremap <buffer> <Leader>t <expr> call s:safeexecute(':GhciType')
+  augroup END
+NeoBundleLazy 'tyru/open-browser.vim', {'autoload' : {'mappings' : ['<Plug>(openbrowser-']}}
+  nmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
+  vmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
+  nmap <silent> <Leader>s <Plug>(openbrowser-search)
+NeoBundle 'mattn/webapi-vim'
+NeoBundleLazy 'mattn/googletasks-vim', {'autoload': {'commands': [{'name': 'GoogleTasks', 'complete': 'customlist,CompleteNothing'}]}}
+" }}}
+
 
 " Edit
-    " NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+    " NeoBundle 'Shougo/vimfiler'
+  " NeoBundle 'Shougo/vimshell.git'
+" ---------------------------------------------
     NeoBundle 'Changed'
     NeoBundle 'Gundo'                                   " undo履歴を追える
     " NeoBundle 'SQLUtilities'
-    NeoBundle 'Shougo/neocomplete'                      " 補完。luaが必要
-    NeoBundle 'Shougo/neosnippet'                       " neocomplcacheのsinpet補完
-    NeoBundle 'Shougo/vimfiler'
     NeoBundle 'VOoM'                                    " Vim Outliner of Markers
     " NeoBundle 'bash-support.vim'
     NeoBundle 'joonty/vdebug.git'
@@ -35,10 +448,8 @@ NeoBundle 'Shougo/vimproc'
     NeoBundle 'git://github.com/jimsei/winresizer.git'
     NeoBundle 'git://github.com/tpope/vim-surround.git' " テキストを括弧で囲む／削除する
     NeoBundle 'h1mesuke/vim-alignta.git'                " 整形プラグイン Alignのマルチバイト対応版
-    NeoBundle 'html5.vim'
     NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
     " NeoBundle 'kien/ctrlp.vim'
-    NeoBundle 'mattn/emmet-vim'
     " NeoBundle 'mattn/livestyle-vim'
     NeoBundle 'molokai'
     NeoBundle 'tell-k/vim-browsereload-mac'
@@ -49,7 +460,6 @@ NeoBundle 'Shougo/vimproc'
   " NeoBundle 'Auto-Pairs'
   " NeoBundle 'Indent-Guides'
   " NeoBundle 'Quich-Filter'
-  " NeoBundle 'Shougo/vimshell.git'
   " NeoBundle 'YankRing.vim'                            " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
   " NeoBundle 'css_color.vim'
   " NeoBundle 'eregex.vim'
@@ -68,22 +478,10 @@ NeoBundle 'Shougo/vimproc'
 " Syntax------------------------------------------
     " NeoBundle 'JavaScript-syntax'
     " NeoBundle 'jQuery'
-    NeoBundle 'scrooloose/syntastic'
-    NeoBundle 'tpope/vim-markdown'
   " NeoBundle 'joker1007/vim-markdown-quote-syntax'
-    NeoBundle 'hail2u/vim-css3-syntax'
   " NeoBundle 'Markdown-syntax'
   " NeoBundle 'kchmck/vim-coffee-script'
   " NeoBundle 'nginx.vim'
-" Unite -----------------------------------------
-    NeoBundle 'Shougo/unite-outline'
-    " NeoBundle 'Shougo/unite-ssh.git'
-    NeoBundle 'Shougo/unite.vim'
-    NeoBundle 'kmnk/vim-unite-giti'
-    " NeoBundle 'thinca/vim-unite-history'
-    NeoBundle 'tsukkee/unite-help'
-  " NeoBundle 'git://github.com/pasela/unite-webcolorname.git'
-  " NeoBundle 'tsukkee/unite-tag'
 " reference--------------------------------------
   " NeoBundle 'thinca/vim-ref'
   " NeoBundle 'taichouchou2/vim-ref-ri'
@@ -115,26 +513,64 @@ NeoBundle 'Shougo/vimproc'
  
 " 他のvimpluginから必要にされるもの-----------
     NeoBundle 'mattn/gist-vim'
-    NeoBundle 'mattn/webapi-vim'  " gist-vimに必要
   " NeoBundle 'cecutil'
     NeoBundle 'L9'
   " NeoBundle 'tyru/open-browser.vim'
 
+
+
+" Syntax {{{
+" --------------------------------------------------------------------------------------------------------
+if has('multi_byte')
+NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'filetypes': ['c', 'cpp'], 'functions': ['SyntasticStatuslineFlag']}}
+  let g:syntastic_mode_map = { 'mode': 'passive' }
+  let g:syntastic_echo_current_error = 0
+  let g:syntastic_enable_highlighting = 0
+  augroup AutoSyntastic
+    autocmd!
+    autocmd BufWritePost *.c,*.cpp call s:syntastic()
+  augroup END
+  function! s:syntastic()
+    if exists(':SyntasticCheck') | exec 'SyntasticCheck' | endif
+    if exists('*lightline#update') | call lightline#update() | endif
+  endfunction
+endif
+NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html']}}
+  let g:user_zen_settings = { 'html' : { 'indentation' : '  ' }, }
+NeoBundleLazy 'itspriddle/vim-javascript-indent', {'autoload': {'filetypes': ['javascript']}}
+NeoBundleLazy 'JSON.vim', {'autoload': {'filetypes': ['json']}}
+NeoBundleLazy 'html5.vim', {'autoload': {'filetypes': ['html']}}
+" NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': ['stylus']}}
+" NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
+" NeoBundleLazy 'less.vim', {'autoload': {'filetypes': ['less']}}
+NeoBundleLazy 'syntaxm4.vim', {'autoload': {'filetypes': ['m4']}}
+NeoBundleLazy 'vim-scripts/jade.vim', {'autoload': {'filetypes': ['jade']}}
+NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
+" NeoBundleLazy 'rest.vim', {'autoload': {'filetypes': ['rest']}}
+" NeoBundleLazy 'vim-scripts/indenthaskell.vim', {'autoload': {'filetypes': ['haskell']}}
+  let hs_highlight_boolean = 1
+  let hs_highlight_types = 1
+  let hs_highlight_more_types = 1
+NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': ['m4']}}
+NeoBundleLazy 'syngan/vim-vimlint', { 'depends' : 'ynkdir/vim-vimlparser', 'autoload' : { 'functions' : 'vimlint#vimlint'}}
+" }}}
+
+
+
+
 filetype plugin indent on     " Required!
 
-" Installation check.
-NeoBundleCheck
 
 
-"}}}
+
+
+endif
+" }}} Bundles
+
 "-------------------------------------------------------------------------------
 " [Basic]
 "-------------------------------------------------------------------------------
 " エンコーディング設定
-set encoding=utf-8
-set termencoding=utf-8
-set fileencoding=utf-8
-" set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 
   syntax   on                                                          " Syntax有効
   set ambiwidth=double                                                 " Ambiguous width文字表記不具合の是正（iTerm2でDouble-WidthCharactersのチェックONにしないと意味なし)
@@ -144,7 +580,7 @@ set fileencoding=utf-8
   set browsedir=buffer                                                 " ファイル保存の初期ディレクトリをバッファファイル位置に設定
   " set clipboard+=unnamed                                               " OSのクリップボードを使用する
   set clipboard=unnamed,unnamedplus
-  set clipboard+=autoselect
+  " set clipboard+=autoselect                                            " 選択した瞬間、clipboardに入れる
   set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
   set ffs=unix,dos,mac                                                 " 改行コードをUnix系に変更：ffs(fileformats)にunix,dos,macを指定する
   set foldmethod=marker                                                " マーカー文字列による折り畳み(folding)機能有効化
@@ -482,3 +918,10 @@ setlocal omnifunc=syntaxcomplete#Complete
 "
 
 
+" move within insert mode
+imap <expr><C-o> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<ESC>o"
+inoremap <expr> <Up> <SID>cancel_popup("\<Up>")
+inoremap <expr> <Down> <SID>cancel_popup("\<Down>")
+inoremap <expr> <Left> <SID>cancel_popup("\<Left>")
+inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
