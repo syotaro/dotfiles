@@ -59,17 +59,7 @@ if !isdirectory(s:neobundle_dir)
        \.' && git clone https://github.com/Shougo/unite.vim '.$BUNDLE.'/unite.vim'
        \.' && git clone https://github.com/Shougo/vimproc '.$BUNDLE.'/vimproc'
     if s:ismac
-      if executable('llvm-gcc')
         execute '!cd '.$BUNDLE.'/vimproc && make -f make_mac.mak'
-      elseif executable('gcc')
-        execute '!cd '.$BUNDLE.'/vimproc && '
-              \.'gcc -O3 -W -Wall -Wno-unused -bundle -fPIC -arch x86_64 -arch '
-              \.'i386 -o autoload/vimproc_mac.so autoload/proc.c -lutil'
-      else
-        echo 'gcc not found!'
-      endif
-    elseif s:iswin
-      echo 'access https://github.com/Shougo/vimproc/downloads to get dll'
     else
       if executable('gcc')
         execute '!cd '.$BUNDLE.'/vimproc && make -f make_unix.mak'
@@ -152,12 +142,16 @@ endif
 
 " Unite ( "," ) {{{
 " --------------------------------------------------------------------------------------------------------
-let mapleader = ","
+"let mapleader = ","
+let mapleader = "<space>"
 if s:nosudo
 NeoBundle 'Shougo/unite.vim'
   let g:unite_enable_start_insert = 1
   let g:unite_cursor_line_highlight = 'CursorLine'
+  "インサートモードで開始しない
+  let g:unite_enable_start_insert = 0
   let g:unite_source_file_mru_limit = 1000
+  let g:vimfiler_enable_auto_cd = 1
   let g:unite_force_overwrite_statusline = 0
   if executable('ag')
     let g:unite_source_grep_command = 'ag'
@@ -253,68 +247,34 @@ NeoBundleLazy 'Shougo/unite-build', {'autoload': {'unite_sources': ['build']}}
 NeoBundleLazy 'unite-colorscheme', {'autoload': {'unite_sources': ['colorscheme']}}
 NeoBundleLazy 'osyo-manga/unite-highlight', {'autoload': {'unite_sources': ['highlight']}}
 NeoBundleLazy 'ujihisa/vim-ref'
-if executable('hoogle')
-NeoBundleLazy 'eagletmt/unite-haddock', {'autoload': {'unite_sources': ['hoogle']}}
-  nnoremap <Leader>h :<C-u>Unite hoogle -buffer-name=hoogle<CR>
-  " --| Requirement: hoogle
-  " --|   $ cabal install hoogle
-  " --|   $ hoogle data
-endif
 NeoBundleLazy 'h1mesuke/unite-outline', {'autoload': {'unite_sources': ['outline']}}
-NeoBundleLazy 'ujihisa/unite-haskellimport', {'autoload': {'unite_sources': ['haskellimport']}}
 endif
 " }}}
 
 " QuickRun / Filer / Outer world of Vim ( "\\" ) {{{
 " --------------------------------------------------------------------------------------------------------
 let mapleader = "\\"
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-  \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \   },
-  \ }
+NeoBundle 'Shougo/vimproc'
+"   , {
+"   \ 'build' : {
+"   \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
+"   \     'cygwin' : 'make -f make_cygwin.mak',
+"   \     'mac' : 'make -f make_mac.mak',
+"   \     'unix' : 'make -f make_unix.mak',
+"   \   },
+"   \ }
 NeoBundle 'thinca/vim-quickrun'
   let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', 'into': 1}}
   let s:quickrun_command_list = map(split(
         \ 'quickrun;cat,javascript;node,roy;roy,qcl;qcl,haskell;runhaskell,bf;bf', ','), 'split(v:val, ";")')
-  for [ft, exe] in s:quickrun_command_list
-    execute printf('if executable("%s") | let g:quickrun_config.%s = {"command":"%s"} | endif', exe, ft, exe)
-  endfor
   if executable('pandoc')
     let g:quickrun_config.markdown = {'type' : 'markdown/pandoc', 'outputter': 'browser', 'cmdopt': '-s'}
-  endif
-  if executable('autolatex')
-    let g:quickrun_config.tex = {'command' : 'autolatex'}
-  elseif executable('platex')
-    let g:quickrun_config.tex = {'command' : 'platex'}
   endif
   if executable('man')
     let g:quickrun_config.nroff = {'command': 'man',
           \ 'args': " -P cat | tr '\b' '\1' | sed -e 's/.\1//g'", 'filetype': 'man'}
   endif
-  if executable('autognuplot')
-    let g:quickrun_config.gnuplot = {'command' : 'autognuplot'}
-  elseif executable('gnuplot')
-    let g:quickrun_config.gnuplot = {'command' : 'gnuplot'}
-  endif
-  let g:quickrun_config.objc = {'command': 'cc',
-        \ 'exec': ['%c %s -o %s:p:r -framework Foundation', '%s:p:r %a', 'rm -f %s:p:r'],
-        \ 'tempfile': '{tempname()}.m'}
-  if executable('scad3.exe')
-    let g:quickrun_config.spice = {'command': 'scad3.exe', 'exec': ['%c -b %s:t'] }
-  endif
-  if executable('abcm2ps')
-    let g:quickrun_config.abc = {'command': 'abcm2ps',
-          \ 'exec': ['%c %s -O %s:p:r.ps', 'ps2pdf %s:p:r.ps', 'open %s:p:r.pdf']}
-    if executable('abc2midi')
-      call extend(g:quickrun_config.abc.exec, ['abc2midi %s -o %s:p:r.mid', 'open %s:p:r.mid'])
-    endif
-  endif
   nnoremap <Leader>r :<C-u>QuickRun<CR>
-  nnoremap <Leader><Leader>r :<C-u>QuickRun >file:temp.dat<CR>
   nnoremap <Leader>e :<C-u>QuickRun <i <CR>
   nnoremap <Leader>o :<C-u>QuickRun <i >file:output<CR>
   autocmd ESC FileType quickrun nnoremap <silent> <buffer> <ESC><ESC> <ESC>:q!<CR>
@@ -322,8 +282,9 @@ NeoBundle 'thinca/vim-quickrun'
 if s:nosudo
 NeoBundle 'Shougo/vimfiler'
   let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_sort_type = 'TIME'
+  " let g:vimfiler_sort_type = 'TIME'
   let g:vimfiler_safe_mode_by_default = 0
+  let g:unite_enable_start_insert = 0
   let g:vimfiler_force_overwrite_statusline = 0
   if s:iswin || !has('multi_byte')
     let g:vimfiler_tree_leaf_icon = '|'
@@ -352,48 +313,6 @@ NeoBundle 'Shougo/vimfiler'
   for ft in split('pdf,png,jpg,jpeg,gif,bmp,ico,ppt,html', ',')
     let g:vimfiler_execute_file_list[ft] = 'open'
   endfor
-  function! s:changetime()
-    let marked_files = vimfiler#get_marked_filenames()
-    if !empty(marked_files)
-      return
-    endif
-    let file = vimfiler#get_file()
-    if empty(file)
-      return
-    endif
-    let filepath = file.action__path
-    let vimfiler_current_dir = get(unite#get_context(), 'vimfiler__current_directory', '')
-    if vimfiler_current_dir == ''
-      let vimfiler_current_dir = getcwd()
-    endif
-    let current_dir = getcwd()
-    if system('stat -l . > /dev/null 2>&1; echo $?') =~ '^0'
-      let atime = system('stat -lt "%Y/%m/%d %H:%M" "'.filepath
-            \."\" | awk {'print $6\" \"$7'} | tr -d '\\n'")
-    else
-      let atime = system('stat --printf "%y" "'.filepath."\" | sed -e 's/\\..*//'")
-    endif
-    let atime = substitute(atime, '-', '/', 'g')
-    try
-      lcd `=vimfiler_current_dir`
-      let newtime = input(printf('New time: %s -> ', atime))
-      redraw
-      if newtime == ''
-        let newtime = atime
-      endif
-      let newtime = substitute(newtime, '\d\@<!\(\d\)$', '0\1', '')
-      let newtime = substitute(newtime, '\d\@<!\(\d\)\d\@!', '0\1', 'g')
-      let newtime = substitute(newtime, '[ -]', '', 'g')
-      if newtime =~? '^\d\+/\d\+/\d\+$' || len(newtime) <= 8
-        let newtime .= '0000'
-      endif
-      let newtime = substitute(newtime, '\(\d\+:\d\+\):\(\d\+\)$', '\1.\2', '')
-      let newtime = substitute(newtime, '[/:]', '', 'g')
-      call system('touch -at '.newtime.' -mt '.newtime.' "'.filepath.'"')
-    finally
-      lcd `=current_dir`
-    endtry
-  endfunction
   augroup Vimfiler
     autocmd!
     autocmd FileType vimfiler nunmap <buffer> <C-l>
@@ -403,7 +322,6 @@ NeoBundle 'Shougo/vimfiler'
     autocmd FileType vimfiler nmap <buffer> O <Plug>(vimfiler_sync_with_another_vimfiler)
     autocmd FileType vimfiler nmap <buffer><expr> e
           \ vimfiler#smart_cursor_map("\<Plug>(vimfiler_cd_file)", "\<Plug>(vimfiler_edit_file)")
-    " autocmd FileType vimfiler nnoremap <buffer><expr> t <SID>changetime()
     autocmd FileType vimfiler if filereadable("Icon\r") | silent call delete("Icon\r") | endif
   augroup END
 NeoBundle 'itchyny/vimfiler-preview', {'type': 'nosync'}
@@ -414,27 +332,18 @@ NeoBundle 'itchyny/vimfiler-preview', {'type': 'nosync'}
       call unite#custom_action('file', 'auto_preview', g:vimfiler_preview)
     endif
   endfunction
-NeoBundle 'Shougo/vinarise'
 endif
-NeoBundleLazy 'eagletmt/ghci-vim', {'autoload': {'filetypes': ['haskell']}}
-  augroup Ghci
-    autocmd!
-    autocmd FileType haskell nnoremap <buffer> <Leader>l <expr> call s:safeexecute(':GhciLoad')
-    autocmd FileType haskell nnoremap <buffer> <Leader>i <expr> call s:safeexecute(':GhciInfo')
-    autocmd FileType haskell nnoremap <buffer> <Leader>t <expr> call s:safeexecute(':GhciType')
-  augroup END
 NeoBundleLazy 'tyru/open-browser.vim', {'autoload' : {'mappings' : ['<Plug>(openbrowser-']}}
   nmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
   vmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
   nmap <silent> <Leader>s <Plug>(openbrowser-search)
 NeoBundle 'mattn/webapi-vim'
-NeoBundleLazy 'mattn/googletasks-vim', {'autoload': {'commands': [{'name': 'GoogleTasks', 'complete': 'customlist,CompleteNothing'}]}}
 " }}}
 
 
 " Edit
     " NeoBundle 'Shougo/vimfiler'
-  " NeoBundle 'Shougo/vimshell.git'
+  NeoBundle 'Shougo/vimshell.git'
 " ---------------------------------------------
     NeoBundle 'Changed'
     NeoBundle 'Gundo'                                   " undo履歴を追える
@@ -451,7 +360,7 @@ NeoBundleLazy 'mattn/googletasks-vim', {'autoload': {'commands': [{'name': 'Goog
     NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
     " NeoBundle 'kien/ctrlp.vim'
     " NeoBundle 'mattn/livestyle-vim'
-    NeoBundle 'molokai'
+    NeoBundle 'tomasr/molokai'
     NeoBundle 'tell-k/vim-browsereload-mac'
     NeoBundle 'tomtom/tcomment_vim'                     " コメント処理 \c<Space>
     NeoBundle 'tpope/vim-fugitive'
@@ -508,6 +417,7 @@ NeoBundleLazy 'mattn/googletasks-vim', {'autoload': {'commands': [{'name': 'Goog
     NeoBundle 'jktgr/smarty.vim'
     NeoBundle 'jktgr/phpfolding.vim'
     NeoBundle 'bpearson/vim-phpcs'
+    " NeoBundle 'tyru/operator-camelize.vim'            " 選択したテキストオブジェクトをsnake_caseやcamelCaseに変換するオペレーター
     " NeoBundle 'jktgr/vim-json'
     " NeoBundle 'jktgr/phpcomplete.vim'
  
@@ -522,20 +432,25 @@ NeoBundleLazy 'mattn/googletasks-vim', {'autoload': {'commands': [{'name': 'Goog
 " Syntax {{{
 " --------------------------------------------------------------------------------------------------------
 if has('multi_byte')
-NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'filetypes': ['c', 'cpp'], 'functions': ['SyntasticStatuslineFlag']}}
+NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'filetypes': ['php', 'html'], 'functions': ['SyntasticStatuslineFlag']}}
   let g:syntastic_mode_map = { 'mode': 'passive' }
   let g:syntastic_echo_current_error = 0
-  let g:syntastic_enable_highlighting = 0
+  " エラー行をsignで表示する
+  let g:syntastic_enable_signs = 1
+  let g:syntastic_enable_highlighting = 1
+  let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+  " let g:syntastic_php_phpcs_args='--standard=psr2'
+  let g:syntastic_php_phpcs_post_args='--standard=psr2'
   augroup AutoSyntastic
     autocmd!
-    autocmd BufWritePost *.c,*.cpp call s:syntastic()
+    autocmd BufWritePost *.php,*.html call s:syntastic()
   augroup END
   function! s:syntastic()
     if exists(':SyntasticCheck') | exec 'SyntasticCheck' | endif
     if exists('*lightline#update') | call lightline#update() | endif
   endfunction
 endif
-NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html']}}
+NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html','php']}}
   let g:user_zen_settings = { 'html' : { 'indentation' : '  ' }, }
 NeoBundleLazy 'itspriddle/vim-javascript-indent', {'autoload': {'filetypes': ['javascript']}}
 NeoBundleLazy 'JSON.vim', {'autoload': {'filetypes': ['json']}}
@@ -543,16 +458,16 @@ NeoBundleLazy 'html5.vim', {'autoload': {'filetypes': ['html']}}
 " NeoBundleLazy 'wavded/vim-stylus', {'autoload': {'filetypes': ['stylus']}}
 " NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
 " NeoBundleLazy 'less.vim', {'autoload': {'filetypes': ['less']}}
-NeoBundleLazy 'syntaxm4.vim', {'autoload': {'filetypes': ['m4']}}
-NeoBundleLazy 'vim-scripts/jade.vim', {'autoload': {'filetypes': ['jade']}}
-NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
+" NeoBundleLazy 'syntaxm4.vim', {'autoload': {'filetypes': ['m4']}}
+" NeoBundleLazy 'vim-scripts/jade.vim', {'autoload': {'filetypes': ['jade']}}
+" NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
 " NeoBundleLazy 'rest.vim', {'autoload': {'filetypes': ['rest']}}
 " NeoBundleLazy 'vim-scripts/indenthaskell.vim', {'autoload': {'filetypes': ['haskell']}}
   let hs_highlight_boolean = 1
   let hs_highlight_types = 1
   let hs_highlight_more_types = 1
 NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': ['m4']}}
-NeoBundleLazy 'syngan/vim-vimlint', { 'depends' : 'ynkdir/vim-vimlparser', 'autoload' : { 'functions' : 'vimlint#vimlint'}}
+" NeoBundleLazy 'syngan/vim-vimlint', { 'depends' : 'ynkdir/vim-vimlparser', 'autoload' : { 'functions' : 'vimlint#vimlint'}}
 " }}}
 
 
@@ -608,7 +523,6 @@ endif
   set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
 " let mapleader = ","                                                  " キーマップリーダー
 " set imdisable                                                        " insertモードを抜けるとIMEオフ
-" set iminsert=0 imsearch=0                                            " insertモードを抜けるとIMEオフ
 " set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " set noimcmdline                                                      " insertモードを抜けるとIMEオフ
 " set nolinebreak                                                      " 勝手に改行するのをやめる
@@ -638,10 +552,6 @@ endif
   endif
 
   colorscheme molokai
-  " カーソル行をハイライト
-" set cursorline
-" autocmd WinEnter,BufRead * set cursorline
-" highlight CursorLine ctermbg=black guibg=black
 
   " 行頭のTAB文字を可視化
   highlight TabString ctermbg=red guibg=red
@@ -697,12 +607,12 @@ endif
   " CurrentBufferFile List
   nnoremap <silent> <Space>b  : <C-u>VimFilerBufferDir -split -no-quit -simple -winwidth=30<CR>
   " CurrentDirFileList
-  nnoremap <silent> <Space>f  : <C-u>VimFiler          -split -no-quit -simple -winwidth=30<CR>
+  nnoremap <silent> <Space>f  : <C-u>VimFiler          -split -no-quit -simple -winwidth=30  -auto-cd<cR>
   " VimfilerExplorer
   nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
 
 " [Unite]
-  nnoremap <silent> <Space>/         : <C-u>Unite line                   -direction=rightbelow -buffer-name=search -start-insert -no-quit <CR>
+  nnoremap <silent> <Space>/  : <C-u>Unite line                   -direction=rightbelow -buffer-name=search -start-insert -no-quit <CR>
   nnoremap <silent> <Space>u  : <C-u>Unite file_mru file bookmark -direction=rightbelow<CR>
   nnoremap <silent> <Space>o  : <C-u>Unite outline                -direction=rightbelow -no-quit <CR>
   nnoremap <silent> <Space>l  : <C-u>Unite buffer_tab             -direction=rightbelow<CR>
@@ -747,10 +657,7 @@ endif
   noremap <CR> o<ESC>
   " タブ移動を直感的に
   noremap gh gT
-  " タブ移動を直感的に
   noremap gl gt
-  " insertモードを抜けるとIMEオフ
-  ""inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
   " Ctrl + c とEscの動作を完全に一致させる
   inoremap <C-c> <ESC>
 
@@ -806,25 +713,6 @@ endif
 
   " Vundle Plugin に関する設定を読み込む
   source ~/.vimrc.plugins_setting
-
-"-------------------------------------------------------------------------------
-" [Function]
-"-------------------------------------------------------------------------------
-
-" augroup BUFWRITE_POSTDELETE                                " 内容が空のファイルを保存したら自動で削除する(*.mkdのみ)
-"   au!
-"   autocmd BufWritePost *.md call BufWritePostDelete()
-" augroup END
-" function! BufWritePostDelete()
-"   let crlen = 0
-"   if &binary == 0
-"     let crlen = &ff=='dos' ? 2 : 1
-"   endif
-"   if getfsize(expand('%:p')) <= crlen
-"     call delete(expand('%:p'))
-"   endif
-" endfunction
-" 
 
 "------------------------------------------------
 " CSVのハイライト表示
@@ -925,3 +813,5 @@ inoremap <expr> <Up> <SID>cancel_popup("\<Up>")
 inoremap <expr> <Down> <SID>cancel_popup("\<Down>")
 inoremap <expr> <Left> <SID>cancel_popup("\<Left>")
 inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
+
+

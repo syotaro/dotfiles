@@ -34,87 +34,56 @@
 
 
 "-------------------------------------------------------------------------------
-" grep.vim
-"-------------------------------------------------------------------------------
-
-  " 検索外のディレクトリ、ファイルパターン
-  " let Grep_Skip_Dirs = '.svn .git .hg'
-  " let Grep_Skip_Files = '*.bak *~'
-
-"-------------------------------------------------------------------------------
 " Fugitive.vim
 "-------------------------------------------------------------------------------
 
-nnoremap <Space>gd :<C-u>Gdiff<Enter>
-nnoremap <Space>gs :<C-u>Gstatus<Enter>
-nnoremap <Space>gl :<C-u>Glog<Enter>
-nnoremap <Space>ga :<C-u>Gwrite<Enter>
-nnoremap <Space>gc :<C-u>Gcommit<Enter>
-nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
-nnoremap <Space>gb :<C-u>Gblame<Enter>
+" nnoremap <Space>gd :<C-u>Gdiff<Enter>
+" nnoremap <Space>gs :<C-u>Gstatus<Enter>
+" nnoremap <Space>gl :<C-u>Glog<Enter>
+" nnoremap <Space>ga :<C-u>Gwrite<Enter>
+" nnoremap <Space>gc :<C-u>Gcommit<Enter>
+" nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
+" nnoremap <Space>gb :<C-u>Gblame<Enter>
 
 
 "-------------------------------------------------------------------------------
 " Zen-Coding(Emmet)
 "-------------------------------------------------------------------------------
 
-" let g:user_emmet_expandabbr_key = '<tab>'
-" let g:use_emmet_complete_tag = 1
-" let g:user_emmet_settings = {
-"   \  'lang' : 'ja',
-"   \  'html' : {
-"   \    'filters' : 'html',
-"   \    'indentation' : ' '
-"   \  },
-"   \  'php' : {
-"   \    'extends' : 'html',
-"   \    'filters' : 'html,c',
-"   \  },
-"   \  'css' : {
-"   \    'filters' : 'fc',
-"   \  },
-"   \  'javascript' : {
-"   \    'snippets' : {
-"   \      'jq' : "$(function() {\n\t${cursor}${child}\n});",
-"   \      'jq:each' : "$.each(arr, function(index, item)\n\t${child}\n});",
-"   \      'fn' : "(function() {\n\t${cursor}\n})();",
-"   \      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
-"   \    },
-"   \  },
-"   \}
-" 
-" 
+let g:user_emmet_expandabbr_key = '<tab>'
+let g:use_emmet_complete_tag = 1
+let g:user_emmet_settings = {
+  \  'lang' : 'ja',
+  \  'html' : {
+  \    'filters' : 'html',
+  \    'indentation' : ' '
+  \  },
+  \  'php' : {
+  \    'extends' : 'html',
+  \    'filters' : 'html,c',
+  \  },
+  \  'css' : {
+  \    'filters' : 'fc',
+  \  },
+  \  'javascript' : {
+  \    'snippets' : {
+  \      'jq' : "$(function() {\n\t${cursor}${child}\n});",
+  \      'jq:each' : "$.each(arr, function(index, item)\n\t${child}\n});",
+  \      'fn' : "(function() {\n\t${cursor}\n})();",
+  \      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
+  \    },
+  \  },
+  \}
 
 
-"-------------------------------------------------------------------------------
-" Syntastic
-"-------------------------------------------------------------------------------
-" 
-"   " エラー行をsignで表示する
-"   let g:syntastic_enable_signs = 1
-"   " 可能ならhighligt表示する
-"   let g:syntastic_enable_highlighting = 1
-"   let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-"   " let g:syntastic_php_phpcs_args='--standard=psr2'
-"   let g:syntastic_php_phpcs_post_args='--standard=psr2'
-" 
-" 
 
 
 "-------------------------------------------------------------------------------
 " LightLine
 "-------------------------------------------------------------------------------
 
+set showtabline=2
 set laststatus=2
-" set t_Co=256 " explicit 256 color support
-
-
-" let g:lightline.component_expand = {
-"       \ 'tabs': 'lightline#tabs' }
-" let g:lightline.component_type = {
-"       \ 'tabs': 'tabsel' }
-
-
 let g:lightline = {
         \ 'colorscheme': 'wombat',
         \ 'mode_map': {'c': 'NORMAL'},
@@ -178,12 +147,6 @@ endfunction
 
 
 
-set showtabline=2
-
-
-
-
-
 
 
 
@@ -195,7 +158,6 @@ let g:tcommentMapLeader1 = '<C-_>'     "     (default: '<c-_>')
 let g:tcommentMapLeader2 = '<Leader>'  "        (default: '<Leader>_')
 " let g:tcommentMapLeaderOp1 = 'gc'      "  (default: 'gc')
 " let g:tcommentMapLeaderOp2 = 'gC'      "  (default: 'gC')
-
 
 " tcommentで使用する形式を追加
 if !exists('g:tcomment_types')

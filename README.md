@@ -12,13 +12,16 @@ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 ## LiveStyle build
 
+~~~
 brew install go mercurial
 cd ~/.vim/bundle/livestyle-vim/livestyled
 go get code.google.com/p/go.net/websocket
 go build livestyled.go
+~~~
 
-## Macのtmuxでクリップボード機能を有効にするために必要
 
-```
-brew install reattach-to-user-namespace
-```
+## homebrew
+
+~~~
+brewdle install
+~~~
