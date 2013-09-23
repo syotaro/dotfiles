@@ -71,11 +71,11 @@ alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
 
 
 # git
-alias gi='git'
+alias g='git'
 alias gs='git status -s -b'
-alias gst='git status -s -b'
+# alias gst='git status -s -b'
 alias gd='git diff'
-alias gba='git branch -a'
-alias g='cd $(git rev-parse --show-toplevel)'
-alias gcd='cd $(git rev-parse --show-toplevel)'
+# alias gba='git branch -a'
+# alias g='cd   $(git rev-parse --show-toplevel)'
+# alias gcd='cd $(git rev-parse --show-toplevel)'
 

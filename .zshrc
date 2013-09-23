@@ -77,8 +77,6 @@ export XDEBUG_CONFIG="idekey=DBGP"
 export XDEBUG_SESSION_START=DBGP
 
 
-
-#export PATH=/home/gree/common/php/bin/:$PATH
 #export PATH=/usr/local/share/zsh/site-functions/:$PATH   # emmet livestyle
 
 export PATH="$HOME/.rbenv/bin:$PATH"

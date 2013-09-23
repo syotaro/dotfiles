@@ -8,18 +8,20 @@
   grep          = auto
 [core]
   pager         = lv -c
-;  excludesfile = /opt/boxen/config/git/gitignore
+  excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   quotepath     = false
   editor = vim
   #  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
 [tig "bind"]
   generic       = g move-first-line
   generic       = G move-last-line
 [pull]
   rebase         = true                # pullのデフォルトが--rebaseに
 [push]
-  default       = current
+	default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [merge]
+  tool = vimdiff
   ff            = false               # mergeのデフォルトが--no-ffに
 [grep]
   lineNumber    = true
@@ -33,6 +35,8 @@
       # status
   st            = status
   co            = checkout
+  d             = diff
+  dc            = diff --cached
   s             = status
   ss            = status -s
   po            = push origin         # push origin
@@ -43,6 +47,12 @@
   ba            = branch -a           # originも含めた全てのbranchを表示
   bm            = branch --merged     # merge済みのbranchを表示
   bn            = branch --no-merged  # mergeしてないbranchを表示
+[http]
+  sslVerify = false
+
+
+
+
 ; [difftool "Kaleidoscope"]
 ;   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 ; [diff]
