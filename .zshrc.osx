@@ -10,6 +10,9 @@
 
 PATH=${HOME}/Library/Haskell/bin:$PATH
 
+
+
+
 ####################################################################### # vimref
 # export PATH="~/.local/bin:$PATH"
 

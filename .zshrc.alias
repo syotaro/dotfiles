@@ -77,5 +77,5 @@ alias gs='git status -s -b'
 alias gd='git diff'
 # alias gba='git branch -a'
 # alias g='cd   $(git rev-parse --show-toplevel)'
-# alias gcd='cd $(git rev-parse --show-toplevel)'
+alias gcd='cd $(git rev-parse --show-toplevel)'
 

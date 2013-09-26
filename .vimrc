@@ -244,7 +244,7 @@ else
     nnoremap <silent> @<Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
     nnoremap <silent>@@ :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
     " nnoremap <silent> s :<C-u>execute 'VimShellCreate '.<SID>current_directory_auto()<CR>
-    nnoremap <silent> s :<C-u>VimShellBufferDir<CR>
+    nnoremap <silent> <S-s> :<C-u>VimShellBufferDir<CR>
     let g:vimfiler_execute_file_list = {}
     for ft in split('pdf,png,jpg,jpeg,gif,bmp,ico,ppt,html', ',')
       let g:vimfiler_execute_file_list[ft] = 'open'
@@ -297,6 +297,9 @@ else
   NeoBundle 'tyru/vim-altercmd'
   NeoBundle 'yuratomo/w3m.vim.git'
   NeoBundle 'thinca/vim-localrc'
+  NeoBundle 'majutsushi/tagbar'
+  NeoBundle 'vim-scripts/tagbar-phpctags'
+
   " NeoBundle 'Auto-Pairs'
   " NeoBundle 'Indent-Guides'
   " NeoBundle 'Quich-Filter'
@@ -914,3 +917,8 @@ let g:gist_browser_command = 'w3m %URL%'
 " let g:gist_get_multiplefile = 1
 let g:github_api_url = 'https://api.git.gree-dev.net'
 
+
+
+
+
+nnoremap <silent><space>p    :TagbarToggle<CR>

@@ -63,6 +63,7 @@ case $(uname -s) in
         export LANG="ja_JP.UTF-8"
         export LANGUAGE="ja_JP.UTF-8"
         export LC_ALL="ja_JP.UTF-8"
+        export PATH="$HOME/.osx/local/bin:$PATH"
     ;;
     Linux)
         export LANGUAGE=en_US.UTF-8
