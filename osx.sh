@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# ~/.osx — http://mths.be/osx
 
 # Ask for the administrator password upfront
 sudo -v
@@ -13,12 +12,19 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "yamamoto-mba"
-sudo scutil --set HostName "yamamoto-mba"
-sudo scutil --set LocalHostName "yamamoto-mba"
+sudo scutil --set ComputerName "yamamoto-osx"
+sudo scutil --set HostName "yamamoto-osx"
+sudo scutil --set LocalHostName "yamamoto-osx"
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
 
 # Menu bar: disable transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# Menu bar: show remaining battery time (on pre-10.8); hide percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Menu bar: show remaining battery time (on pre-10.8); hide percentage
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
@@ -30,9 +36,6 @@ defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreS
 # Always show scrollbars
 # defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
-# Disable smooth scrolling
-# (Uncomment if you’re on an older Mac that messes up the animation)
-defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false
 
 # Disable opening and closing window animations
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
@@ -46,6 +49,15 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
 # Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+
+
 
 # Disable the “Are you sure you want to open this application?” dialog
 # ダウンロードしたファイルやアプリケーションを、初めて開いたり、起動したりする時に表示される「警告ダイアログ」を無効化する
@@ -69,6 +81,11 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+
+# Disable Notification Center and remove the menu bar icon
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -98,7 +115,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Increase sound quality for Bluetooth headphones/headsets
-#defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -372,65 +389,37 @@ defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen 1
 # Enable the debug menu in Disk Utility
  # defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 
-###############################################################################
-# Terminal                                                                    #
-###############################################################################
-
-# Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
-
-# Use a modified version of the Pro theme by default in Terminal.app
-open "$HOME/init/Mathias.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
-defaults write com.apple.Terminal "Default Window Settings" -string "Mathias"
-defaults write com.apple.Terminal "Startup Window Settings" -string "Mathias"
-
-# Enable “focus follows mouse” for Terminal.app and all X11 apps
-# This means you can hover over a window and start typing in it without clicking first
-#defaults write com.apple.terminal FocusFollowsMouse -bool true
-#defaults write org.x.X11 wm_ffm -bool true
 
 ###############################################################################
-# Time Machine                                                                #
+# Mac App Store                                                               #
 ###############################################################################
 
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-# defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+# Enable the WebKit Developer Tools in the Mac App Store
+defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
-# Disable local Time Machine backups
-# hash tmutil &> /dev/null && sudo tmutil disablelocal
+# Enable Debug Menu in the Mac App Store
+defaults write com.apple.appstore ShowDebugMenu -bool true
 
 ###############################################################################
-# Twitter.app                                                                 #
+# Google Chrome & Google Chrome Canary                                        #
 ###############################################################################
 
-## Disable smart quotes as it’s annoying for code tweets
-#defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool false
-#
-## Show the app window when clicking the menu icon
-#defaults write com.twitter.twitter-mac MenuItemBehavior -int 1
-#
-## Enable the hidden ‘Develop’ menu
-#defaults write com.twitter.twitter-mac ShowDevelopMenu -bool true
-#
-## Open links in the background
-#defaults write com.twitter.twitter-mac openLinksInBackground -bool true
-#
-## Allow closing the ‘new tweet’ window by pressing `Esc`
-#defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
-#
-## Show full names rather than Twitter handles
-#defaults write com.twitter.twitter-mac ShowFullNames -bool true
-#
-## Hide the app in the background if it’s not the front-most window
-#defaults write com.twitter.twitter-mac HideInBackground -bool true
+# Allow installing user scripts via GitHub or Userscripts.org
+defaults write com.google.Chrome ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
+defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
+
+
+
+
+
+
 
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
 for app in "Address Book" "Contacts" "iCal" "Calendar" "Dock" "Finder" "Mail" \
-	"Safari" "iTunes" "SystemUIServer" "Terminal" "Twitter"; do
+	"Safari" "iTunes" "SystemUIServer" ; do
 	killall "$app" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

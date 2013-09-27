@@ -1,9 +1,9 @@
 
 case $(uname -s) in
-    Darwin|FreeBSD)
+    Darwin|FreeBSD)  # osx
         alias l="ls"
-        alias ls="ls -ahFG"
-        alias ll="ls -alhFG"
+        alias ls="ls -ahwG"
+        alias ll="ls -alhG"
         # sublime text 2
         alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
         alias subll='st .'
@@ -18,7 +18,7 @@ case $(uname -s) in
         alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g '
         alias pbc='pbcopy'
     ;;
-    Linux)
+    Linux)      # Debian
         alias ls="ls --color=always -ahF"
         alias ll="ls --color=always -alhF"
         alias vi="vim"
@@ -47,6 +47,15 @@ alias diff='colordiff'
 alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias tr='tmux rename-session -t'
+
+
+# ag
+alias ag='ag -S --stats'
+alias agh='ag --hidden'
+
+# add datetime
+alias history="history -i" 
+
 
 # rails
 #alias rc='rails console'

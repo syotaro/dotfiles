@@ -385,7 +385,7 @@ else
   NeoBundleLazy 'joonty/vdebug.git'                , {'autoload': {'filetypes': ['php']}}
 
 " autocmd FileType php,ctp : set shiftwidth=4
-  autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4
+  autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4 
   let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
 
   " Xdebug
@@ -482,7 +482,7 @@ endif
   set nowrap                                                           " 折り返ししない
   set nowrapscan                                                       " (no)検索をファイルの末尾まで検索したら、ファイルの先頭へループする
   set scrolloff=5                                                      " スクロール時の余白確保
-  set shiftwidth=2                                                     " >> 等のコマンドや自動インデントの際に使う1レベル分のインデント量
+  set shiftwidth=4                                                     " >> 等のコマンドや自動インデントの際に使う1レベル分のインデント量
   set showcmd                                                          " コマンドをステータス行に表示
   set smartcase                                                        " 大文字も含めた検索の場合はその通りに検索する
   set softtabstop=4                                                    " タブを入力した際にタブ文字の代わりに挿入されるホワイトスペースの量
@@ -574,7 +574,7 @@ endif
   " CurrentBufferFile List
   nnoremap <silent> <Space>b  : <C-u>VimFilerBufferDir -split -no-quit -simple -winwidth=30<CR>
   " CurrentDirFileList
-  nnoremap <silent> <Space>f  : <C-u>VimFiler          -split -no-quit -simple -winwidth=30  -auto-cd<cR>
+  nnoremap <silent> <Space>f  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
   " VimfilerExplorer
   nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
 

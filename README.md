@@ -1,16 +1,36 @@
-# Initial Setup
 
-## dotfiles & vim 
 
-```
+
+## Setup dotfiles
+
+~~~
 mkdir ~/.dotfiles &&  cd ~/.dotfiles
 git clone git@github.com:syotaro/dotfiles.git .
 sh ./setup.sh
-mkdir -p ~/.vim/bundle
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+~~~
+
+## Configure osx
+
+sh ./osx.sh
+
+## Install homebrew
+
+~~~
+gem install brewdler
+brewdle install
+~~~
+
+## Install ruby-gem
+
+## Configure vim & install vim plugin
+
+```
+vim
+# mkdir -p ~/.vim/bundle
+# git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ```
 
-## LiveStyle build
+## Build LiveStyle
 
 ~~~
 brew install go mercurial
@@ -19,9 +39,3 @@ go get code.google.com/p/go.net/websocket
 go build livestyled.go
 ~~~
 
-
-## homebrew
-
-~~~
-brewdle install
-~~~
