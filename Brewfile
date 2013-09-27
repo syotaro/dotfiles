@@ -1,3 +1,9 @@
+# brew info
+# brew doctor
+# brew options
+# brew tap(ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
+
+
 autoconf
 automake
 bash
@@ -10,6 +16,7 @@ cscope
 ctags
 freetype
 fuse4x
+multitail
 fuse4x-kext
 gdbm
 gettext
@@ -68,3 +75,7 @@ zlib
 zsh
 tap 'phinze/homebrew-cask'
 brew 'brew-cask'
+tap sanemat/font
+brew 'ricty'
+#cp -f /PATH/TO/RICTY/fonts/Ricty*.ttf ~/Library/Fonts/
+#fc-cache -vf

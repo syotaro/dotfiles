@@ -1,2 +1,12 @@
-install: --no-ri --no-rdoc
-update: --no-ri --no-rdoc
+---
+install: --no-ri --no-rdoc --env-shebang
+update: --no-ri --no-rdoc --env-shebang
+:update_sources: true
+:sources:
+- http://gemcutter.org
+- http://gems.rubyforge.org/
+- https://rubygems.org/
+:benchmark: false
+:backtrace: false
+:verbose: true
+:bulk_threshold: 1000

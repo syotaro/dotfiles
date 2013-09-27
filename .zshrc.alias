@@ -1,9 +1,9 @@
 
 case $(uname -s) in
-    Darwin|FreeBSD)
+    Darwin|FreeBSD)  # osx
         alias l="ls"
-        alias ls="ls -ahFG"
-        alias ll="ls -alhFG"
+        alias ls="ls -ahwG"
+        alias ll="ls -alhG"
         # sublime text 2
         alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
         alias subll='st .'
@@ -18,7 +18,7 @@ case $(uname -s) in
         alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g '
         alias pbc='pbcopy'
     ;;
-    Linux)
+    Linux)      # Debian
         alias ls="ls --color=always -ahF"
         alias ll="ls --color=always -alhF"
         alias vi="vim"
@@ -48,6 +48,15 @@ alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias tr='tmux rename-session -t'
 
+
+# ag
+alias ag='ag -S --stats'
+alias agh='ag --hidden'
+
+# add datetime
+alias history="history -i" 
+
+
 # rails
 #alias rc='rails console'
 #alias rd='rails destroy'
@@ -71,11 +80,11 @@ alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
 
 
 # git
-alias gi='git'
+alias g='git'
 alias gs='git status -s -b'
-alias gst='git status -s -b'
+# alias gst='git status -s -b'
 alias gd='git diff'
-alias gba='git branch -a'
-alias g='cd $(git rev-parse --show-toplevel)'
+# alias gba='git branch -a'
+# alias g='cd   $(git rev-parse --show-toplevel)'
 alias gcd='cd $(git rev-parse --show-toplevel)'
 
