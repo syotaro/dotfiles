@@ -1,81 +1,108 @@
+# gem install brewdler
 # brew info
 # brew doctor
 # brew options
 # brew tap(ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
 
 
-autoconf
-automake
-bash
-bdw-gc
-bsdmake
-cmake
-composer
-coreutils
-cscope
-ctags
-freetype
-fuse4x
-multitail
-fuse4x-kext
-gdbm
-gettext
-git
-git-flow
-glib
-gmp
-go
-graphicsmagick
-htop-osx
-hub
-icu4c
-imagemagick
-jpeg
-libevent
-libffi
-libpng
-libtool
-libyaml
-lua
-lv
-lynx
-mercurial
-mysql
-nkf
-nmap
-oniguruma
-openssl
-pcre
-php-code-sniffer
-php54
-php54-intl
-php54-xdebug
-pidof
-pkg-config
-python3
-rbenv
-readline
-reattach-to-user-namespace
-ruby-build
-s3cmd
-sqlite
-sshfs
-tcpflow
-the_silver_searcher
-tig
-tmux
-tree
-unixodbc
-w3m
-watch
-wget
-brew 'vim --with-lua'
-xz
-zlib
-zsh
-tap 'phinze/homebrew-cask'
-brew 'brew-cask'
-tap sanemat/font
+#brew 'macvim --with-lua'
+brew 'autoconf'
+brew 'automake'
+brew 'bash'
+brew 'bdw-gc'
+brew 'bsdmake'
+brew 'cmake'
+brew 'composer'
+brew 'coreutils'
+brew 'cscope'
+brew 'ctags'
+brew 'freetype'
+brew 'fuse4x'
+brew 'fuse4x-kext'
+brew 'gdbm'
+brew 'gettext'
+brew 'git'
+brew 'git-flow'
+brew 'glib'
+brew 'gmp'
+brew 'go'
+brew 'graphicsmagick'
+brew 'htop-osx'
+brew 'hub'
+brew 'icu4c'
+brew 'imagemagick'
+brew 'jpeg'
+brew 'libevent'
+brew 'libffi'
+brew 'libpng'
+brew 'libtool'
+brew 'libyaml'
+brew 'lua'
+brew 'lv'
+brew 'lynx'
+brew 'mercurial'
+brew 'multitail'
+brew 'mysql'
+brew 'nkf'
+brew 'nmap'
+brew 'oniguruma'
+brew 'openssl'
+brew 'pcre'
+brew 'php-code-sniffer'
+brew 'php54'
+brew 'php54-intl'
+brew 'php54-xdebug'
+brew 'pidof'
+brew 'pkg-config'
+brew 'python3'
+brew 'rbenv'
+brew 'readline'
+brew 'reattach-to-user-namespace'
+brew 'ruby-build'
+brew 's3cmd'
+brew 'sqlite'
+brew 'sshfs'
+brew 'tcpflow'
+brew 'the_silver_searcher'
+brew 'tig'
+brew 'tmux'
+brew 'tree'
+brew 'unixodbc'
+brew 'w3m'
+brew 'watch'
+brew 'wget --enable-iri'
+brew 'xz'
+brew 'zlib'
+brew 'zsh'
+
+### Ricty Font
+tap  'sanemat/font'
 brew 'ricty'
 #cp -f /PATH/TO/RICTY/fonts/Ricty*.ttf ~/Library/Fonts/
 #fc-cache -vf
+
+
+
+### Homebrew-cask(Homebrewの拡張でWebから落としてきてインストールする様なソフトを 自動でインストール)
+#### ex) brew cask edit google-chrome
+
+tap  'phinze/homebrew-cask'
+brew 'brew-cask'
+cask 'adobe-air'
+cask 'alfred'
+cask 'alfred'
+cask 'alfred link'
+cask 'bartender'
+cask 'bettertouchtool'
+cask 'brew cleanup'
+cask 'google-chrome'
+cask 'google-chrome-canary'
+cask 'iterm2'
+#cask 'sequel-pro'
+#cask 'x-quartz'
+#cask 'dropbox'
+#cask 'libre-office'
+#cask 'skype'
+#cask 'vagrant'
+#cask 'virtualbox'
+

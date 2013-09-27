@@ -18,6 +18,7 @@ sh ./osx.sh
 ## Install homebrew
 
 ~~~
+cd ~/.dotfiles
 gem install brewdler
 brewdle install
 ~~~
