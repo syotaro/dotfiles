@@ -11,7 +11,9 @@ sh ./setup.sh
 
 ## Configure osx
 
+~~~
 sh ./osx.sh
+~~~
 
 ## Install homebrew
 
@@ -22,13 +24,16 @@ brewdle install
 
 ## Install ruby-gem
 
+~~~
+~~~
+
 ## Configure vim & install vim plugin
 
-```
+~~~
 vim
-# mkdir -p ~/.vim/bundle
-# git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-```
+//  mkdir -p ~/.vim/bundle
+//  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+~~~
 
 ## Build LiveStyle
 
