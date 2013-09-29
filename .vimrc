@@ -188,8 +188,6 @@ else
     NeoBundleLazy 'h1mesuke/unite-outline', {'autoload': {'unite_sources': ['outline']}}
   endif
   " }}}
-
-
   " QuickRun / Filer / Outer world of Vim ( "\\" ) {{{
   " --------------------------------------------------------------------------------------------------------
   let mapleader = "\\"
@@ -203,18 +201,18 @@ else
   "   \   },
   "   \ }
   NeoBundle 'thinca/vim-quickrun'
+  NeoBundle 'tyru/open-browser.vim'
   let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', 'into': 1}}
-  let s:quickrun_command_list = map(split( 'quickrun;cat,javascript;node,roy;roy,qcl;qcl,haskell;runhaskell,bf;bf', ','), 'split(v:val, ";")')
-  if executable('pandoc')
-    let g:quickrun_config.markdown = {'type' : 'markdown/pandoc', 'outputter': 'browser', 'cmdopt': '-s'}
-  endif
-  " let g:quickrun_config.markdown = {'type' : 'markdown/kramdown', 'outputter': 'browser', 'cmdopt': '-s'}
-  " let g:quickrun_config['quickrun'] = {'outputter': 'browser'}
-  nnoremap <Leader>r :<C-u>QuickRun<CR>
-  nnoremap <Leader>e :<C-u>QuickRun <i <CR>
-  nnoremap <Leader>o :<C-u>QuickRun <i >file:output<CR>
-  autocmd ESC FileType quickrun nnoremap <silent> <buffer> <ESC><ESC> <ESC>:q!<CR>
-  autocmd ESC FileType quickrun vnoremap <silent> <buffer> <ESC><ESC> <ESC>:q!<CR>
+
+
+  " markdownを、gfm APIでレンダリングするはずだが、何故かうまく処理できないので無効化
+  " NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
+  " let g:quickrun_markdown_gfm_github_api_url = 'https://git.gree-dev.net/api/v3'
+  " let g:quickrun_config['markdown'] = {
+  " \   'type': 'markdown/gfm',
+  " \   'outputter': 'browser'
+  " \ }
+
   if s:nosudo
     NeoBundle 'Shougo/vimfiler'
     let g:vimfiler_as_default_explorer = 1
@@ -269,13 +267,11 @@ else
       endif
     endfunction
   endif
-  NeoBundleLazy 'tyru/open-browser.vim', {'autoload' : {'mappings' : ['<Plug>(openbrowser-']}}
   nmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
   vmap <silent> <Leader>b <Plug>(openbrowser-smart-search)
   nmap <silent> <Leader>s <Plug>(openbrowser-search)
   NeoBundle 'mattn/webapi-vim'
   " }}}
-
   " ALL {{{
   NeoBundle 'Shougo/vimshell.git'
   " ---------------------------------------------
@@ -290,6 +286,10 @@ else
   NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
   " NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'tomasr/molokai'
+  let g:molokai_original = 1
+  colorscheme molokai
+  let g:rehash256 = 1
+
   " NeoBundle 'mattn/livestyle-vim'
   " NeoBundle 'tell-k/vim-browsereload-mac'
   NeoBundle 'tomtom/tcomment_vim'                     " コメント処理 \c<Space>
@@ -317,7 +317,6 @@ else
   " NeoBundle 'vimtaku/vim-mlh.git'        " ローマ字で文字を入力したあと /<Space> で文字を変換することができる
   " NeoBundle 'xmledit'
   " NeoBundle 'yoppi/fluentd.vim.git'
-  " NeoBundle 'thinca/vim-quickrun'
   " Syntax------------------------------------------
   " NeoBundle 'JavaScript-syntax'
   " NeoBundle 'jQuery'
@@ -353,7 +352,6 @@ else
   " NeoBundle 'cecutil'
   NeoBundle 'L9'
   " }}}
-  "
   " PHP & HTML {{{
   if has('multi_byte')
     NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'filetypes': ['php', 'html'], 'functions': ['SyntasticStatuslineFlag']}}
@@ -398,7 +396,6 @@ else
   "inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
   "noremap <Leader>e :call PhpExpandClass()<CR>
   " }}}
-
   " EMMET {{{
   NeoBundleLazy 'mattn/emmet-vim'                  , {'autoload': {'filetypes': ['html','php']}}
   let g:user_emmet_expandabbr_key = '<tab>'
@@ -520,7 +517,6 @@ endif
     set t_Sb=[4%dm
   endif
 
-  colorscheme molokai
 
   " 行頭のTAB文字を可視化
   highlight TabString ctermbg=red guibg=red
@@ -915,10 +911,7 @@ let g:gist_browser_command = 'w3m %URL%'
 " let g:gist_show_privates = 1
 " let g:gist_post_private = 1
 " let g:gist_get_multiplefile = 1
-let g:github_api_url = 'https://api.git.gree-dev.net'
-
-
-
+let g:github_api_url = 'https://git.gree-dev.net/api/v3'
 
 
 nnoremap <silent><space>p    :TagbarToggle<CR>

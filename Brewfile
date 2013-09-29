@@ -1,9 +1,14 @@
 # gem install brewdler
-# brew info
+# brewdle install
+#
+# brew search   # listing pkg
+# brew info     # インストールしたpkgの設定方法確認
 # brew doctor
 # brew options
 # brew tap(ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
+# brew cleanup
 
+tap  'homebrew/dupes'
 
 #brew 'macvim --with-lua'
 brew 'autoconf'
@@ -12,7 +17,6 @@ brew 'bash'
 brew 'bdw-gc'
 brew 'bsdmake'
 brew 'cmake'
-brew 'composer'
 brew 'coreutils'
 brew 'cscope'
 brew 'ctags'
@@ -21,8 +25,6 @@ brew 'fuse4x'
 brew 'fuse4x-kext'
 brew 'gdbm'
 brew 'gettext'
-brew 'git'
-brew 'git-flow'
 brew 'glib'
 brew 'gmp'
 brew 'go'
@@ -42,16 +44,10 @@ brew 'lv'
 brew 'lynx'
 brew 'mercurial'
 brew 'multitail'
-brew 'mysql'
 brew 'nkf'
 brew 'nmap'
 brew 'oniguruma'
 brew 'openssl'
-brew 'pcre'
-brew 'php-code-sniffer'
-brew 'php54'
-brew 'php54-intl'
-brew 'php54-xdebug'
 brew 'pidof'
 brew 'pkg-config'
 brew 'python3'
@@ -64,7 +60,6 @@ brew 'sqlite'
 brew 'sshfs'
 brew 'tcpflow'
 brew 'the_silver_searcher'
-brew 'tig'
 brew 'tmux'
 brew 'tree'
 brew 'unixodbc'
@@ -73,36 +68,97 @@ brew 'watch'
 brew 'wget --enable-iri'
 brew 'xz'
 brew 'zlib'
-brew 'zsh'
+brew 'zsh --disable-etcdir'
 
-### Ricty Font
-tap  'sanemat/font'
-brew 'ricty'
-#cp -f /PATH/TO/RICTY/fonts/Ricty*.ttf ~/Library/Fonts/
-#fc-cache -vf
+################
+#  Git
+################
+
+brew 'git'
+brew 'git-flow'
+brew 'tig'
+
+################
+#  MySQL
+################
+brew 'mysql'
+
+################
+#  PHP
+################
+
+tap  'josegonzalez/homebrew-php'
+brew 'php54 --with-intl --with-mysql --with-fpm'
+brew 'php54-intl'
+brew 'php54-xdebug'   # doctor
+brew 'pcre'
+brew 'php-code-sniffer'
+brew 'composer'
+brew 'phpunit'
 
 
+################
+#  FONT
+################
+# tap  'sanemat/font'
+# brew 'ricty'
+# #cp -f /PATH/TO/RICTY/fonts/Ricty*.ttf ~/Library/Fonts/
+# #fc-cache -vf
 
-### Homebrew-cask(Homebrewの拡張でWebから落としてきてインストールする様なソフトを 自動でインストール)
-#### ex) brew cask edit google-chrome
 
-tap  'phinze/homebrew-cask'
-brew 'brew-cask'
-cask 'adobe-air'
-cask 'alfred'
-cask 'alfred'
-cask 'alfred link'
-cask 'bartender'
-cask 'bettertouchtool'
-cask 'brew cleanup'
-cask 'google-chrome'
-cask 'google-chrome-canary'
-cask 'iterm2'
-#cask 'sequel-pro'
-#cask 'x-quartz'
-#cask 'dropbox'
-#cask 'libre-office'
-#cask 'skype'
-#cask 'vagrant'
-#cask 'virtualbox'
+################
+#  Cask
+################
+# - Homebrew-cask(Homebrewの拡張でWebから落としてきてインストールする様なソフトを 自動でインストール)
+# - 「brew cask edit google-chrome」などで、オプション変更可能
+
+# tap  'phinze/homebrew-cask'
+# brew 'brew-cask'
+# cask 'adobe-air'
+# cask 'alfred'
+# cask 'alfred'
+# cask 'alfred link'
+# cask 'bartender'
+# cask 'bettertouchtool'
+# cask 'google-chrome'
+# cask 'google-chrome-canary'
+# cask 'iterm2'
+# #cask 'sequel-pro'
+# #cask 'x-quartz'
+# #cask 'dropbox'
+# #cask 'libre-office'
+# #cask 'skype'
+# #cask 'vagrant'
+# #cask 'virtualbox'
+
+# 以下のApplicationは、Caskが無いので、手動でInstallする
+# - Adobe CC
+# - Adobe Flash Player
+# - App Cleaner
+# - Elasticfox-ec2tag
+# - ForkLift
+# - Gifzo
+# - GlyphDesigner
+# - Google 日本語入力
+# - Haskell Platform
+# - IAMFox
+# - KeyRemap4MacBook
+# - Line
+# - LiveView
+# - MS Office
+# - MacVim-kaoriya
+# - ParticleDesigner
+# - Pathfinder
+# - QuickCast
+# - R53Fox
+# - Reflector
+# - Silverlight
+# - SplashtopStreamer
+# - TotalFinder
+# - Unity Web Player
+# - VLC Player
+# - cooviewer
+# - PHP Storm
+
+
 

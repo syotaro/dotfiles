@@ -42,9 +42,18 @@ knife-solo
 
 # git
 git-browse-remote
+git-issue
+
+# github
+gollum
 
 # blog
 jekyll-s3
+ruhoh
+
+# Markdown Engine
 kramdown
 redcarpet
-ruhoh
+
+# Other
+psd

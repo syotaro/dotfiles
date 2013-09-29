@@ -1,2 +1,3 @@
 ctags -R --langmap=PHP:.php.inc --php-kinds=c+f+d ./
 sudo tcpflow -ec -i en0 port 80
+mdfind "kMDItemAppStoreHasReceipt=1"
