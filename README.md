@@ -3,26 +3,26 @@
 ## Setup ssh key 
 
 ~~~
-mkdir .ssh
-ln -s ~/Dropbox/work/setting/ssh/* .ssh/
-chmod 600 ~/.ssh/config
-chmod 600 ~/.ssh/id_*
+$ mkdir .ssh
+$ ln -s ~/Dropbox/work/setting/ssh/* .ssh/
+$ chmod 600 ~/.ssh/config
+$ chmod 600 ~/.ssh/id_*
 ~~~
 
 
 ## Setup dotfiles
 
 ~~~
-mkdir ~/.dotfiles &&  cd ~/.dotfiles
-git clone git@github.com:syotaro/dotfiles.git .
-sh ./setup.sh
+$ mkdir ~/.dotfiles &&  cd ~/.dotfiles
+$ git clone git@github.com:syotaro/dotfiles.git .
+$ sh ./setup.sh
 ~~~
 
 ## Configure osx
 
 ~~~
-cd ~/.dotfiles
-sh ./osx.sh
+$ cd ~/.dotfiles
+$ sh ./osx.sh
 ~~~
 
 ## Install Application via App Store
@@ -111,12 +111,12 @@ iPhoto
   - requiire Xcode Command Line Tools
 
 ~~~
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-cd ~/.dotfiles
-gem install brewdler
-brew tap homebrew/dupes
-brew tap  'josegonzalez/homebrew-php'
-brewdle install
+$ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+$ cd ~/.dotfiles
+$ gem install brewdler
+$ brew tap homebrew/dupes
+$ brew tap  'josegonzalez/homebrew-php'
+$ brewdle install
 ~~~
 
 ## Change shell(bash -> zsh)
@@ -144,7 +144,7 @@ $ bundle install
 ## Configure vim & install vim plugin
 
 ~~~
-vim
+$ vim
 //  mkdir -p ~/.vim/bundle
 //  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 ~~~
@@ -152,9 +152,9 @@ vim
 ## Build LiveStyle
 
 ~~~
-brew install go mercurial
-cd ~/.vim/bundle/livestyle-vim/livestyled
-go get code.google.com/p/go.net/websocket
-go build livestyled.go
+$ brew install go mercurial
+$ cd ~/.vim/bundle/livestyle-vim/livestyled
+$ go get code.google.com/p/go.net/websocket
+$ go build livestyled.go
 ~~~
 
