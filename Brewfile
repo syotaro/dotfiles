@@ -159,6 +159,7 @@ brew 'phpunit'
 # - VLC Player
 # - cooviewer
 # - PHP Storm
+# - Omnigraffle6
 
 
 
