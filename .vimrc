@@ -2,7 +2,7 @@
 " INITIALIZE {{{
 " --------------------------------------------------------------------------------------------------------
 set nocompatible
-filetype off
+" filetype off
 scriptencoding utf-8
 set encoding=utf-8
 if !executable(&shell) | set shell=sh | endif
@@ -164,7 +164,9 @@ else
     " nnoremap <silent><S-k> :Unite output:message         -buffer-name=output<CR>
     " nnoremap <silent><C-z> :Unite file_mru               -buffer-name=file_mru<CR>
     nnoremap <silent><space>/     :Unite line                   -buffer-name=line       -direction=rightbelow      -no-quit <CR>
-    nnoremap <silent><space>u     :Unite file_mru file bookmark -buffer-name=files      -direction=rightbelow<CR>
+    nnoremap <silent><space>u     :Unite file_mru      bookmark -buffer-name=file_mru   -direction=rightbelow<CR>
+    nnoremap <silent><space>d     :Unite file                   -buffer-name=files      -direction=rightbelow<CR>
+    nnoremap <silent><space>g     :Unite file_rec/async:!       -buffer-name=files      -direction=rightbelow<CR>
     nnoremap <silent><space>o     :Unite outline                -buffer-name=outline    -direction=rightbelow     -no-quit <CR>
     " nnoremap <silent><C-p> :Unite buffer                 -buffer-name=buffer     -direction=rightbelow<CR>
     nnoremap <silent><space>l     :Unite buffer_tab             -buffer-name=buffer_tab -direction=rightbelow<CR>
@@ -242,7 +244,7 @@ else
     nnoremap <silent> @<Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
     nnoremap <silent>@@ :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
     " nnoremap <silent> s :<C-u>execute 'VimShellCreate '.<SID>current_directory_auto()<CR>
-    nnoremap <silent> <S-s> :<C-u>VimShellBufferDir<CR>
+    " nnoremap <silent> <S-s> :<C-u>VimShellBufferDir<CR>
     let g:vimfiler_execute_file_list = {}
     for ft in split('pdf,png,jpg,jpeg,gif,bmp,ico,ppt,html', ',')
       let g:vimfiler_execute_file_list[ft] = 'open'
@@ -279,7 +281,6 @@ else
   NeoBundle 'Gundo'                                   " undo履歴を追える
   " NeoBundle 'SQLUtilities'
   " NeoBundle 'bash-support.vim'
-  NeoBundle 'itchyny/lightline.vim'
   NeoBundle 'git://github.com/jimsei/winresizer.git'
   NeoBundle 'git://github.com/tpope/vim-surround.git' " テキストを括弧で囲む／削除する
   NeoBundle 'h1mesuke/vim-alignta.git'                " 整形プラグイン Alignのマルチバイト対応版
@@ -344,7 +345,7 @@ else
   " NeoBundle 'ruby-matchit'
   " NeoBundle 'rhysd/unite-ruby-require.vim.git'
   " NeoBundle 'tyru/operator-camelize.vim'            " 選択したテキストオブジェクトをsnake_caseやcamelCaseに変換するオペレーター
-  " NeoBundle 'jktgr/vim-json'
+  NeoBundle 'jktgr/vim-json'
   " NeoBundle 'jktgr/phpcomplete.vim'
 
   " 他のvimpluginから必要にされるもの-----------
@@ -352,7 +353,7 @@ else
   " NeoBundle 'cecutil'
   NeoBundle 'L9'
   " }}}
-  " PHP & HTML {{{
+  " PHP & HTML & Smarty {{{
   if has('multi_byte')
     NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'filetypes': ['php', 'html'], 'functions': ['SyntasticStatuslineFlag']}}
     let g:syntastic_mode_map = { 'mode': 'passive' }
@@ -372,17 +373,17 @@ else
       if exists('*lightline#update') | call lightline#update() | endif
     endfunction
   endif
-  NeoBundleLazy 'html5.vim'                        , {'autoload': {'filetypes': ['html']}}
-  NeoBundleLazy 'taku-o/vim-ethna-switch'          , {'autoload': {'filetypes': ['php']}}
-  NeoBundleLazy 'watanabe0621/aoi-jump.vim'        , {'autoload': {'filetypes': ['php']}}
-  NeoBundleLazy 'jktgr/phpfolding.vim'             , {'autoload': {'filetypes': ['php']}}
-  NeoBundleLazy 'pasela/unite-fuel'                , {'autoload': {'filetypes': ['php']}}
-  NeoBundleLazy 'watanabe0621/SmartyJump'          , {'autoload': {'filetypes': ['tpl']}}
-  NeoBundleLazy 'jktgr/smarty.vim'                 , {'autoload': {'filetypes': ['tpl']}}
-  NeoBundleLazy 'bpearson/vim-phpcs'               , {'autoload': {'filetypes': ['php']}}
-  NeoBundleLazy 'joonty/vdebug.git'                , {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'html5.vim'                  "     , {'autoload': {'filetypes': ['html']}}
+  NeoBundle 'taku-o/vim-ethna-switch'    "     , {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'jktgr/phpfolding.vim'       "     , {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'bpearson/vim-phpcs'         "     , {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'watanabe0621/SmartyJump'    "     , {'autoload': {'filetypes': ['tpl']}}
+  NeoBundle 'jktgr/smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
 
-" autocmd FileType php,ctp : set shiftwidth=4
+  autocmd FileType html,smarty : set shiftwidth=2
   autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4 
   let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
 
@@ -397,7 +398,7 @@ else
   "noremap <Leader>e :call PhpExpandClass()<CR>
   " }}}
   " EMMET {{{
-  NeoBundleLazy 'mattn/emmet-vim'                  , {'autoload': {'filetypes': ['html','php']}}
+  NeoBundleLazy 'mattn/emmet-vim'                  , {'autoload': {'filetypes': ['html','php','smarty']}}
   let g:user_emmet_expandabbr_key = '<tab>'
   let g:use_emmet_complete_tag = 1
   let g:user_emmet_settings = {
@@ -538,13 +539,14 @@ endif
 " [Autocmd]
 "-------------------------------------------------------------------------------
 
+  autocmd BufRead *.tpl set filetype=smarty                                                          " .txtファイルを、Markdown Syntax Hilightで開く
   autocmd BufRead *.txt set filetype=markdown                                                          " .txtファイルを、Markdown Syntax Hilightで開く
   autocmd BufRead *.md  set filetype=markdown                                                          " .txtファイルを、Markdown Syntax Hilightで開く
   autocmd BufRead *.sql set filetype=mysql                                                             " .sqlは、すなわちmysql
 " autocmd FileType * setlocal formatoptions-=r                                                         " # の行で改行したときなどに #  をつけないように
 " autocmd FileType * setlocal formatoptions-=o                                                         " # の行で改行したときなどに #  をつけないように
-" autocmd BufEnter * execute ":lcd " . expand("%:p:h")                                                 " ファイルを開くたびに、そのファイルのディレクトリに移動する
-" au BufEnter * execute 'lcd ' fnameescape(expand('%:p:h'))
+  " autocmd BufEnter * execute ":lcd " . expand("%:p:h")                                                 " ファイルを開くたびに、そのファイルのディレクトリに移動する
+  " au      BufEnter * execute 'lcd ' fnameescape(expand('%:p:h'))
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif     " 前回終了したカーソル行に移動
   autocmd BufRead *.txt set tw=0                                                                       " *.txtや*.md なファイルを編集するときに長い行で勝手に改行が入ってしまうのを無効に
 
@@ -764,69 +766,151 @@ inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
 "-------------------------------------------------------------------------------
 " LightLine
 "-------------------------------------------------------------------------------
+  " NeoBundle 'mkitt/tabline.vim'
 
+
+" 0:表示しない 1:２つ以上のタブがあるとき表示 2:常に表示。
 set showtabline=2
-set laststatus=2
-let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'MyModified',
-        \   'readonly': 'MyReadonly',
-        \   'fugitive': 'MyFugitive',
-        \   'filename': 'MyFilename',
-        \   'fileformat': 'MyFileformat',
-        \   'filetype': 'MyFiletype',
-        \   'fileencoding': 'MyFileencoding',
-        \   'mode': 'MyMode'
-        \ }
-        \ }
 
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
+" タブのカラー
+hi TabLine      guifg=bg        guibg=#505050   ctermfg=16    ctermbg=239       gui=none      cterm=none
+"余った領域のカラー
+hi TabLineFill  guifg=#a0a0a0   guibg=#505050   ctermfg=247    ctermbg=236       gui=none      cterm=none
+" 現在タブのカラー
+hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=234       gui=none      cterm=none
 
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
 
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%') ? expand('%') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-      return fugitive#head()
+" 表示されるタブ設定。statuslineと同じような設定方が可能
+set tabline=%!MyTabLine()
+function MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
     endif
-  catch
-  endtry
-  return ''
+    let s .= '%' . 'T' 
+    let s .= '' . '%{MyTabLabel(' . (i+1) . ')}  '. (1==getwinvar(i+1,'&modified')?'+ ':'') 
+  endfor
+  let s .= '%#TabLineFill#%T'
+  if tabpagenr('$') > 1 
+    let s .= '%=%#TabLine'
+  endif
+  return s
 endfunction
 
-function! MyFileformat()
-  return winwidth(0) > 150 ? &fileformat : ''
+function MyTabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  return bufname(buflist[winnr - 1]) 
 endfunction
 
-function! MyFiletype()
-  return winwidth(0) > 150 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
 
-function! MyFileencoding()
-  return winwidth(0) > 150 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
 
-function! MyMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
+
+
+
+
+
+" " Anywhere SID.
+" function! s:SID_PREFIX()
+"   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+" endfunction
+" 
+" " Set tabline.
+" function! s:my_tabline()  "{{{
+"   let s = ''
+"   for i in range(1, tabpagenr('$'))
+"     let bufnrs = tabpagebuflist(i)
+"     let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+"     let no = i  " display 0-origin tabpagenr.
+"     let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+"     let title = fnamemodify(bufname(bufnr), ':t')
+"     let title = '[' . title . ']'
+"     let s .= '%'.i.'T'
+"     let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+"     let s .= no . ':' . title
+"     let s .= mod
+"     let s .= '%#TabLineFill# '
+"   endfor
+"   let s .= '%#TabLineFill#%T%=%#TabLine#'
+"   return s
+" endfunction "}}}
+" let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+" set showtabline=2 " 常にタブラインを表示
+
+
+
+
+
+
+
+
+
+
+" NeoBundle 'itchyny/lightline.vim'
+set laststatus=0
+" let g:lightline = {
+"         \ 'colorscheme': 'wombat',
+"         \ 'mode_map': {'c': 'NORMAL'},
+"         \ 'active': {
+"         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+"         \ },
+"         \ 'component_function': {
+"         \   'modified': 'MyModified',
+"         \   'readonly': 'MyReadonly',
+"         \   'fugitive': 'MyFugitive',
+"         \   'filename': 'MyFilename',
+"         \   'fileformat': 'MyFileformat',
+"         \   'filetype': 'MyFiletype',
+"         \   'fileencoding': 'MyFileencoding',
+"         \   'mode': 'MyMode'
+"         \ }
+"         \ }
+" 
+" function! MyModified()
+"   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+" endfunction
+" 
+" function! MyReadonly()
+"   return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+" endfunction
+" 
+" function! MyFilename()
+"   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+"         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+"         \  &ft == 'unite' ? unite#get_status_string() :
+"         \  &ft == 'vimshell' ? vimshell#get_status_string() :
+"         \ '' != expand('%') ? expand('%') : '[No Name]') .
+"         \ ('' != MyModified() ? ' ' . MyModified() : '')
+" endfunction
+" 
+" function! MyFugitive()
+"   try
+"     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+"       return fugitive#head()
+"     endif
+"   catch
+"   endtry
+"   return ''
+" endfunction
+" 
+" function! MyFileformat()
+"   return winwidth(0) > 150 ? &fileformat : ''
+" endfunction
+" 
+" function! MyFiletype()
+"   return winwidth(0) > 150 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+" endfunction
+" 
+" function! MyFileencoding()
+"   return winwidth(0) > 150 ? (strlen(&fenc) ? &fenc : &enc) : ''
+" endfunction
+" 
+" function! MyMode()
+"   return winwidth(0) > 60 ? lightline#mode() : ''
+" endfunction
 
 
 
@@ -874,7 +958,7 @@ let g:tcomment_types = {
 
 "-------------------------------------------------------------------------------
 
-let g:winresizer_start_key = '<C-b>'
+let g:winresizer_start_key = '<C-t>'
 let g:winresizer_keycode_cancel = 122
 let g:winresizer_vert_resize = 3
 
@@ -915,3 +999,4 @@ let g:github_api_url = 'https://git.gree-dev.net/api/v3'
 
 
 nnoremap <silent><space>p    :TagbarToggle<CR>
+set cmdheight=1 "コマンドラインを1行しか表示させない

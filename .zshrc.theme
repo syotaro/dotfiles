@@ -43,7 +43,8 @@ ZSH_GIT_CLEAN="%{$fg[green]%}✓ "
 #PROMPT='$(git_prompt_info)$ZSH_RESET_COLOR '
 
 #[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-PROMPT='%{$fg[black]%}[%~]$ZSH_RESET_COLOR$(git_prompt_info)$ZSH_RESET_COLOR%(!.#.$) '
+PROMPT='%{$fg[black]%}[%~]
+$ZSH_RESET_COLOR$(git_prompt_info)$ZSH_RESET_COLOR%(!.#.$) '
 
 #SPROMPT='%{$fg[black]%}[%~]$ZSH_RESET_COLOR'
 setopt transient_rprompt                   # コピペしやすいようにコマンド実行後は右プロンプトを消す。

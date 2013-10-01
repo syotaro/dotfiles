@@ -1,11 +1,16 @@
 # gem install brewdler
 # brewdle install
 #
-# brew search   # listing pkg
-# brew info     # インストールしたpkgの設定方法確認
+# brew search        # listing pkg
+# brew info          # インストールしたpkgの設定方法確認
 # brew doctor
 # brew options
-# brew tap(ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
+# brew --config      # Homebrewの設定一覧
+# brew link
+# brew unlink        # パッケージを一時的に無効化
+# brew link          # パッケージを有効化
+# cd `brew --prefix` # homebrewの保存先であるCellerディレクトリの場所に移動する
+# brew tap           # (ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
 # brew cleanup
 
 tap  'homebrew/dupes'
@@ -147,6 +152,7 @@ brew 'phpunit'
 # - LiveView
 # - MS Office
 # - MacVim-kaoriya
+# - Marked 2
 # - ParticleDesigner
 # - Pathfinder
 # - QuickCast

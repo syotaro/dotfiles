@@ -49,7 +49,6 @@ stty stop undef                                       # ctrl-sを押した時に
 
 ########################################################################  source
 
-[ -f ~/.zshrc.alias ] && source ~/.zshrc.alias
 [ -f ~/.zshrc.theme ] && source ~/.zshrc.theme
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
@@ -61,7 +60,10 @@ case $(uname -s) in
         [ -f ~/.zshrc.aws     ] && source ~/.zshrc.aws
         export LANG="ja_JP.UTF-8"
         export LANGUAGE="ja_JP.UTF-8"
-        export LC_ALL="ja_JP.UTF-8"
+        # export LC_ALL="ja_JP.UTF-8"
+        # export LANGUAGE=en_US.UTF-8
+        # export LANG=en_US.UTF-8
+        # export LC_ALL=en_US.UTF-8
         export HOMEBREW_CASK_OPTS="--appdir=/Applications"
         export PATH="$HOME/.osx/local/bin:$PATH"
 
@@ -91,3 +93,100 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 eval "$(hub alias -s)"
+
+
+
+
+########################################################################  Alias
+
+case $(uname -s) in
+    Darwin|FreeBSD)  # osx
+        alias l="ls"
+        alias ls="ls -ahwG"
+        alias ll="ls -alhG"
+        # sublime text 2
+        alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+        alias subll='st .'
+        # github
+        alias hb='hub browse'
+        # less syntax
+        alias less="/usr/share/vim/vim73/macros/less.sh"
+        # vim
+        alias v=' /Applications/MacVim.app/Contents/MacOS/Vim'
+        alias vi=' /Applications/MacVim.app/Contents/MacOS/Vim'
+        alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+        alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g '
+        alias pbc='pbcopy'
+    ;;
+    Linux)      # Debian
+        alias ls="ls --color=always -ahF"
+        alias ll="ls --color=always -alhF"
+        alias vi="vim"
+        alias v="vim"
+    ;;
+    NetBSD|OpenBSD)
+        alias ls="ls -ahF"
+        alias ls="lsl -alhF"
+    ;;
+esac
+
+
+# sudoするときに、環境設定を引き継ぐ
+alias sudo='sudo -E '
+
+# Unix Command
+
+alias d='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'   # 前に行ったディレクトリに移る
+alias grep="grep --color=auto"
+alias top='top -ocpu'
+alias rm="rm -i"
+alias mv="mv -i"
+alias diff='colordiff'
+
+# tmux
+alias tl='tmux ls'
+alias ta='tmux attach -t'
+alias tr='tmux rename-session -t'
+
+
+# ag
+alias ag='ag -S --stats'
+alias agh='ag --hidden'
+
+# add datetime
+alias history="history -i" 
+
+
+# rails
+#alias rc='rails console'
+#alias rd='rails destroy'
+#alias rdb='rails dbconsole'
+#alias rdbm='rake db:migrate db:test:clone'
+#alias rg='rails generate'
+#alias rgm='rails generate migration'
+#alias rp='rails plugin'
+#alias ru='rails runner'
+#alias rs='rails server'
+#alias rsd='rails server --debugger'
+#alias rld='tail -f log/development.log'
+#alias rdm='rake db:migrate'
+#alias rdr='rake db:rollback'
+
+
+# Find ruby file
+alias rfind='find . -name "*.rb" | xargs grep -n'
+alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
+
+
+# git
+alias g='git'
+alias gs='git status -s -b'
+# alias gst='git status -s -b'
+alias gd='git diff'
+# alias gba='git branch -a'
+# alias g='cd   $(git rev-parse --show-toplevel)'
+alias gcd='cd $(git rev-parse --show-toplevel)'
+
+
+
+

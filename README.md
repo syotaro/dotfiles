@@ -4,9 +4,9 @@
 
 ~~~
 $ mkdir .ssh
-$ ln -s ~/Dropbox/work/setting/ssh/* .ssh/
+$ ln -s ~/Dropbox/work/setting/ssh/\* .ssh/
 $ chmod 600 ~/.ssh/config
-$ chmod 600 ~/.ssh/id_*
+$ chmod 600 ~/.ssh/id\_\*
 ~~~
 
 
@@ -107,15 +107,30 @@ iPhoto
 
 ## Install homebrew
 
-- require
-  - requiire Xcode Command Line Tools
+- [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
+- [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
+
+### Install Require Tools
+
+- Java
+
+  ~~~
+  $ java -version
+  ~~~
+
+- Xcode Command Line Tools
+
+### Install Homebrew
 
 ~~~
 $ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+$ brew doctor
+$ brew update
 $ cd ~/.dotfiles
 $ gem install brewdler
 $ brew tap homebrew/dupes
 $ brew tap  'josegonzalez/homebrew-php'
+$ brew install brew-cask
 $ brewdle install
 ~~~
 
@@ -123,13 +138,14 @@ $ brewdle install
 
 ~~~
 $ chsh -s /bin/zsh 
+$ cat /etc/shells
 ~~~
 
 ## Add QuickLook Plugin
 
 ~~~
 $ mkdir ~/Library/QuickLook/
-$ cp -r ~/.dotfiles/quicklook/* ~/Library/QuickLook
+$ cp -r ~/.dotfiles/quicklook/\* ~/Library/QuickLook
 $ killall Finder
 ~~~
 
@@ -147,6 +163,8 @@ $ bundle install
 $ vim
 //  mkdir -p ~/.vim/bundle
 //  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+$ cd ~/.vim/bundle/neosnippet
+$ git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 ~~~
 
 ## Build LiveStyle
