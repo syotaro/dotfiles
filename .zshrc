@@ -30,7 +30,7 @@ export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'       # 単語の区切り指定
 #autoload predict-on;predict-on                      # 先方予測機能
 # setopt auto_cd                                      # 指定したコマンド名がなく、ディレクトリ名と一致した場合 cd する
 # setopt correct                                      # コマンドの自動修正
-autoload -U compinit
+autoload -Uz compinit
 compinit
 # compinit -u                                           # 強力な補完機能
 # compinit -i                                           # 強力な補完機能

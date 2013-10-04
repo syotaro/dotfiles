@@ -140,7 +140,7 @@ else
     let g:unite_enable_start_insert = 1
     let g:unite_cursor_line_highlight = 'CursorLine'
     "インサートモードで開始しない
-    let g:unite_enable_start_insert = 0
+    let g:unite_enable_start_insert = 1
     let g:unite_source_file_mru_limit = 1000
     let g:vimfiler_enable_auto_cd = 1
     let g:unite_force_overwrite_statusline = 0
@@ -164,19 +164,19 @@ else
     " nnoremap <silent><S-k> :Unite output:message         -buffer-name=output<CR>
     " nnoremap <silent><C-z> :Unite file_mru               -buffer-name=file_mru<CR>
     nnoremap <silent><space>/     :Unite line                   -buffer-name=line       -direction=rightbelow      -no-quit <CR>
-    nnoremap <silent><space>u     :Unite file_mru      bookmark -buffer-name=file_mru   -direction=rightbelow<CR>
-    nnoremap <silent><space>d     :Unite file                   -buffer-name=files      -direction=rightbelow<CR>
+    nnoremap <silent><space>r     :Unite file_mru      bookmark -buffer-name=file_mru   -direction=rightbelow<CR>
+    nnoremap <silent><space>f     :Unite file                   -buffer-name=files      -direction=rightbelow<CR>
     nnoremap <silent><space>g     :Unite file_rec/async:!       -buffer-name=files      -direction=rightbelow<CR>
-    nnoremap <silent><space>o     :Unite outline                -buffer-name=outline    -direction=rightbelow     -no-quit <CR>
+    nnoremap <silent><space>o     :Unite outline                -buffer-name=outline    -vertical    -winwidth=30  -no-quit <CR>
     " nnoremap <silent><C-p> :Unite buffer                 -buffer-name=buffer     -direction=rightbelow<CR>
     nnoremap <silent><space>l     :Unite buffer_tab             -buffer-name=buffer_tab -direction=rightbelow<CR>
 
     augroup Unite
       autocmd!
-      autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-      autocmd FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-      autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-k> unite#do_action('vsplit')
-      autocmd FileType unite inoremap <silent> <buffer> <expr> <C-k> unite#do_action('vsplit')
+      autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+      autocmd FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+      autocmd FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+      autocmd FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
       autocmd FileType unite inoremap <silent> <buffer> <C-z> <Nop>
       autocmd FileType unite inoremap <silent> <buffer> <C-o> <Nop>
       autocmd FileType unite nmap <buffer> <C-a> <Plug>(unite_insert_enter)
@@ -220,7 +220,7 @@ else
     let g:vimfiler_as_default_explorer = 1
     " let g:vimfiler_sort_type = 'TIME'
     let g:vimfiler_safe_mode_by_default = 0
-    let g:unite_enable_start_insert = 0
+    let g:unite_enable_start_insert = 1
     let g:vimfiler_force_overwrite_statusline = 0
     if s:iswin || !has('multi_byte')
       let g:vimfiler_tree_leaf_icon = '|'
@@ -239,10 +239,17 @@ else
       let g:vimfiler_readonly_file_icon = 'x'
       let g:vimfiler_marked_file_icon = 'v'
     endif
-    nnoremap <silent> <Leader>f :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
-    nnoremap <silent> <Leader><Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
-    nnoremap <silent> @<Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
-    nnoremap <silent>@@ :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+    " nnoremap <silent> <Leader>f :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+    " nnoremap <silent> <Leader><Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+    " nnoremap <silent> @<Leader> :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+    " nnoremap <silent>@@ :<C-u>VimFilerBufferDir -status -buffer-name=vimfiler -auto-cd<CR>
+
+    " CurrentBufferFile List
+    nnoremap <silent> <Space>b  : <C-u>VimFilerBufferDir -split -no-quit -simple -winwidth=30<CR>
+    " CurrentDirFileList
+    nnoremap <silent> <Space>c  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
+    " VimfilerExplorer
+    nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
     " nnoremap <silent> s :<C-u>execute 'VimShellCreate '.<SID>current_directory_auto()<CR>
     " nnoremap <silent> <S-s> :<C-u>VimShellBufferDir<CR>
     let g:vimfiler_execute_file_list = {}
@@ -568,13 +575,6 @@ endif
 " [Keybind]
 "-------------------------------------------------------------------------------
 
-" [Vimfiler]
-  " CurrentBufferFile List
-  nnoremap <silent> <Space>b  : <C-u>VimFilerBufferDir -split -no-quit -simple -winwidth=30<CR>
-  " CurrentDirFileList
-  nnoremap <silent> <Space>f  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
-  " VimfilerExplorer
-  nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
 
 
   " nnoremap <silent> <Space>uo       : <C-u>Unite -no-quit -vertical -winwidth=15 outline<CR>
@@ -790,11 +790,11 @@ function MyTabLine()
     else
       let s .= '%#TabLine#'
     endif
-    let s .= '%' . 'T' 
-    let s .= '' . '%{MyTabLabel(' . (i+1) . ')}  '. (1==getwinvar(i+1,'&modified')?'+ ':'') 
+    let s .= '%' . 'T'
+    let s .= ''  . '%{MyTabLabel(' . (i+1) . ')}  '. (1==getwinvar(i+1,'&modified')?'+ ':' ')
   endfor
   let s .= '%#TabLineFill#%T'
-  if tabpagenr('$') > 1 
+  if tabpagenr('$') > 1
     let s .= '%=%#TabLine'
   endif
   return s
@@ -803,46 +803,8 @@ endfunction
 function MyTabLabel(n)
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
-  return bufname(buflist[winnr - 1]) 
+  return bufname(buflist[winnr - 1])
 endfunction
-
-
-
-
-
-
-
-
-" " Anywhere SID.
-" function! s:SID_PREFIX()
-"   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-" endfunction
-" 
-" " Set tabline.
-" function! s:my_tabline()  "{{{
-"   let s = ''
-"   for i in range(1, tabpagenr('$'))
-"     let bufnrs = tabpagebuflist(i)
-"     let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-"     let no = i  " display 0-origin tabpagenr.
-"     let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-"     let title = fnamemodify(bufname(bufnr), ':t')
-"     let title = '[' . title . ']'
-"     let s .= '%'.i.'T'
-"     let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-"     let s .= no . ':' . title
-"     let s .= mod
-"     let s .= '%#TabLineFill# '
-"   endfor
-"   let s .= '%#TabLineFill#%T%=%#TabLine#'
-"   return s
-" endfunction "}}}
-" let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-" set showtabline=2 " 常にタブラインを表示
-
-
-
-
 
 
 
