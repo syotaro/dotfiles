@@ -6,12 +6,14 @@ set enable_vrome_key=<C-z>
 
 set hintkeys=jlkhfsdagwerui
 " set useletters=1
-"  
-" unmap <M-d>
-" unmap <M-f>
-"  
-" map j 5j
-" map k 5k
+
+map x <M-d>
+unmap <M-f>
+
+map j 5j
+map k 5k
+map d <C-d>
+map u <C-u>
 " map gr gT
 " imap <C-b> <M-h>
 " imap <C-f> <M-l>
