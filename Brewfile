@@ -2,6 +2,7 @@
 # brewdle install
 #
 # brew search        # listing pkg
+# brew cask search   # lisgint cask Application
 # brew info          # インストールしたpkgの設定方法確認
 # brew doctor
 # brew options
@@ -27,6 +28,7 @@ brew 'cscope'
 brew 'ctags'
 brew 'freetype'
 brew 'fuse4x'
+brew 'haskell-platform'
 brew 'fuse4x-kext'
 brew 'gdbm'
 brew 'gettext'
@@ -92,11 +94,19 @@ brew 'mysql'
 #  PHP
 ################
 
-tap  'josegonzalez/homebrew-php'
-brew 'php54 --with-intl --with-mysql --with-fpm'
-brew 'php54-intl'
-brew 'php54-xdebug'   # doctor
-brew 'pcre'
+tap   'josegonzalez/homebrew-php'
+brew  'phpenv --HEAD'
+brew  'php-build'
+# phpのビルドに必要なライブラリをインストール
+brew  're2c'
+brew  'libjpeg'
+brew  'libpng'
+brwe  'mcrypt'
+
+#brew 'php54 --with-intl --with-mysql --with-fpm'
+#brew 'php54-intl'
+#brew 'php54-xdebug'   # doctor
+#brew 'pcre'
 brew 'php-code-sniffer'
 brew 'composer'
 brew 'phpunit'
@@ -116,18 +126,32 @@ brew 'phpunit'
 ################
 # - Homebrew-cask(Homebrewの拡張でWebから落としてきてインストールする様なソフトを 自動でインストール)
 # - 「brew cask edit google-chrome」などで、オプション変更可能
+# - ダウンロード可能アプリの一覧は「brew cask search」にて
+
 
 # tap  'phinze/homebrew-cask'
 # brew 'brew-cask'
 # cask 'adobe-air'
-# cask 'alfred'
-# cask 'alfred'
 # cask 'alfred link'
+# cask 'alfred'
+# cask 'alfred'
+# cask 'app-cleaner'
 # cask 'bartender'
 # cask 'bettertouchtool'
 # cask 'google-chrome'
 # cask 'google-chrome-canary'
+# cask 'fluid'
+# cask 'google-web-designer'
 # cask 'iterm2'
+# cask 'line'
+# cask 'livereload'
+# cask 'marked2'
+# cask 'omni-graffle-pro'
+# cask 'path-finder'
+# cask 'phpstorm'
+# cask 'quick-cast'
+# cask 'silverlight'
+# cask 'vlc'
 # #cask 'sequel-pro'
 # #cask 'x-quartz'
 # #cask 'dropbox'
@@ -136,36 +160,27 @@ brew 'phpunit'
 # #cask 'vagrant'
 # #cask 'virtualbox'
 
+
+
+
+
+
 # 以下のApplicationは、Caskが無いので、手動でInstallする
 # - Adobe CC
 # - Adobe Flash Player
-# - App Cleaner
 # - Elasticfox-ec2tag
 # - ForkLift
-# - Gifzo
+# - Gyazo gif
+# - Gyazo
 # - GlyphDesigner
-# - Google 日本語入力
-# - Haskell Platform
 # - IAMFox
 # - KeyRemap4MacBook
-# - Line
-# - LiveView
 # - MS Office
 # - MacVim-kaoriya
-# - Marked 2
 # - ParticleDesigner
-# - Pathfinder
-# - QuickCast
 # - R53Fox
 # - Reflector
-# - Silverlight
 # - SplashtopStreamer
 # - TotalFinder
 # - Unity Web Player
-# - VLC Player
 # - cooviewer
-# - PHP Storm
-# - Omnigraffle6
-
-
-

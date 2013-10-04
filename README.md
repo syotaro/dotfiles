@@ -25,7 +25,7 @@ $ cd ~/.dotfiles
 $ sh ./osx.sh
 ~~~
 
-## Install Application via App Store
+## Install Application via AppStore
 
 ~~~
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
@@ -105,7 +105,7 @@ iPhoto
 ~~~
 
 
-## Install homebrew
+## Install Application via homebrew
 
 - [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
 - [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
@@ -120,7 +120,7 @@ iPhoto
 
 - Xcode Command Line Tools
 
-### Install Homebrew
+### Install
 
 ~~~
 $ ruby     -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
@@ -133,6 +133,25 @@ $ brew    tap 'josegonzalez/homebrew-php'
 $ brew    tap 'phinze/homebrew-cask'
 $ brew    install brew-cask
 $ brewdle install
+~~~
+
+## Install PHP via php-build
+
+~~~
+$ php-build --definitions
+$ php-build 5.3.20 ~/.phpenv/versions/5.3.20
+$ phpenv global 5.2.17
+$ phpenv version
+$ phpenv rehash
+$ php -v
+~~~
+
+## Install pandoc via Haskell-Platform
+
+~~~
+$ cabal update
+$ cabal install pandoc
+export PATH=${HOME}/.cabal/bin:$PATH
 ~~~
 
 ## Change shell(bash -> zsh)
@@ -150,7 +169,7 @@ $ cp -r ~/.dotfiles/quicklook/\* ~/Library/QuickLook
 $ killall Finder
 ~~~
 
-## Install ruby-gem
+## Install gem-Applicagion via ruby-gem
 
 ~~~
 $ gem install bundler
@@ -171,7 +190,6 @@ $ git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 ## Build LiveStyle
 
 ~~~
-$ brew install go mercurial
 $ cd ~/.vim/bundle/livestyle-vim/livestyled
 $ go get code.google.com/p/go.net/websocket
 $ go build livestyled.go
