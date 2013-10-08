@@ -16,7 +16,7 @@
 
 tap  'homebrew/dupes'
 
-#brew 'macvim --with-lua'
+brew 'macvim --with-cscope --with-lua --HEAD'
 brew 'autoconf'
 brew 'automake'
 brew 'bash'

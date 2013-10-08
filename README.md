@@ -4,7 +4,7 @@
 
 ~~~
 $ mkdir .ssh
-$ ln -s ~/Dropbox/work/setting/ssh/\* .ssh/
+$ ln -s ~/Dropbox/work/setting/ssh/\* .ssh/  #  or scp ~/Dropbox/work/setting/ssh/id_rsa XXX@REMOTE-IP:/home/XXXX/.ssh
 $ chmod 600 ~/.ssh/config
 $ chmod 600 ~/.ssh/id\_\*
 ~~~

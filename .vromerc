@@ -9,11 +9,20 @@ set hintkeys=jlkhfsdagwerui
 
 map x <M-d>
 unmap <M-f>
+unmap <M-l>
 
 map j 5j
 map k 5k
 map d <C-d>
 map u <C-u>
-" map gr gT
-" imap <C-b> <M-h>
-" imap <C-f> <M-l>
+
+" traverse tabs
+map J gt
+map K gT
+
+" Change external editor, default is GVim
+set editor=gvim -f
+
+" Remove key mapping in normal mode, bring back normal search
+unmap <C-f>
+unmap <M-d>
