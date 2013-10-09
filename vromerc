@@ -17,8 +17,8 @@ map d <C-d>
 map u <C-u>
 
 " traverse tabs
-map h gt
-map l gT
+map l gt
+map h gT
 
 " Change external editor, default is GVim
 set editor=gvim -f
