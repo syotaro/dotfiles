@@ -20,6 +20,9 @@ Thumbs.db
 fuel/app/logs/*/*/*
 fuel/app/cache/*/*
 
+### phpctags
+tags
+
 ### PhPStorm ###
 .idea/
 

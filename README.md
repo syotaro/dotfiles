@@ -195,3 +195,14 @@ $ go get code.google.com/p/go.net/websocket
 $ go build livestyled.go
 ~~~
 
+## Vim
+
+### Gist-vim
+
+~~~
+vim ~/.gist-vim   // => set token
+chmod 600 ~/.gist-vim
+~~~
+
+
+
