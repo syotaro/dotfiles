@@ -1,4 +1,4 @@
-set disablesites=mail.google.com
+set disablesites=mail.google.com,docs.google.com
 set enable_vrome_key=<C-z>
 " set autocomplete_prev=<C-n>
 " set autocomplete_next=<C-p>
@@ -17,8 +17,8 @@ map d <C-d>
 map u <C-u>
 
 " traverse tabs
-map J gt
-map K gT
+map h gt
+map l gT
 
 " Change external editor, default is GVim
 set editor=gvim -f
