@@ -204,5 +204,17 @@ vim ~/.gist-vim   // => set token
 chmod 600 ~/.gist-vim
 ~~~
 
+## Bower
+
+- [BOWER: A package manager for the web](http://bower.io/)
+- [GruntとBowerを使ってWeb開発用のテンプレートを作成する - タチコマ好きなエンジニアのブログ](http://yukihir0.hatenablog.jp/entry/2013/08/06/224722)
+- [Bower入門(基礎編) - from scratch](http://yosuke-furukawa.hatenablog.com/entry/2013/06/01/173308)
+
+~~~
+$ brew install node.js
+$ npm install -g bower
+~~~
+
+
 
 
