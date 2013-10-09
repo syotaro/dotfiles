@@ -1,6 +1,6 @@
 
 
-## Setup ssh key 
+### Setup ssh key 
 
 ~~~
 $ mkdir .ssh
@@ -10,7 +10,7 @@ $ chmod 600 ~/.ssh/id\_\*
 ~~~
 
 
-## Setup dotfiles
+### Setup dotfiles
 
 ~~~
 $ mkdir ~/.dotfiles &&  cd ~/.dotfiles
@@ -18,14 +18,14 @@ $ git clone git@github.com:syotaro/dotfiles.git .
 $ sh ./setup.sh
 ~~~
 
-## Configure osx
+### Configure osx
 
 ~~~
 $ cd ~/.dotfiles
 $ sh ./osx.sh
 ~~~
 
-## Install Application via AppStore
+### Install Application via AppStore
 
 ~~~
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
@@ -105,12 +105,12 @@ iPhoto
 ~~~
 
 
-## Install Application via homebrew
+### Install Application via homebrew
 
 - [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
 - [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
 
-### Install Require Tools
+#### Install Require Tools
 
 - Java
 
@@ -120,7 +120,7 @@ iPhoto
 
 - Xcode Command Line Tools
 
-### Install
+#### Install
 
 ~~~
 $ ruby     -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
@@ -135,7 +135,7 @@ $ brew    install brew-cask
 $ brewdle install
 ~~~
 
-## Install PHP via php-build
+### Install PHP via php-build
 
 ~~~
 $ php-build --definitions
@@ -146,7 +146,7 @@ $ phpenv rehash
 $ php -v
 ~~~
 
-## Install pandoc via Haskell-Platform
+### Install pandoc via Haskell-Platform
 
 ~~~
 $ cabal update
@@ -154,14 +154,14 @@ $ cabal install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
 ~~~
 
-## Change shell(bash -> zsh)
+### Change shell(bash -> zsh)
 
 ~~~
 $ chsh -s /bin/zsh 
 $ cat /etc/shells
 ~~~
 
-## Add QuickLook Plugin
+### Add QuickLook Plugin
 
 ~~~
 $ mkdir ~/Library/QuickLook/
@@ -169,7 +169,7 @@ $ cp -r ~/.dotfiles/quicklook/\* ~/Library/QuickLook
 $ killall Finder
 ~~~
 
-## Install gem-Applicagion via ruby-gem
+### Install gem-Applicagion via ruby-gem
 
 ~~~
 $ gem install bundler
@@ -177,7 +177,7 @@ $ rbenv rehash
 $ bundle install
 ~~~
 
-## Configure vim & install vim plugin
+### Configure vim & install vim plugin
 
 ~~~
 $ vim
@@ -187,7 +187,7 @@ $ cd ~/.vim/bundle/neosnippet
 $ git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 ~~~
 
-## Build LiveStyle
+### Build LiveStyle
 
 ~~~
 $ cd ~/.vim/bundle/livestyle-vim/livestyled
@@ -195,16 +195,16 @@ $ go get code.google.com/p/go.net/websocket
 $ go build livestyled.go
 ~~~
 
-## Vim
+### Vim
 
-### Gist-vim
+#### Gist-vim
 
 ~~~
 vim ~/.gist-vim   // => set token
 chmod 600 ~/.gist-vim
 ~~~
 
-## [BOWER: A package manager for the web](http://bower.io/)
+### [BOWER](http://bower.io/)
 
 - [GruntとBowerを使ってWeb開発用のテンプレートを作成する - タチコマ好きなエンジニアのブログ](http://yukihir0.hatenablog.jp/entry/2013/08/06/224722)
 - [Bower入門(基礎編) - from scratch](http://yosuke-furukawa.hatenablog.com/entry/2013/06/01/173308)
