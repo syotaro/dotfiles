@@ -1,14 +1,14 @@
 
+## OS X setup flow
 
 ### Setup ssh key 
 
 ~~~
-$ mkdir .ssh
+$ mkdir ~/.ssh
 $ ln -s ~/Dropbox/work/setting/ssh/\* .ssh/  #  or scp ~/Dropbox/work/setting/ssh/id_rsa XXX@REMOTE-IP:/home/XXXX/.ssh
 $ chmod 600 ~/.ssh/config
 $ chmod 600 ~/.ssh/id\_\*
 ~~~
-
 
 ### Setup dotfiles
 
@@ -18,14 +18,14 @@ $ git clone git@github.com:syotaro/dotfiles.git .
 $ sh ./setup.sh
 ~~~
 
-### Configure osx
+### Configure OS X
 
 ~~~
 $ cd ~/.dotfiles
 $ sh ./osx.sh
 ~~~
 
-### Install Application via AppStore
+### Install Apps via AppStore
 
 ~~~
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
