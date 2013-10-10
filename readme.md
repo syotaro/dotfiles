@@ -123,15 +123,16 @@ $ open /Applications/Xcode.app
 #### Install
 
 ~~~
-$ ruby     -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+$ ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 $ brew    doctor
 $ brew    update
-$ cd      ~/.dotfiles
 $ gem     install brewdler
 $ brew    tap 'homebrew/dupes'
 $ brew    tap 'josegonzalez/homebrew-php'
 $ brew    tap 'phinze/homebrew-cask'
 $ brew    install brew-cask
+$ cd      ~/.dotfiles
+$ cat     brewfile
 $ brewdle install
 ~~~
 
