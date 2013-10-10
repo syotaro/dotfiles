@@ -2,3 +2,92 @@ ctags -R --langmap=PHP:.php.inc --php-kinds=c+f+d ./
 sudo tcpflow -ec -i en0 port 80
 mdfind "kMDItemAppStoreHasReceipt=1"
 ag -g .plist ./
+
+
+
+
+## ワンライナーとは
+
+一行プログラム）のこと。以下のサイトに、便利なワンライナーが随時アップされている。
+
+[commandlinefu.com](http://www.commandlinefu.com/commands/browse)
+: コマンドラインで使えるワンライナーの投稿＆共有サイト
+
+
+
+
+## 自分のいる階層以下から、指定のキーワードをgrepする
+
+~~~
+$ grep -R test ./
+~~~
+
+## 自分のいるディレクトリを取得
+
+~~~
+$ CURRENT=$(cd $(dirname $0) && pwd)
+~~~
+
+シェルスクリプトと設定ファイルを同じディレクトリにおいて
+
+~~~
+$ mv /etc/init.d/httpd.conf /etc/init.d/httpd.conf.bak
+$ ln -s $CURRENT/httpd.conf /etc/init.d/httpd.conf
+~~~
+
+と簡単に書くことができる。
+絶対パスへの依存は極力なくしていくことが大事
+
+同じスクリプトを繰り返し実行しても問題ないように
+
+
+~~~
+if [ ! -L /etc/init.d/httpd.conf ]; then mv /etc/init.d/httpd.conf /etc/init.d/httpd.conf.bak ln -s $CURRENT/httpd.conf /etc/init.d/httpd.conf
+fi 
+~~~
+
+としておくと安全
+
+
+
+## 実行したサーバ向けのSQLクエリをモニタリング
+
+~~~
+tcpdump -i eth0 -s 0 -l -w - dst port 3306 | strings | perl -e '
+while(<>) { chomp; next if /^[^ ]+[ ]*$/;
+  if(/^(SELECT|UPDATE|DELETE|INSERT|SET|COMMIT|ROLLBACK|CREATE|DROP|ALTER)/i) {
+    if (defined $q) { print "$q\n"; }
+    $q=$_;
+  } else {
+    $_ =~ s/^[ \t]+//; $q.=" $_";
+  }
+}'
+~~~
+
+
+### 3日以内に更新されたファイルを検索する
+
+~~~
+find . -mtime -3
+~~~
+
+### 前後20行をgrep
+
+~~~
+egrep -A 20 -B 20 "Error" rails_production.log
+~~~
+
+-n : マッチした行の先頭に行番号を表示する
+
+
+### EPS画像をPDFフォーマットに変換
+
+~~~
+$ mkdir pdf ; for i in *.eps; do pstopdf "$i" -o "pdf/$i.pdf"; done
+~~~
+
+## 未読のGmailの件名を表示
+
+~~~
+curl -u YOUR-ACCOUNT:PASSWORD --silent "https://mail.google.com/mail/feed/atom" | tr -d '\n' | awk -F '<entry>' '{for (i=2; i<=NF; i++) {print $i}}' | sed -n "s/<title>\(.*\)<\/title.*name>\(.*\)<\/name>.*/\2 - \1/p"
+~~~

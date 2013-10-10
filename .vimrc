@@ -307,6 +307,7 @@ else
   NeoBundle 'thinca/vim-localrc'
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'vim-scripts/tagbar-phpctags'
+  NeoBundle 'tsukkee/lingr-vim'
 
   " NeoBundle 'Auto-Pairs'
   " NeoBundle 'Indent-Guides'
@@ -496,13 +497,15 @@ endif
   set ttyfast                                                          " 高速ターミナル接続を行う
   set vb t_vb=                                                         " ビープをならさない
   set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
+  set mouse=a                                                          " マウスモード有効
+  set ttymouse=xterm2                                                  " xtermとscreen対応
 " let mapleader = ","                                                  " キーマップリーダー
 " set imdisable                                                        " insertモードを抜けるとIMEオフ
 " set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 " set noimcmdline                                                      " insertモードを抜けるとIMEオフ
 " set nolinebreak                                                      " 勝手に改行するのをやめる
   set nrformats=octal                                        " <C-a> <C-x> で英字も増減させる
-" set textwidth=0                                                      " 一行に長い文章を書いていても自動折り返しをしない
+  set textwidth=0                                                      " 一行に長い文章を書いていても自動折り返しをしない
 " set undofile                                                         " アンドゥの履歴をファイルに保存し、Vim を一度終了したとしてもアンドゥやリドゥを行えるようにする
 
 "-------------------------------------------------------------------------------
@@ -555,8 +558,7 @@ endif
   " autocmd BufEnter * execute ":lcd " . expand("%:p:h")                                                 " ファイルを開くたびに、そのファイルのディレクトリに移動する
   " au      BufEnter * execute 'lcd ' fnameescape(expand('%:p:h'))
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif     " 前回終了したカーソル行に移動
-  autocmd BufRead *.txt set tw=0                                                                       " *.txtや*.md なファイルを編集するときに長い行で勝手に改行が入ってしまうのを無効に
-
+" autocmd BufRead *.txt set tw=0                                                                       " *.txtや*.md なファイルを編集するときに長い行で勝手に改行が入ってしまうのを無効に
 " autocmd FileType markdown set com=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-                         " markdownで、list行で改行した時に、次に行で自動的にlist文字が入る
 " autocmd FileType markdown set formatoptions=tcroqln                                                  " markdownで、list行で改行した時に、次に行で自動的にlist文字が入る
   autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
@@ -710,19 +712,6 @@ nnoremap k gk
 " nnoremap <S-Right> <C-w>><CR>
 " nnoremap <S-Up>    <C-w>-<CR>
 " nnoremap <S-Down>  <C-w>+<CR>
-
-
-
-
-
-
-
-" マウスモード有効
-set mouse=a
-
-" xtermとscreen対応
-set ttymouse=xterm2
-
 
 
 inoremap <C-d> $

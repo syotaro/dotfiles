@@ -201,7 +201,12 @@ $ go build livestyled.go
 #### Gist-vim
 
 ~~~
-vim ~/.gist-vim   // => set token
+$ curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations
+// => copy token param
+
+vim ~/.gist-vim
+// => set token
+
 chmod 600 ~/.gist-vim
 ~~~
 
@@ -215,6 +220,9 @@ $ brew install node.js
 $ npm install -g bower
 ~~~
 
+### Configure KeyRemap4MakBook
 
-
-
+~~~
+$ cd ~/.dotfiles
+$ sh ./keyremap4mb-importconfig.sh
+~~~
