@@ -112,13 +112,13 @@ iPhoto
 
 #### Install Require Tools
 
-- Java
+~~~
+$ java -version
+  // => Install java
 
-  ~~~
-  $ java -version
-  ~~~
-
-- Xcode Command Line Tools
+$ open /Applications/Xcode.app
+  // => Install Xcode Command Line Tools
+~~~
 
 #### Install
 
