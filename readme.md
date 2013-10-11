@@ -177,7 +177,7 @@ bundle install
 
 
 ~~~diff
-#### Configure kramdown
+    # Configure kramdown
 vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
 
 -    define(:coderay_line_numbers, Symbol, :inline, <<EOF)
@@ -185,7 +185,7 @@ vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gem
 ~~~
 
 ~~~diff
-#### Configure ruhoh
+    # Configure ruhoh
 vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/ruhoh-2.5/lib/ruhoh/converter.rb
 
 +       module Markdown
@@ -202,26 +202,21 @@ vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gem
 ### Configure vim & install vim plugin
 
 ~~~bash
+    # plugin
 vim
     # mkdir -p ~/.vim/bundle
     # git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 cd ~/.vim/bundle/neosnippet
 git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 ~~~
-
-### Build LiveStyle
-
 ~~~bash
+    # Build LiveStyle
 cd ~/.vim/bundle/livestyle-vim/livestyled
 go get code.google.com/p/go.net/websocket
 go build livestyled.go
 ~~~
-
-### Vim
-
-
 ~~~bash
-#### Gist-vim
+    # Gist-vim
 curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations # => copy token param
 vim ~/.gist-vim            # => set token
 chmod 600 ~/.gist-vim
