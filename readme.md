@@ -21,8 +21,8 @@ sh ./setup.sh
 ### Configure OS X
 
 ~~~bash
-$ cd ~/.dotfiles
-$ sh ./osx.sh
+cd ~/.dotfiles
+sh ./osx.sh
 ~~~
 
 ### Install Apps via AppStore
@@ -113,11 +113,8 @@ iPhoto
 #### Install Require Tools
 
 ~~~bash
-$ java -version
-  // => Install java
-
-$ open /Applications/Xcode.app
-  // => Install Xcode Command Line Tools
+java -version                # => Install java
+open /Applications/Xcode.app #  => Install Xcode Command Line Tools
 ~~~
 
 #### Install
@@ -216,9 +213,9 @@ $ git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 ### Build LiveStyle
 
 ~~~bash
-$ cd ~/.vim/bundle/livestyle-vim/livestyled
-$ go get code.google.com/p/go.net/websocket
-$ go build livestyled.go
+cd ~/.vim/bundle/livestyle-vim/livestyled
+go get code.google.com/p/go.net/websocket
+go build livestyled.go
 ~~~
 
 ### Vim
@@ -226,12 +223,8 @@ $ go build livestyled.go
 #### Gist-vim
 
 ~~~bash
-$ curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations
-// => copy token param
-
-vim ~/.gist-vim
-// => set token
-
+curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations # => copy token param
+vim ~/.gist-vim            # => set token
 chmod 600 ~/.gist-vim
 ~~~
 
@@ -241,13 +234,13 @@ chmod 600 ~/.gist-vim
 - [Bower入門(基礎編) - from scratch](http://yosuke-furukawa.hatenablog.com/entry/2013/06/01/173308)
 
 ~~~bash
-$ brew install node.js
-$ npm install -g bower
+brew install node.js
+npm install -g bower
 ~~~
 
 ### Configure KeyRemap4MakBook
 
 ~~~bash
-$ cd ~/.dotfiles
-$ sh ./keyremap4mb-importconfig.sh
+cd ~/.dotfiles
+sh ./keyremap4mb-importconfig.sh
 ~~~
