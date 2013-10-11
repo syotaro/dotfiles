@@ -5,7 +5,7 @@
 
 ~~~bash
 mkdir ~/.ssh
-ln -s ~/Dropbox/work/setting/ssh/* .ssh/  #  or scp ~/Dropbox/work/setting/ssh/id_rsa XXX@REMOTE-IP:/home/XXXX/.ssh
+ln -s ~/Dropbox/work/setting/ssh/*
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ~~~
@@ -140,6 +140,8 @@ phpenv global 5.2.17
 phpenv version
 phpenv rehash
 php -v
+    # Add phpcs for FuelPHP
+ln -s ~/.php/fuelphp-phpcs/Standards/FuelPHP `brew --prefix php-code-sniffer`/CodeSniffer/Standards/FuelPHP
 ~~~
 
 ### Install pandoc (via Haskell-Platform)
@@ -176,15 +178,15 @@ bundle install
 
 ~~~diff
     # Configure kramdown
-vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
+vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
 
--    define(:coderay_line_numbers, Symbol, :inline, <<EOF)
-+    define(:coderay_line_numbers, Symbol, nil, <<EOF)
+-    define(:coderay_line_numbers, Symbol, :inline, 
++    define(:coderay_line_numbers, Symbol, nil, 
 ~~~
 
 ~~~diff
     # Configure ruhoh
-vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/ruhoh-2.5/lib/ruhoh/converter.rb
+vim `rbenv prefix`/lib/ruby/gems/*/gems/ruhoh-2.5/lib/ruhoh/converter.rb
 
 +       module Markdown
 +           def self.extensions

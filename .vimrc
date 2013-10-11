@@ -206,15 +206,6 @@ else
   NeoBundle 'tyru/open-browser.vim'
   let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', 'into': 1}}
 
-
-  " markdownを、gfm APIでレンダリングするはずだが、何故かうまく処理できないので無効化
-  " NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
-  " let g:quickrun_markdown_gfm_github_api_url = 'https://git.gree-dev.net/api/v3'
-  " let g:quickrun_config['markdown'] = {
-  " \   'type': 'markdown/gfm',
-  " \   'outputter': 'browser'
-  " \ }
-
   if s:nosudo
     NeoBundle 'Shougo/vimfiler'
     let g:vimfiler_as_default_explorer = 1
@@ -308,7 +299,8 @@ else
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'vim-scripts/tagbar-phpctags'
   NeoBundle 'tsukkee/lingr-vim'
-
+  NeoBundle 'PDV--phpDocumentor-for-Vim'
+  NeoBundle 'jtratner/vim-flavored-markdown'
   " NeoBundle 'Auto-Pairs'
   " NeoBundle 'Indent-Guides'
   " NeoBundle 'Quich-Filter'
@@ -318,7 +310,6 @@ else
   " NeoBundle 'git://github.com/thinca/vim-showtime.git'
   " NeoBundle 'grep.vim'
   NeoBundle 'kana/vim-fakeclip'                " tmuxでyankやpasteの時にOS clipboardを使う
-  " NeoBundle 'kannokanno/previm'                       " markdown preview
   " NeoBundle 'mattn/benchvimrc-vim'
   " NeoBundle 'minibufexpl.vim'
   " NeoBundle 'rhysd/clever-f.vim.git'
@@ -329,8 +320,6 @@ else
   " Syntax------------------------------------------
   " NeoBundle 'JavaScript-syntax'
   " NeoBundle 'jQuery'
-  " NeoBundle 'joker1007/vim-markdown-quote-syntax'
-  " NeoBundle 'Markdown-syntax'
   " NeoBundle 'kchmck/vim-coffee-script'
   " NeoBundle 'nginx.vim'
   " reference--------------------------------------
@@ -365,13 +354,10 @@ else
   if has('multi_byte')
     NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'filetypes': ['php', 'html'], 'functions': ['SyntasticStatuslineFlag']}}
     let g:syntastic_mode_map = { 'mode': 'passive' }
-    let g:syntastic_echo_current_error = 0
+    " let g:syntastic_echo_current_error = 0
     " エラー行をsignで表示する
     let g:syntastic_enable_signs = 1
     let g:syntastic_enable_highlighting = 1
-    let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-    " let g:syntastic_php_phpcs_args='--standard=psr2'
-    let g:syntastic_php_phpcs_post_args='--standard=psr2'
     augroup AutoSyntastic
       autocmd!
       autocmd BufWritePost *.php,*.html call s:syntastic()
@@ -382,7 +368,7 @@ else
     endfunction
   endif
   NeoBundle 'html5.vim'                  "     , {'autoload': {'filetypes': ['html']}}
-  NeoBundle 'taku-o/vim-ethna-switch'    "     , {'autoload': {'filetypes': ['php']}}
+  " NeoBundle 'taku-o/vim-ethna-switch'    "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'jktgr/phpfolding.vim'       "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
@@ -448,7 +434,6 @@ else
   " NeoBundleLazy 'vim-scripts/jade.vim', {'autoload': {'filetypes': ['jade']}}
   " NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
   " NeoBundleLazy 'rest.vim', {'autoload': {'filetypes': ['rest']}}
-  " NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': ['m4']}}
   " NeoBundleLazy 'syngan/vim-vimlint', { 'depends' : 'ynkdir/vim-vimlparser', 'autoload' : { 'functions' : 'vimlint#vimlint'}}
   " }}}
 
@@ -550,8 +535,6 @@ endif
 "-------------------------------------------------------------------------------
 
   autocmd BufRead *.tpl set filetype=smarty                                                          " .txtファイルを、Markdown Syntax Hilightで開く
-  autocmd BufRead *.txt set filetype=markdown                                                          " .txtファイルを、Markdown Syntax Hilightで開く
-  autocmd BufRead *.md  set filetype=markdown                                                          " .txtファイルを、Markdown Syntax Hilightで開く
   autocmd BufRead *.sql set filetype=mysql                                                             " .sqlは、すなわちmysql
 " autocmd FileType * setlocal formatoptions-=r                                                         " # の行で改行したときなどに #  をつけないように
 " autocmd FileType * setlocal formatoptions-=o                                                         " # の行で改行したときなどに #  をつけないように
@@ -561,7 +544,6 @@ endif
 " autocmd BufRead *.txt set tw=0                                                                       " *.txtや*.md なファイルを編集するときに長い行で勝手に改行が入ってしまうのを無効に
 " autocmd FileType markdown set com=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,b:-                         " markdownで、list行で改行した時に、次に行で自動的にlist文字が入る
 " autocmd FileType markdown set formatoptions=tcroqln                                                  " markdownで、list行で改行した時に、次に行で自動的にlist文字が入る
-  autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 
   autocmd FileType ruby,eruby set filetype=ruby.eruby.chef                                             " Enable syntax for chef files some like this:
 
@@ -758,16 +740,6 @@ inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
   " NeoBundle 'mkitt/tabline.vim'
 
 
-" 0:表示しない 1:２つ以上のタブがあるとき表示 2:常に表示。
-set showtabline=2
-
-" タブのカラー
-hi TabLine      guifg=bg        guibg=#505050   ctermfg=16    ctermbg=239       gui=none      cterm=none
-"余った領域のカラー
-hi TabLineFill  guifg=#a0a0a0   guibg=#505050   ctermfg=247    ctermbg=236       gui=none      cterm=none
-" 現在タブのカラー
-hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=234       gui=none      cterm=none
-
 
 " 表示されるタブ設定。statuslineと同じような設定方が可能
 set tabline=%!MyTabLine()
@@ -795,6 +767,16 @@ function MyTabLabel(n)
   return bufname(buflist[winnr - 1])
 endfunction
 
+
+" 0:表示しない 1:２つ以上のタブがあるとき表示 2:常に表示。
+set showtabline=2
+
+" タブのカラー
+hi TabLine      guifg=bg        guibg=#505050   ctermfg=16    ctermbg=239       gui=none      cterm=none
+"余った領域のカラー
+hi TabLineFill  guifg=#a0a0a0   guibg=#505050   ctermfg=247    ctermbg=236       gui=none      cterm=none
+" 現在タブのカラー
+hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=234       gui=none      cterm=none
 
 
 
@@ -951,3 +933,39 @@ let g:github_api_url = 'https://git.gree-dev.net/api/v3'
 
 nnoremap <silent><space>p    :TagbarToggle<CR>
 set cmdheight=1 "コマンドラインを1行しか表示させない
+
+
+
+
+" -----------------------------------------------------------------------------
+"  php-doc
+" -----------------------------------------------------------------------------
+autocmd FileType php inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
+autocmd FileType php nnoremap <C-@> :call PhpDocSingle()<CR>
+autocmd FileType php vnoremap <C-@> :call PhpDocRange()<CR>
+let g:pdv_cfg_Type = "int"
+let g:pdv_cfg_Package = ""
+let g:pdv_cfg_Version = ""
+let g:pdv_cfg_Copyright = "GREE, Inc."
+let g:pdv_cfg_Author = ""
+let g:pdv_cfg_License = ""
+
+" After phpDoc standard
+let g:pdv_cfg_CommentHead = "/**"
+let g:pdv_cfg_Comment1 = " * "
+let g:pdv_cfg_Commentn = " *"
+let g:pdv_cfg_CommentTail = " */"
+let g:pdv_cfg_CommentSingle = "// "
+
+" Attributes settings
+let g:pdv_cfg_Uses       = 0
+let g:pdv_cfg_php4always = 0
+let g:pdv_cfg_php4guess  = 0
+
+
+" markdown syntax
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=ghmarkdown
+augroup END
+autocmd BufEnter * if &filetype == "" | setlocal ft=ghmarkdown | endif
