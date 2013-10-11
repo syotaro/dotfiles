@@ -3,7 +3,7 @@
 
 ### Setup ssh key 
 
-~~~
+~~~bash
 $ mkdir ~/.ssh
 $ ln -s ~/Dropbox/work/setting/ssh/\* .ssh/  #  or scp ~/Dropbox/work/setting/ssh/id_rsa XXX@REMOTE-IP:/home/XXXX/.ssh
 $ chmod 600 ~/.ssh/config
@@ -12,7 +12,7 @@ $ chmod 600 ~/.ssh/id\_\*
 
 ### Setup dotfiles
 
-~~~
+~~~shell
 $ mkdir ~/.dotfiles &&  cd ~/.dotfiles
 $ git clone git@github.com:syotaro/dotfiles.git .
 $ sh ./setup.sh
@@ -20,7 +20,7 @@ $ sh ./setup.sh
 
 ### Configure OS X
 
-~~~
+~~~bash
 $ cd ~/.dotfiles
 $ sh ./osx.sh
 ~~~
@@ -112,7 +112,7 @@ iPhoto
 
 #### Install Require Tools
 
-~~~
+~~~shell
 $ java -version
   // => Install java
 
@@ -178,9 +178,34 @@ $ rbenv rehash
 $ bundle install
 ~~~
 
+#### Configure kramdown
+
+~~~diff
+vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
+
+-    define(:coderay_line_numbers, Symbol, :inline, <<EOF)
++    define(:coderay_line_numbers, Symbol, nil, <<EOF)
+~~~
+
+#### Configure ruhoh
+
+~~~diff
+vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/ruhoh-2.5/lib/ruhoh/converter.rb
+
++       module Markdown
++           def self.extensions
++               ['.md', '.markdown']
++           end
++           def self.convert(content)
++               require 'kramdown'
++               Kramdown::Document.new(content).to_html
++           end
++       end
+~~~
+
 ### Configure vim & install vim plugin
 
-~~~
+~~~bash
 $ vim
 //  mkdir -p ~/.vim/bundle
 //  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
@@ -190,7 +215,7 @@ $ git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 
 ### Build LiveStyle
 
-~~~
+~~~bash
 $ cd ~/.vim/bundle/livestyle-vim/livestyled
 $ go get code.google.com/p/go.net/websocket
 $ go build livestyled.go
@@ -200,7 +225,7 @@ $ go build livestyled.go
 
 #### Gist-vim
 
-~~~
+~~~bash
 $ curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations
 // => copy token param
 
@@ -215,14 +240,14 @@ chmod 600 ~/.gist-vim
 - [GruntとBowerを使ってWeb開発用のテンプレートを作成する - タチコマ好きなエンジニアのブログ](http://yukihir0.hatenablog.jp/entry/2013/08/06/224722)
 - [Bower入門(基礎編) - from scratch](http://yosuke-furukawa.hatenablog.com/entry/2013/06/01/173308)
 
-~~~
+~~~bash
 $ brew install node.js
 $ npm install -g bower
 ~~~
 
 ### Configure KeyRemap4MakBook
 
-~~~
+~~~bash
 $ cd ~/.dotfiles
 $ sh ./keyremap4mb-importconfig.sh
 ~~~
