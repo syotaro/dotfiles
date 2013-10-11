@@ -112,7 +112,7 @@ iPhoto
 
 #### Install Require Tools
 
-~~~shell
+~~~bash
 $ java -version
   // => Install java
 
@@ -164,18 +164,18 @@ cat /etc/shells
 
 ### Add QuickLook Plugin
 
-~~~
-$ mkdir ~/Library/QuickLook/
-$ cp -r ~/.dotfiles/quicklook/\* ~/Library/QuickLook
-$ killall Finder
+~~~bash
+mkdir ~/Library/QuickLook/
+cp -r ~/.dotfiles/quicklook/\* ~/Library/QuickLook
+killall Finder
 ~~~
 
 ### Install gem-Applicagion via ruby-gem
 
-~~~
-$ gem install bundler
-$ rbenv rehash
-$ bundle install
+~~~bash
+gem install bundler
+rbenv rehash
+bundle install
 ~~~
 
 #### Configure kramdown
