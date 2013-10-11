@@ -25,7 +25,7 @@ cd ~/.dotfiles
 sh ./osx.sh
 ~~~
 
-### Install Apps via AppStore
+### Install Apps (via AppStore)
 
 ~~~bash
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
@@ -105,7 +105,7 @@ iPhoto
 ~~~
 
 
-### Install Apps via homebrew
+### Install Apps (via homebrew)
 
 - [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
 - [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
@@ -130,7 +130,7 @@ cat     brewfile
 brewdle install
 ~~~
 
-### Install PHP via php-build
+### Install PHP (via php-build)
 
 ~~~bash
 php-build --definitions
@@ -141,7 +141,7 @@ phpenv rehash
 php -v
 ~~~
 
-### Install pandoc via Haskell-Platform
+### Install pandoc (via Haskell-Platform)
 
 ~~~bash
 cabal update
