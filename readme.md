@@ -110,16 +110,13 @@ iPhoto
 - [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
 - [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
 
-#### Install Require Tools
-
 ~~~bash
+    # Install Require Tools
 java -version                # => Install java
 open /Applications/Xcode.app # => Install Xcode Command Line Tools
 ~~~
-
-#### Install
-
 ~~~bash
+    # Install
 ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew    doctor
 brew    update
