@@ -175,18 +175,17 @@ rbenv rehash
 bundle install
 ~~~
 
-#### Configure kramdown
 
 ~~~diff
+#### Configure kramdown
 vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
 
 -    define(:coderay_line_numbers, Symbol, :inline, <<EOF)
 +    define(:coderay_line_numbers, Symbol, nil, <<EOF)
 ~~~
 
-#### Configure ruhoh
-
 ~~~diff
+#### Configure ruhoh
 vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gems/ruhoh-2.5/lib/ruhoh/converter.rb
 
 +       module Markdown
@@ -220,9 +219,9 @@ go build livestyled.go
 
 ### Vim
 
-#### Gist-vim
 
 ~~~bash
+#### Gist-vim
 curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations # => copy token param
 vim ~/.gist-vim            # => set token
 chmod 600 ~/.gist-vim
