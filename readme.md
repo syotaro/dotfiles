@@ -3,19 +3,19 @@
 
 ### Setup ssh key 
 
-~~~shell
-$ mkdir ~/.ssh
-$ ln -s ~/Dropbox/work/setting/ssh/* .ssh/  #  or scp ~/Dropbox/work/setting/ssh/id_rsa XXX@REMOTE-IP:/home/XXXX/.ssh
-$ chmod 600 ~/.ssh/config
-$ chmod 600 ~/.ssh/id_*
+~~~bash
+mkdir ~/.ssh
+ln -s ~/Dropbox/work/setting/ssh/* .ssh/  #  or scp ~/Dropbox/work/setting/ssh/id_rsa XXX@REMOTE-IP:/home/XXXX/.ssh
+chmod 600 ~/.ssh/config
+chmod 600 ~/.ssh/id_*
 ~~~
 
 ### Setup dotfiles
 
-~~~shell
-$ mkdir ~/.dotfiles &&  cd ~/.dotfiles
-$ git clone git@github.com:syotaro/dotfiles.git .
-$ sh ./setup.sh
+~~~bash
+mkdir ~/.dotfiles &&  cd ~/.dotfiles
+git clone git@github.com:syotaro/dotfiles.git .
+sh ./setup.sh
 ~~~
 
 ### Configure OS X
@@ -27,7 +27,7 @@ $ sh ./osx.sh
 
 ### Install Apps via AppStore
 
-~~~
+~~~bash
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 1Password
 AWS Menu Bar
@@ -122,44 +122,44 @@ $ open /Applications/Xcode.app
 
 #### Install
 
-~~~
-$ ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-$ brew    doctor
-$ brew    update
-$ gem     install brewdler
-$ brew    tap 'homebrew/dupes'
-$ brew    tap 'josegonzalez/homebrew-php'
-$ brew    tap 'phinze/homebrew-cask'
-$ brew    install brew-cask
-$ cd      ~/.dotfiles
-$ cat     brewfile
-$ brewdle install
+~~~bash
+ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+brew    doctor
+brew    update
+gem     install brewdler
+brew    tap 'homebrew/dupes'
+brew    tap 'josegonzalez/homebrew-php'
+brew    tap 'phinze/homebrew-cask'
+brew    install brew-cask
+cd      ~/.dotfiles
+cat     brewfile
+brewdle install
 ~~~
 
 ### Install PHP via php-build
 
-~~~
-$ php-build --definitions
-$ php-build 5.3.20 ~/.phpenv/versions/5.3.20
-$ phpenv global 5.2.17
-$ phpenv version
-$ phpenv rehash
-$ php -v
+~~~bash
+php-build --definitions
+php-build 5.3.20 ~/.phpenv/versions/5.3.20
+phpenv global 5.2.17
+phpenv version
+phpenv rehash
+php -v
 ~~~
 
 ### Install pandoc via Haskell-Platform
 
-~~~
-$ cabal update
-$ cabal install pandoc
+~~~bash
+cabal update
+cabal install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
 ~~~
 
 ### Change shell(bash -> zsh)
 
-~~~
-$ chsh -s /bin/zsh 
-$ cat /etc/shells
+~~~bash
+chsh -s /bin/zsh 
+cat /etc/shells
 ~~~
 
 ### Add QuickLook Plugin
