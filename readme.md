@@ -105,7 +105,7 @@ iPhoto
 ~~~
 
 
-### Install Application via homebrew
+### Install Apps via homebrew
 
 - [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
 - [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
@@ -156,7 +156,7 @@ chsh -s /bin/zsh
 cat /etc/shells
 ~~~
 
-### Add QuickLook Plugin
+### Add quickLook plugin
 
 ~~~bash
 mkdir ~/Library/QuickLook/
@@ -164,7 +164,7 @@ cp -r ~/.dotfiles/quicklook/* ~/Library/QuickLook
 killall Finder
 ~~~
 
-### Install gem-Applicagion via ruby-gem
+### Install gem (via ruby-gem)
 
 ~~~bash
 gem install bundler
