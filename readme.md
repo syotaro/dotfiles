@@ -28,6 +28,7 @@ sh ./osx.sh
 ### Install Apps (via AppStore)
 
 ~~~bash
+    # => manually thins
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 1Password
 AWS Menu Bar
@@ -112,8 +113,8 @@ iPhoto
 
 ~~~bash
     # Install Require Tools
-java -version                # => Install java
-open /Applications/Xcode.app # => Install Xcode Command Line Tools
+java -version                # => Install manually java
+open /Applications/Xcode.app # => Install manually Xcode Command Line Tools
 ~~~
 ~~~bash
     # Install
