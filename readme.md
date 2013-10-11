@@ -114,7 +114,7 @@ iPhoto
 
 ~~~bash
 java -version                # => Install java
-open /Applications/Xcode.app #  => Install Xcode Command Line Tools
+open /Applications/Xcode.app # => Install Xcode Command Line Tools
 ~~~
 
 #### Install
@@ -163,7 +163,7 @@ cat /etc/shells
 
 ~~~bash
 mkdir ~/Library/QuickLook/
-cp -r ~/.dotfiles/quicklook/\* ~/Library/QuickLook
+cp -r ~/.dotfiles/quicklook/* ~/Library/QuickLook
 killall Finder
 ~~~
 
@@ -203,11 +203,11 @@ vim ~/.rbenv/versions/`rbenv version | awk '{ print $1 ; }'`/lib/ruby/gems/*/gem
 ### Configure vim & install vim plugin
 
 ~~~bash
-$ vim
-//  mkdir -p ~/.vim/bundle
-//  git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-$ cd ~/.vim/bundle/neosnippet
-$ git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
+vim
+    # mkdir -p ~/.vim/bundle
+    # git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+cd ~/.vim/bundle/neosnippet
+git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 ~~~
 
 ### Build LiveStyle
