@@ -3,7 +3,7 @@ sudo tcpflow -ec -i en0 port 80
 mdfind "kMDItemAppStoreHasReceipt=1"
 ag -g .plist ./
 ag @todo -A 10 -B 10 --ignore-dir ./vendor --file-search-regex .php$ ./
-
+find ./ -name '*.php' | xargs grep -i 
 
 
 ## ワンライナーとは

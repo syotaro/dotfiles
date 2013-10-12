@@ -134,7 +134,6 @@ brew 'phpunit'
 # cask 'adobe-air'
 # cask 'alfred link'
 # cask 'alfred'
-# cask 'alfred'
 # cask 'app-cleaner'
 # cask 'bartender'
 # cask 'bettertouchtool'
@@ -182,3 +181,4 @@ brew 'phpunit'
 # - TotalFinder
 # - Unity Web Player
 # - cooviewer
+# - Lingr

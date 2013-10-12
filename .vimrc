@@ -300,7 +300,8 @@ else
   NeoBundle 'vim-scripts/tagbar-phpctags'
   NeoBundle 'tsukkee/lingr-vim'
   NeoBundle 'PDV--phpDocumentor-for-Vim'
-  NeoBundle 'jtratner/vim-flavored-markdown'
+  NeoBundle 'phpfolding.vim'
+  " NeoBundle 'jtratner/vim-flavored-markdown'
   " NeoBundle 'Auto-Pairs'
   " NeoBundle 'Indent-Guides'
   " NeoBundle 'Quich-Filter'
@@ -369,12 +370,11 @@ else
   endif
   NeoBundle 'html5.vim'                  "     , {'autoload': {'filetypes': ['html']}}
   " NeoBundle 'taku-o/vim-ethna-switch'    "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundle 'jktgr/phpfolding.vim'       "     , {'autoload': {'filetypes': ['php']}}
+  " NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
+  " NeoBundle 'watanabe0621/SmartyJump'    "     , {'autoload': {'filetypes': ['tpl']}}
   NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'bpearson/vim-phpcs'         "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundle 'watanabe0621/SmartyJump'    "     , {'autoload': {'filetypes': ['tpl']}}
   NeoBundle 'jktgr/smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
 
   autocmd FileType html,smarty : set shiftwidth=2
@@ -969,3 +969,10 @@ augroup markdown
     au BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=ghmarkdown
 augroup END
 autocmd BufEnter * if &filetype == "" | setlocal ft=ghmarkdown | endif
+
+" -----------------------------------------------------------------------------
+"  PHP Folding
+" -----------------------------------------------------------------------------
+augroup vimrc
+    autocmd FileType phpunit EnableFastPHPFolds
+augroup END

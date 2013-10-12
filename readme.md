@@ -131,6 +131,63 @@ cat     brewfile
 brewdle install
 ~~~
 
+### Install Apps (ohter than via AppStore$)
+
+~~~bash
+diff -y <(mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ;}' | sort) <( ls /Applications| grep '.app' | sort) | grep '>' | awk '{for( i = 2; i < NF; i++ ){printf( "%s ", $i );}print $NF;}' | awk '{sub(".app","")}{print}' | egrep -v 'Safari|iTune|Time Machine|Mail|Reminders|QuickTime|Preview|Photo Booth|Notes|App Store|Automator|Calculator|Dictionary|Dashboard|DVD Player|FaceTime|Game Center|Image Capture|Messages|Mission Control|Calendar|Chess|Contacts|Launchpad'
+
+AirPlayit
+Alfred 2
+AppCleaner
+AppStoreHelper
+Bartender
+BetterTouchTool
+Brackets Sprint 24
+Camtasia 2
+Dropbox
+Elasticfox
+Font Book
+FontForge
+ForkLift
+Gifzo
+Google Chrome Canary
+Google Chrome
+GraffitiPot
+IAMFox
+ItunesIcon
+KeyRemap4MacBook
+LevelHelper PRO
+LibreOffice
+Line
+Lively Logic
+MPlayerX
+MacPilot
+MacVim
+Magican
+Mangao
+Mobile Partner
+OmniGraffle
+OmniPresence
+ParticleDesigner
+Path Finder
+Python Launcher 3
+QuickCast
+R53Fox
+Reflector
+Shiori
+Skype
+Splashtop Streamer
+StartNinja
+Stickies
+System Preferences
+TextEdit
+TinkerTool
+TotalFinder
+VLC
+cooViewer
+iTerm
+~~~
+
 ### Install PHP (via php-build)
 
 ~~~bash
