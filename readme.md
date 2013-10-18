@@ -129,6 +129,7 @@ brew    install brew-cask
 cd      ~/.dotfiles
 cat     brewfile
 brewdle install
+brew linkapps
 ~~~
 
 ### Install Apps (ohter than via AppStore$)
@@ -190,13 +191,47 @@ iTerm
 
 ### Install PHP (via php-build)
 
+
 ~~~bash
+brew tap     'josegonzalez/homebrew-php'
+brew install 'phpenv --HEAD'
+brew install 'php-build'
+~~~
+~~~diff
+vi /usr/local/share/php-build/definitions/5.4.15
+configure_option "--with-apxs2" "/usr/sbin/apxs"
+~~~
+
+~~~bash
+    # phpのビルドに必要なライブラリをインストール
+brew install 're2c'
+brew install 'libjpeg'
+brew install 'libpng'
+brwe install 'mcrypt'
+brew install 'libmcrypt'
+   # phpのビルド via php-build
 php-build --definitions
-php-build 5.3.20 ~/.phpenv/versions/5.3.20
-phpenv global 5.2.17
+php-build 5.4.16 ~/.phpenv/versions/5.4.16
+phpenv version
+phpenv global 5.4.16
 phpenv version
 phpenv rehash
+exec zsh -l
 php -v
+    # apache module 切り替え※うまくいかない。PHPのインストール手順については、全体的に見直す必要あり
+git clone https://github.com/garamon/phpenv-apache-version ~/.phpenv/plugins/phpenv-apache-version
+cp $HOME/.phpenv/versions/5.4.16/libexec/apache2/libphp5.so $HOME/.phpenv/versions/5.4.16/
+ phpevn apache-version
+    # phpのoptionをInstall
+brew install 'pcre'
+brew install 'phpunit'
+    # phpcs
+pear install PHP_CodeSniffer
+    # composer
+cd $HOME
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
     # Add phpcs for FuelPHP
 ln -s ~/.php/fuelphp-phpcs/Standards/FuelPHP `brew --prefix php-code-sniffer`/CodeSniffer/Standards/FuelPHP
 ~~~
@@ -224,11 +259,37 @@ cp -r ~/.dotfiles/quicklook/* ~/Library/QuickLook
 killall Finder
 ~~~
 
-### Install gem (via ruby-gem)
+### Install Ruby
+
+
+~~~ruby
+    # openssl、readlineのインストール
+brew install openssl readline
+    # ruby-buildをインストール
+brew install --HEAD ruby-build
+    # rbenv(rubyのバージョン管理ツール)のインストール
+brew install rbenv
+
+    # 下記を.zshrcに追記してpathを通す
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+    # Rubyをrbenv経由でバージョン指定インストール
+rbenv install -l
+brew link readline --force
+RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`" rbenv install 2.0.0-p247
+
+    # インストールしたrubyやgemのパスを通す
+rbenv rehash
+    # インストールされてるrubyのバージョン一覧を確認
+rbenv global 2.0.0-p247
+brew unlink readline
+~~~
 
 ~~~bash
+    # gem
+gem update --system
 gem install bundler
-rbenv rehash
+gem install activesupport -v '4.0.0'
 bundle install
 ~~~
 
@@ -239,6 +300,8 @@ vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/opti
 
 -    define(:coderay_line_numbers, Symbol, :inline, 
 +    define(:coderay_line_numbers, Symbol, nil, 
+-    define(:enable_coderay, Boolean, false,
+-    define(:enable_coderay, Boolean, true,
 ~~~
 
 ~~~diff

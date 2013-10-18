@@ -87,15 +87,19 @@ export XDEBUG_SESSION_START=DBGP
 # Gist
 export GITHUB_URL=https://git.gree-dev.net/
 
+case $(uname -s) in
+    Darwin)
 
-export MAKEOPTS="-j4"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
-#eval "$(hub alias -s)"
+[ -d $HOME/.rbenv/ ]  && export MAKEOPTS="-j4"
+[ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/bin:$PATH"
+[ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/shims:$PATH"
+[ -d $HOME/.rbenv/ ]  && eval "$(rbenv init - zsh)"
 
+[ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
+[ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
 
-
+    ;;
+esac
 
 ########################################################################  Alias
 
@@ -117,6 +121,7 @@ case $(uname -s) in
         alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
         alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g '
         alias pbc='pbcopy'
+        alias ql='qlmanage -p '
     ;;
     Linux)      # Debian
         alias ls="ls --color=always -ahF"

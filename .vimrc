@@ -260,6 +260,7 @@ else
     augroup END
     NeoBundle 'itchyny/vimfiler-preview', {'type': 'nosync'}
     let g:vimfiler_preview_action = 'auto_preview'
+    let g:vimfiler_quick_look_command= 'v'
     let bundle = neobundle#get('vimfiler-preview')
     function! bundle.hooks.on_post_source(bundle)
       if exists('*unite#custom_action')
@@ -286,9 +287,8 @@ else
   " NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'tomasr/molokai'
   let g:molokai_original = 1
-  colorscheme molokai
   let g:rehash256 = 1
-
+  colorscheme molokai
   " NeoBundle 'mattn/livestyle-vim'
   " NeoBundle 'tell-k/vim-browsereload-mac'
   NeoBundle 'tomtom/tcomment_vim'                     " コメント処理 \c<Space>
@@ -300,7 +300,7 @@ else
   NeoBundle 'vim-scripts/tagbar-phpctags'
   NeoBundle 'tsukkee/lingr-vim'
   NeoBundle 'PDV--phpDocumentor-for-Vim'
-  NeoBundle 'phpfolding.vim'
+  " NeoBundle 'phpfolding.vim'
   " NeoBundle 'jtratner/vim-flavored-markdown'
   " NeoBundle 'Auto-Pairs'
   " NeoBundle 'Indent-Guides'
@@ -378,7 +378,7 @@ else
   NeoBundle 'jktgr/smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
 
   autocmd FileType html,smarty : set shiftwidth=2
-  autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4 
+  autocmd FileType php,ctp,json :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4
   let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
 
   " Xdebug
@@ -473,7 +473,7 @@ endif
   set nowrap                                                           " 折り返ししない
   set nowrapscan                                                       " (no)検索をファイルの末尾まで検索したら、ファイルの先頭へループする
   set scrolloff=5                                                      " スクロール時の余白確保
-  set shiftwidth=4                                                     " >> 等のコマンドや自動インデントの際に使う1レベル分のインデント量
+  set shiftwidth=2                                                     " >> 等のコマンドや自動インデントの際に使う1レベル分のインデント量
   set showcmd                                                          " コマンドをステータス行に表示
   set smartcase                                                        " 大文字も含めた検索の場合はその通りに検索する
   set softtabstop=4                                                    " タブを入力した際にタブ文字の代わりに挿入されるホワイトスペースの量
@@ -534,7 +534,7 @@ endif
 " [Autocmd]
 "-------------------------------------------------------------------------------
 
-  autocmd BufRead *.tpl set filetype=smarty                                                          " .txtファイルを、Markdown Syntax Hilightで開く
+  autocmd BufRead *.tpl set filetype=smarty
   autocmd BufRead *.sql set filetype=mysql                                                             " .sqlは、すなわちmysql
 " autocmd FileType * setlocal formatoptions-=r                                                         " # の行で改行したときなどに #  をつけないように
 " autocmd FileType * setlocal formatoptions-=o                                                         " # の行で改行したときなどに #  をつけないように
@@ -964,15 +964,12 @@ let g:pdv_cfg_php4guess  = 0
 
 
 " markdown syntax
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=ghmarkdown
-augroup END
-autocmd BufEnter * if &filetype == "" | setlocal ft=ghmarkdown | endif
+autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
+autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 
 " -----------------------------------------------------------------------------
 "  PHP Folding
 " -----------------------------------------------------------------------------
-augroup vimrc
-    autocmd FileType phpunit EnableFastPHPFolds
-augroup END
+" augroup vimrc
+"     autocmd FileType phpunit EnableFastPHPFolds
+" augroup END

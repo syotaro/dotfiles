@@ -7,6 +7,7 @@
 # brew doctor
 # brew options
 # brew --config      # Homebrewの設定一覧
+# brew --prefix pkg名 # Install path
 # brew link
 # brew unlink        # パッケージを一時的に無効化
 # brew link          # パッケージを有効化
@@ -19,17 +20,20 @@ tap  'homebrew/dupes'
 brew 'macvim --with-cscope --with-lua --HEAD'
 brew 'autoconf'
 brew 'automake'
+brew 'httpd'
 brew 'bash'
+brew 'colordiff'
 brew 'bdw-gc'
 brew 'bsdmake'
+brew 'curl'          # ln -s `brew --prefix curl`/bin/curl /usr/local/bin
 brew 'cmake'
 brew 'coreutils'
 brew 'cscope'
 brew 'ctags'
 brew 'freetype'
-brew 'fuse4x'
-brew 'haskell-platform'
-brew 'fuse4x-kext'
+#brew 'fuse4x'
+brew 'haskell-platform'  # Install until the end, very time-consuming
+#brew 'fuse4x-kext'
 brew 'gdbm'
 brew 'gettext'
 brew 'glib'
@@ -64,7 +68,7 @@ brew 'reattach-to-user-namespace'
 brew 'ruby-build'
 brew 's3cmd'
 brew 'sqlite'
-brew 'sshfs'
+#brew 'sshfs'
 brew 'tcpflow'
 brew 'the_silver_searcher'
 brew 'tmux'
@@ -89,27 +93,6 @@ brew 'tig'
 #  MySQL
 ################
 brew 'mysql'
-
-################
-#  PHP
-################
-
-tap   'josegonzalez/homebrew-php'
-brew  'phpenv --HEAD'
-brew  'php-build'
-# phpのビルドに必要なライブラリをインストール
-brew  're2c'
-brew  'libjpeg'
-brew  'libpng'
-brwe  'mcrypt'
-
-#brew 'php54 --with-intl --with-mysql --with-fpm'
-#brew 'php54-intl'
-#brew 'php54-xdebug'   # doctor
-#brew 'pcre'
-brew 'php-code-sniffer'
-brew 'composer'
-brew 'phpunit'
 
 
 ################
@@ -145,7 +128,6 @@ brew 'phpunit'
 # cask 'iterm2'
 # cask 'livereload'
 # cask 'marked2'
-# cask 'omni-graffle-pro'
 # cask 'path-finder'
 # cask 'phpstorm'
 # cask 'quick-cast'
