@@ -967,6 +967,11 @@ let g:pdv_cfg_php4guess  = 0
 autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
 autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 
+
+" changed.vimによるsign表示がちらちらしてかなわんので、signを常に表示する
+autocmd BufEnter * sign define dummy
+autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
 " -----------------------------------------------------------------------------
 "  PHP Folding
 " -----------------------------------------------------------------------------
