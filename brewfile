@@ -26,7 +26,7 @@ brew 'colordiff'
 brew 'bdw-gc'
 brew 'bsdmake'
 brew 'curl'          # ln -s `brew --prefix curl`/bin/curl /usr/local/bin
-brew 'cmake'
+brew 'cmake'    # be require from mysql
 brew 'coreutils'
 brew 'cscope'
 brew 'ctags'
@@ -41,7 +41,7 @@ brew 'gmp'
 brew 'go'
 brew 'graphicsmagick'
 brew 'htop-osx'
-brew 'hub'
+brew 'hub' # wrapper for  git command
 brew 'icu4c'
 brew 'imagemagick'
 brew 'jpeg'
@@ -56,7 +56,7 @@ brew 'lynx'
 brew 'mercurial'
 brew 'multitail'
 brew 'nkf'
-brew 'nmap'
+brew 'nmap'    # port scan util
 brew 'oniguruma'
 brew 'openssl'
 brew 'pidof'
@@ -74,7 +74,7 @@ brew 'the_silver_searcher'
 brew 'tmux'
 brew 'tree'
 brew 'unixodbc'
-brew 'w3m'
+brew 'w3m'  # CLI Web Browser
 brew 'watch'
 brew 'wget --enable-iri'
 brew 'xz'
@@ -87,7 +87,7 @@ brew 'zsh --disable-etcdir'
 
 brew 'git'
 brew 'git-flow'
-brew 'tig'
+brew 'tig'   # cli git browser
 
 ################
 #  MySQL

@@ -29,7 +29,8 @@ sh ./osx.sh
 
 ~~~bash
     # => manually thins
-$ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
+    # app list generate command
+    # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 1Password
 AWS Menu Bar
 App Language Chooser
@@ -135,7 +136,8 @@ brew linkapps
 ### Install Apps (ohter than via AppStore$)
 
 ~~~bash
-diff -y <(mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ;}' | sort) <( ls /Applications| grep '.app' | sort) | grep '>' | awk '{for( i = 2; i < NF; i++ ){printf( "%s ", $i );}print $NF;}' | awk '{sub(".app","")}{print}' | egrep -v 'Safari|iTune|Time Machine|Mail|Reminders|QuickTime|Preview|Photo Booth|Notes|App Store|Automator|Calculator|Dictionary|Dashboard|DVD Player|FaceTime|Game Center|Image Capture|Messages|Mission Control|Calendar|Chess|Contacts|Launchpad'
+    # app list generate command
+    # $ diff -y <(mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ;}' | sort) <( ls /Applications| grep '.app' | sort) | grep '>' | awk '{for( i = 2; i < NF; i++ ){printf( "%s ", $i );}print $NF;}' | awk '{sub(".app","")}{print}' | egrep -v 'Safari|iTune|Time Machine|Mail|Reminders|QuickTime|Preview|Photo Booth|Notes|App Store|Automator|Calculator|Dictionary|Dashboard|DVD Player|FaceTime|Game Center|Image Capture|Messages|Mission Control|Calendar|Chess|Contacts|Launchpad'
 
 AirPlayit
 Alfred 2
@@ -189,6 +191,11 @@ cooViewer
 iTerm
 ~~~
 
+### Configure BBT
+
+- import ~/.dotfiles/bettertouchtool/bbt-setting-export
+
+
 ### Install PHP (via php-build)
 
 
@@ -231,9 +238,34 @@ pear install PHP_CodeSniffer
 cd $HOME
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
+~~~
 
+~~~
+    # PHPUnitのインストール
+pear config-set auto_discover 1
+pear install pear.phpunit.de/PHPUnit
+pear install pear.phing.info/phing
+    # phpunit コマンドが使えるようになったか確認します。
+phpunit --version
+~~~
+
+~~~
     # Add phpcs for FuelPHP
 ln -s ~/.php/fuelphp-phpcs/Standards/FuelPHP `brew --prefix php-code-sniffer`/CodeSniffer/Standards/FuelPHP
+
+~~~
+
+~~~bash
+    # configure php
+// sudo vi /usr/local/etc/php/5.4/php.ini
+ 
+[Date]
+date.timezone = Asia/Tokyo
+ 
+[mbstring]
+mbstring.language = Japanese
+mbstring.internal_encoding = UTF-8
+mbstring.http_output = UTF-8
 ~~~
 
 ### Install pandoc (via Haskell-Platform)
@@ -288,9 +320,14 @@ brew unlink readline
 ~~~bash
     # gem
 gem update --system
+gem update rake
 gem install bundler
 gem install activesupport -v '4.0.0'
 bundle install
+    # gem for rails
+gem install pry pry-doc
+gem install thin
+gem install rails --no-ri --no-rdoc
 ~~~
 
 
@@ -358,3 +395,36 @@ npm install -g bower
 cd ~/.dotfiles
 sh ./keyremap4mb-importconfig.sh
 ~~~
+
+### Configure MySQL
+
+~~~bash
+    # MySQLデータベースを作成
+unset TMPDIR
+mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+    # MySQLの開始
+mysql.server start
+    # MySQLの初期セットアップ
+/usr/local/Cellar/mysql/*/bin/mysql_secure_installation
+
+  Enter current password for root (enter for none): 
+  Set root password? [Y/n] Y
+  New password: 
+  Re-enter new password: 
+   ... Success!
+  Remove anonymous users? [Y/n] y
+   ... Success!
+  Disallow root login remotely? [Y/n] y
+   ... Success!
+  Remove test database and access to it? [Y/n] n
+   ... skipping.
+  Reload privilege tables now? [Y/n] y
+   ... Success!
+  installation should now be secure.
+
+  Thanks for using MySQL!
+
+mysql -uroot
+~~~
+
+
