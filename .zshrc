@@ -148,8 +148,6 @@ alias rm="rm -i"
 alias mv="mv -i"
 if [[ -x `which colordiff` ]]; then
   alias diff='colordiff -u'
-else
-  alias diff='diff -u'
 fi
 # tmux
 alias tl='tmux ls'

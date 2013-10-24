@@ -31,31 +31,31 @@ sh ./osx.sh
     # => manually thins
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
+
 1Password
 AWS Menu Bar
 App Language Chooser
 CloudPlay
+Cocoa JSON Editor
 CodeRunner
 ColorSchemer Studio
 Dash
-DeskConnect
 Desktop Calendar Plus
 Elastics
 Evernote
 Frank DeLoupe
 GarageBand
 Gemini
-Gistify
+GistPal
 GraphicConverter
-GraphicalHttpClient
-Gyazo
 Handheld Designer
 Hexels
 Hype2
 Infographics
 JPEGmini
-Jsonformatter
+JSON Editor
 Keynote
+LINE
 LiveReload
 MailTab Pro for Gmail
 Markdown Pro
@@ -66,7 +66,6 @@ Navicat Data Modeler
 Navicat Premium Essentials
 Navicat for MySQL
 Numbers
-OmniGraffle Professional 5
 OmniGraphSketcher
 PDF Reader
 PDF2Office for OmniGraffle
@@ -76,8 +75,9 @@ Pages
 PaintCode
 Particle Playground
 Patterns
+Paw
 Pixelmator
-Rested
+QuickHub
 RocketDocs
 Skitch
 Slicy
@@ -101,9 +101,13 @@ WiFi Explorer
 WinArchiver
 Witch
 Xcode
+YoruFukurou
+iBooks Author
 iKeyboard
 iMovie
 iPhoto
+picatext
+
 ~~~
 
 
@@ -137,57 +141,43 @@ brew linkapps
 
 ~~~bash
     # app list generate command
-    # $ diff -y <(mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ;}' | sort) <( ls /Applications| grep '.app' | sort) | grep '>' | awk '{for( i = 2; i < NF; i++ ){printf( "%s ", $i );}print $NF;}' | awk '{sub(".app","")}{print}' | egrep -v 'Safari|iTune|Time Machine|Mail|Reminders|QuickTime|Preview|Photo Booth|Notes|App Store|Automator|Calculator|Dictionary|Dashboard|DVD Player|FaceTime|Game Center|Image Capture|Messages|Mission Control|Calendar|Chess|Contacts|Launchpad'
-
-AirPlayit
+    # $ diff -y <(mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ;}' | sort) <( ls /Applications| grep '.app' | sort) | grep '>' | awk '{for( i = 2; i < NF; i++ ){printf( "%s ", $i );}print $NF;}' | awk '{sub(".app","")}{print}' | egrep -v 'Safari|iTune|Time Machine|Mail|Reminders|QuickTime|Preview|Photo Booth|Notes|App Store|Automator|Calculator|Dictionary|Dashboard|DVD Player|FaceTime|Game Center|Image Capture|Messages|Mission Control|Calendar|Chess|Contacts|Launchpad|Stickies'
 Alfred 2
 AppCleaner
-AppStoreHelper
 Bartender
 BetterTouchTool
-Brackets Sprint 24
 Camtasia 2
+ChatWorks
+CodeKit
 Dropbox
-Elasticfox
+Fluid
 Font Book
-FontForge
 ForkLift
-Gifzo
 Google Chrome Canary
 Google Chrome
-GraffitiPot
-IAMFox
-ItunesIcon
+Google Notifier
+Gyazo GIF
+Gyazo
 KeyRemap4MacBook
-LevelHelper PRO
 LibreOffice
-Line
-Lively Logic
-MPlayerX
-MacPilot
 MacVim
 Magican
-Mangao
-Mobile Partner
+Marked
+Microsoft Lync
+NetExtender
 OmniGraffle
-OmniPresence
-ParticleDesigner
+OmniOutliner
 Path Finder
-Python Launcher 3
+PhpStorm
 QuickCast
-R53Fox
-Reflector
-Shiori
-Skype
-Splashtop Streamer
-StartNinja
-Stickies
+Remote Desktop Connection
+SourceTree
 System Preferences
 TextEdit
-TinkerTool
 TotalFinder
+TriggerClientUI
 VLC
-cooViewer
+VirtualBox
 iTerm
 ~~~
 
