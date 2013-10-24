@@ -5,7 +5,7 @@
 
 ~~~bash
 mkdir ~/.ssh
-ln -s ~/Dropbox/work/setting/ssh/*
+ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ~~~
@@ -119,14 +119,16 @@ picatext
 ~~~bash
     # Install Require Tools
 java -version                # => Install manually java
-open /Applications/Xcode.app # => Install manually Xcode Command Line Tools
+open /Applications/Xcode.app
+xcode-select --install # => Install manually Xcode Command Line Tools
+
 ~~~
 ~~~bash
     # Install
 ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew    doctor
 brew    update
-gem     install brewdler
+sudo gem     install brewdler
 brew    tap 'homebrew/dupes'
 brew    tap 'josegonzalez/homebrew-php'
 brew    tap 'phinze/homebrew-cask'

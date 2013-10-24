@@ -776,7 +776,7 @@ hi TabLine      guifg=bg        guibg=#505050   ctermfg=16    ctermbg=239       
 "余った領域のカラー
 hi TabLineFill  guifg=#a0a0a0   guibg=#505050   ctermfg=247    ctermbg=236       gui=none      cterm=none
 " 現在タブのカラー
-hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=16     ctermbg=234       gui=none      cterm=none
+hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=214     ctermbg=234       gui=none      cterm=none
 
 
 

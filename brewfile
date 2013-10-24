@@ -15,6 +15,7 @@
 # brew tap           # (ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
 # brew cleanup
 
+
 tap  'homebrew/dupes'
 
 brew 'macvim --with-cscope --with-lua --HEAD'
@@ -50,7 +51,7 @@ brew 'libffi'
 brew 'libpng'
 brew 'libtool'
 brew 'libyaml'
-brew 'lua'
+#brew 'lua'
 brew 'lv'
 brew 'lynx'
 brew 'mercurial'
@@ -61,7 +62,7 @@ brew 'oniguruma'
 brew 'openssl'
 brew 'pidof'
 brew 'pkg-config'
-brew 'python3'
+#brew 'python3'
 brew 'rbenv'
 brew 'readline'
 brew 'reattach-to-user-namespace'
@@ -112,34 +113,35 @@ brew 'mysql'
 # - ダウンロード可能アプリの一覧は「brew cask search」にて
 
 
-# tap  'phinze/homebrew-cask'
-# brew 'brew-cask'
-# cask 'adobe-air'
-# cask 'alfred link'
-# cask 'alfred'
-# cask 'app-cleaner'
-# cask 'bartender'
-# cask 'bettertouchtool'
-# cask 'evernote'
-# cask 'fluid'
-# cask 'google-chrome'
-# cask 'google-chrome-canary'
-# cask 'google-web-designer'
-# cask 'iterm2'
-# cask 'livereload'
-# cask 'marked2'
-# cask 'path-finder'
-# cask 'phpstorm'
-# cask 'quick-cast'
-# cask 'silverlight'
-# cask 'vlc'
-# #cask 'dropbox'
-# #cask 'libre-office'
-# #cask 'sequel-pro'
-# #cask 'skype'
-# #cask 'vagrant'
-# #cask 'virtualbox'
-# #cask 'x-quartz'
+tap  'phinze/homebrew-cask'
+brew 'brew-cask'
+cask 'adobe-air'
+cask 'alfred link'
+cask 'alfred'
+cask 'app-cleaner'
+cask 'bartender'
+cask 'bettertouchtool'
+cask 'evernote'
+cask 'fluid'
+cask 'google-chrome'
+cask 'google-chrome-canary'
+cask 'google-web-designer'
+cask 'iterm2'
+cask 'livereload'
+cask 'marked2'
+cask 'path-finder'
+cask 'phpstorm'
+cask 'quick-cast'
+cask 'silverlight'
+cask 'vlc'
+#cask 'dropbox'
+cask 'libre-office'
+#cask 'sequel-pro'
+#cask 'skype'
+cask 'vagrant'
+cask 'virtualbox'
+#cask 'x-quartz'
+cask 'keyremap4macbook'
 
 
 
@@ -153,14 +155,12 @@ brew 'mysql'
 # - Gyazo
 # - GlyphDesigner
 # - IAMFox
-# - KeyRemap4MacBook
 # - MS Office
 # - MacVim-kaoriya
 # - ParticleDesigner
 # - R53Fox
 # - Reflector
 # - SplashtopStreamer
-# - TotalFinder
 # - Unity Web Player
 # - cooviewer
 # - Lingr
