@@ -19,7 +19,7 @@
 [pull]
   rebase         = true                # pullのデフォルトが--rebaseに
 [push]
-	default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
+#	default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [merge]
   tool = vimdiff
   ff            = false               # mergeのデフォルトが--no-ffに

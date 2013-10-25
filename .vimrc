@@ -294,8 +294,8 @@ else
   NeoBundle 'tomtom/tcomment_vim'                     " コメント処理 \c<Space>
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'tyru/vim-altercmd'
-  NeoBundle 'yuratomo/w3m.vim.git'
-  NeoBundle 'thinca/vim-localrc'
+  " NeoBundle 'yuratomo/w3m.vim.git'
+  " NeoBundle 'thinca/vim-localrc'
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'vim-scripts/tagbar-phpctags'
   NeoBundle 'tsukkee/lingr-vim'
@@ -965,7 +965,7 @@ let g:pdv_cfg_php4guess  = 0
 
 " markdown syntax
 autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
-autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
+" autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 
 
 " changed.vimによるsign表示がちらちらしてかなわんので、signを常に表示する

@@ -33,7 +33,7 @@ brew 'cscope'
 brew 'ctags'
 brew 'freetype'
 #brew 'fuse4x'
-brew 'haskell-platform'  # Install until the end, very time-consuming
+#brew 'haskell-platform'  # Install until the end, very time-consuming
 #brew 'fuse4x-kext'
 brew 'gdbm'
 brew 'gettext'
