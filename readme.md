@@ -197,7 +197,7 @@ brew install 'phpenv --HEAD'
 brew install 'php-build'
 ~~~
 ~~~diff
-vi /usr/local/share/php-build/definitions/5.4.15
+vi /usr/local/share/php-build/definitions/5.4.17
 configure_option "--with-apxs2" "/usr/sbin/apxs"
 ~~~
 
@@ -210,16 +210,16 @@ brwe install 'mcrypt'
 brew install 'libmcrypt'
    # phpのビルド via php-build
 php-build --definitions
-php-build 5.4.16 ~/.phpenv/versions/5.4.16
+php-build 5.4.17 ~/.phpenv/versions/5.4.17
 phpenv version
-phpenv global 5.4.16
+phpenv global 5.4.17
 phpenv version
 phpenv rehash
 exec zsh -l
 php -v
     # apache module 切り替え※うまくいかない。PHPのインストール手順については、全体的に見直す必要あり
 git clone https://github.com/garamon/phpenv-apache-version ~/.phpenv/plugins/phpenv-apache-version
-cp $HOME/.phpenv/versions/5.4.16/libexec/apache2/libphp5.so $HOME/.phpenv/versions/5.4.16/
+cp $HOME/.phpenv/versions/5.4.17/libexec/apache2/libphp5.so $HOME/.phpenv/versions/5.4.17/
  phpevn apache-version
     # phpのoptionをInstall
 brew install 'pcre'
@@ -325,7 +325,8 @@ gem install rails --no-ri --no-rdoc
 
 ~~~diff
     # Configure kramdown
-vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
+cd ~/.dotfiles
+vim `bundle show kramdown`/lib/kramdown/options.rb # or vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
 
 -    define(:coderay_line_numbers, Symbol, :inline, 
 +    define(:coderay_line_numbers, Symbol, nil, 
@@ -335,7 +336,8 @@ vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/opti
 
 ~~~diff
     # Configure ruhoh
-vim `rbenv prefix`/lib/ruby/gems/*/gems/ruhoh-2.5/lib/ruhoh/converter.rb
+
+vim `bundle show ruhoh`/lib/ruhoh/converter.rb # or vim `rbenv prefix`/lib/ruby/gems/*/gems/ruhoh-2.5/
 
 +       module Markdown
 +           def self.extensions
