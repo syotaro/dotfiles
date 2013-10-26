@@ -208,6 +208,7 @@ else
   " ALL {{{
   NeoBundle 'Shougo/vimshell.git'
   " ---------------------------------------------
+  NeoBundle 'VooM'
   NeoBundle 'Changed'
   NeoBundle 'Gundo'                                   " undo履歴を追える
   " NeoBundle 'SQLUtilities'
@@ -301,14 +302,14 @@ else
   " NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
   " NeoBundle 'watanabe0621/SmartyJump'    "     , {'autoload': {'filetypes': ['tpl']}}
   NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundle 'bpearson/vim-phpcs'         "     , {'autoload': {'filetypes': ['php']}}
+  NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
+  let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
   NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'jktgr/smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
 
   autocmd BufRead *.tpl set filetype=smarty
   autocmd FileType html,smarty : set shiftwidth=2
   autocmd FileType php,json :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4
-  let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
 
   " Xdebug
   let g:vdebug_options = {
