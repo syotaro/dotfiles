@@ -59,14 +59,10 @@ brew 'multitail'
 brew 'nkf'
 brew 'nmap'    # port scan util
 brew 'oniguruma'
-brew 'openssl'
 brew 'pidof'
 brew 'pkg-config'
 #brew 'python3'
-brew 'rbenv'
-brew 'readline'
 brew 'reattach-to-user-namespace'
-brew 'ruby-build'
 brew 's3cmd'
 brew 'sqlite'
 #brew 'sshfs'
@@ -81,6 +77,15 @@ brew 'wget --enable-iri'
 brew 'xz'
 brew 'zlib'
 brew 'zsh --disable-etcdir'
+
+################
+#  Ruby
+################
+brew 'readline'
+brew 'openssl'
+brew 'ruby-build --HEAD'
+brew 'rbenv'
+
 
 ################
 #  Git
