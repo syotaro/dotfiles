@@ -15,10 +15,9 @@
 # brew tap           # (ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
 # brew cleanup
 
-
 tap  'homebrew/dupes'
 
-brew 'macvim --with-cscope --with-lua --HEAD'
+brew 'macvim  --with-lua --override-system-vim --custom-icons'
 brew 'autoconf'
 brew 'automake'
 brew 'httpd'
@@ -147,8 +146,6 @@ cask 'vagrant'
 cask 'virtualbox'
 #cask 'x-quartz'
 cask 'keyremap4macbook'
-
-
 
 
 # 以下のApplicationは、Caskが無いので、手動でInstallする
