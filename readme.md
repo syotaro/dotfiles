@@ -321,10 +321,6 @@ gem update rake
 gem install bundler
 gem install activesupport -v '4.0.0'
 bundle install
-    # gem for rails
-gem install pry pry-doc
-gem install thin
-gem install rails --no-ri --no-rdoc
 ~~~
 
 

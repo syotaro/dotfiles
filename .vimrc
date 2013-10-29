@@ -139,8 +139,8 @@ else
     augroup END
     " NeoBundleLazy 'unite-colorscheme', {'autoload': {'unite_sources': ['colorscheme']}}
     " NeoBundleLazy 'osyo-manga/unite-highlight', {'autoload': {'unite_sources': ['highlight']}}
-    NeoBundleLazy 'ujihisa/vim-ref'
-    NeoBundleLazy 'h1mesuke/unite-outline', {'autoload': {'unite_sources': ['outline']}}
+    NeoBundle 'ujihisa/vim-ref'
+    NeoBundle 'h1mesuke/unite-outline'
   " }}}
   " QuickRun / Filer / Outer world of Vim ( "\\" ) {{{
   " --------------------------------------------------------------------------------------------------------
@@ -208,7 +208,13 @@ else
   " ALL {{{
   NeoBundle 'Shougo/vimshell.git'
   " ---------------------------------------------
-  NeoBundle 'VooM'
+
+  " Markdown {{{
+  NeoBundle 'git://github.com/itspriddle/vim-marked.git'
+  NeoBundle 'VOoM'
+  nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
+  " }}}
+
   NeoBundle 'Changed'
   NeoBundle 'Gundo'                                   " undo履歴を追える
   " NeoBundle 'SQLUtilities'
@@ -283,7 +289,7 @@ else
   " }}}
   " PHP & HTML & Smarty {{{
   if has('multi_byte')
-    NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'filetypes': ['php', 'html'], 'functions': ['SyntasticStatuslineFlag']}}
+    NeoBundle 'scrooloose/syntastic'
     let g:syntastic_mode_map = { 'mode': 'passive' }
     " let g:syntastic_echo_current_error = 0
     " エラー行をsignで表示する
@@ -302,7 +308,7 @@ else
   " NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
   " NeoBundle 'watanabe0621/SmartyJump'    "     , {'autoload': {'filetypes': ['tpl']}}
   NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundleLazy 'bpearson/vim-phpcs', {'autoload': {'filetypes': ['php']}}
+  NeoBundle 'bpearson/vim-phpcs'
   let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
   NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'jktgr/smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
@@ -322,7 +328,7 @@ else
   "noremap <Leader>e :call PhpExpandClass()<CR>
   " }}}
   " EMMET {{{
-  NeoBundleLazy 'mattn/emmet-vim'                  , {'autoload': {'filetypes': ['html','php','smarty']}}
+  NeoBundle 'mattn/emmet-vim'
   let g:user_emmet_expandabbr_key = '<tab>'
   let g:use_emmet_complete_tag = 1
   let g:user_emmet_settings = {
@@ -348,15 +354,9 @@ else
         \  },
         \}
   " }}}
-  " Markdown {{{
-  NeoBundleLazy 'git://github.com/itspriddle/vim-marked.git', {'autoload': {'filetypes': ['markdown']}}
-  NeoBundleLazy 'VOoM'                                      , {'autoload': {'filetypes': ['markdown']}}          " Vim Outliner of Markers
-
-  nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
-  " }}}
   " Other {{{
-  NeoBundleLazy 'itspriddle/vim-javascript-indent' , {'autoload': {'filetypes': ['javascript']}}
-  NeoBundleLazy 'JSON.vim'                         , {'autoload': {'filetypes': ['json']}}
+  NeoBundle 'itspriddle/vim-javascript-indent'
+  NeoBundle 'JSON.vim'                        
   " NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'less.vim', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}

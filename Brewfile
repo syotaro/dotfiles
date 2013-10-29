@@ -53,7 +53,6 @@ brew 'libyaml'
 #brew 'lua'
 brew 'lv'
 brew 'lynx'
-brew 'mercurial'
 brew 'multitail'
 brew 'nkf'
 brew 'nmap'    # port scan util
@@ -61,13 +60,11 @@ brew 'oniguruma'
 brew 'pidof'
 brew 'pkg-config'
 #brew 'python3'
-brew 'reattach-to-user-namespace'
 brew 's3cmd'
 brew 'sqlite'
 #brew 'sshfs'
 brew 'tcpflow'
 brew 'the_silver_searcher'
-brew 'tmux'
 brew 'tree'
 brew 'unixodbc'
 brew 'w3m'  # CLI Web Browser
@@ -78,22 +75,27 @@ brew 'zlib'
 brew 'zsh --disable-etcdir'
 
 ################
+#  Tmux
+################
+brew 'tmux'
+brew 'reattach-to-user-namespace'
+################
+#  Bench Mark
+################
+brew 'siege'
+################
 #  Ruby
 ################
 brew 'readline'
 brew 'openssl'
 brew 'ruby-build --HEAD'
 brew 'rbenv'
-
-
 ################
 #  Git
 ################
-
 brew 'git'
 brew 'git-flow'
 brew 'tig'   # cli git browser
-
 ################
 #  MySQL
 ################
@@ -119,9 +121,11 @@ brew 'mysql'
 
 tap  'phinze/homebrew-cask'
 brew 'brew-cask'
+brew 'app-cleaner'
 cask 'adobe-air'
 cask 'alfred link'
 cask 'alfred'
+cask 'forklift'
 cask 'app-cleaner'
 cask 'bartender'
 cask 'bettertouchtool'
@@ -152,13 +156,11 @@ cask 'keyremap4macbook'
 # - Adobe CC
 # - Adobe Flash Player
 # - Elasticfox-ec2tag
-# - ForkLift
 # - Gyazo gif
 # - Gyazo
 # - GlyphDesigner
 # - IAMFox
 # - MS Office
-# - MacVim-kaoriya
 # - ParticleDesigner
 # - R53Fox
 # - Reflector

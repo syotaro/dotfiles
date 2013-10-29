@@ -29,8 +29,11 @@ gem 'awesome_print' # indent and color output
 #gem 'gem-browse' # clone gem for inspection
 #gem 'fastri' # more powerful ruby docs
 
-# Rails development
-#gem 'spring' # quick commands
+### Rails development
+# gem 'spring' # quick commands
+# gem 'pry pry-doc'
+# gem 'thin'
+# gem 'rails'
 
 # AWS
 #aws-sdk
@@ -45,7 +48,7 @@ gem 'git-browse-remote'
 gem 'git-issue'
 
 # github
-gem 'gollum'
+# gem 'gollum'
 
 # blog
 gem 'jekyll-s3'
