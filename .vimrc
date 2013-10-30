@@ -156,8 +156,7 @@ else
   "   \ }
   NeoBundle 'thinca/vim-quickrun'
   NeoBundle 'tyru/open-browser.vim'
-  let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', 'into': 1}}
-
+    let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', 'into': 1}}
     NeoBundle 'Shougo/vimfiler'
     let g:vimfiler_as_default_explorer = 1
     " let g:vimfiler_sort_type = 'TIME'
@@ -488,25 +487,6 @@ endif
 " [Keybind]
 "-------------------------------------------------------------------------------
 
-
-
-  " nnoremap <silent> <Space>uo       : <C-u>Unite -no-quit -vertical -winwidth=15 outline<CR>
-  " nnoremap <silent> <Space>rm         : <C-u>Unite -no-quit -vertical -winwidth=50 rails/model<CR>
-  " nnoremap <silent> <Space>rc         : <C-u>Unite -no-quit -vertical -winwidth=50 rails/controller<CR>
-  " nnoremap <silent> <Space>rv         : <C-u>Unite -no-quit -vertical -winwidth=50 rails/view<CR>
-
-  " nnoremap <silent> <C-f>          : <C-u>Unite buffer file_mru bookmark file<CR>
-  " inoremap <silent> <C-f> <ESC>    : <C-u>Unite buffer file_mru bookmark file<CR>
-  " nnoremap <silent> <C-b>          : <C-u>Unite -no-quit -vertical -winwidth=30 outline<CR>
-  " inoremap <silent> <C-b> <ESC>    : <C-u>Unite -no-quit -vertical -winwidth=30 outline<CR>
-  " nnoremap <silent> <C-r>m         : <C-u>Unite -no-quit -vertical -winwidth=50 rails/model<CR>
-  " inoremap <silent> <C-r>m <ESC>   : <C-u>Unite -no-quit -vertical -winwidth=50 rails/model<CR>
-  " nnoremap <silent> <C-r>c         : <C-u>Unite -no-quit -vertical -winwidth=50 rails/controller<CR>
-  " inoremap <silent> <C-r>c <ESC>   : <C-u>Unite -no-quit -vertical -winwidth=50 rails/controller<CR>
-  " nnoremap <silent> <C-r>v         : <C-u>Unite -no-quit -vertical -winwidth=50 rails/view<CR>
-  " inoremap <silent> <C-r>v <ESC>   : <C-u>Unite -no-quit -vertical -winwidth=50 rails/view<CR>
-  "
-
 " [Other]
 
   " vimからQuickLookで開く
@@ -547,15 +527,15 @@ endif
 
 "-------- コマンドラインでのキーバインド
 " マーク位置へのジャンプを行だけでなく桁位置も復元できるようにする
-map ' `
+" map ' `
 " Ctrl+Nで次のバッファを表示
-map <C-N>   :bnext<CR>
+" map <C-N>   :bnext<CR>
 " Ctrl+Pで前のバッファを表示
-map <C-P>   :bprevious<CR>
+" map <C-P>   :bprevious<CR>
 " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする
-imap <C-K>  <ESC>"*pa
+" imap <C-K>  <ESC>"*pa
 " Ctrl+Shift+Jで上に表示しているウィンドウをスクロールさせる
-nnoremap <C-S-J> <C-W>k<C-E><C-W><C-W>
+" nnoremap <C-S-J> <C-W>k<C-E><C-W><C-W>
 "Emacs スタイルにする
 " Ctrl+Aで行頭へ移動
 :cnoremap <C-A>		<Home>
@@ -572,33 +552,20 @@ nnoremap <C-S-J> <C-W>k<C-E><C-W><C-W>
 " Ctrl+Pでコマンドライン履歴を一つ戻る
 :cnoremap <C-P>		<Up>
 " Alt+Ctrl+Bで前の単語へ移動
-:cnoremap <Esc><C-B>	<S-Left>
+" :cnoremap <Esc><C-B>	<S-Left>
 " Alt+Ctrl+Fで次の単語へ移動
-:cnoremap <Esc><C-F>	<S-Right> 
+" :cnoremap <Esc><C-F>	<S-Right> 
 
 "--------------
-
-
-
-
 
 
    " C-j, C-kで1行スクロール
   noremap <C-j> <C-e>
   noremap <C-k> <C-y>
-    " インサートモードでもhjklで移動（Ctrl押すけどね）
-  " imap <C-j> <Down>
-  " imap <C-k> <Up>
-  " imap <C-h> <Left>
-  " imap <C-l> <Right>
 
     " 最後に編集された位置に移動
   " nnoremap gb '[
   " nnoremap gp ']
-
-    " 対応する括弧に移動
-  " nnoremap ( %
-  " nnoremap ) %
 
     " 最後に変更されたテキストを選択する
 " nnoremap gc  " nnoremap gc  `[v`]
@@ -611,40 +578,17 @@ nnoremap <C-S-J> <C-W>k<C-E><C-W><C-W>
   " visualモードで置き換えたい文字を選択した後、「p」で0のレジスターを使用する(visualモードで選択したあとに、ヤンクした文字をペーストするとその置き換えた文字がヤンクされてしまい2回目同じようにしようとすると、前回置き換えた文字がペーストされてしまうので）
     vnoremap <silent> p "0p<CR>
 
-" qでウインドウを閉じて Qでマクロ
+  " qでウインドウを閉じて Qでマクロ
     nnoremap q :<C-u>q<CR>
     nnoremap Q q
 
 "-------------------------------------------------------------------------------
 " [Source]
 "-------------------------------------------------------------------------------
-
   " Vundle Plugin に関する設定を読み込む
   " source ~/.vimrc.plugins_setting
 
-"------------------------------------------------
-" CSVのハイライト表示
-" @see http://www.vim.org/tips/tip.php?tip_id=667
-"------------------------------------------------
-" csv の特定のカラムをハイライト (put in .vimrc)
-" 使い方↓↓
-" :Csv 5                            : 5番めのカラムをハイライト
-" function! CSVH(x)
-"   execute 'match Keyword /^\([^,]*,\)\{'.a:x.'}\zs[^,]*/'
-"   execute 'normal ^'.a:x.'f,'
-" endfunction
-" command! -nargs=1 Csv :call CSVH(<args>)
-" 
-" 
-
-"let g:ref_use_vimproc=1
-"let g:ref_refe_version=2
-"nmap ,rr :<C-u>Ref refe<Space>
-"
-
-
-
-  " カッコやクオートなどを入力した際に左に自動で移動します
+" カッコやクオートなどを入力した際に左に自動で移動します
   inoremap {} {}<Left>
   inoremap [] []<Left>
   inoremap () ()<Left>
@@ -680,123 +624,15 @@ inoremap <expr> <Left> <SID>cancel_popup("\<Left>")
 inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
 
 
-
-
-
-
-"-------------------------------------------------------------------------------
-" LightLine
-"-------------------------------------------------------------------------------
-  " NeoBundle 'mkitt/tabline.vim'
-
-
-
-" 表示されるタブ設定。statuslineと同じような設定方が可能
-" set tabline=%!MyTabLine()
-" function MyTabLine()
-"   let s = ''
-"   for i in range(tabpagenr('$'))
-"     if i + 1 == tabpagenr()
-"       let s .= '%#TabLineSel#'
-"     else
-"       let s .= '%#TabLine#'
-"     endif
-"     let s .= '%' . 'T'
-"     let s .= ''  . '%{MyTabLabel(' . (i+1) . ')}  '. (1==getwinvar(i+1,'&modified')?'+ ':' ')
-"   endfor
-"   let s .= '%#TabLineFill#%T'
-"   if tabpagenr('$') > 1
-"     let s .= '%=%#TabLine'
-"   endif
-"   return s
-" endfunction
-" 
-" function MyTabLabel(n)
-"   let buflist = tabpagebuflist(a:n)
-"   let winnr = tabpagewinnr(a:n)
-"   return bufname(buflist[winnr - 1])
-" endfunction
-
-
 " 0:表示しない 1:２つ以上のタブがあるとき表示 2:常に表示。
 set showtabline=2
-
+set laststatus=0
 " タブのカラー
 hi TabLine      guifg=bg        guibg=#505050   ctermfg=16    ctermbg=239       gui=none      cterm=none
 "余った領域のカラー
 hi TabLineFill  guifg=#a0a0a0   guibg=#505050   ctermfg=247    ctermbg=236       gui=none      cterm=none
 " 現在タブのカラー
 hi TabLineSel   guifg=#000000   guibg=#c0e0ff   ctermfg=214     ctermbg=234       gui=none      cterm=none
-
-
-
-
-
-" NeoBundle 'itchyny/lightline.vim'
-set laststatus=0
-" let g:lightline = {
-"         \ 'colorscheme': 'wombat',
-"         \ 'mode_map': {'c': 'NORMAL'},
-"         \ 'active': {
-"         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-"         \ },
-"         \ 'component_function': {
-"         \   'modified': 'MyModified',
-"         \   'readonly': 'MyReadonly',
-"         \   'fugitive': 'MyFugitive',
-"         \   'filename': 'MyFilename',
-"         \   'fileformat': 'MyFileformat',
-"         \   'filetype': 'MyFiletype',
-"         \   'fileencoding': 'MyFileencoding',
-"         \   'mode': 'MyMode'
-"         \ }
-"         \ }
-" 
-" function! MyModified()
-"   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-" endfunction
-" 
-" function! MyReadonly()
-"   return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-" endfunction
-" 
-" function! MyFilename()
-"   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-"         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-"         \  &ft == 'unite' ? unite#get_status_string() :
-"         \  &ft == 'vimshell' ? vimshell#get_status_string() :
-"         \ '' != expand('%') ? expand('%') : '[No Name]') .
-"         \ ('' != MyModified() ? ' ' . MyModified() : '')
-" endfunction
-" 
-" function! MyFugitive()
-"   try
-"     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-"       return fugitive#head()
-"     endif
-"   catch
-"   endtry
-"   return ''
-" endfunction
-" 
-" function! MyFileformat()
-"   return winwidth(0) > 150 ? &fileformat : ''
-" endfunction
-" 
-" function! MyFiletype()
-"   return winwidth(0) > 150 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-" endfunction
-" 
-" function! MyFileencoding()
-"   return winwidth(0) > 150 ? (strlen(&fenc) ? &fenc : &enc) : ''
-" endfunction
-" 
-" function! MyMode()
-"   return winwidth(0) > 60 ? lightline#mode() : ''
-" endfunction
-
-
-
 
 
 
@@ -852,7 +688,6 @@ let g:gundo_preview_height = 40
 let g:gundo_right = 1
 nnoremap g; :GundoToggle<CR>
 
-
 "-------------------------------------------------------------------------------
 " vim-browserreload-mac
 "-------------------------------------------------------------------------------
@@ -865,12 +700,10 @@ nnoremap g; :GundoToggle<CR>
 " nmap <Space>bs :SafariReloadStart<CR>
 " nmap <Space>bS :SafariReloadStop<CR>
 " nmap <Space>bo :OperaReloadStart<CR>
-" nmap <Space>bO :OperaReloadStop<CR>
 " nmap <Space>ba :AllBrowserReloadStart<CR>
 " nmap <Space>bA :AllBrowserReloadStop<CR>
 
 " Gist
-
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1      " ファイルタイプを自動で認識して、GistにPOST
 " let g:gist_open_browser_after_post = 1

@@ -232,12 +232,13 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 ~~~
 
-~~~apache
+~~~bash
 sudo apachectl restart
 cd /Library/WebServer/Documents
-
-
 ~~~
+
+
+~~~bash
     # PHPUnitのインストール
 pear config-set auto_discover 1
 pear install pear.phpunit.de/PHPUnit
@@ -246,10 +247,9 @@ pear install pear.phing.info/phing
 phpunit --version
 ~~~
 
-~~~
+~~~bash
     # Add phpcs for FuelPHP
 ln -s ~/.php/fuelphp-phpcs/Standards/FuelPHP `brew --prefix php-code-sniffer`/CodeSniffer/Standards/FuelPHP
-
 ~~~
 
 ~~~bash
@@ -319,7 +319,6 @@ brew unlink readline
 gem update --system
 gem update rake
 gem install bundler
-gem install activesupport -v '4.0.0'
 bundle install
 ~~~
 
