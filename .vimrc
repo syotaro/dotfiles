@@ -502,6 +502,8 @@ endif
   nmap <C-c><C-c> ;nohlsearch<CR><ESC>
   " us key
   noremap  ; :
+  " auto migration Normal Mode
+  inoremap  ; ;<ESC>
   " 挿入モードにならずに改行できる
   noremap <CR> o<ESC>
   " タブ移動を直感的に

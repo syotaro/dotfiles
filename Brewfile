@@ -37,6 +37,7 @@ brew 'freetype'
 brew 'gdbm'
 brew 'gettext'
 brew 'glib'
+brew 'jq'         # JSONパーサー
 brew 'gmp'
 brew 'go'
 brew 'graphicsmagick'
@@ -132,6 +133,7 @@ cask 'bettertouchtool'
 cask 'evernote'
 cask 'fluid'
 cask 'google-chrome'
+cask 'google-perftools'
 cask 'google-chrome-canary'
 cask 'google-web-designer'
 cask 'iterm2'
@@ -150,7 +152,7 @@ cask 'vagrant'
 cask 'virtualbox'
 #cask 'x-quartz'
 cask 'keyremap4macbook'
-
+cask 'splashtop-streamer'
 
 # 以下のApplicationは、Caskが無いので、手動でInstallする
 # - Adobe CC
@@ -164,7 +166,6 @@ cask 'keyremap4macbook'
 # - ParticleDesigner
 # - R53Fox
 # - Reflector
-# - SplashtopStreamer
 # - Unity Web Player
 # - cooviewer
 # - Lingr

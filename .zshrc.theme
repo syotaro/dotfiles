@@ -19,11 +19,6 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 # colors
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
 # 
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-zstyle ':completion:*' list-colors di=34 fi=0         # 色付きで補完する
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin  # sudoも補完の対象
-export CLICOLOR=1                                     # Terminal Colorの設定
 
 
 ################################################## PROMT

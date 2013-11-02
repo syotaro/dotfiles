@@ -105,9 +105,9 @@ esac
 
 case $(uname -s) in
     Darwin|FreeBSD)  # osx
-        alias l="ls"
-        alias ls="ls -ahwG"
-        alias ll="ls -alhG"
+        alias l="ls -A"
+        alias ls="ls -AhwG"
+        alias ll="ls -AlhG"
         # sublime text 2
         alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
         alias subll='st .'
@@ -196,3 +196,13 @@ alias gcd='cd $(git rev-parse --show-toplevel)'
 
 
 
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+zstyle ':completion:*' list-colors di=34 fi=0         # 色付きで補完する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin  # sudoも補完の対象
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
+export CLICOLOR=1                                     # Terminal Colorの設定
+
+# cd後、自動的にls
+function chpwd() { ls }
