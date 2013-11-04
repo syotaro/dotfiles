@@ -438,11 +438,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1812 242 445 270 0 0 2560 1418 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>650 250 605 485 0 0 2560 1418 </string>
+	<string>1480 607 924 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>1090 966 384 129 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>18 6 1410 1406 0 0 2560 1418 </string>
+	<string>840 2 1410 1413 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>18 495 1282 911 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3545,7 +3545,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>200</integer>
+			<integer>85</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -4088,7 +4088,7 @@
 	<key>OpenBookmark</key>
 	<false/>
 	<key>OpenTmuxWindowsIn</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>OptionClickMovesCursor</key>
 	<true/>
 	<key>PMPrintingExpandedStateForPrint2</key>
@@ -4149,7 +4149,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-10-30T01:00:10Z</date>
+	<date>2013-11-01T15:22:14Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>

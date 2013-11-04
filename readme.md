@@ -31,7 +31,6 @@ sh ./osx.sh
     # => manually thins
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
-
 1Password
 AWS Menu Bar
 App Language Chooser
@@ -67,6 +66,8 @@ Navicat Premium Essentials
 Navicat for MySQL
 Numbers
 OmniGraphSketcher
+OmniOutliner Professional
+OmniPlan
 PDF Reader
 PDF2Office for OmniGraffle
 PNG Compressor
@@ -92,6 +93,7 @@ StockTouch
 Templates for Office Pro
 The Archive Browser
 Translate Tab
+Transmit
 Tuba
 Unclutter
 Visits
