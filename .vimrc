@@ -221,6 +221,7 @@ else
   " NeoBundle 'git://github.com/jimsei/winresizer.git'
   NeoBundle 'git://github.com/tpope/vim-surround.git' " テキストを括弧で囲む／削除する
   NeoBundle 'h1mesuke/vim-alignta.git'                " 整形プラグイン Alignのマルチバイト対応版
+  NeoBundle 'repeat.vim'                              " surround.vimで繰り返しを使うために必要
   NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
   " NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'tomasr/molokai'
@@ -618,12 +619,12 @@ inoremap <C-k> ()
 
 
 " move within insert mode
-imap <expr><C-o> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<ESC>o"
-inoremap <expr> <Up> <SID>cancel_popup("\<Up>")
-inoremap <expr> <Down> <SID>cancel_popup("\<Down>")
-inoremap <expr> <Left> <SID>cancel_popup("\<Left>")
-inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
+" imap <expr><C-o> neosnippet#expandable_or_jumpable() ?
+"       \ "\<Plug>(neosnippet_expand_or_jump)" : "\<ESC>o"
+" inoremap <expr> <Up> <SID>cancel_popup("\<Up>")
+" inoremap <expr> <Down> <SID>cancel_popup("\<Down>")
+" inoremap <expr> <Left> <SID>cancel_popup("\<Left>")
+" inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
 
 
 " 0:表示しない 1:２つ以上のタブがあるとき表示 2:常に表示。

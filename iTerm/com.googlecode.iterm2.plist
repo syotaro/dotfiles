@@ -26,6 +26,10 @@
 	<true/>
 	<key>Control</key>
 	<integer>1</integer>
+	<key>Coprocess MRU</key>
+	<array>
+		<string>fdfdfd</string>
+	</array>
 	<key>CopyLastNewline</key>
 	<false/>
 	<key>CopySelection</key>
@@ -396,7 +400,7 @@
 	<key>NSFontPanelPreviewHeight</key>
 	<real>70</real>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Dropbox/work/github/dotfiles/iTerm</string>
+	<string>~</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -442,7 +446,7 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>1090 966 384 129 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>840 2 1410 1413 0 0 2560 1418 </string>
+	<string>1150 6 1410 1406 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>18 495 1282 911 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -4149,7 +4153,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-11-01T15:22:14Z</date>
+	<date>2013-11-10T07:58:06Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>

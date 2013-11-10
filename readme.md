@@ -212,16 +212,16 @@ brwe install 'mcrypt'
 brew install 'libmcrypt'
    # phpのビルド via php-build
 php-build --definitions
-php-build 5.4.16 ~/.phpenv/versions/5.4.16
+php-build 5.4.13 ~/.phpenv/versions/5.4.13
 phpenv version
-phpenv global 5.4.16
+phpenv global 5.4.13
 phpenv version
 phpenv rehash
 exec zsh -l
 php -v
     # apache module 切り替え※うまくいかない。PHPのインストール手順については、全体的に見直す必要あり
 git clone https://github.com/garamon/phpenv-apache-version ~/.phpenv/plugins/phpenv-apache-version
-cp $HOME/.phpenv/versions/5.4.16/libexec/apache2/libphp5.so $HOME/.phpenv/versions/5.4.16/
+cp $HOME/.phpenv/versions/5.4.13/libexec/apache2/libphp5.so $HOME/.phpenv/versions/5.4.13/
  phpevn apache-version
     # phpのoptionをInstall
 brew install 'pcre'

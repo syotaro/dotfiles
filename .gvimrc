@@ -6,4 +6,4 @@ set guifont=Essential\ PragmataPro\ for\ Powerline:h13
 set lines=97
 set columns=100
 set guioptions-=T  " ツールバー隠す
-set background=dark
+"set background=dark
