@@ -1,29 +1,9 @@
 
-## OS X setup flow
+## Clean OSX setup flow
 
-### Setup ssh key 
+### Install Dropbox
 
-~~~bash
-mkdir ~/.ssh
-ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
-chmod 600 ~/.ssh/config
-chmod 600 ~/.ssh/id_*
-~~~
-
-### Setup dotfiles
-
-~~~bash
-mkdir ~/.dotfiles &&  cd ~/.dotfiles
-git clone git@github.com:syotaro/dotfiles.git .
-sh ./setup.sh
-~~~
-
-### Configure OS X
-
-~~~bash
-cd ~/.dotfiles
-sh ./osx.sh
-~~~
+- [Dropbox](https://www.dropbox.com/home)
 
 ### Install Apps (via AppStore)
 
@@ -109,7 +89,31 @@ iKeyboard
 iMovie
 iPhoto
 picatext
+~~~
 
+
+### Setup ssh key 
+
+~~~bash
+mkdir ~/.ssh
+ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
+chmod 600 ~/.ssh/config
+chmod 600 ~/.ssh/id_*
+~~~
+
+### Setup dotfiles
+
+~~~bash
+mkdir ~/.dotfiles &&  cd ~/.dotfiles
+git clone git@github.com:syotaro/dotfiles.git .
+sh ./setup.sh
+~~~
+
+### Configure OS X
+
+~~~bash
+cd ~/.dotfiles
+sh ./osx.sh
 ~~~
 
 
@@ -120,27 +124,25 @@ picatext
 
 ~~~bash
     # Install Require Tools
-java -version                # => Install manually java
+java -version                # => Java Install manually
 open /Applications/Xcode.app
-xcode-select --install # => Install manually Xcode Command Line Tools
-
 ~~~
 ~~~bash
     # Install
 ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew    doctor
 brew    update
-sudo gem     install brewdler
-brew    tap 'homebrew/dupes'
-brew    tap 'phinze/homebrew-cask'
-brew    install brew-cask
+sudo gem install brewdler
+       #brew    tap 'homebrew/dupes'
+       #brew    tap 'phinze/homebrew-cask'
+       #brew    install brew-cask
 cd      ~/.dotfiles
 cat     brewfile
 brewdle install
 brew linkapps
 ~~~
 
-### Install Apps (ohter than via AppStore$)
+### Install Apps (ohter than via AppStore)
 
 ~~~bash
     # app list generate command
@@ -150,11 +152,9 @@ AppCleaner
 Bartender
 BetterTouchTool
 Camtasia 2
-ChatWorks
 CodeKit
 Dropbox
 Fluid
-Font Book
 ForkLift
 Google Chrome Canary
 Google Chrome
@@ -164,21 +164,15 @@ Gyazo
 KeyRemap4MacBook
 LibreOffice
 MacVim
-Magican
 Marked
-Microsoft Lync
-NetExtender
 OmniGraffle
 OmniOutliner
 Path Finder
 PhpStorm
 QuickCast
-Remote Desktop Connection
 SourceTree
-System Preferences
 TextEdit
 TotalFinder
-TriggerClientUI
 VLC
 VirtualBox
 iTerm
