@@ -18,6 +18,7 @@ GEM
     brewdler (0.5.0)
       commander
     chunky_png (1.2.9)
+    coderay (1.1.0)
     colored (1.2)
     commander (4.1.5)
       highline (~> 1.6.11)
@@ -88,6 +89,7 @@ DEPENDENCIES
   CoffeeTags
   awesome_print
   brewdler
+  coderay
   git-browse-remote
   git-issue
   jekyll-s3

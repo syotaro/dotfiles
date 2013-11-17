@@ -56,6 +56,7 @@ gem 'ruhoh'
 
 # Markdown Engine
 gem 'kramdown'
+gem 'coderay'   # kramdownのcodeブロックをsyntax hilight してくれるようになる。
 gem 'redcarpet'
 
 # Other
