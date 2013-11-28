@@ -272,7 +272,7 @@ else
   " NeoBundle 'dbext.vim'    " rails.vimと合わせてインストールしておくと，database.ymlの設定を自動で読み込んでvimから直接SQLが打てる
   " NeoBundle 'ujihisa/unite-rake'
   " NeoBundle 'basyura/unite-rails'
-  " NeoBundle 'ruby.vim'
+    NeoBundle 'ruby.vim'
   " NeoBundle 'taichouchou2/vim-rails'
   " NeoBundle 'romanvbabenko/rails.vim'
   " NeoBundle 'tpope/vim-endwise.git'
@@ -311,7 +311,7 @@ else
   NeoBundle 'bpearson/vim-phpcs'
   let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
   NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundle 'jktgr/smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
+  NeoBundle 'smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
 
   autocmd BufRead *.tpl set filetype=smarty
   autocmd FileType html,smarty : set shiftwidth=2
@@ -356,10 +356,11 @@ else
   " }}}
   " Other {{{
   NeoBundle 'itspriddle/vim-javascript-indent'
-  NeoBundle 'JSON.vim'                        
+  NeoBundle 'JSON.vim'
   " NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'less.vim', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
+  NeoBundle 'osyo-manga/vim-over'
   " }}}
 
 

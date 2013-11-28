@@ -1,7 +1,4 @@
 
-########################################################################  BOXEN
-[ -f /opt/boxen/env.sh     ] && source /opt/boxen/env.sh
-[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
 ########################################################################  rbenv
 
 [ -f /usr/local/README.md ] && export PATH=/usr/local/bin:/usr/local/share:$PATH && eval "$(rbenv init - zsh)"

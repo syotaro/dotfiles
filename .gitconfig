@@ -12,14 +12,13 @@
   quotepath     = false
   editor = vim
   #  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-
 [tig "bind"]
   generic       = g move-first-line
   generic       = G move-last-line
 [pull]
   rebase         = true                # pullのデフォルトが--rebaseに
 [push]
-#  default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
+  default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [merge]
   tool = vimdiff
   ff            = false               # mergeのデフォルトが--no-ffに
@@ -28,7 +27,7 @@
 [include]
   path          = .gitconfig.local
 [github]
-	user = shotaro-yamamoto
+  user = shotaro-yamamoto
 [url "git@github.com:syotaro/"]
   insteadof     = gh:
 [alias]
@@ -56,6 +55,9 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-
-[hub]
-protocol = https
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
+#[hub]
+#protocol = https

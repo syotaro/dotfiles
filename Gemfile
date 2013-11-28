@@ -32,7 +32,7 @@ gem 'awesome_print' # indent and color output
 ### Rails development
 # gem 'spring' # quick commands
 # gem 'pry pry-doc'
-# gem 'thin'
+gem 'thin'
 # gem 'rails'
 
 # AWS

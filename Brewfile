@@ -121,9 +121,9 @@ brew 'mysql'
 
 tap  'phinze/homebrew-cask'
 brew 'brew-cask'
+brew 'gnu-sed --default-names'
 brew 'app-cleaner'
 cask 'adobe-air'
-#cask 'alfred link'
 cask 'alfred'
 cask 'omnigraffle'
 cask 'forklift'
@@ -132,6 +132,7 @@ cask 'bartender'
 cask 'bettertouchtool'
 cask 'evernote'
 cask 'fluid'
+#cask 'parallels-9'
 cask 'google-chrome'
 cask 'google-perftools'
 cask 'google-chrome-canary'
@@ -153,6 +154,7 @@ cask 'virtualbox'
 #cask 'x-quartz'
 cask 'keyremap4macbook'
 cask 'splashtop-streamer'
+cask 'phinze/cask/reflector'
 
 # 以下のApplicationは、Caskが無いので、手動でInstallする
 # - Adobe CC
@@ -165,7 +167,6 @@ cask 'splashtop-streamer'
 # - MS Office
 # - ParticleDesigner
 # - R53Fox
-# - Reflector
 # - Unity Web Player
 # - cooviewer
 # - Lingr

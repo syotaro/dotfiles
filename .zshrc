@@ -97,7 +97,8 @@ case $(uname -s) in
 
 [ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
 [ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
-
+        #git diff
+[ -d /usr/local/Cellar/git/ ] && export PATH=$PATH:/usr/local/Cellar/git/`git --version | awk '{print $3}'`/share/git-core/contrib/diff-highlight
     ;;
 esac
 
@@ -192,8 +193,6 @@ alias gd='git diff'
 # alias gba='git branch -a'
 # alias g='cd   $(git rev-parse --show-toplevel)'
 alias gcd='cd $(git rev-parse --show-toplevel)'
-
-
 
 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
