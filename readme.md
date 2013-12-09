@@ -1,4 +1,3 @@
-
 ## Clean OSX setup flow
 
 ### Install Dropbox
@@ -8,7 +7,7 @@
 ### Install Apps (via AppStore)
 
 ~~~bash
-    # => manually thins
+    # => manually
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 1Password
