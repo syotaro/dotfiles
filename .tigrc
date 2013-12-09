@@ -14,3 +14,4 @@ bind diff l scroll-right
 bind diff h scroll-left
 
 set line-graphics = utf-8
+

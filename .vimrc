@@ -562,6 +562,9 @@ endif
 
 "--------------
 
+   " C-j, C-kで1行スクロール
+  noremap <C-o> zo
+  noremap <C-z> zc
 
    " C-j, C-kで1行スクロール
   noremap <C-j> <C-e>
