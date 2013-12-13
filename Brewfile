@@ -154,7 +154,15 @@ cask 'virtualbox'
 #cask 'x-quartz'
 cask 'keyremap4macbook'
 cask 'splashtop-streamer'
-cask 'phinze/cask/reflector'
+cask 'reflector'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'quicklook-csv'
+cask 'quicklook-json'
+cask 'redis-desktop-manager'
+
+
+
 
 # 以下のApplicationは、Caskが無いので、手動でInstallする
 # - Adobe CC

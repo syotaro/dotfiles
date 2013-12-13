@@ -284,9 +284,8 @@ cat /etc/shells
 ### Add quickLook plugin
 
 ~~~bash
-mkdir ~/Library/QuickLook/
-cp -r ~/.dotfiles/quicklook/* ~/Library/QuickLook
-killall Finder
+brew update; brew upgrade brew-cask
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r
 ~~~
 
 ### Install Ruby
@@ -327,7 +326,7 @@ bundle install
 ~~~diff
     # Configure kramdown
 cd ~/.dotfiles
-vim `bundle show kramdown`/lib/kramdown/options.rb # or vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
+vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
 
 -    define(:coderay_line_numbers, Symbol, :inline, 
 +    define(:coderay_line_numbers, Symbol, nil, 
