@@ -92,7 +92,6 @@ iPhoto
 picatext
 ~~~
 
-- [graphsketcher/GraphSketcher](https://github.com/graphsketcher/GraphSketcher)
 
 ### Setup ssh key 
 
@@ -124,6 +123,7 @@ sh ./osx.sh
 
 - [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
 - [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
+- [graphsketcher/GraphSketcher](https://github.com/graphsketcher/GraphSketcher)
 
 ~~~bash
     # Install Require Tools
@@ -140,45 +140,9 @@ sudo gem install brewdler
        #brew    tap 'phinze/homebrew-cask'
        #brew    install brew-cask
 cd      ~/.dotfiles
-cat     brewfile
+cat     Brewfile
 brewdle install
 brew linkapps
-~~~
-
-### Install Apps (ohter than via AppStore)
-
-~~~bash
-    # app list generate command
-    # $ diff -y <(mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ;}' | sort) <( ls /Applications| grep '.app' | sort) | grep '>' | awk '{for( i = 2; i < NF; i++ ){printf( "%s ", $i );}print $NF;}' | awk '{sub(".app","")}{print}' | egrep -v 'Safari|iTune|Time Machine|Mail|Reminders|QuickTime|Preview|Photo Booth|Notes|App Store|Automator|Calculator|Dictionary|Dashboard|DVD Player|FaceTime|Game Center|Image Capture|Messages|Mission Control|Calendar|Chess|Contacts|Launchpad|Stickies'
-Alfred 2
-AppCleaner
-Bartender
-BetterTouchTool
-Camtasia 2
-CodeKit
-Dropbox
-Fluid
-ForkLift
-Google Chrome Canary
-Google Chrome
-Google Notifier
-Gyazo GIF
-Gyazo
-KeyRemap4MacBook
-LibreOffice
-MacVim
-Marked
-OmniGraffle
-OmniOutliner
-Path Finder
-PhpStorm
-QuickCast
-SourceTree
-TextEdit
-TotalFinder
-VLC
-VirtualBox
-iTerm
 ~~~
 
 ### Configure BBT
