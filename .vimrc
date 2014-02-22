@@ -357,10 +357,12 @@ else
   " Other {{{
   NeoBundle 'itspriddle/vim-javascript-indent'
   NeoBundle 'JSON.vim'
+  " NeoBundle 'mhinz/vim-startify'
   " NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'less.vim', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
   NeoBundle 'osyo-manga/vim-over'
+  NeoBundle 'itchyny/calendar.vim'
   " }}}
 
 
@@ -415,7 +417,9 @@ endif
 " set imdisable                                                        " insertモードを抜けるとIMEオフ
 " set noimcmdline                                                      " insertモードを抜けるとIMEオフ
 " set nolinebreak                                                      " 勝手に改行するのをやめる
-  set nrformats=octal                                        " <C-a> <C-x> で英字も増減させる、かつ8進数の計算をさせない
+" set nrformats=aplha                                   " <C-a> <C-x> で英字も増減させる、かつ9進数の計算をさせない
+" set nrformats=octal
+  set nrformats=alpha
   set textwidth=0                                                      " 一行に長い文章を書いていても自動折り返しをしない
 " undo 履歴の保存
 if has('persistent_undo')
@@ -768,3 +772,23 @@ autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
 " augroup vimrc
 "     autocmd FileType phpunit EnableFastPHPFolds
 " augroup END
+
+
+
+" -----------------------------------------------------------------------------
+"  Vim Startyfy
+" -----------------------------------------------------------------------------
+"   " startifyのヘッダー部分に表示する文字列を設定する(dateコマンドを実行して日付を設定している)
+"   let g:startify_custom_header =
+"     \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
+"   " デフォルトだと、最近使ったファイルの先頭は数字なので、使用するアルファベットを指定
+"   let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
+"   " よく使うファイルをブックマークとして登録しておく
+"   let g:startify_bookmarks = [
+"     \ '~/.vimrc',
+"     \ ]
+
+" calendar.vim
+  let g:calendar_google_calendar = 1
+  " let g:calendar_google_task = 1
+

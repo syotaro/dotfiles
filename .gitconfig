@@ -8,7 +8,7 @@
   grep          = auto
 [core]
   pager         = lv -c
-  excludesfile  = ~/.gitignore  # globalな.gitignoreの指定
+	excludesfile = /Users/syotaro/.gitignore.global
   quotepath     = false
   editor = vim
   #  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol

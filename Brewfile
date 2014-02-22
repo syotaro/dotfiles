@@ -110,6 +110,12 @@ brew 'mysql'
 # #cp -f /PATH/TO/RICTY/fonts/Ricty*.ttf ~/Library/Fonts/
 # #fc-cache -vf
 
+################
+#  PPSSPP  http://ppsspp.angelxwind.net/?page/downloads#osx
+################
+brew 'sdl'
+
+
 
 ################
 #  Cask
@@ -117,6 +123,7 @@ brew 'mysql'
 # - Homebrew-cask(Homebrewの拡張でWebから落としてきてインストールする様なソフトを 自動でインストール)
 # - 「brew cask edit google-chrome」などで、オプション変更可能
 # - ダウンロード可能アプリの一覧は「brew cask search」にて
+
 
 
 tap  'phinze/homebrew-cask'
@@ -160,9 +167,11 @@ cask 'font-source-sans-pro'
 cask 'quicklook-csv'
 cask 'quicklook-json'
 cask 'redis-desktop-manager'
-
-
-
+cask 'bathyscaphe'
+cask 'rcdefaultapp'
+cask 'clipmenu'
+tap  'jimbojsb/launchrocket'
+cask 'launchrocket'
 
 # 以下のApplicationは、Caskが無いので、手動でInstallする
 # - Adobe CC

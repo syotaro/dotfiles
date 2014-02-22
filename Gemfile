@@ -52,7 +52,13 @@ gem 'git-issue'
 
 # blog
 gem 'jekyll-s3'
-gem 'ruhoh'
+gem 'ruhoh' , '2.5'
+
+# ruhoh require
+gem 'capybara'
+gem 'rspec'
+gem 'rspec'
+gem 'cucumber'
 
 # Markdown Engine
 gem 'kramdown'
@@ -61,3 +67,4 @@ gem 'redcarpet'
 
 # Other
 gem 'psd'
+

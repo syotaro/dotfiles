@@ -4,6 +4,9 @@
 
 - [Dropbox](https://www.dropbox.com/home)
 
+- [graphsketcher/GraphSketcher](https://github.com/graphsketcher/GraphSketcher)
+
+
 ### Install Apps (via AppStore)
 
 ~~~bash
@@ -115,6 +118,7 @@ cd ~/.dotfiles
 sh ./osx.sh
 ~~~
 
+- [Mac OS Xの隠し設定をこじあけるターミナルコマンド19 : ライフハッカー［日本版］](http://www.lifehacker.jp/2013/12/131217mac_terminal.html)
 
 ### Install Apps (via homebrew)
 
@@ -191,7 +195,7 @@ sudo apachectl -k restart
 brew install php54-xdebug phpunit phpmd php-code-sniffer
 ~~~
 
-//  ~~~bash
+~~~bash
 //  brew install httpd
 //  brew tap     'josegonzalez/homebrew-php'
 //  brew install --HEAD 'phpenv'
@@ -236,7 +240,7 @@ brew install php54-xdebug phpunit phpmd php-code-sniffer
 //  ~~~bash
 //  sudo apachectl restart
 //  cd /Library/WebServer/Documents
-//  ~~~
+~~~
 
 
 ~~~bash
