@@ -4,7 +4,6 @@
 
 - [Dropbox](https://www.dropbox.com/home)
 
-- [graphsketcher/GraphSketcher](https://github.com/graphsketcher/GraphSketcher)
 
 
 ### Install Apps (via AppStore)
@@ -93,6 +92,7 @@ iPhoto
 picatext
 ~~~
 
+- [graphsketcher/GraphSketcher](https://github.com/graphsketcher/GraphSketcher)
 
 ### Setup ssh key 
 
