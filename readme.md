@@ -127,15 +127,14 @@ open /Applications/Xcode.app
 ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew    doctor
 brew    update
-cd      ~/.dotfiles
-cat     Brewfile
-export HOMEBREW_CASK_OPTS="--appdir=/Applications”
+cat     ~/.dotfiles/Brewfile
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew bundle
 brew cask alfred link
 brew linkapps
 ~~~
 
-### Configure BBT
+### Configure BBT(on GUI)
 
 ~~~
 import ~/.dotfiles/bettertouchtool/bbt-setting-export
@@ -318,6 +317,7 @@ vim
     # git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 cd ~/.vim/bundle/neosnippet
 git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
+vim -c NeoBundleInstall!
 ~~~
 ~~~bash
     # Build LiveStyle

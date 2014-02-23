@@ -214,5 +214,3 @@ cleanup
 # - Unity Web Player
 # - cooviewer
 # - Lingr
-# app list generate command
-# $ diff -y <(mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ;}' | sort) <( ls /Applications| grep '.app' | sort) | grep '>' | awk '{for( i = 2; i < NF; i++ ){printf( "%s ", $i );}print $NF;}' | awk '{sub(".app","")}{print}' | egrep -v 'Safari|iTune|Time Machine|Mail|Reminders|QuickTime|Preview|Photo Booth|Notes|App Store|Automator|Calculator|Dictionary|Dashboard|DVD Player|FaceTime|Game Center|Image Capture|Messages|Mission Control|Calendar|Chess|Contacts|Launchpad|Stickies'
