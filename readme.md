@@ -119,7 +119,7 @@ sh ./osx.sh
 
 - [Mac OS Xの隠し設定をこじあけるターミナルコマンド19 : ライフハッカー［日本版］](http://www.lifehacker.jp/2013/12/131217mac_terminal.html)
 
-### Install Apps (via homebrew)
+### Install Apps (via homebrew or other)
 
 - [Homebrew で作るモダンなフロントエンド開発環境 (Git + zsh + apache + MySQL + Ruby) ｜ Developers.IO](http://dev.classmethod.jp/etc/modern-dev-environment-by-homebrew/)
 - [Mac - パッケージ管理システム Homebrew - Qiita](http://qiita.com/b4b4r07/items/6efebc2f3d1cbbd393fc)
@@ -135,19 +135,19 @@ open /Applications/Xcode.app
 ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew    doctor
 brew    update
-sudo gem install brewdler
-       #brew    tap 'homebrew/dupes'
-       #brew    tap 'phinze/homebrew-cask'
-       #brew    install brew-cask
 cd      ~/.dotfiles
 cat     Brewfile
-brewdle install
+export HOMEBREW_CASK_OPTS="--appdir=/Applications”
+brew bundle
+brew cask alfred link
 brew linkapps
 ~~~
 
 ### Configure BBT
 
-- import ~/.dotfiles/bettertouchtool/bbt-setting-export
+~~~
+import ~/.dotfiles/bettertouchtool/bbt-setting-export
+~~~
 
 
 ### Install PHP  (via php-build) + Apache

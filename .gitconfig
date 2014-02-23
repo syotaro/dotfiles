@@ -1,6 +1,6 @@
 [user]
-	name = Shotaro.Yamamoto
-	email = shotaro.yamamoto@gree.net
+	name = syotaro
+	email = syosyo666@gmail.com
 [color]
   ui            = auto
   status        = auto
@@ -27,7 +27,7 @@
 [include]
   path          = .gitconfig.local
 [github]
-  user = shotaro-yamamoto
+  user = syotaro
 [url "git@github.com:syotaro/"]
   insteadof     = gh:
 [alias]
@@ -49,15 +49,9 @@
 [http]
   sslVerify = false
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
-#[hub]
-#protocol = https
+[hub]
+protocol = https

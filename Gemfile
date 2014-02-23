@@ -62,7 +62,7 @@ gem 'cucumber'
 
 # Markdown Engine
 gem 'kramdown'
-gem 'coderay'   # kramdownのcodeブロックをsyntax hilight してくれるようになる。
+gem 'coderay'   # kramdownのcodeブロックをsyntax highlight してくれるようになる。
 gem 'redcarpet'
 
 # Other
