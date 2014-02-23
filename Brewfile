@@ -8,7 +8,7 @@ update
 # Add Repository
 ############################################
 #tap  home/dupes        || true
-tap  phinze/home-cask  || true
+tap  phinze/homebrew-cask  || true
 tap  homebrew/binary       || true
 tap  jimbojsb/launchrocket || true
 
@@ -116,7 +116,7 @@ install 'sdl'
 #  Cask          - 「 cask edit google-chrome」などで、オプション変更可能
 ############################################
 # Packages for brew-cask
-install 'brew-cask'
+# install brew-cask
 # .dmg from brew-cask
 
 cask install 'adobe-air'
@@ -135,6 +135,8 @@ cask install 'google-chrome-canary'
 cask install 'google-web-designer'
 cask install 'intellij-idea-ultimate'
 cask install 'iterm2'
+cask install 'flash'
+cask install 'sequel-pro'
 cask install 'keyremap4macbook'
 cask install 'ksdiff'
 cask install 'launchrocket'
@@ -179,6 +181,7 @@ cask install 'quicklook-csv'
 cask install 'quicklook-json'
 cask install 'suspicious-package'
 cask install 'webp-quicklook'
+cask install 'vmware-fusion'
 
 ############################################
 # Remove outdated versions
@@ -203,7 +206,6 @@ cleanup
 #
 # 以下のApplicationは、現状Caskが無いので、手動でInstallする
 # - Adobe CC
-# - Adobe Flash Player
 # - Elasticfox-ec2tag
 # - Gyazo gif
 # - GlyphDesigner
