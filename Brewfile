@@ -123,7 +123,7 @@ cask install 'adobe-air'
 cask install 'alfred'
 cask install 'appcleaner'
 cask install 'bartender'
-cask install 'bathyscaphe'
+cask install 'bathyscaphe'   # 2ch ブラウザ
 cask install 'bettertouchtool'
 cask install 'camtasia'
 cask install 'clipmenu'
