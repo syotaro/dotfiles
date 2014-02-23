@@ -160,6 +160,7 @@ cask install 'versions'  # Subversion Client
 cask install 'virtualbox'
 cask install 'vlc'
 cask install 'teamviewer'
+cask install 'vmware-fusion'
 #cask install 'dropbox'
 #cask install 'evernote'
 #cask install 'gyazo'
@@ -181,7 +182,6 @@ cask install 'quicklook-csv'
 cask install 'quicklook-json'
 cask install 'suspicious-package'
 cask install 'webp-quicklook'
-cask install 'vmware-fusion'
 
 ############################################
 # Remove outdated versions
