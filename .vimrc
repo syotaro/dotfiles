@@ -308,8 +308,8 @@ else
   " NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
   " NeoBundle 'watanabe0621/SmartyJump'    "     , {'autoload': {'filetypes': ['tpl']}}
   NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundle 'bpearson/vim-phpcs'
-  let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
+  " NeoBundle 'bpearson/vim-phpcs'
+  " let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
   NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
   NeoBundle 'smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
 
@@ -363,6 +363,7 @@ else
   " NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
   NeoBundle 'osyo-manga/vim-over'
   NeoBundle 'itchyny/calendar.vim'
+  NeoBundle 'SQLComplete.vim'
   " }}}
 
 
@@ -792,3 +793,11 @@ autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
   let g:calendar_google_calendar = 1
   " let g:calendar_google_task = 1
 
+
+
+
+
+imap <buffer> <C-C>a <C-\><C-O>:call sqlcomplete#Map('syntax')<CR><C-X><C-O>
+let g:sql_type_default = 'mysql'
+autocmd FileType sql set omnifunc=sqlcomplete#Complete
+autocmd FileType mysql set omnifunc=sqlcomplete#Complete

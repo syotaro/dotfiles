@@ -128,6 +128,7 @@ cask install 'bettertouchtool'
 cask install 'camtasia'
 cask install 'clipmenu'
 cask install 'codekit'
+cask install 'adobe-creative-cloud'
 cask install 'fluid'
 cask install 'forklift'
 cask install 'google-chrome'
@@ -205,7 +206,6 @@ cleanup
 # cd ` --prefix` # homebrewの保存先であるCellerディレクトリの場所に移動する
 #
 # 以下のApplicationは、現状Caskが無いので、手動でInstallする
-# - Adobe CC
 # - Elasticfox-ec2tag
 # - Gyazo gif
 # - GlyphDesigner

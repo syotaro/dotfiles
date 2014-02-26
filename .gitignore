@@ -1,10 +1,6 @@
 ### phpctags
 tags
 
-### intelliJ / PhPStorm ###
-.idea/
-app.iml
-
 ### Original
 /.vim/bundle
 /.aws/keys/pk.pem
@@ -20,3 +16,7 @@ app.iml
 
 ### 
 /.vim-anywhere/
+
+### IntelliJ
+#
+intelliJ/
