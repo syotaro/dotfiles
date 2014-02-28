@@ -1,5 +1,9 @@
 
 
+hdiutil attach ~/Downloads/vagrant-disk.dmg
+
+sudo tcpflow -ec -i en0 port 80
+
 # Windowsファイルの文字コードをOSXでも読めるように
 nkf --unix -w --overwrite ./ファイル名
 

@@ -8,9 +8,11 @@ update
 # Add Repository
 ############################################
 #tap  home/dupes        || true
-tap  phinze/homebrew-cask  || true
-tap  homebrew/binary       || true
-tap  jimbojsb/launchrocket || true
+tap phinze/homebrew-cask  || true
+tap caskroom/homebrew-versions || true  # add beta pkg
+tap homebrew/binary       || true
+tap jimbojsb/launchrocket || true
+tap jingweno/gh           || true
 
 
 ############################################
@@ -22,6 +24,7 @@ tap  jimbojsb/launchrocket || true
 #install 'python3'
 install 'autoconf'
 install 'automake'
+install 'gh'
 install 'bash'
 install 'bdw-gc'
 install 'bsdmake'
@@ -68,6 +71,7 @@ install 'the_silver_searcher'
 install 'tree'
 install 'unixodbc'
 install 'w3m'  # CLI Web Browser
+install 'pstree'
 install 'watch'
 install 'wget' --enable-iri
 install 'xz'
@@ -85,8 +89,8 @@ install 'siege'
 ################
 #  Ruby
 ################
-install 'readline'
 install 'openssl'
+install 'readline'
 install 'ruby-build' --HEAD
 install 'rbenv'
 ################
@@ -120,15 +124,16 @@ install 'sdl'
 # .dmg from brew-cask
 
 cask install 'adobe-air'
+cask install 'adobe-creative-cloud'
 cask install 'alfred'
+cask install 'alfred' --link  # CaskroomをAlfredの検索パスに追加
 cask install 'appcleaner'
 cask install 'bartender'
 cask install 'bathyscaphe'   # 2ch ブラウザ
 cask install 'bettertouchtool'
 cask install 'camtasia'
 cask install 'clipmenu'
-cask install 'codekit'
-cask install 'adobe-creative-cloud'
+cask install 'flash'
 cask install 'fluid'
 cask install 'forklift'
 cask install 'google-chrome'
@@ -136,15 +141,12 @@ cask install 'google-chrome-canary'
 cask install 'google-web-designer'
 cask install 'intellij-idea-ultimate'
 cask install 'iterm2'
-cask install 'flash'
-cask install 'sequel-pro'
 cask install 'keyremap4macbook'
 cask install 'ksdiff'
 cask install 'launchrocket'
 cask install 'libreoffice'
 cask install 'livereload'
 cask install 'marked2'
-cask install 'mysqlworkbench'
 cask install 'path-finder'
 cask install 'perian'
 cask install 'quickcast'
@@ -153,23 +155,28 @@ cask install 'redis-desktop-manager'
 cask install 'reflector'
 cask install 'silverlight'
 cask install 'skype'
-cask install 'splashtop-streamer'
+cask install 'teamviewer'
 cask install 'testflight'
 cask install 'totalfinder'
 cask install 'vagrant'
 cask install 'versions'  # Subversion Client
 cask install 'virtualbox'
 cask install 'vlc'
-cask install 'teamviewer'
 cask install 'vmware-fusion'
+#cask install 'codekit'
 #cask install 'dropbox'
 #cask install 'evernote'
 #cask install 'gyazo'
+#cask install 'mysqlworkbench'
 #cask install 'omnigraffle'
 #cask install 'parallels-9'
 #cask install 'phpstorm'
 #cask install 'sequel-pro'
+#cask install 'splashtop-streamer'
 #cask install 'x-quartz'
+
+
+
 
 ################
 # QuickLook Plugin
@@ -195,6 +202,7 @@ cleanup
 # --config      # Homebrewの設定一覧
 # --prefix pkg名 # Install path
 # cask search   # lisgint cask Application
+# leaves | sed 's/^/install /'   # install済みpkgを追記
 # cleanup
 # doctor
 # info          # インストールしたpkgの設定方法確認
