@@ -77,30 +77,30 @@ esac
 
 ########################################################################  お試し期間中設定
 
-export XDEBUG_CONFIG="idekey=DBGP"
-export XDEBUG_SESSION_START=DBGP
+#export XDEBUG_CONFIG="idekey=DBGP"
+#export XDEBUG_SESSION_START=DBGP
 
 
 #export PATH=/usr/local/share/zsh/site-functions/:$PATH   # emmet livestyle
 
 
 # Gist
-export GITHUB_URL=https://git.gree-dev.net/
+#export GITHUB_URL=https://git.gree-dev.net/
 
-case $(uname -s) in
-    Darwin)
-
-[ -d $HOME/.rbenv/ ]  && export MAKEOPTS="-j4"
-[ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/bin:$PATH"
-[ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/shims:$PATH"
-[ -d $HOME/.rbenv/ ]  && eval "$(rbenv init - zsh)"
-
-[ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
-[ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
-        #git diff
-[ -d /usr/local/Cellar/git/ ] && export PATH=$PATH:/usr/local/Cellar/git/`git --version | awk '{print $3}'`/share/git-core/contrib/diff-highlight
-    ;;
-esac
+#  case $(uname -s) in
+#      Darwin)
+#  
+#  [ -d $HOME/.rbenv/ ]  && export MAKEOPTS="-j4"
+#  [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/bin:$PATH"
+#  [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/shims:$PATH"
+#  [ -d $HOME/.rbenv/ ]  && eval "$(rbenv init - zsh)"
+#  
+#  [ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
+#  [ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
+#          #git diff
+#  [ -d /usr/local/Cellar/git/ ] && export PATH=$PATH:/usr/local/Cellar/git/`git --version | awk '{print $3}'`/share/git-core/contrib/diff-highlight
+#      ;;
+#  esac
 
 ########################################################################  Alias
 
@@ -110,17 +110,17 @@ case $(uname -s) in
         alias ls="ls -AhwG"
         alias ll="ls -AlhG"
         # sublime text 2
-        alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
-        alias subll='st .'
+        #alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+        #alias subll='st .'
         # github
-        alias hb='hub browse'
+        #alias hb='hub browse'
         # less syntax
         alias less="/usr/share/vim/vim73/macros/less.sh"
         # vim
-        alias v=' /Applications/MacVim.app/Contents/MacOS/Vim'
-        alias vi=' /Applications/MacVim.app/Contents/MacOS/Vim'
-        alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-        alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g '
+        alias v='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias vi='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias vim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias gvim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim -g '
         alias pbc='pbcopy'
         alias ql='qlmanage -p '
     ;;
@@ -205,3 +205,11 @@ export CLICOLOR=1                                     # Terminal Colorの設定
 
 # cd後、自動的にls
 function chpwd() { ls }
+
+# sheet で必要
+export EDITOR=`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim
+
+# zのパス
+. `brew --prefix`/etc/profile.d/z.sh
+
+

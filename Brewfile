@@ -75,6 +75,7 @@ install 'pstree'
 install 'watch'
 install 'wget' --enable-iri
 install 'xz'
+install 'z'
 install 'zsh' --disable-etcdir
 
 ################
