@@ -68,6 +68,12 @@ gem 'redcarpet'
 # Other
 gem 'psd'
 
-
-
+# util
 gem 'sheet'
+
+# Redmine
+gem 'bundler'
+gem 'mysql2'
+gem 'rails'
+gem 'rake'
+gem 'rmagick'

@@ -8,4 +8,8 @@ do
     fi
 done
 
+ln -sf ~/Dropbox/work/database ~/database
+ln -sf ~/Dropbox/work/svn ~/svn
+ln -sf ~/Dropbox/work/github ~/github
+ln -sf ~/Dropbox/work/github/dotfiles ~/github/dotfiles
 

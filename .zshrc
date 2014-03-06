@@ -6,11 +6,6 @@ export TERM=xterm-256color
 # esac
 
 
-
-
-
-
-
 ######################################################################## history
 export HISTFILE=~/.zsh_history           # historyファイル
 export HISTIGNORE=ls:history
@@ -85,22 +80,22 @@ esac
 
 
 # Gist
-#export GITHUB_URL=https://git.gree-dev.net/
+#export GITHUB_URL=https://git.GITHUB_ENTERPRISE_URL/
 
-#  case $(uname -s) in
-#      Darwin)
-#  
-#  [ -d $HOME/.rbenv/ ]  && export MAKEOPTS="-j4"
-#  [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/bin:$PATH"
-#  [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/shims:$PATH"
-#  [ -d $HOME/.rbenv/ ]  && eval "$(rbenv init - zsh)"
-#  
-#  [ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
-#  [ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
-#          #git diff
-#  [ -d /usr/local/Cellar/git/ ] && export PATH=$PATH:/usr/local/Cellar/git/`git --version | awk '{print $3}'`/share/git-core/contrib/diff-highlight
-#      ;;
-#  esac
+ case $(uname -s) in
+     Darwin)
+
+ [ -d $HOME/.rbenv/ ]  && export MAKEOPTS="-j4"
+ [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/bin:$PATH"
+ [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/shims:$PATH"
+ [ -d $HOME/.rbenv/ ]  && eval "$(rbenv init - zsh)"
+
+ [ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
+ [ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
+         #git diff
+ [ -d /usr/local/Cellar/git/ ] && export PATH=$PATH:/usr/local/Cellar/git/`git --version | awk '{print $3}'`/share/git-core/contrib/diff-highlight
+     ;;
+ esac
 
 ########################################################################  Alias
 
@@ -161,7 +156,7 @@ alias ag='ag -S --stats'
 alias agh='ag --hidden'
 
 # add datetime
-alias history="history -i" 
+alias history="history -i"
 
 
 # rails
@@ -181,8 +176,8 @@ alias history="history -i"
 
 
 # Find ruby file
-alias rfind='find . -name "*.rb" | xargs grep -n'
-alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
+#alias rfind='find . -name "*.rb" | xargs grep -n'
+#alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
 
 
 # git
@@ -211,5 +206,4 @@ export EDITOR=`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim
 
 # zのパス
 . `brew --prefix`/etc/profile.d/z.sh
-
 

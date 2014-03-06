@@ -2,6 +2,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     CoffeeTags (0.1.3)
+    actionmailer (0.6.1)
+      actionpack (>= 0.9.5)
+    actionpack (1.4.0)
+    activerecord (1.6.0)
     activesupport (4.0.2)
       i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
@@ -70,6 +74,7 @@ GEM
     multi_test (0.0.2)
     multi_xml (0.5.5)
     mustache (0.99.5)
+    mysql2 (0.3.15)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oily_png (1.1.0)
@@ -85,8 +90,14 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rails (0.9.5)
+      actionmailer (>= 0.6.1)
+      actionpack (>= 1.4.0)
+      activerecord (>= 1.6.0)
+      rake (>= 0.4.15)
     rake (10.1.1)
     redcarpet (2.3.0)
+    rmagick (2.13.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -95,12 +106,13 @@ GEM
     rspec-expectations (2.14.4)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.4)
-    ruhoh (2.6)
+    ruhoh (2.5)
       directory_watcher (~> 1.4.0)
       mustache (~> 0.99)
       nokogiri (~> 1.5)
       rack (~> 1.4)
       redcarpet (~> 2.1)
+    sheet (0.2.2)
     simple-cloudfront-invalidator (0.0.1)
       colored (= 1.2)
     term-ansicolor (1.2.2)
@@ -124,6 +136,7 @@ DEPENDENCIES
   CoffeeTags
   awesome_print
   brewdler
+  bundler
   capybara
   coderay
   cucumber
@@ -132,8 +145,13 @@ DEPENDENCIES
   jekyll-s3
   kramdown
   lunchy
+  mysql2
   psd
+  rails
+  rake
   redcarpet
+  rmagick
   rspec
-  ruhoh
+  ruhoh (= 2.5)
+  sheet
   thin

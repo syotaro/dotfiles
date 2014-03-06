@@ -20,9 +20,7 @@ ColorSchemer Studio
 Dash
 Desktop Calendar Plus
 Elastics
-Evernote
 Frank DeLoupe
-GarageBand
 Gemini
 GistPal
 GraphicConverter
@@ -35,7 +33,6 @@ JSON Editor
 Keynote
 LINE
 LiveReload
-MailTab Pro for Gmail
 Markdown Pro
 Market Junkie
 MenuTab Pro for Facebook
@@ -85,8 +82,6 @@ Xcode
 YoruFukurou
 iBooks Author
 iKeyboard
-iMovie
-iPhoto
 picatext
 ~~~
 
@@ -351,13 +346,16 @@ sh ./keyremap4mb-importconfig.sh
 ### Configure MySQL
 
 ~~~bash
-    # MySQLデータベースを作成
+    # MySQLデータベースを作成(to Dropbox)
 unset TMPDIR
-mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=$HOME/Dropbox/work/database/localhost/data --tmpdir=/tmp
+    # アクセス権限を付与
+chmod -R 777 $HOME/Dropbox/work/database/localhost/data
+
     # MySQLの開始
 mysql.server start
     # MySQLの初期セットアップ
-/usr/local/Cellar/mysql/*/bin/mysql_secure_installation
+/usr/local/opt/mysql/bin/mysql_secure_installation
 
   Enter current password for root (enter for none): 
   Set root password? [Y/n] Y
@@ -376,7 +374,22 @@ mysql.server start
 
   Thanks for using MySQL!
 
+    # ログイン
 mysql -uroot
+    # パスワード設定
+mysqladmin -u root password 'new-password'
+    # my.cnfの読み込み順を確認
+mysql --help | grep my.cnf
+~~~
+
+### Configure QuickLook
+
+~~~
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ~~~
 
 
+### Setup
+
+- Redmine
+  - https://gist.github.com/syotaro/9369962

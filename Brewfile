@@ -45,7 +45,7 @@ install 'graphicsmagick'
 install 'htop-osx'
 install 'hub' # wrapper for  git command
 install 'icu4c'
-install 'imagemagick'
+install 'imagemagick' --disable-openmp
 install 'jpeg'
 install 'jq'         # JSONパーサー
 install 'libevent'
@@ -59,6 +59,7 @@ install 'lynx'
 install 'macvim'  --with-lua --override-system-vim --custom-icons
 install 'multitail'
 install 'nkf'
+install 'ngrep'
 install 'nmap'    # port scan util
 install 'oniguruma'
 install 'pidof'
@@ -66,6 +67,7 @@ install 'pkg-config'
 install 's3cmd'
 install 'sqlite'
 install 'sshfs'
+install 'skitch'
 install 'tcpflow'
 install 'the_silver_searcher'
 install 'tree'
@@ -136,23 +138,19 @@ cask install 'camtasia'
 cask install 'clipmenu'
 cask install 'flash'
 cask install 'fluid'
-cask install 'forklift'
+cask install 'yorufukurou'
 cask install 'google-chrome'
 cask install 'google-chrome-canary'
-cask install 'google-web-designer'
-cask install 'intellij-idea-ultimate'
+cask install 'intellij-idea'
 cask install 'iterm2'
 cask install 'keyremap4macbook'
 cask install 'ksdiff'
 cask install 'launchrocket'
-cask install 'libreoffice'
-cask install 'livereload'
-cask install 'marked2'
-cask install 'path-finder'
+cask install 'marked'
 cask install 'perian'
 cask install 'quickcast'
+cask install 'openemu-experimental'
 cask install 'rcdefaultapp'
-cask install 'redis-desktop-manager'
 cask install 'reflector'
 cask install 'silverlight'
 cask install 'skype'
@@ -167,11 +165,16 @@ cask install 'vmware-fusion'
 #cask install 'codekit'
 #cask install 'dropbox'
 #cask install 'evernote'
+#cask install 'forklift'
+#cask install 'google-web-designer'
 #cask install 'gyazo'
+#cask install 'libreoffice'
 #cask install 'mysqlworkbench'
 #cask install 'omnigraffle'
 #cask install 'parallels-9'
+#cask install 'path-finder'
 #cask install 'phpstorm'
+#cask install 'redis-desktop-manager'
 #cask install 'sequel-pro'
 #cask install 'splashtop-streamer'
 #cask install 'x-quartz'
@@ -186,11 +189,11 @@ cask install 'betterzipql'
 cask install 'qlcolorcode'
 cask install 'qlmarkdown'
 cask install 'qlprettypatch'
-cask install 'qlstephen'
+cask install 'qlstephen'       # view plain text files without a file extension
 cask install 'quicklook-csv'
 cask install 'quicklook-json'
-cask install 'suspicious-package'
 cask install 'webp-quicklook'
+#cask install 'suspicious-package'
 
 ############################################
 # Remove outdated versions
@@ -225,3 +228,9 @@ cleanup
 # - Unity Web Player
 # - cooviewer
 # - Lingr
+
+## 個別に設定が必要なもの
+# - Unclutter
+# - Mi
+
+

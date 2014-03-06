@@ -20,3 +20,9 @@ tags
 ### IntelliJ
 #
 intelliJ/
+
+### Project
+project
+
+### iTerm2
+iTerm/com.googlecode.iterm2.plist
