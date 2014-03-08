@@ -228,6 +228,7 @@ cleanup
 # - Unity Web Player
 # - cooviewer
 # - Lingr
+# - Autoclick
 
 ## 個別に設定が必要なもの
 # - Unclutter

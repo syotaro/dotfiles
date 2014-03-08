@@ -207,3 +207,5 @@ export EDITOR=`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim
 # zのパス
 . `brew --prefix`/etc/profile.d/z.sh
 
+
+export GOPATH=~/

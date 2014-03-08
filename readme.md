@@ -382,14 +382,14 @@ mysqladmin -u root password 'new-password'
 mysql --help | grep my.cnf
 ~~~
 
+### Install Quicklook Plugin
+
+~~~
+cp -r ~/dotfiles/quicklook_plugin/* ~/Library/QuickLook
+~~~
+
 ### Configure QuickLook
 
 ~~~
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ~~~
-
-
-### Setup
-
-- Redmine
-  - https://gist.github.com/syotaro/9369962
