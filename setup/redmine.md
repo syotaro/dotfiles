@@ -15,17 +15,17 @@
   ~~~
 
 - Install ImageMagick
-  ~~~
-  brew install imagemagick --disable-openmp
-  ~~~
+~~~
+brew install imagemagick --disable-openmp
+~~~
 - Some gems might be installed into the *global* gemset since they are needed in other projects too.
-  ~~~
-  gem install bundler
-  gem install mysql2
-  gem install rails
-  gem install rake
-  gem install rmagick
-  ~~~
+~~~
+gem install bundler
+gem install mysql2
+gem install rails
+gem install rake
+gem install rmagick
+~~~
 
 ## install Redmine
 
