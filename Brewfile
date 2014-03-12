@@ -164,6 +164,7 @@ cask install 'vlc'
 cask install 'soundflower'
 cask install 'vmware-fusion'
 cask install 'cloudytabs'
+cask install 'unity-web-player'
 #cask install 'codekit'
 #cask install 'dropbox'
 #cask install 'evernote'
@@ -227,7 +228,6 @@ cleanup
 # - MS Office
 # - ParticleDesigner
 # - R53Fox
-# - Unity Web Player
 # - cooviewer
 # - Lingr
 # - Autoclick
