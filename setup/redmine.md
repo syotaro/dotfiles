@@ -3,13 +3,17 @@
 ## install brew & gems
 
 - Follow the instructions on [https://github.com/mxcl/homebrew](https://github.com/mxcl/homebrew)
+
   ~~~
   /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
   ~~~
+
 - Install MySQL server
+
   ~~~
   brew install mysql
   ~~~
+
 - Install ImageMagick
   ~~~
   brew install imagemagick --disable-openmp
