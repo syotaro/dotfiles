@@ -79,7 +79,24 @@ install 'wget' --enable-iri
 install 'xz'
 install 'z'
 install 'zsh' --disable-etcdir
-
+################
+#  AWS
+################
+#aws-cfn-tools
+#aws-elasticache
+#aws-iam-tools
+#yaws
+#aws-mon
+#aws-cloudsearch
+#aws-elasticbeanstalk
+#aws-sns-cli
+#aws-as
+#ec2-ami-tools
+#ec2-api-tools
+#rds-command-line-tools
+#elb-tools
+#s3cmd
+#s3fs
 ################
 #  Tmux
 ################
