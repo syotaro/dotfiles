@@ -85,6 +85,11 @@ iKeyboard
 picatext
 ~~~
 
+~~~bash
+    # Install Require Tools
+open /Applications/Xcode.app
+java -version                # => Java Install manually
+~~~
 
 ### Setup ssh key
 
@@ -113,17 +118,13 @@ sh ./osx.sh
 ### Install Apps (via homebrew or other)
 
 ~~~bash
-    # Install Require Tools
-java -version                # => Java Install manually
-open /Applications/Xcode.app
-~~~
-~~~bash
     # Install
-ruby    -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew    doctor
 brew    update
 cat     ~/.dotfiles/Brewfile
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+brew install brew-cask
 brew bundle
 brew cask alfred link
 brew linkapps
@@ -238,7 +239,7 @@ cat /etc/shells
 
 ~~~bash
 brew update; brew upgrade brew-cask
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r
+brew cask install qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r
 ~~~
 
 ### Install Ruby
@@ -340,7 +341,7 @@ npm install -g bower
 ~~~bash
     # /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > ~/.dotfiles/keyremap4mb-importconfig2.sh
 cd ~/.dotfiles
-sh ./keyremap4mb-importconfig.sh
+sh ./keyremap4mb-importconfig2.sh
 ~~~
 
 ### Configure MySQL
@@ -393,3 +394,4 @@ cp -r ~/dotfiles/quicklook_plugin/* ~/Library/QuickLook
 ~~~
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ~~~
+

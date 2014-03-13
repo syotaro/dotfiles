@@ -115,6 +115,7 @@ GEM
     sheet (0.2.2)
     simple-cloudfront-invalidator (0.0.1)
       colored (= 1.2)
+    sqlite3 (1.3.9)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     thin (1.6.1)
@@ -154,4 +155,5 @@ DEPENDENCIES
   rspec
   ruhoh (= 2.5)
   sheet
+  sqlite3
   thin

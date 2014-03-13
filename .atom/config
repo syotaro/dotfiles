@@ -1,13 +1,13 @@
 'exception-reporting':
   'userId': '64e891c9-d403-98f7-5b91-7a61139df7eb'
 'release-notes':
-  'viewedVersion': '0.71.0'
+  'viewedVersion': '0.67.0'
 'welcome':
   'showOnStartup': false
 'metrics':
   'userId': '5b4d4e95f0301c54e7e213b6048ad3f4eaf30adc'
 'editor':
-  'fontSize': 12
+  'fontSize': 16
 'core':
   'themes': [
     'atom-dark-ui'
@@ -18,3 +18,4 @@
     '.svn'
     '.DS_Store'
   ]
+

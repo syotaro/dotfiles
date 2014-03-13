@@ -27,7 +27,7 @@ install 'automake'
 install 'gh'
 install 'bash'
 install 'bdw-gc'
-install 'bsdmake'
+#install 'bsdmake'
 install 'cmake'    # be require from mysql
 install 'colordiff'
 install 'coreutils'
@@ -67,7 +67,6 @@ install 'pkg-config'
 install 's3cmd'
 install 'sqlite'
 install 'sshfs'
-install 'skitch'
 install 'tcpflow'
 install 'the_silver_searcher'
 install 'tree'
@@ -134,7 +133,11 @@ install 'mysql'
 #  PPSSPP  http://ppsspp.angelxwind.net/?page/downloads#osx
 ################
 install 'sdl'
-
+################
+#  CSVTOOL
+################
+brew install opam
+# opam install csv
 
 ############################################
 #  Cask          - 「 cask edit google-chrome」などで、オプション変更可能
@@ -146,7 +149,7 @@ install 'sdl'
 cask install 'adobe-air'
 cask install 'adobe-creative-cloud'
 cask install 'alfred'
-cask install 'alfred' --link  # CaskroomをAlfredの検索パスに追加
+#cask install 'alfred' --link  # CaskroomをAlfredの検索パスに追加
 cask install 'appcleaner'
 cask install 'bartender'
 cask install 'bathyscaphe'   # 2ch ブラウザ
@@ -171,7 +174,9 @@ cask install 'rcdefaultapp'
 cask install 'reflector'
 cask install 'silverlight'
 cask install 'skype'
+cask install 'skitch'
 cask install 'teamviewer'
+cask install 'google-japanese-ime'
 cask install 'testflight'
 cask install 'totalfinder'
 cask install 'vagrant'
