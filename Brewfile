@@ -136,7 +136,7 @@ install 'sdl'
 ################
 #  CSVTOOL
 ################
-brew install opam
+#install opam
 # opam install csv
 
 ############################################
@@ -183,6 +183,7 @@ cask install 'vagrant'
 cask install 'versions'  # Subversion Client
 cask install 'virtualbox'
 cask install 'vlc'
+cask install 'postbox'
 cask install 'soundflower'
 cask install 'vmware-fusion'
 cask install 'cloudytabs'
