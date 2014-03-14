@@ -20,7 +20,7 @@
 [push]
   default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [merge]
-  tool = vimdiff
+	tool = Kaleidoscope
   ff            = false               # mergeのデフォルトが--no-ffに
 [grep]
   lineNumber    = true
@@ -35,6 +35,7 @@
   st            = status
   co            = checkout
   d             = diff
+  ksdiff        = difftool -y -t Kaleidoscope
   dc            = diff --cached
   s             = status
   ss            = status -s
@@ -55,3 +56,14 @@
   diff = diff-highlight | less
 [hub]
 protocol = https
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false

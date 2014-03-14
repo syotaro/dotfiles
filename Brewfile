@@ -20,7 +20,7 @@ tap jingweno/gh           || true
 ############################################
 #install 'fuse4x'
 #install 'fuse4x-kext'
-#install 'haskell-platform'  # Install until the end, very time-consuming
+install 'haskell-platform'  # Install until the end, very time-consuming
 #install 'python3'
 install 'autoconf'
 install 'automake'
@@ -56,7 +56,7 @@ install 'libyaml'
 install 'lua'
 install 'lv'
 install 'lynx'
-install 'macvim'  --with-lua --override-system-vim --custom-icons
+install 'macvim' '--with-lua --override-system-vim --custom-icons'
 install 'multitail'
 install 'nkf'
 install 'ngrep'
@@ -195,7 +195,7 @@ cask install 'unity-web-player'
 #cask install 'gyazo'
 #cask install 'libreoffice'
 #cask install 'mysqlworkbench'
-#cask install 'omnigraffle'
+cask install 'omnigraffle'
 #cask install 'parallels-9'
 #cask install 'path-finder'
 #cask install 'phpstorm'

@@ -103,7 +103,7 @@ chmod 600 ~/.ssh/id_*
 ### Setup dotfiles
 
 ~~~bash
-mkdir ~/.dotfiles &&  cd ~/.dotfiles
+mkdir ~/dotfiles &&  cd ~/dotfiles
 git clone git@github.com:syotaro/dotfiles.git .
 sh ./setup.sh
 ~~~
@@ -111,7 +111,7 @@ sh ./setup.sh
 ### Configure OS X
 
 ~~~bash
-cd ~/.dotfiles
+cd ~/dotfiles
 sh ./osx.sh
 ~~~
 
@@ -122,7 +122,7 @@ sh ./osx.sh
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew    doctor
 brew    update
-cat     ~/.dotfiles/Brewfile
+cat     ~/dotfiles/Brewfile
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew install brew-cask
 brew bundle
@@ -133,14 +133,14 @@ brew linkapps
 ### Configure BBT(on GUI)
 
 ~~~
-import ~/.dotfiles/bettertouchtool/bbt-setting-export
+import ~/dotfiles/bettertouchtool/bbt-setting-export
 ~~~
 
 ### Install PHP  (via php-build) + Apache
 
 ~~~bash
 sudo vim /private/etc/apache2/httpd.conf #=> phpを有効化
-sudo ln -s ~/.dotfiles/php/php.ini /etc/
+sudo ln -s ~/dotfiles/php/php.ini /etc/
 sudo apachectl -k restart
 brew install php54-xdebug phpunit phpmd php-code-sniffer
 ~~~
@@ -279,7 +279,7 @@ bundle install
 
 ~~~diff
     # Configure kramdown
-cd ~/.dotfiles
+cd ~/dotfiles
 vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
 
 -    define(:coderay_line_numbers, Symbol, :inline, 
@@ -339,8 +339,8 @@ npm install -g bower
 ### Configure KeyRemap4MakBook
 
 ~~~bash
-    # /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > ~/.dotfiles/keyremap4mb-importconfig2.sh
-cd ~/.dotfiles
+    # /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > ~/dotfiles/keyremap4mb-importconfig2.sh
+cd ~/dotfiles
 sh ./keyremap4mb-importconfig2.sh
 ~~~
 
@@ -395,3 +395,11 @@ cp -r ~/dotfiles/quicklook_plugin/* ~/Library/QuickLook
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ~~~
 
+### Config
+
+- integrate Kaleidoscope
+
+~~~
+cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
+./install_git-default
+~~~
