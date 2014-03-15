@@ -64,6 +64,7 @@ install 'nmap'    # port scan util
 install 'oniguruma'
 install 'pidof'
 install 'pkg-config'
+install 'omnioutliner'
 install 's3cmd'
 install 'sqlite'
 install 'sshfs'
@@ -244,17 +245,16 @@ cleanup
 # cd ` --prefix` # homebrewの保存先であるCellerディレクトリの場所に移動する
 #
 # 以下のApplicationは、現状Caskが無いので、手動でInstallする
-# - Elasticfox-ec2tag
 # - Gyazo gif
 # - GlyphDesigner
-# - IAMFox
 # - MS Office
 # - ParticleDesigner
-# - R53Fox
 # - cooviewer
 # - Lingr
 # - Autoclick
-
+# - https://github.com/cookpad/iam-fox
+# - https://github.com/cookpad/elasticfox-ec2tag
+# - https://github.com/cookpad/r53-fox
 ## 個別に設定が必要なもの
 # - Unclutter
 # - Mi
