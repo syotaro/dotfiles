@@ -117,6 +117,8 @@ git clone git://github.com/farend/redmine_theme_farend_basic.git public/themes/f
 9. [画面の文言を変更](http://redmine.jp/faq/general/modify-messages/)
 10. リポジトリ連携(Git,SVN)
 
+## 公開
 
+- インターネットに公開する際は、httpsで
 
 
