@@ -1,6 +1,6 @@
 # Redmine installation on MacOSX
 
-## install brew & gems
+## Install brew & gems
 
 - Follow the instructions on [https://github.com/mxcl/homebrew](https://github.com/mxcl/homebrew)
 
@@ -30,7 +30,7 @@
   gem install rmagick
   ~~~
 
-## install Redmine
+## Install Redmine
 
 - Follow the instructions on [http://www.redmine.org/projects/redmine/wiki/RedmineInstall](http://www.redmine.org/projects/redmine/wiki/RedmineInstall)
 
@@ -79,18 +79,44 @@
   rails s -e production -p 3000
   ~~~
 
-## config
-
-- [メール通知](http://redmine.jp/faq/general/mail_notification/)
-
-  ~~~
-  cp -a  config/configuration.yml.example config/configuration.yml
-  ~~~
-
-- [画面の文言を変更](http://redmine.jp/faq/general/modify-messages/)
-- [メールの送信元アドレス(From)を変更](http://redmine.jp/faq/general/mail-from/)
-
 ## Add Plugin
 
 - [alrick/Reddrop](https://github.com/alrick/Reddrop)
+- [zh/redmine_importer](https://github.com/zh/redmine_importer)
+- [peclik/clipboard_image_paste](https://github.com/peclik/clipboard_image_paste)
+
+## Add Theme
+
+git clone git://github.com/farend/redmine_theme_farend_basic.git public/themes/farend_basic
+
+## Config
+
+1. 管理者ログイン、パスワード変更
+2. redmine全体の管理設定
+  - [メール通知](http://redmine.jp/faq/general/mail_notification/)
+
+    ~~~
+    cp -a  config/configuration.yml.example config/configuration.yml
+    ~~~
+
+  - [メールの送信元アドレス(From)を変更](http://redmine.jp/faq/general/mail-from/)
+3. ユーザを登録する
+  - メールが届くことを確認する
+4. プロジェクトを作成する
+5. プロジェクトの「設定」を行う
+  - 「トラッカー」を修正する。「バグ」「改修・新規機能」「作業」
+  - 「チケット」へのカスタムフィールドを追加する
+      - トラッカーの「バグ」に対して、発見バージョンや環境、画面、不具合種別などを追加する
+6. プロジェクトにメンバーを追加
+  - 管理者、開発者、報告者
+7. 「ロードマップ」を作成する
+8. チケットを登録する
+  - 「Importer」モジュールを使い、CSVで一括登録する
+  - 「作成者」「登録者」には、メンバーのログイン名を用いる
+  - 「ステータス」「題名」「優先度」が必須項目。親子関係を持たせる場合、「ID」と「親チケット」カラムも必要
+9. [画面の文言を変更](http://redmine.jp/faq/general/modify-messages/)
+10. リポジトリ連携(Git,SVN)
+
+
+
 
