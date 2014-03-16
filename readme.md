@@ -17,7 +17,6 @@ CloudPlay
 Cocoa JSON Editor
 CodeRunner
 ColorSchemer Studio
-[CSV Editor 2](https://itunes.apple.com/jp/app/csveditor-2/id644191861?mt=12)
 Dash
 Desktop Calendar Plus
 Elastics
@@ -84,6 +83,9 @@ iBooks Author
 iKeyboard
 picatext
 ~~~
+
+- [CSV Editor 2](https://itunes.apple.com/jp/app/csveditor-2/id644191861?mt=12)
+
 
 ~~~bash
     # Install Require Tools
