@@ -40,28 +40,24 @@
   ~~~
 
 - Follow the instructions on the [Redmine page](http://www.redmine.org/projects/redmine/wiki/RedmineInstall) to create a
-- config DB(sqlite3)
+- config DB(MySQL)
 
   ~~~
   cp -a config/database.yml.example vim config/database.yml
-    #=> enable sqlite3
   vim config/database.yml
   ~~~
-
-- config DB(MySQL)
-
   ~~~
   mysql.server start
   mysql -u root -p
   mysql> create database redmine character set utf8;
-  mysql> create user 'redmine'@'localhost' identified by 'my_password';
+  mysql> create user 'redmine'@'localhost' identified by 'redmine';
   mysql> grant all privileges on redmine.* to 'redmine'@'localhost';
   ~~~
 
 - install gems to repository
 
   ~~~
-  $bundle install --path vendor/bundle --without development test postgresql
+  bundle install --path vendor/bundle --without development test postgresql
   ~~~
 
 - Migrate and seed the database
@@ -76,7 +72,7 @@
 - Start Redmine
 
   ~~~
-  rails s -e production -p 3000
+  bundle exec rails s -e production -p 3000
   ~~~
 
 ## Add Plugin
