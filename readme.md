@@ -17,6 +17,7 @@ CloudPlay
 Cocoa JSON Editor
 CodeRunner
 ColorSchemer Studio
+[CSV Editor 2](https://itunes.apple.com/jp/app/csveditor-2/id644191861?mt=12)
 Dash
 Desktop Calendar Plus
 Elastics
@@ -42,7 +43,6 @@ Navicat Premium Essentials
 Navicat for MySQL
 Numbers
 OmniGraphSketcher
-OmniOutliner Professional
 OmniPlan
 PDF Reader
 PDF2Office for OmniGraffle
