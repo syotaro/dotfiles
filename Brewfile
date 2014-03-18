@@ -157,11 +157,12 @@ cask install 'bathyscaphe'   # 2ch ブラウザ
 cask install 'bettertouchtool'
 cask install 'camtasia'
 cask install 'clipmenu'
+cask install 'stay'
 cask install 'flash'
 cask install 'fluid'
 cask install 'yorufukurou'
-cask install 'google-chrome'
-cask install 'google-chrome-canary'
+#cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
+#cask install 'google-chrome-canary'
 cask install 'intellij-idea'
 cask install 'iterm2'
 cask install 'keyremap4macbook'
@@ -252,9 +253,9 @@ cleanup
 # - cooviewer
 # - Lingr
 # - Autoclick
-# - https://github.com/cookpad/iam-fox
-# - https://github.com/cookpad/elasticfox-ec2tag
-# - https://github.com/cookpad/r53-fox
+- https://github.com/cookpad/iam-fox
+- https://github.com/cookpad/elasticfox-ec2tag
+- https://github.com/cookpad/r53-fox
 ## 個別に設定が必要なもの
 # - Unclutter
 # - Mi

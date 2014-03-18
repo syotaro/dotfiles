@@ -10,7 +10,7 @@
     # => manually
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
-1Password
+1Password -> Third Party Integration
 AWS Menu Bar
 App Language Chooser
 CloudPlay
