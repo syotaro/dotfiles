@@ -75,34 +75,45 @@
   bundle exec rails s -e production -p 3000
   ~~~
 
-## Add Plugin
-
-- [alrick/Reddrop](https://github.com/alrick/Reddrop)
-- [zh/redmine_importer](https://github.com/zh/redmine_importer)
-- [peclik/clipboard_image_paste](https://github.com/peclik/clipboard_image_paste)
 
 ## Add Theme
 
 git clone git://github.com/farend/redmine_theme_farend_basic.git public/themes/farend_basic
+vim config/settings.yml
+
 
 ## Config
 
-1. 管理者ログイン、パスワード変更
+1. 管理者ユーザの設定
+  - admin/adminでログイン
+  - 個人設定
+    - メールアドレス変更
+    - パスワード変更
 2. redmine全体の管理設定
-  - [メール通知](http://redmine.jp/faq/general/mail_notification/)
-
-    ~~~
-    cp -a  config/configuration.yml.example config/configuration.yml
-    ~~~
-
-  - [メールの送信元アドレス(From)を変更](http://redmine.jp/faq/general/mail-from/)
+  - 「管理」>「トラッカー」
+    - 「バグ」「改修・新規機能」「定型作業」
+  - 「管理」>「設定」
+    - 「全般」
+      - 「テキストの書式」>「Markdownに変更」
+    - 「プロジェクト」
+      - 「ファイル」「フォーラム」を無効化
+      - 「Importer」を有効化
+    - 「カスタムフィールド
+      - 必要に応じて追加
+    - [メール通知](http://redmine.jp/faq/general/mail_notification/)
+      - SMTPサーバを用意し、その設定情報を「``config/configuration.yml``」に記入する
+      - [メールの送信元アドレス(From)を変更](http://redmine.jp/faq/general/mail-from/)
 3. ユーザを登録する
   - メールが届くことを確認する
 4. プロジェクトを作成する
-5. プロジェクトの「設定」を行う
-  - 「トラッカー」を修正する。「バグ」「改修・新規機能」「作業」
-  - 「チケット」へのカスタムフィールドを追加する
-      - トラッカーの「バグ」に対して、発見バージョンや環境、画面、不具合種別などを追加する
+  - 「設定」
+    - モジュール:任意のものを選択
+    - メンバー:任意のグループを、ろーると併せて追加
+    - バージョン:直近のイベントバージョンを追加作成
+      - このタイミングで、「ロードマップ」タブが出現する
+    - チケットのカテゴリ:チケット分類用の汎用カテゴリ。どの機能に属するか、などで分類するのが一般的。
+    - 「チケット」へのカスタムフィールドを追加する
+        - トラッカーの「バグ」に対して、発見バージョンや環境、画面、不具合種別などを追加する
 6. プロジェクトにメンバーを追加
   - 管理者、開発者、報告者
 7. 「ロードマップ」を作成する
@@ -118,3 +129,16 @@ git clone git://github.com/farend/redmine_theme_farend_basic.git public/themes/f
 - インターネットに公開する際は、httpsで
 
 
+## Add Plugin
+
+### [alrick/Reddrop](https://github.com/alrick/Reddrop)
+
+bundle install
+git clone git@github.com:alrick/Reddrop.git plugins/redmine_reddrop
+bundle exec rake redmine:plugins:migrate RAILS_ENV=production
+
+
+### [zh/redmine_importer](https://github.com/zh/redmine_importer)
+
+
+### [peclik/clipboard_image_paste](https://github.com/peclik/clipboard_image_paste)
