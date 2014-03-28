@@ -18,6 +18,8 @@
 - AirMail
   - GmailとGoogleAppsアカウントを有効化
     - 署名を追加
+- Transmit
+  - iCloud同期
 
 ## インターネットアカウント
 
@@ -62,3 +64,8 @@
 
 - GoogleAppsの「連絡先」に、よく連絡をとる人からインポート
   - ローカルの「連絡先」から編集する
+
+
+- Excelが重く(セル文字列のコピペとかに異常に時間かかるようになったら)なったら
+  - Excelを終了させる
+  - `mv /Users/syotaro/Library/Preferences/com.microsoft.office.plist /tmp`

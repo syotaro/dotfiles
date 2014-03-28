@@ -253,11 +253,10 @@ cleanup
 # - cooviewer
 # - Lingr
 # - Autoclick
+#   SoundCleod
 - https://github.com/cookpad/iam-fox
 - https://github.com/cookpad/elasticfox-ec2tag
 - https://github.com/cookpad/r53-fox
 ## 個別に設定が必要なもの
 # - Unclutter
 # - Mi
-
-

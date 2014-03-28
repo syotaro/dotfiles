@@ -124,6 +124,8 @@ vim config/settings.yml
 9. [画面の文言を変更](http://redmine.jp/faq/general/modify-messages/)
 10. リポジトリ連携(Git,SVN)
 
+その他初期設定 [日本語での利用に適した設定 — Redmine.JP](http://redmine.jp/tech_note/first-step/admin/settings-for-japanese/)
+
 ## 公開
 
 - インターネットに公開する際は、httpsで
@@ -131,14 +133,117 @@ vim config/settings.yml
 
 ## Add Plugin
 
-### [alrick/Reddrop](https://github.com/alrick/Reddrop)
-
-bundle install
-git clone git@github.com:alrick/Reddrop.git plugins/redmine_reddrop
-bundle exec rake redmine:plugins:migrate RAILS_ENV=production
-
-
 ### [zh/redmine_importer](https://github.com/zh/redmine_importer)
 
+gem install fastercsv
+git clone git@github.com:zh/redmine_importer.git plugins/redmine_importer
+cd ..
+bundle install
+bundle exec rake redmine:plugins:migrate RAILS_ENV=production
 
 ### [peclik/clipboard_image_paste](https://github.com/peclik/clipboard_image_paste)
+
+git clone https://github.com/peclik/clipboard_image_paste.git plugins/clipboard_image_paste
+
+
+### redmine_startpage
+git clone git@github.com:txinto/redmine_startpage.git plugins/redmine_startpage
+
+### Wiki TIcket List
+
+### Banner
+
+cd plugins
+git clone git@github.com:akiko-pusu/redmine_banner.git
+cd ..
+bundle exec rake redmine:plugins:migrate RAILS_ENV=production
+
+## カスタムクエリ
+
+- 担当者なし（未アサイン）
+  - ステータス：未完了
+  - 担当者：なし
+- 対象バージョンなし
+  - ステータス：未完了
+  - 対象バージョン：なし
+- 進行中
+  - ステータス：等しい：進行中
+- フィードバック
+  - ステータス：等しい：フィードバック
+- 解決（対応済みで確認待ちのもの）
+  - ステータス：等しい：解決
+- ロードマップ別
+  - ステータス：未完了
+  - オプション
+    - グループ条件：対象バージョン
+- 担当者別
+  - ステータス：未完了
+  - 担当者：すべて
+  - ・オプション
+    - グループ条件：担当者
+- ステータス別
+  - ステータス：未完了
+  - ・オプション
+  - グループ条件：ステータス
+- 最近◯日以内に更新されたもの
+  - 更新日：過去◯日：7（1週間の場合、任意の数字でOK）
+- 自分のチケット
+  - 担当者：等しい：<<自分>>
+
+## 各列挙項目ネーミング規則
+
+- 下記を意識する
+  - プロジェクト > サブプロジェクト > バージョン > 親チケット > 子チケット > トラッカー > カテゴリ
+
+
+
+
+
+
+
+
+
+# redmine-MBrdige
+
+git clone git@github.com:zh/redmine_importer.git plugins/redmine_importer
+cd plugins/
+ls -l
+chown nginx:nginx redmine_importer/
+chown -R nginx:nginx redmine_importer/
+
+gem install fastercsv
+bundle install
+rake redmine:plugins:migrate RAILS_ENV=production
+/etc/init.d/nginx restart
+
+## ファイルをアップロードできない件の対処
+vim /etc/nginx/nginx.conf
+// 以下を追記する
+location ~* ^(?:(?:plugin_assets/|themes/).+/)(?:javascripts/.+\.js|stylesheets/.+\.css|images/.+\.(?:jpe?g|gif|htc|ico|png|html))$ {
+
+## ファイルアップロード容量の拡大
+
+- 管理 > 設定 > 全般 > 添付ファイルサイズの上限 > 100mに
+- nginxの設定を修正
+vim /etc/nginx/nginx.conf
+        client_max_body_size 100m; <-- 増やす
+
+## mysql高速化
+
+innodb_flush_log_at_trx_commit = 2
+log_bin = 0
+skip_innodb_doublewrite
+
+
+## コマンドメモ
+
+migrationコマンド
+
+rake redmine:plugins:migrate RAILS_ENV=production
+リポジトリのfetchコマンド
+
+rake redmine:fetch_changesets RAILS_ENV=production
+
+## Graphz
+
+yum install -y graphviz graphviz-gd

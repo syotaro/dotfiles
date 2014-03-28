@@ -288,30 +288,30 @@ else
   NeoBundle 'L9'
   " }}}
   " PHP & HTML & Smarty {{{
-  if has('multi_byte')
-    NeoBundle 'scrooloose/syntastic'
-    let g:syntastic_mode_map = { 'mode': 'passive' }
-    " let g:syntastic_echo_current_error = 0
-    " エラー行をsignで表示する
-    let g:syntastic_enable_signs = 1
-    let g:syntastic_enable_highlighting = 1
-    augroup AutoSyntastic
-      autocmd!
-      autocmd BufWritePost *.php,*.html call s:syntastic()
-    augroup END
-    function! s:syntastic()
-      if exists(':SyntasticCheck') | exec 'SyntasticCheck' | endif
-    endfunction
-  endif
+" if has('multi_byte')
+"   NeoBundle 'scrooloose/syntastic'
+"   let g:syntastic_mode_map = { 'mode': 'passive' }
+"   " let g:syntastic_echo_current_error = 0
+"   " エラー行をsignで表示する
+"   let g:syntastic_enable_signs = 1
+"   let g:syntastic_enable_highlighting = 1
+"   augroup AutoSyntastic
+"     autocmd!
+"     autocmd BufWritePost *.php,*.html call s:syntastic()
+"   augroup END
+"   function! s:syntastic()
+"     if exists(':SyntasticCheck') | exec 'SyntasticCheck' | endif
+"   endfunction
+" endif
   NeoBundle 'html5.vim'                  "     , {'autoload': {'filetypes': ['html']}}
   " NeoBundle 'taku-o/vim-ethna-switch'    "     , {'autoload': {'filetypes': ['php']}}
   " NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
   " NeoBundle 'watanabe0621/SmartyJump'    "     , {'autoload': {'filetypes': ['tpl']}}
-  NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
+  " NeoBundle 'pasela/unite-fuel'          "     , {'autoload': {'filetypes': ['php']}}
   " NeoBundle 'bpearson/vim-phpcs'
   " let Vimphpcs_Standard='PSR2'               " PHPCSのスタイルを設定
-  NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
-  NeoBundle 'smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
+  " NeoBundle 'joonty/vdebug.git'          "     , {'autoload': {'filetypes': ['php']}}
+  " NeoBundle 'smarty.vim'           "     , {'autoload': {'filetypes': ['tpl']}}
 
   autocmd BufRead *.tpl set filetype=smarty
   autocmd FileType html,smarty : set shiftwidth=2
