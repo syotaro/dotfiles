@@ -84,13 +84,12 @@ iKeyboard
 picatext
 ~~~
 
-- [CSV Editor 2](https://itunes.apple.com/jp/app/csveditor-2/id644191861?mt=12)
-
-
 ~~~bash
     # Install Require Tools
 open /Applications/Xcode.app
 java -version                # => Java Install manually
+xcodebuild -license
+xcode-select --install
 ~~~
 
 ### Setup ssh key

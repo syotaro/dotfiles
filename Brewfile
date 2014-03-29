@@ -1,9 +1,3 @@
-# Make sure using latest Home
-update
-
-# Update already-installed formula (takes too much time, I will do it manually later)
-# upgrade
-
 ############################################
 # Add Repository
 ############################################
@@ -14,20 +8,21 @@ tap homebrew/binary       || true
 tap jimbojsb/launchrocket || true
 tap jingweno/gh           || true
 
+# Make sure using latest Home
+update || true
+
 
 ############################################
 # Add Packages for Development
 ############################################
+#install 'bsdmake'
 #install 'fuse4x'
 #install 'fuse4x-kext'
-install 'haskell-platform'  # Install until the end, very time-consuming
 #install 'python3'
 install 'autoconf'
 install 'automake'
-install 'gh'
 install 'bash'
 install 'bdw-gc'
-#install 'bsdmake'
 install 'cmake'    # be require from mysql
 install 'colordiff'
 install 'coreutils'
@@ -37,11 +32,13 @@ install 'curl'          # ln -s ` --prefix curl`/bin/curl /usr/local/bin
 install 'freetype'
 install 'gdbm'
 install 'gettext'
+install 'gh'
 install 'glib'
 install 'gmp'
 install 'gnu-sed' --default-names
 install 'go'
 install 'graphicsmagick'
+install 'haskell-platform'  # Install until the end, very time-consuming
 install 'htop-osx'
 install 'hub' # wrapper for  git command
 install 'icu4c'
@@ -58,13 +55,14 @@ install 'lv'
 install 'lynx'
 install 'macvim' '--with-lua --override-system-vim --custom-icons'
 install 'multitail'
-install 'nkf'
 install 'ngrep'
+install 'nkf'
 install 'nmap'    # port scan util
+install 'omnioutliner'
 install 'oniguruma'
 install 'pidof'
 install 'pkg-config'
-install 'omnioutliner'
+install 'pstree'
 install 's3cmd'
 install 'sqlite'
 install 'sshfs'
@@ -73,7 +71,6 @@ install 'the_silver_searcher'
 install 'tree'
 install 'unixodbc'
 install 'w3m'  # CLI Web Browser
-install 'pstree'
 install 'watch'
 install 'wget' --enable-iri
 install 'xz'
@@ -126,10 +123,10 @@ install 'mysql'
 ################
 #  FONT
 ################
-# tap  'sanemat/font'
-#  'ricty'
-# #cp -f /PATH/TO/RICTY/fonts/Ricty*.ttf ~/Library/Fonts/
-# #fc-cache -vf
+# tap  'sanemat/font' || true
+# install ricty || true
+#         #cp -f /PATH/TO/RICTY/fonts/Ricty*.ttf ~/Library/Fonts/
+#         #fc-cache -vf
 ################
 #  PPSSPP  http://ppsspp.angelxwind.net/?page/downloads#osx
 ################
@@ -147,6 +144,7 @@ install 'sdl'
 # install brew-cask
 # .dmg from brew-cask
 
+install brew-cask || true
 cask install 'adobe-air'
 cask install 'adobe-creative-cloud'
 cask install 'alfred'
@@ -207,9 +205,6 @@ cask install 'omnigraffle'
 #cask install 'splashtop-streamer'
 #cask install 'x-quartz'
 
-
-
-
 ################
 # QuickLook Plugin
 ################
@@ -254,9 +249,9 @@ cleanup
 # - Lingr
 # - Autoclick
 #   SoundCleod
-- https://github.com/cookpad/iam-fox
-- https://github.com/cookpad/elasticfox-ec2tag
-- https://github.com/cookpad/r53-fox
+#- https://github.com/cookpad/iam-fox
+#- https://github.com/cookpad/elasticfox-ec2tag
+#- https://github.com/cookpad/r53-fox
 ## 個別に設定が必要なもの
 # - Unclutter
 # - Mi

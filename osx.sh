@@ -387,7 +387,8 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 # Allow installing user scripts via GitHub or Userscripts.org
 defaults write com.google.Chrome ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
 defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
-
+# Disable Swipe controls for Google Chrome
+defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
 
 
