@@ -4,22 +4,22 @@
 ## Apps
 
 - Excelのオプション
-  - 
+  - いじる
 - DNSに8.8.8.8を加える
-
-- 拡張子
+- 拡張子紐付け
   - md : Marked
-
 - ATOK Passport
-  - ATOKSync
-
+  - ATOKSync設定する
 - one passwordのintegrationを有効化 →Alfredで1passwordと連携を有効化
-
 - AirMail
   - GmailとGoogleAppsアカウントを有効化
     - 署名を追加
 - Transmit
   - iCloud同期
+- Chrome
+  - RedmineTimeTracker
+  - Vrome
+
 
 ## インターネットアカウント
 
