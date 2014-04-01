@@ -216,6 +216,8 @@ bundle install
 rake redmine:plugins:migrate RAILS_ENV=production
 /etc/init.d/nginx restart
 
+cp /usr/share/zoneinfo/Japan /etc/localtime  # 日付をJSTにする
+
 ## ファイルをアップロードできない件の対処
 vim /etc/nginx/nginx.conf
 // 以下を追記する

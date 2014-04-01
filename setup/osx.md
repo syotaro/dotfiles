@@ -68,4 +68,17 @@
 
 - Excelが重く(セル文字列のコピペとかに異常に時間かかるようになったら)なったら
   - Excelを終了させる
-  - `mv /Users/syotaro/Library/Preferences/com.microsoft.office.plist /tmp`
+  - mv $HOME/Library/Preferences/com.microsoft.office.plist /tmp
+
+
+## キーショートカット設定
+
+## Global
+
+Shift  + Command + V 履歴からペースト
+Option + V           書式なしペースト
+
+### Finder
+
+(Fileを選択した状態で)Ctrl + Command + V ファイルとしてペースト(Require PasteAsFile.app)
+Command + U デュアルモード
