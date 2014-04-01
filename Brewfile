@@ -33,16 +33,17 @@ install 'freetype'
 install 'gdbm'
 install 'gettext'
 install 'gh'
+install 'weechat' '--with-ruby --with-python --with-perl'
 install 'glib'
 install 'gmp'
-install 'gnu-sed' --default-names
+install 'gnu-sed' '--default-names'
 install 'go'
 install 'graphicsmagick'
 install 'haskell-platform'  # Install until the end, very time-consuming
 install 'htop-osx'
 install 'hub' # wrapper for  git command
 install 'icu4c'
-install 'imagemagick' --disable-openmp
+install 'imagemagick' '--disable-openmp'
 install 'jpeg'
 install 'jq'         # JSONパーサー
 install 'libevent'
@@ -72,10 +73,10 @@ install 'tree'
 install 'unixodbc'
 install 'w3m'  # CLI Web Browser
 install 'watch'
-install 'wget' --enable-iri
+install 'wget' '--enable-iri'
 install 'xz'
 install 'z'
-install 'zsh' --disable-etcdir
+install 'zsh' '--disable-etcdir'
 ################
 #  AWS
 ################
