@@ -205,6 +205,7 @@ bundle exec rake redmine:plugins:migrate RAILS_ENV=production
 
 # redmine-MBrdige
 
+sudo yum update
 git clone git@github.com:zh/redmine_importer.git plugins/redmine_importer
 cd plugins/
 ls -l

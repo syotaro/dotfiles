@@ -20,6 +20,11 @@
   - RedmineTimeTracker
   - Vrome
 
+## 言語と地域
+
+- 詳細から日付のフォーマットを設定しておく(Alfredなどから呼び出せる時刻のフォーマットが変わる)
+The {date} and {time} placeholders use your OS X defaults. You can change these in your Mac's System Preferences > Language & Text > Region settings.
+
 
 ## インターネットアカウント
 
@@ -70,15 +75,24 @@
   - Excelを終了させる
   - mv $HOME/Library/Preferences/com.microsoft.office.plist /tmp
 
+## keyremap4macbook
+
+- export
+/Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > $HOME/dotfiles/keyremap4mb-importconfig3.sh
+- import
+sh $HOME/dotfiles/keyremap4mb-importconfig3.sh
 
 ## キーショートカット設定
 
 ## Global
 
-Shift  + Command + V 履歴からペースト
-Option + V           書式なしペースト
+Option + v 履歴からペースト
+Ctrl + s           書式なしペースト
+
 
 ### Finder
 
 (Fileを選択した状態で)Ctrl + Command + V ファイルとしてペースト(Require PasteAsFile.app)
 Command + U デュアルモード
+
+
