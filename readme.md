@@ -340,9 +340,9 @@ npm install -g bower
 ### Configure KeyRemap4MakBook
 
 ~~~bash
-    # /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > ~/dotfiles/keyremap4mb-importconfig2.sh
+    # /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > ~/dotfiles/keyremap4mb-importconfig.sh
 cd ~/dotfiles
-sh ./keyremap4mb-importconfig2.sh
+sh ./keyremap4mb-importconfig.sh
 ~~~
 
 ### Configure MySQL

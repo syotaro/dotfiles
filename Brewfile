@@ -28,8 +28,8 @@ install 'colordiff'
 install 'coreutils'
 install 'cscope'
 install 'ctags'
-install 'curl'          # ln -s ` --prefix curl`/bin/curl /usr/local/bin
-install 'freetype'
+install 'curl'  # ln -s ` --prefix curl`/bin/curl /usr/local/bin
+#install 'freetype'
 install 'gdbm'
 install 'gettext'
 install 'gh'
@@ -163,6 +163,7 @@ cask install 'yorufukurou'
 #cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
 #cask install 'google-chrome-canary'
 cask install 'intellij-idea'
+cask install 'cooviewer'
 cask install 'iterm2'
 cask install 'keyremap4macbook'
 cask install 'keyboard-maestro'
@@ -248,7 +249,6 @@ cleanup
 # - GlyphDesigner
 # - MS Office
 # - ParticleDesigner
-# - cooviewer
 # - Lingr
 # - Autoclick
 #   SoundCleod
