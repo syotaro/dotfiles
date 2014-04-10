@@ -230,19 +230,19 @@ cleanup
 ############################################
 #  Memo
 ############################################
-# --config      # Homebrewの設定一覧
-# --prefix pkg名 # Install path
-# cask search   # lisgint cask Application
-# leaves | sed 's/^/install /'   # install済みpkgを追記
+# --config                     # Homebrewの設定一覧
+# --prefix pkg名               # Install path
+# cask search                  # lisgint cask Application
+# leaves | sed 's/^/install /' # install済みpkgを追記
 # cleanup
 # doctor
-# info          # インストールしたpkgの設定方法確認
-# link          # パッケージを有効化
+# info                         # インストールしたpkgの設定方法確認
+# link                         # パッケージを有効化
 # options
-# search        # listing pkg
-# tap           # (ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
-# unlink        # パッケージを一時的に無効化
-# cd ` --prefix` # homebrewの保存先であるCellerディレクトリの場所に移動する
+# search                       # listing pkg
+# tap                          # (ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
+# unlink                       # パッケージを一時的に無効化
+# cd ` --prefix`               # homebrewの保存先であるCellerディレクトリの場所に移動する
 #
 # 以下のApplicationは、現状Caskが無いので、手動でInstallする
 # - Gyazo gif
