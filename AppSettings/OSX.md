@@ -24,6 +24,12 @@
 
 - 詳細から日付のフォーマットを設定しておく(Alfredなどから呼び出せる時刻のフォーマットが変わる)
 The {date} and {time} placeholders use your OS X defaults. You can change these in your Mac's System Preferences > Language & Text > Region settings.
+  - これをいじると、Excelの日付フィールドなどがバグるので、やめがほうがいい
+
+## 日付と時刻
+
+- 週の始まりを「月曜日」に変更
+
 
 ## キーボード
 
@@ -31,6 +37,15 @@ The {date} and {time} placeholders use your OS X defaults. You can change these 
   - サービス周り、いろいろ調整
   - 右クリックで、関連サービスがわかる
 
+## 通知
+
+- 不要なものを非表示にする
+  - カレンダー
+  - リマインダー
+  - Chatwork
+  - Skype
+  - Facebook
+  - メッセージ
 
 ## インターネットアカウント
 
@@ -84,13 +99,11 @@ The {date} and {time} placeholders use your OS X defaults. You can change these 
 
 ## Setting Migration
 
-- Navicat
-  ksdiff ~/Dropbox/work/setting/PremiumSoft\ CyberTech   ~/Library/Containers/com.prect.Navicat/Data/Library/Application\ Support/PremiumSoft\ CyberTech
 - keyremap4macbook
   - export
     /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > $HOME/dotfiles/keyremap4mb-importconfig3.sh
   - import
-    sh $HOME/dotfiles/keyremap4mb-importconfig3.sh
+    sh $HOME/dotfiles/AppSettings/keyremap4mb-importconfig2.sh
 
 ## キーショートカット設定
 ### Global
@@ -103,4 +116,7 @@ Ctrl + s           書式なしペースト
 (Fileを選択した状態で)Ctrl + Command + V ファイルとしてペースト(Require PasteAsFile.app)
 Command + U デュアルモード
 
+### 自動起動設定
 
+open /Library/LaunchAgents
+open ~Library/LaunchAgents

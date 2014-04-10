@@ -404,3 +404,4 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
 ./install_git-default
 ~~~
+
