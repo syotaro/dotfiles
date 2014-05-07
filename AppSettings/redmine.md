@@ -49,9 +49,18 @@
   ~~~
   mysql.server start
   mysql -u root -p
-  mysql> create database redmine character set utf8;
-  mysql> create user 'redmine'@'localhost' identified by 'redmine';
-  mysql> grant all privileges on redmine.* to 'redmine'@'localhost';
+  mysql> CREATE DATABASE                                     redmine CHARACTER SET UTF8;
+  mysql> CREATE USER                                       'redmine'@'localhost'     IDENTIFIED BY 'redmine';
+  mysql> GRANT ALL PRIVILEGES              ON redmine.* TO 'redmine'@'localhost';
+  mysql> GRANT SELECT,INSERT,UPDATE,DELETE ON redmine.* TO 'redmine'@XXX.XXX.XXX.XXX IDENTIFIED BY 'PASSWOR';
+  mysql> FLUSH PRIVILEGES;
+
+  mysql> CREATE DATABASE                                    team_dashboard CHARACTER SET UTF8;
+  mysql> CREATE USER                                       'team_dashboard'@'localhost'     IDENTIFIED BY 'team_dashboard';
+  mysql> GRANT ALL PRIVILEGES              ON team_dashboard.* TO 'team_dashboard'@'localhost';
+  mysql> GRANT SELECT,INSERT,UPDATE,DELETE ON team_dashboard.* TO 'team_dashboard'@'xxx.xxx.xxx.xxx' IDENTIFIED BY 'team_dashboard';
+  mysql> GRANT SELECT,INSERT,UPDATE,DELETE ON team_dashboard.* TO 'team_dashboard'@'%'               IDENTIFIED BY 'team_dashboard';
+  mysql> FLUSH PRIVILEGES;
   ~~~
 
 - install gems to repository

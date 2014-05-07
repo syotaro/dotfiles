@@ -20,24 +20,33 @@
   - RedmineTimeTracker
   - Vrome
 
-## 言語と地域
+## システム環境設定 
+
+open -a "system preferences"
+
+### 言語と地域
 
 - 詳細から日付のフォーマットを設定しておく(Alfredなどから呼び出せる時刻のフォーマットが変わる)
 The {date} and {time} placeholders use your OS X defaults. You can change these in your Mac's System Preferences > Language & Text > Region settings.
   - これをいじると、Excelの日付フィールドなどがバグるので、やめがほうがいい
 
-## 日付と時刻
+### 共有
+
+- MacにSSHでリモートログインする場合は、「リモートログイン」にチェックを入れる
+
+
+### 日付と時刻
 
 - 週の始まりを「月曜日」に変更
 
 
-## キーボード
+### キーボード
 
 - ショートカット
   - サービス周り、いろいろ調整
   - 右クリックで、関連サービスがわかる
 
-## 通知
+### 通知
 
 - 不要なものを非表示にする
   - カレンダー
@@ -47,7 +56,7 @@ The {date} and {time} placeholders use your OS X defaults. You can change these 
   - Facebook
   - メッセージ
 
-## インターネットアカウント
+### インターネットアカウント
 
 - GoogleApps(個人用)
   - 基本何も有効にしない

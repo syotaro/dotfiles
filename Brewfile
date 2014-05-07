@@ -16,11 +16,13 @@ update || true
 # Add Packages for Development
 ############################################
 #install 'bsdmake'
+#install 'freetype'
 #install 'fuse4x'
 #install 'fuse4x-kext'
 #install 'python3'
 install 'autoconf'
 install 'automake'
+install 'LightPaper'
 install 'bash'
 install 'bdw-gc'
 install 'cmake'    # be require from mysql
@@ -29,11 +31,9 @@ install 'coreutils'
 install 'cscope'
 install 'ctags'
 install 'curl'  # ln -s ` --prefix curl`/bin/curl /usr/local/bin
-#install 'freetype'
 install 'gdbm'
 install 'gettext'
 install 'gh'
-install 'weechat' '--with-ruby --with-python --with-perl'
 install 'glib'
 install 'gmp'
 install 'gnu-sed' '--default-names'
@@ -44,6 +44,7 @@ install 'htop-osx'
 install 'hub' # wrapper for  git command
 install 'icu4c'
 install 'imagemagick' '--disable-openmp'
+install 'jenkins'
 install 'jpeg'
 install 'jq'         # JSONパーサー
 install 'libevent'
@@ -72,6 +73,7 @@ install 'tree'
 install 'unixodbc'
 install 'w3m'  # CLI Web Browser
 install 'watch'
+install 'weechat' '--with-ruby --with-python --with-perl'
 install 'wget' '--enable-iri'
 install 'xz'
 install 'z'
@@ -119,7 +121,8 @@ install 'tig'   # cli git browser
 ################
 #  MySQL
 ################
-install 'mysql'
+# install 'mysql'
+install 'mysql55'
 ################
 #  FONT
 ################
@@ -145,70 +148,74 @@ install 'sdl'
 # .dmg from brew-cask
 
 install brew-cask || true
-cask install 'adobe-air'
-cask install 'adobe-creative-cloud'
-cask install 'alfred'
-#cask install 'alfred' --link  # CaskroomをAlfredの検索パスに追加
-cask install 'appcleaner'
-cask install 'bartender'
-cask install 'bathyscaphe'   # 2ch ブラウザ
-cask install 'bettertouchtool'
-cask install 'camtasia'
+
+#cask install 'amazon-cloud-drive'
+#cask install 'bathyscaphe'   # 2ch ブラウザ
 #cask install 'clipmenu'
-cask install 'stay'
-cask install 'flash'
-cask install 'fluid'
-cask install 'yorufukurou'
-#cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
-#cask install 'google-chrome-canary'
-cask install 'intellij-idea'
-cask install 'cooviewer'
-cask install 'iterm2'
-cask install 'keyremap4macbook'
-cask install 'keyboard-maestro'
-cask install 'ksdiff'
-cask install 'launchrocket'
-cask install 'marked'
-cask install 'perian'
-cask install 'keycue'
-cask install 'quickcast'
-cask install 'openemu-experimental'
-cask install 'rcdefaultapp'
-cask install 'reflector'
-cask install 'silverlight'
-cask install 'skype'
-cask install 'skitch'
-cask install 'teamviewer'
-cask install 'google-japanese-ime'
-cask install 'testflight'
-cask install 'totalfinder'
-cask install 'vagrant'
-cask install 'versions'  # Subversion Client
-cask install 'virtualbox'
-cask install 'vlc'
-#cask install 'postbox'
-#cask install 'soundflower'
-cask install 'vmware-fusion'
 #cask install 'cloudytabs'
-cask install 'unity-web-player'
 #cask install 'codekit'
 #cask install 'dropbox'
 #cask install 'evernote'
 #cask install 'forklift'
+#cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
+#cask install 'google-chrome-canary'
 #cask install 'google-web-designer'
 #cask install 'gyazo'
 #cask install 'libreoffice'
 #cask install 'mysqlworkbench'
-cask install 'omnigraffle'
-cask install 'omnioutliner'
 #cask install 'parallels-9'
 #cask install 'path-finder'
 #cask install 'phpstorm'
+#cask install 'postbox'
 #cask install 'redis-desktop-manager'
 #cask install 'sequel-pro'
+#cask install 'soundflower'
 #cask install 'splashtop-streamer'
 #cask install 'x-quartz'
+cask install 'adobe-air'
+cask install 'adobe-creative-cloud'  # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
+cask install 'alfred'
+cask install 'android-file-transfer'
+cask install 'appcleaner'
+cask install 'bartender'
+cask install 'bettertouchtool'
+cask install 'camtasia'
+cask install 'cooviewer'
+cask install 'flash'
+cask install 'fluid'
+cask install 'google-japanese-ime'
+cask install 'intellij-idea'
+cask install 'iterm2'
+cask install 'keyboard-maestro'
+cask install 'keycue'
+cask install 'keyremap4macbook'
+cask install 'ksdiff'
+cask install 'launchrocket'
+cask install 'mamp'
+cask install 'marked'
+cask install 'omnigraffle'
+cask install 'omnioutliner'
+cask install 'openemu-experimental'
+cask install 'perian'
+cask install 'quickcast'
+cask install 'rcdefaultapp'
+cask install 'reflector'
+cask install 'silverlight'
+cask install 'skitch'
+cask install 'skype'
+cask install 'stay'
+cask install 'teamviewer'
+cask install 'testflight'
+cask install 'totalfinder'
+cask install 'unity-web-player'
+cask install 'vagrant'
+cask install 'versions'  # Subversion Client
+cask install 'virtualbox'
+cask install 'vlc'
+cask install 'vmware-fusion'
+cask install 'yorufukurou'
 
+cask alfred link  # CaskroomをAlfredの検索パスに追加
 ################
 # QuickLook Plugin
 ################
@@ -225,6 +232,7 @@ cask install 'webp-quicklook'
 ############################################
 # Remove outdated versions
 ############################################
+linkapps
 cleanup
 
 ############################################
