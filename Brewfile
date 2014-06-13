@@ -7,7 +7,7 @@ tap caskroom/homebrew-versions || true  # add beta pkg
 tap homebrew/binary       || true
 tap jimbojsb/launchrocket || true
 tap jingweno/gh           || true
-
+tap homebrew/science      || true
 # Make sure using latest Home
 update || true
 
@@ -23,7 +23,9 @@ update || true
 install 'autoconf'
 install 'automake'
 install 'LightPaper'
+install 'mysql-connector-odbc'  # for Tableau
 install 'bash'
+install 'R'       # required https://xquartz.macosforge.org/landing/
 install 'bdw-gc'
 install 'cmake'    # be require from mysql
 install 'colordiff'
@@ -186,24 +188,25 @@ cask install 'fluid'
 cask install 'google-japanese-ime'
 cask install 'intellij-idea'
 cask install 'iterm2'
-cask install 'keyboard-maestro'
-cask install 'keycue'
+#cask install 'keyboard-maestro'
+#cask install 'keycue'
 cask install 'keyremap4macbook'
 cask install 'ksdiff'
 cask install 'launchrocket'
-cask install 'mamp'
+#cask install 'mamp'
 cask install 'marked'
 cask install 'omnigraffle'
-cask install 'omnioutliner'
 cask install 'openemu-experimental'
 cask install 'perian'
 cask install 'quickcast'
 cask install 'rcdefaultapp'
 cask install 'reflector'
+cask install 'rstudio'
 cask install 'silverlight'
 cask install 'skitch'
 cask install 'skype'
 cask install 'stay'
+cask install 'pixel-winch'
 cask install 'teamviewer'
 cask install 'testflight'
 cask install 'totalfinder'

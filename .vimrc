@@ -356,13 +356,14 @@ else
   " }}}
   " Other {{{
   NeoBundle 'itspriddle/vim-javascript-indent'
-  NeoBundle 'JSON.vim'
+  " NeoBundle 'JSON.vim'
   " NeoBundle 'mhinz/vim-startify'
   " NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'less.vim', {'autoload': {'filetypes': ['less']}}
   " NeoBundleLazy 'vim-coffee-script', {'autoload': {'filetypes': ['coffee']}}
   NeoBundle 'osyo-manga/vim-over'
-  NeoBundle 'itchyny/calendar.vim'
+  NeoBundle 'https://github.com/rbtnn/rabbit-ui.vim'
+  "NeoBundle 'itchyny/calendar.vim'
   NeoBundle 'SQLComplete.vim'
   " }}}
 
@@ -790,7 +791,7 @@ autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
 "     \ ]
 
 " calendar.vim
-  let g:calendar_google_calendar = 1
+  " let g:calendar_google_calendar = 1
   " let g:calendar_google_task = 1
 
 
@@ -801,3 +802,12 @@ imap <buffer> <C-C>a <C-\><C-O>:call sqlcomplete#Map('syntax')<CR><C-X><C-O>
 let g:sql_type_default = 'mysql'
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
 autocmd FileType mysql set omnifunc=sqlcomplete#Complete
+
+
+
+" :EditCSV
+function! s:edit_csv(path)
+  call writefile(map(rabbit_ui#gridview(map(readfile(a:path),'split(v:val,",",1)')), "join(v:val, ',')"), a:path)
+endfunction
+
+command! -nargs=1 EditCSV  :call <sid>edit_csv(<q-args>)

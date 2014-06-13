@@ -127,5 +127,15 @@ Command + U デュアルモード
 
 ### 自動起動設定
 
+
+open ~/Library/LaunchAgents
 open /Library/LaunchAgents
-open ~Library/LaunchAgents
+open /Library/LaunchDaemons
+open /System/Library/LaunchAgents
+open /System/Library/LaunchDaemons
+
+sudo launchctl list
+
+## Fluentd
+
+- [HomebrewでFluentdをインストールする (Mac OS X) | Fluentd](http://docs.fluentd.org/ja/articles/install-by-homebrew)

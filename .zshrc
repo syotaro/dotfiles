@@ -209,3 +209,10 @@ export EDITOR=`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim
 
 
 export GOPATH=~/
+
+
+
+export PATH="/usr/local/Cellar/mysql55/5.5.30/bin:$PATH"
+
+
+

@@ -156,6 +156,7 @@ git clone https://github.com/peclik/clipboard_image_paste.git plugins/clipboard_
 
 
 ### redmine_startpage
+
 git clone git@github.com:txinto/redmine_startpage.git plugins/redmine_startpage
 
 ### Wiki TIcket List
@@ -210,35 +211,49 @@ bundle exec rake redmine:plugins:migrate RAILS_ENV=production
 
 
 
-
-
 # redmine-MBrdige
 
-sudo yum update
-git clone git@github.com:zh/redmine_importer.git plugins/redmine_importer
-cd plugins/
-ls -l
-chown nginx:nginx redmine_importer/
-chown -R nginx:nginx redmine_importer/
-
-gem install fastercsv
-bundle install
-rake redmine:plugins:migrate RAILS_ENV=production
-/etc/init.d/nginx restart
-
+sudo yum update -y
 cp /usr/share/zoneinfo/Japan /etc/localtime  # 日付をJSTにする
+yum install -y graphviz graphviz-gd
 
-## ファイルをアップロードできない件の対処
-vim /etc/nginx/nginx.conf
+## Nginxの調整
+
+  # ファイルをアップロードできない件の対処
+vim /etc/nginx/conf.d/redmine.conf
 // 以下を追記する
 location ~* ^(?:(?:plugin_assets/|themes/).+/)(?:javascripts/.+\.js|stylesheets/.+\.css|images/.+\.(?:jpe?g|gif|htc|ico|png|html))$ {
 
-## ファイルアップロード容量の拡大
-
-- 管理 > 設定 > 全般 > 添付ファイルサイズの上限 > 100mに
+  # ファイルアップロード容量の拡大
+- 管理 > 設定 > 全般 > 添付ファイルサイズの上限 > 200mに
 - nginxの設定を修正
-vim /etc/nginx/nginx.conf
-        client_max_body_size 100m; <-- 増やす
+vim /etc/nginx/conf.d/redmine.conf
+        client_max_body_size 200m; <-- 増やす
+
+## パーミッション
+chown -R nginx:nginx /var/www/redmine
+
+## マイグレート
+rake redmine:plugins:migrate RAILS_ENV=production
+
+gem install fastercsv coderay
+bundle install --without development test postgresql
+/etc/init.d/nginx restart
+
+gem install nokogiri -v=1.6.1
+
+# バグ対応
+  vim /usr/local/rvm/gems/ruby-2.1.1/gems/vpim-0.695/lib/vpim/vcard.rb
+  # encoding: US-ASCII
+
+
+
+## SSHできるように
+
+eval `ssh-agent`
+ssh-add ~/.ssh/id_rsa
+
+
 
 ## mysql高速化
 
@@ -256,6 +271,10 @@ rake redmine:plugins:migrate RAILS_ENV=production
 
 rake redmine:fetch_changesets RAILS_ENV=production
 
-## Graphz
 
-yum install -y graphviz graphviz-gd
+
+## 調子わるいとき
+
+- rake db:migrate RAILS_ENV="production"
+- rake tmp:cache:clear
+- rake tmp:sessions:clear
