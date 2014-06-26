@@ -6,12 +6,12 @@ tap phinze/homebrew-cask  || true
 tap caskroom/homebrew-versions || true  # add beta pkg
 tap homebrew/binary       || true
 tap jimbojsb/launchrocket || true
-tap jingweno/gh           || true
 tap homebrew/science      || true
 # Make sure using latest Home
 update || true
 
 
+cask install 'xquartz'
 ############################################
 # Add Packages for Development
 ############################################
@@ -27,7 +27,9 @@ install 'mysql-connector-odbc'  # for Tableau
 install 'bash'
 install 'R'       # required https://xquartz.macosforge.org/landing/
 install 'bdw-gc'
+install 'jsonpp'
 install 'cmake'    # be require from mysql
+install 'npm'
 install 'colordiff'
 install 'coreutils'
 install 'cscope'
@@ -196,6 +198,7 @@ cask install 'launchrocket'
 #cask install 'mamp'
 cask install 'marked'
 cask install 'omnigraffle'
+cask install 'omnipresence'
 cask install 'openemu-experimental'
 cask install 'perian'
 cask install 'quickcast'
