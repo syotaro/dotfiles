@@ -229,6 +229,19 @@ cabal install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
 ~~~
 
+
+### Setup ZshFramework(Prezto)
+
+~~~bash
+zsh
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+unlink ~/.zshrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+~~~
+
 ### Change shell(bash -> zsh)
 
 ~~~bash
@@ -404,4 +417,11 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
 ./install_git-default
 ~~~
+
+## Install AWS CLI
+sudo easy_install pip
+sudo pip install awscli
+sudo pip install awscli --upgrade
+aws ec2 describe-instances | jq '.'
+
 

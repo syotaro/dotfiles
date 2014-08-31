@@ -9,6 +9,7 @@ tags
 /.aws/keys/cert.pem
 /.aws/keys/*
 /.claws.yml
+/~/.aws/keys/awscli.conf
 
 ### PPSSPP
 

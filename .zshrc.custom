@@ -1,0 +1,152 @@
+setopt rm_star_wait                                   # ファイルの一括削除時に１０秒間停止する
+
+case $(uname -s) in
+    Darwin|FreeBSD)
+        export LANG="ja_JP.UTF-8"
+        export LANGUAGE="ja_JP.UTF-8"
+        # export LC_ALL="ja_JP.UTF-8"
+        # export LANGUAGE=en_US.UTF-8
+        # export LANG=en_US.UTF-8
+        # export LC_ALL=en_US.UTF-8
+        export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+        export PATH="$HOME/.osx/local/bin:$PATH"
+    ;;
+    Linux)
+        export LANGUAGE=en_US.UTF-8
+        export LANG=en_US.UTF-8
+        export LC_ALL=en_US.UTF-8
+    ;;
+esac
+
+########################################################################  お試し期間中設定
+
+#export PATH=/usr/local/share/zsh/site-functions/:$PATH   # emmet livestyle
+ case $(uname -s) in
+     Darwin)
+ [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/bin:$PATH"
+ [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/shims:$PATH"
+ [ -d $HOME/.rbenv/ ]  && eval "$(rbenv init - zsh)"
+
+# [ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
+# [ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
+#         #git diff
+ [ -d /usr/local/Cellar/git/ ] && export PATH=$PATH:/usr/local/Cellar/git/`git --version | awk '{print $3}'`/share/git-core/contrib/diff-highlight
+     ;;
+ esac
+
+########################################################################  Alias
+
+case $(uname -s) in
+    Darwin|FreeBSD)  # osx
+        alias l="ls -A"
+        alias ls="ls -AhwG"
+        alias ll="ls -AlhG"
+        # sublime text 2
+        #alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+        #alias subll='st .'
+        # github
+        #alias hb='hub browse'
+        # less syntax
+        alias less="/usr/share/vim/vim73/macros/less.sh"
+        # vim
+        alias v='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias vi='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias vim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias gvim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim -g '
+        alias pbc='pbcopy'
+        alias ql='qlmanage -p '
+    ;;
+    Linux)      # Debian
+        alias ls="ls --color=always -ahF"
+        alias ll="ls --color=always -alhF"
+        alias vi="vim"
+        alias v="vim"
+    ;;
+    NetBSD|OpenBSD)
+        alias ls="ls -ahF"
+        alias ls="lsl -alhF"
+    ;;
+esac
+
+
+# sudoするときに、環境設定を引き継ぐ
+alias sudo='sudo -E '
+
+# Unix Command
+
+alias d='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'   # 前に行ったディレクトリに移る
+alias grep="grep --color=auto"
+alias top='top -ocpu'
+alias rm="rm -i"
+alias mv="mv -i"
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+fi
+# tmux
+alias tl='tmux ls'
+alias ta='tmux attach -t'
+alias tr='tmux rename-session -t'
+
+
+# ag
+alias ag='ag -S --stats'
+alias agh='ag --hidden'
+
+# add datetime
+alias history="history -i"
+
+
+# rails
+#alias rc='rails console'
+#alias rd='rails destroy'
+#alias rdb='rails dbconsole'
+#alias rdbm='rake db:migrate db:test:clone'
+#alias rg='rails generate'
+#alias rgm='rails generate migration'
+#alias rp='rails plugin'
+#alias ru='rails runner'
+#alias rs='rails server'
+#alias rsd='rails server --debugger'
+#alias rld='tail -f log/development.log'
+#alias rdm='rake db:migrate'
+#alias rdr='rake db:rollback'
+
+
+# Find ruby file
+#alias rfind='find . -name "*.rb" | xargs grep -n'
+#alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
+
+
+# git
+alias g='git'
+alias gs='git status -s -b'
+# alias gst='git status -s -b'
+alias gd='git diff'
+# alias gba='git branch -a'
+# alias g='cd   $(git rev-parse --show-toplevel)'
+alias gcd='cd $(git rev-parse --show-toplevel)'
+
+
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+zstyle ':completion:*' list-colors di=34 fi=0         # 色付きで補完する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin  # sudoも補完の対象
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
+export CLICOLOR=1                                     # Terminal Colorの設定
+
+# cd後、自動的にls
+function chpwd() { ls }
+
+# sheet で必要
+#export EDITOR=`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim
+
+# zのパス
+. `brew --prefix`/etc/profile.d/z.sh
+
+export GOPATH=~/
+
+# export PATH="/usr/local/Cellar/mysql55/5.5.30/bin:$PATH"
+
+## UDC
+export YESTERDAY=`date -v-1d +"%Y-%m-%d"`
