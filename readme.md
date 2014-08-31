@@ -266,19 +266,20 @@ brew install openssl readline
 brew install --HEAD ruby-build
     # rbenv(rubyのバージョン管理ツール)のインストール
 brew install rbenv
-
+brew install rbenv-gemset
+brew install rbenv-gem-rehash
     # 下記を.zshrcに追記してpathを通す
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
     # Rubyをrbenv経由でバージョン指定インストール
 rbenv install -l
 brew link readline --force
-RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`" rbenv install 2.0.0-p247
+RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`" rbenv install 2.1.2
 
     # インストールしたrubyやgemのパスを通す
 rbenv rehash
     # インストールされてるrubyのバージョン一覧を確認
-rbenv global 2.0.0-p247
+rbenv global 2.1.2
 brew unlink readline
 ~~~
 

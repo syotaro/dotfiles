@@ -246,14 +246,20 @@ gem install nokogiri -v=1.6.1
   vim /usr/local/rvm/gems/ruby-2.1.1/gems/vpim-0.695/lib/vpim/vcard.rb
   # encoding: US-ASCII
 
-
+# なぜかSSHできないので、git clone するときは、httpsでcloneする
+※パスワードいちいちきかれるのは、下記コマンドでパスワードをキャッシュする
+git config --global credential.helper cache --timeout=3600000
 
 ## SSHできるように
-
+※但し、一時的な対処。
 eval `ssh-agent`
 ssh-add ~/.ssh/id_rsa
 
+## redmineにリポジトリ読ませるとき
 
+git clone --bare https://github.com/XXXX/xxxxx.git  # bareリポジトリをhttpsで
+git fetch origin 'refs/heads/*:refs/heads/*'   # 更新するとき
+→で、redmine上からリポジトリを指定
 
 ## mysql高速化
 
