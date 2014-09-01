@@ -88,6 +88,7 @@ else
   " Unite ( "<space>" ) {{{
   " --------------------------------------------------------------------------------------------------------
   "let mapleader = ","
+  NeoBundle 'Shougo/neomru.vim'
   let mapleader = "<space>"
     NeoBundle 'Shougo/unite.vim'
     let g:unite_enable_start_insert = 1

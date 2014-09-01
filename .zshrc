@@ -1,4 +1,3 @@
-
 [ -f ~/.zprezto/runcoms/zshrc ] && source ~/.zprezto/runcoms/zshrc
 [ -f ~/.zshrc.custom ]          && source ~/.zshrc.custom
 
