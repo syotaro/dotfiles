@@ -9,7 +9,6 @@ tags
 /.aws/keys/cert.pem
 /.aws/keys/*
 /.claws.yml
-/~/.aws/keys/awscli.conf
 
 ### PPSSPP
 
@@ -25,9 +24,11 @@ intelliJ/
 ### Project
 project
 
-### iTerm2
-iTerm/com.googlecode.iterm2.plist
-
 ### Vagrant
 
 vagrant/Vagrantfile
+
+### Auth Token
+/.vimrc.evervim
+/.aws/keys/awscli.conf
+/iTerm/com.googlecode.iterm2.plist

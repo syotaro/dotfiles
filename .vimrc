@@ -225,7 +225,7 @@ else
   NeoBundle 'repeat.vim'                              " surround.vimで繰り返しを使うために必要
   NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
   " NeoBundle 'kien/ctrlp.vim'
-  NeoBundle 'tomasr/molokai'
+    NeoBundle 'tomasr/molokai'
   let g:molokai_original = 1
   let g:rehash256 = 1
   colorscheme molokai
@@ -238,8 +238,8 @@ else
   " NeoBundle 'thinca/vim-localrc'
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'vim-scripts/tagbar-phpctags'
-  NeoBundle 'tsukkee/lingr-vim'
-  NeoBundle 'PDV--phpDocumentor-for-Vim'
+  " NeoBundle 'tsukkee/lingr-vim'
+  " NeoBundle 'PDV--phpDocumentor-for-Vim'
   " NeoBundle 'phpfolding.vim'
   " NeoBundle 'jtratner/vim-flavored-markdown'
   " NeoBundle 'Auto-Pairs'
@@ -366,6 +366,14 @@ else
   NeoBundle 'https://github.com/rbtnn/rabbit-ui.vim'
   "NeoBundle 'itchyny/calendar.vim'
   NeoBundle 'SQLComplete.vim'
+  NeoBundle 'dzeban/vim-log-syntax'
+  NeoBundle 'kakkyz81/evervim'
+
+" インデントに色を付けて見やすくする
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+
+
   " }}}
 
 
@@ -733,31 +741,30 @@ set cmdheight=1 "コマンドラインを1行しか表示させない
 
 
 
-
 " -----------------------------------------------------------------------------
 "  php-doc
 " -----------------------------------------------------------------------------
-autocmd FileType php inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
-autocmd FileType php nnoremap <C-@> :call PhpDocSingle()<CR>
-autocmd FileType php vnoremap <C-@> :call PhpDocRange()<CR>
-let g:pdv_cfg_Type = "int"
-let g:pdv_cfg_Package = ""
-let g:pdv_cfg_Version = ""
-let g:pdv_cfg_Copyright = "GREE, Inc."
-let g:pdv_cfg_Author = ""
-let g:pdv_cfg_License = ""
-
-" After phpDoc standard
-let g:pdv_cfg_CommentHead = "/**"
-let g:pdv_cfg_Comment1 = " * "
-let g:pdv_cfg_Commentn = " *"
-let g:pdv_cfg_CommentTail = " */"
-let g:pdv_cfg_CommentSingle = "// "
-
-" Attributes settings
-let g:pdv_cfg_Uses       = 0
-let g:pdv_cfg_php4always = 0
-let g:pdv_cfg_php4guess  = 0
+" autocmd FileType php inoremap <C-@> <ESC>:call PhpDocSingle()<CR>i
+" autocmd FileType php nnoremap <C-@> :call PhpDocSingle()<CR>
+" autocmd FileType php vnoremap <C-@> :call PhpDocRange()<CR>
+" let g:pdv_cfg_Type = "int"
+" let g:pdv_cfg_Package = ""
+" let g:pdv_cfg_Version = ""
+" let g:pdv_cfg_Copyright = "GREE, Inc."
+" let g:pdv_cfg_Author = ""
+" let g:pdv_cfg_License = ""
+" 
+" " After phpDoc standard
+" let g:pdv_cfg_CommentHead = "/**"
+" let g:pdv_cfg_Comment1 = " * "
+" let g:pdv_cfg_Commentn = " *"
+" let g:pdv_cfg_CommentTail = " */"
+" let g:pdv_cfg_CommentSingle = "// "
+" 
+" " Attributes settings
+" let g:pdv_cfg_Uses       = 0
+" let g:pdv_cfg_php4always = 0
+" let g:pdv_cfg_php4guess  = 0
 
 
 " markdown syntax
@@ -797,8 +804,6 @@ autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
 
 
 
-
-
 imap <buffer> <C-C>a <C-\><C-O>:call sqlcomplete#Map('syntax')<CR><C-X><C-O>
 let g:sql_type_default = 'mysql'
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
@@ -807,8 +812,18 @@ autocmd FileType mysql set omnifunc=sqlcomplete#Complete
 
 
 " :EditCSV
-function! s:edit_csv(path)
-  call writefile(map(rabbit_ui#gridview(map(readfile(a:path),'split(v:val,",",1)')), "join(v:val, ',')"), a:path)
-endfunction
+" function! s:edit_csv(path)
+"   call writefile(map(rabbit_ui#gridview(map(readfile(a:path),'split(v:val,",",1)')), "join(v:val, ',')"), a:path)
+" endfunction
+" 
+" command! -nargs=1 EditCSV  :call <sid>edit_csv(<q-args>)
 
-command! -nargs=1 EditCSV  :call <sid>edit_csv(<q-args>)
+
+
+" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup = 1
+
+
+
+" Evervim auth 
+source ~/.vimrc.evervim

@@ -235,6 +235,7 @@ export PATH=${HOME}/.cabal/bin:$PATH
 ~~~bash
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+unlink ~/.zshrc
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
@@ -425,4 +426,8 @@ sudo pip install awscli
 sudo pip install awscli --upgrade
 aws ec2 describe-instances | jq '.'
 
+### python markdown for evervim
 
+~~~
+sudo pip install markdown
+~~~
