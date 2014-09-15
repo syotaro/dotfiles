@@ -826,5 +826,5 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 " 自分用 snippet ファイルの場所
-let s:my_snippet = '~/.snippet/'
+let s:my_snippet = '~/.vim.snippet/'
 let g:neosnippet#snippets_directory = s:my_snippet
