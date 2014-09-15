@@ -638,7 +638,7 @@ nnoremap <S-Right> <C-w><<CR>
 inoremap <C-d> $
 inoremap <C-a> @
 inoremap <C-j> _
-inoremap <C-k> ()
+inoremap <C-l> ()
 
 
 

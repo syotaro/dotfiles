@@ -293,33 +293,6 @@ bundle install
 ~~~
 
 
-~~~diff
-    # Configure kramdown
-cd ~/dotfiles
-vim `rbenv prefix`/lib/ruby/gems/*/gems/kramdown-`kramdown -v`/lib/kramdown/options.rb
-
--    define(:coderay_line_numbers, Symbol, :inline, 
-+    define(:coderay_line_numbers, Symbol, nil, 
-~~~
-
-~~~diff
-    # Configure ruhoh
-vim `bundle show ruhoh`/lib/ruhoh/converters/markdown.rb
-
--      def self.convert(content)
--        require 'redcarpet'
--        markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(:with_toc_data => true),
--          :autolink => true, 
--          :fenced_code_blocks => true, 
--        )
--        markdown.render(content)
--      end
-+      def self.convert(content)
-+          require 'kramdown'
-+          Kramdown::Document.new(content).to_html
-+      end
-~~~
-
 ### Configure vim & install vim plugin
 
 ~~~bash
