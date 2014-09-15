@@ -32,3 +32,4 @@ vagrant/Vagrantfile
 /.vimrc.evervim
 /.aws/keys/awscli.conf
 /iTerm/com.googlecode.iterm2.plist
+/.hateblo.vim

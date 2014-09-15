@@ -25,6 +25,7 @@ install 'automake'
 install 'LightPaper'
 install 'mysql-connector-odbc'  # for Tableau
 install 'bash'
+install 'goaccess'
 install 'R'       # required https://xquartz.macosforge.org/landing/
 install 'bdw-gc'
 install 'jsonpp'

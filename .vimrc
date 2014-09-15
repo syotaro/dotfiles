@@ -75,6 +75,7 @@ else
     " endfunction
   endif
   NeoBundle 'Shougo/neosnippet'
+  NeoBundle 'Shougo/neosnippet-snippets'
   let g:neosnippet#snippets_directory = expand($VIM.'/snippets')
   imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
         \ "\<Plug>(neosnippet_expand_or_jump)"
@@ -158,6 +159,8 @@ else
   NeoBundle 'thinca/vim-quickrun'
   NeoBundle 'tyru/open-browser.vim'
     let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', 'into': 1}}
+    let g:quickrun_config['markdown'] = {'outputter': 'browser'}
+
     NeoBundle 'Shougo/vimfiler'
     let g:vimfiler_as_default_explorer = 1
     " let g:vimfiler_sort_type = 'TIME'
@@ -206,7 +209,7 @@ else
   NeoBundle 'mattn/webapi-vim'
   " }}}
   " ALL {{{
-  NeoBundle 'Shougo/vimshell.git'
+  " NeoBundle 'Shougo/vimshell.git'
   " ---------------------------------------------
 
   " Markdown {{{
@@ -221,7 +224,8 @@ else
   " NeoBundle 'bash-support.vim'
   " NeoBundle 'git://github.com/jimsei/winresizer.git'
   NeoBundle 'git://github.com/tpope/vim-surround.git' " テキストを括弧で囲む／削除する
-  NeoBundle 'h1mesuke/vim-alignta.git'                " 整形プラグイン Alignのマルチバイト対応版
+  " NeoBundle 'junegunn/vim-easy-align'
+  NeoBundle 'h1mesuke/vim-alignta'
   NeoBundle 'repeat.vim'                              " surround.vimで繰り返しを使うために必要
   NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
   " NeoBundle 'kien/ctrlp.vim'
@@ -237,15 +241,13 @@ else
   " NeoBundle 'yuratomo/w3m.vim.git'
   " NeoBundle 'thinca/vim-localrc'
   NeoBundle 'majutsushi/tagbar'
-  NeoBundle 'vim-scripts/tagbar-phpctags'
+  " NeoBundle 'vim-scripts/tagbar-phpctags'
   " NeoBundle 'tsukkee/lingr-vim'
   " NeoBundle 'PDV--phpDocumentor-for-Vim'
   " NeoBundle 'phpfolding.vim'
   " NeoBundle 'jtratner/vim-flavored-markdown'
   " NeoBundle 'Auto-Pairs'
-  " NeoBundle 'Indent-Guides'
   " NeoBundle 'Quich-Filter'
-  " NeoBundle 'YankRing.vim'                            " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
   " NeoBundle 'css_color.vim'
   " NeoBundle 'eregex.vim'
   " NeoBundle 'git://github.com/thinca/vim-showtime.git'
@@ -316,7 +318,7 @@ else
 
   autocmd BufRead *.tpl set filetype=smarty
   autocmd FileType html,smarty : set shiftwidth=2
-  autocmd FileType php,json :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4
+  " autocmd FileType php,json :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4
 
   " Xdebug
   let g:vdebug_options = {
@@ -356,7 +358,7 @@ else
         \}
   " }}}
   " Other {{{
-  NeoBundle 'itspriddle/vim-javascript-indent'
+  " NeoBundle 'itspriddle/vim-javascript-indent'
   " NeoBundle 'JSON.vim'
   " NeoBundle 'mhinz/vim-startify'
   " NeoBundleLazy 'groenewege/vim-less', {'autoload': {'filetypes': ['less']}}
@@ -368,11 +370,14 @@ else
   NeoBundle 'SQLComplete.vim'
   NeoBundle 'dzeban/vim-log-syntax'
   NeoBundle 'kakkyz81/evervim'
+  NeoBundle 'moznion/hateblo.vim'
+
 
 " インデントに色を付けて見やすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
-
+NeoBundle 'Yggdroot/indentLine'
+" let g:indentLine_faster = 1
+nmap <silent><Leader>i :
+  nmap <C-i> :<C-u>IndentLinesToggle<CR>
 
   " }}}
 
@@ -610,22 +615,22 @@ endif
   " Vundle Plugin に関する設定を読み込む
   " source ~/.vimrc.plugins_setting
 
-" カッコやクオートなどを入力した際に左に自動で移動します
+"" カッコやクオートなどを入力した際に左に自動で移動します
   inoremap {} {}<Left>
   inoremap [] []<Left>
   inoremap () ()<Left>
   inoremap "" ""<Left>
   inoremap '' ''<Left>
   inoremap <> <><left>
-  inoremap `` ``<left>
+"  inoremap `` ``<left>
 
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
 nnoremap j gj
 nnoremap k gk
 
 " Shift + 矢印でウィンドウサイズを変更
-" nnoremap <S-Left>  <C-w><<CR>
-" nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Left>  <C-w>><CR>
+nnoremap <S-Right> <C-w><<CR>
 " nnoremap <S-Up>    <C-w>-<CR>
 " nnoremap <S-Down>  <C-w>+<CR>
 
@@ -637,13 +642,6 @@ inoremap <C-k> ()
 
 
 
-" move within insert mode
-" imap <expr><C-o> neosnippet#expandable_or_jumpable() ?
-"       \ "\<Plug>(neosnippet_expand_or_jump)" : "\<ESC>o"
-" inoremap <expr> <Up> <SID>cancel_popup("\<Up>")
-" inoremap <expr> <Down> <SID>cancel_popup("\<Down>")
-" inoremap <expr> <Left> <SID>cancel_popup("\<Left>")
-" inoremap <expr> <Right> <SID>cancel_popup("\<Right>")
 
 
 " 0:表示しない 1:２つ以上のタブがあるとき表示 2:常に表示。
@@ -769,8 +767,7 @@ set cmdheight=1 "コマンドラインを1行しか表示させない
 
 " markdown syntax
 autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown
-" autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
-
+autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 
 " changed.vimによるsign表示がちらちらしてかなわんので、signを常に表示する
 " autocmd BufEnter * sign define dummy
@@ -820,10 +817,14 @@ autocmd FileType mysql set omnifunc=sqlcomplete#Complete
 
 
 
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup = 1
-
-
-
 " Evervim auth 
 source ~/.vimrc.evervim
+
+" NeoSnippet
+" Plugin key-mappings.  " <C-k>でsnippetの展開
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" 自分用 snippet ファイルの場所
+let s:my_snippet = '~/.snippet/'
+let g:neosnippet#snippets_directory = s:my_snippet
