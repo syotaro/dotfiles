@@ -189,27 +189,10 @@ else
     nnoremap <silent> <Space>c  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
     " VimfilerExplorer
     nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
-    " nnoremap <silent> s :<C-u>execute 'VimShellCreate '.<SID>current_directory_auto()<CR>
-    " nnoremap <silent> <S-s> :<C-u>VimShellBufferDir<CR>
-    let g:vimfiler_execute_file_list = {}
-    for ft in split('pdf,png,jpg,jpeg,gif,bmp,ico,ppt,html', ',')
-      let g:vimfiler_execute_file_list[ft] = 'open'
-    endfor
-    augroup Vimfiler
-      autocmd!
-      autocmd FileType vimfiler nunmap <buffer> <C-l>
-      autocmd FileType vimfiler nunmap <buffer> \
-      autocmd FileType vimfiler nnoremap <buffer> <C-l> <ESC><C-w>l
-      autocmd FileType vimfiler nmap <buffer> <C-r> <Plug>(vimfiler_redraw_screen)
-      autocmd FileType vimfiler nmap <buffer> O <Plug>(vimfiler_sync_with_another_vimfiler)
-      autocmd FileType vimfiler nmap <buffer><expr> e
-            \ vimfiler#smart_cursor_map("\<Plug>(vimfiler_cd_file)", "\<Plug>(vimfiler_edit_file)")
-      autocmd FileType vimfiler if filereadable("Icon\r") | silent call delete("Icon\r") | endif
-    augroup END
   NeoBundle 'mattn/webapi-vim'
   " }}}
   " ALL {{{
-  " NeoBundle 'Shougo/vimshell.git'
+  NeoBundle 'Shougo/vimshell.git'
   " ---------------------------------------------
 
   " Markdown {{{
@@ -229,7 +212,7 @@ else
   NeoBundle 'repeat.vim'                              " surround.vimで繰り返しを使うために必要
   NeoBundle 'kwbdi.vim'                               " keep Window on Buffer Delete
   " NeoBundle 'kien/ctrlp.vim'
-    NeoBundle 'tomasr/molokai'
+  NeoBundle 'tomasr/molokai'
   let g:molokai_original = 1
   let g:rehash256 = 1
   colorscheme molokai
@@ -321,10 +304,10 @@ else
   " autocmd FileType php,json :set dictionary=~/.vim/dict/php.dict | set shiftwidth=4
 
   " Xdebug
-  let g:vdebug_options = {
-  \    "break_on_open" : 0,
-  \    "continuous_mode"  : 1,
-  \}
+  " let g:vdebug_options = {
+  " \    "break_on_open" : 0,
+  " \    "continuous_mode"  : 1,
+  " \}
 
   " PHPの名前空間を保管する設定
   "inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
@@ -371,7 +354,8 @@ else
   NeoBundle 'dzeban/vim-log-syntax'
   NeoBundle 'kakkyz81/evervim'
   NeoBundle 'moznion/hateblo.vim'
-
+  NeoBundle 'kannokanno/previm'
+  NeoBundle 'rcmdnk/vim-markdown'
 
 " インデントに色を付けて見やすくする
 NeoBundle 'Yggdroot/indentLine'
@@ -828,3 +812,15 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 " 自分用 snippet ファイルの場所
 let s:my_snippet = '~/.vim.snippet/'
 let g:neosnippet#snippets_directory = s:my_snippet
+
+
+" previm
+" 独自のCSSを指定
+let g:previm_disable_default_css = 1
+let g:previm_custom_css_path = '/Users/syotaro/dotfiles/css/previm.css'
+
+
+
+
+
+set spelllang+=cjk

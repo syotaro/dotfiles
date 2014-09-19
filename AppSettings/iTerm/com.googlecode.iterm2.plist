@@ -578,7 +578,7 @@
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
-	<true/>
+	<false/>
 	<key>HideTab</key>
 	<true/>
 	<key>HighlightTabLabels</key>
@@ -608,7 +608,9 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
+	<string>1, 9</string>
+	<key>NSFontPanelPreviewHeight</key>
+	<real>0.0</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Dropbox (個人)/work/github/dotfiles/AppSettings/iTerm</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -628,20 +630,33 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>302</string>
+		<string>198</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSToolbar Configuration Terminal Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<integer>0</integer>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>641 244 445 270 0 0 2560 1418 </string>
+	<string>2892 533 445 270 1680 0 2560 1418 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>424 579 924 485 0 0 2560 1418 </string>
+	<string>988 604 924 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>-1318 491 384 129 -1440 -446 1440 2538 </string>
+	<string>-1033 674 384 129 -1680 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>923 12 1410 1406 0 0 2560 1418 </string>
+	<string>18 517 863 887 0 0 2560 1418 </string>
+	<key>NeverWarnAboutShortLivedSessions_5523889C-6B7E-4249-8398-E29D8E4C8831</key>
+	<true/>
 	<key>NeverWarnAboutShortLivedSessions_DA0E9254-826E-4AF2-99CE-06AFD50E736E</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -3401,11 +3416,11 @@
 			<key>Selection Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.13528014719486237</real>
+				<real>0.45526370406150818</real>
 				<key>Green Component</key>
-				<real>0.12312769144773483</real>
+				<real>0.41425135731697083</real>
 				<key>Red Component</key>
-				<real>0.11772145330905914</real>
+				<real>0.39551654458045959</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
@@ -4272,7 +4287,7 @@
 			<string>~/Dropbox/work/quickrun/</string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesLost</key>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
 	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -4342,7 +4357,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-09-03T15:37:38Z</date>
+	<date>2014-09-16T01:39:37Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -4376,7 +4391,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>.Lucida Grande UI</string>
+	<string>Lucida Grande</string>
 	<key>Window Arrangements</key>
 	<dict>
 		<key>Quickrun</key>
