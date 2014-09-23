@@ -356,6 +356,7 @@ else
   NeoBundle 'moznion/hateblo.vim'
   NeoBundle 'kannokanno/previm'
   NeoBundle 'rcmdnk/vim-markdown'
+  NeoBundle 'kylef/apiblueprint.vim'
 
 " インデントに色を付けて見やすくする
 NeoBundle 'Yggdroot/indentLine'

@@ -6,7 +6,7 @@
 
 ### Install Apps (via AppStore)
 
-~~~bash
+```bash
     # => manually
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
@@ -82,43 +82,43 @@ YoruFukurou
 iBooks Author
 iKeyboard
 picatext
-~~~
+```
 
-~~~bash
+```bash
     # Install Require Tools
 open /Applications/Xcode.app
 java -version                # => Java Install manually
 xcodebuild -license
 xcode-select --install
-~~~
+```
 
 ### Setup ssh key
 
-~~~bash
+```bash
 mkdir ~/.ssh
 ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
-~~~
+```
 
 ### Setup dotfiles
 
-~~~bash
+```bash
 mkdir ~/dotfiles &&  cd ~/dotfiles
 git clone git@github.com:syotaro/dotfiles.git .
 sh ./setup.sh
-~~~
+```
 
 ### Configure OS X
 
-~~~bash
+```bash
 cd ~/dotfiles
 sh ./osx.sh
-~~~
+```
 
 ### Install Apps (via homebrew or other)
 
-~~~bash
+```bash
     # Install
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew    doctor
@@ -129,35 +129,35 @@ brew install brew-cask
 brew bundle
 brew cask alfred link
 brew linkapps
-~~~
+```
 
 ### Configure BBT(on GUI)
 
-~~~
+```
 import ~/dotfiles/bettertouchtool/bbt-setting-export
-~~~
+```
 
 ### Install PHP  (via php-build) + Apache
 
-~~~bash
+```bash
 sudo vim /private/etc/apache2/httpd.conf #=> phpを有効化
 sudo ln -s ~/dotfiles/php/php.ini /etc/
 sudo apachectl -k restart
 brew install php54-xdebug phpunit phpmd php-code-sniffer
-~~~
+```
 
-~~~bash
+```bash
 //  brew install httpd
 //  brew tap     'josegonzalez/homebrew-php'
 //  brew install --HEAD 'phpenv'
 //  brew install 'php-build'
-//  ~~~
-//  ~~~diff
+//  ```
+//  ```diff
 //  sudo vim /usr/local/share/php-build/default_configure_options
 //  ++ --with-apxs2=/usr/local/sbin/apxs
-//  ~~~
+//  ```
 //  
-//  ~~~bash
+//  ```bash
 //      # phpのビルドに必要なライブラリをインストール
 //  brew install 're2c'
 //  brew install 'libjpeg'
@@ -186,29 +186,29 @@ brew install php54-xdebug phpunit phpmd php-code-sniffer
 //  cd $HOME
 //  curl -sS https://getcomposer.org/installer | php
 //  mv composer.phar /usr/local/bin/composer
-//  ~~~
+//  ```
 //  
-//  ~~~bash
+//  ```bash
 //  sudo apachectl restart
 //  cd /Library/WebServer/Documents
-~~~
+```
 
 
-~~~bash
+```bash
     # PHPUnitのインストール
 pear config-set auto_discover 1
 pear install pear.phpunit.de/PHPUnit
 pear install pear.phing.info/phing
     # phpunit コマンドが使えるようになったか確認します。
 phpunit --version
-~~~
+```
 
-~~~bash
+```bash
     # Add phpcs for FuelPHP
 ln -s ~/.php/fuelphp-phpcs/Standards/FuelPHP `brew --prefix php-code-sniffer`/CodeSniffer/Standards/FuelPHP
-~~~
+```
 
-~~~bash
+```bash
     # configure php
 // sudo vi /usr/local/etc/php/5.4/php.ini
  
@@ -219,20 +219,20 @@ date.timezone = Asia/Tokyo
 mbstring.language = Japanese
 mbstring.internal_encoding = UTF-8
 mbstring.http_output = UTF-8
-~~~
+```
 
 ### Install pandoc (via Haskell-Platform)
 
-~~~bash
+```bash
 cabal update
 cabal install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
-~~~
+```
 
 
 ### Setup ZshFramework(Prezto)
 
-~~~bash
+```bash
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 unlink ~/.zshrc
@@ -241,26 +241,26 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 unlink ~/.zshrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
-~~~
+```
 
 ### Change shell(bash -> zsh)
 
-~~~bash
+```bash
 chsh -s /bin/zsh 
 cat /etc/shells
-~~~
+```
 
 ### Add quickLook plugin
 
-~~~bash
+```bash
 brew update; brew upgrade brew-cask
 brew cask install qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r
-~~~
+```
 
 ### Install Ruby
 
 
-~~~ruby
+```ruby
     # openssl、readlineのインストール
 brew install openssl readline
     # ruby-buildをインストール
@@ -282,20 +282,20 @@ rbenv rehash
     # インストールされてるrubyのバージョン一覧を確認
 rbenv global 2.1.2
 brew unlink readline
-~~~
+```
 
-~~~bash
+```bash
     # gem
 gem update --system
 gem update rake
 gem install bundler
 bundle install
-~~~
+```
 
 
 ### Configure vim & install vim plugin
 
-~~~bash
+```bash
     # plugin
 vim
     # mkdir -p ~/.vim/bundle
@@ -303,39 +303,39 @@ vim
 cd ~/.vim/bundle/neosnippet
 git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 vim -c NeoBundleInstall!
-~~~
-~~~bash
+```
+```bash
     # Build LiveStyle
 cd ~/.vim/bundle/livestyle-vim/livestyled
 go get code.google.com/p/go.net/websocket
 go build livestyled.go
-~~~
-~~~bash
+```
+```bash
     # Gist-vim
 curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations # => copy token param
 vim ~/.gist-vim            # => set token
 chmod 600 ~/.gist-vim
-~~~
+```
 
 ### BOWER
 
 
-~~~bash
+```bash
 brew install node.js
 npm install -g bower
-~~~
+```
 
 ### Configure KeyRemap4MakBook
 
-~~~bash
+```bash
     # /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > ~/dotfiles/keyremap4mb-importconfig.sh
 cd ~/dotfiles
 sh ./keyremap4mb-importconfig.sh
-~~~
+```
 
 ### Configure MySQL
 
-~~~bash
+```bash
     # MySQLデータベースを作成(to Dropbox)
 unset TMPDIR
 mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=$HOME/Dropbox/work/database/localhost/data --tmpdir=/tmp
@@ -370,28 +370,28 @@ mysql -uroot
 mysqladmin -u root password 'new-password'
     # my.cnfの読み込み順を確認
 mysql --help | grep my.cnf
-~~~
+```
 
 ### Install Quicklook Plugin
 
-~~~
+```
 cp -r ~/dotfiles/quicklook_plugin/* ~/Library/QuickLook
-~~~
+```
 
 ### Configure QuickLook
 
-~~~
+```
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
-~~~
+```
 
 ### Config
 
 - integrate Kaleidoscope
 
-~~~
+```
 cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
 ./install_git-default
-~~~
+```
 
 ## Install AWS CLI
 sudo easy_install pip
@@ -401,6 +401,12 @@ aws ec2 describe-instances | jq '.'
 
 ### python markdown for evervim
 
-~~~
-sudo pip install markdown
-~~~
+```sh
+$ sudo pip install markdown
+```
+
+### Configure OSX
+
+```sh
+$ ksdiff ~/dotfiles/Library/ ~/Library
+```

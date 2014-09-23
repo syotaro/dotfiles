@@ -1,0 +1,83 @@
+/* </system> */
+
+body {
+    font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic", Verdana, sans-serif;
+    background-color: #445566;
+}
+header#blog-title{
+    font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic", Verdana, sans-serif;
+    color: #445566;
+    border:none;
+}
+header.entry-header{
+    padding-bottom:0px;
+}
+h1.title{
+  color: #445566;
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic", Verdana, sans-serif;
+
+}
+
+h1.entry-title {
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic", Verdana, sans-serif;
+  color: #445566;
+  background-color: #fff;
+  border-top: 11px solid #445566;
+  border-bottom: 11px solid #445566;
+  margin: 0px -20px 0px -20px;
+  padding: 18px 20px 18px 20px;
+  text-align: center;
+  font-size: 150%;
+}
+h2#blog-description {
+  font-family: Meiryo, "Hiragino Kaku Gothic Pro", "MS PGothic", Verdana, sans-serif;    
+}
+#container{
+    width: 800px;
+}
+#box2-inner{
+    width: 800px;
+}
+div#content {
+    color:#445566;
+    border:none;
+}
+div.entry-content{
+    background-color: #fff;
+  margin: 0px -20px 0px -20px;
+  padding: 18px 20px 18px 20px;
+}
+#container-inner {
+  background-color: #f5f5f5;
+     padding: 20px;
+}
+
+footer.entry-footer{
+  border-top: 2px dotted #445566;
+  border-bottom: 11px solid #445566;
+  background-color: #f5f5f5;
+  margin: 0px -20px 0px -20px;
+  padding: 18px 20px 18px 20px;
+}
+
+.entry-content pre{
+    padding:0px;
+    border:none;
+}
+
+.entry-content img {
+    border: 2px solid #f5f5f5;
+}
+a,a:visited,a:hover{
+    color: #445566;
+}
+
+#title a{
+    color:#0066cc;
+}
+h2,h3,h4 {
+    color:#0066cc;
+}
+div.entry-content h2 {
+  border-bottom: 3px solid #0066cc;
+}
