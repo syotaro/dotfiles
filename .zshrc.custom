@@ -58,6 +58,7 @@ esac
 case $(uname -s) in
     Darwin|FreeBSD)  # osx
         alias l="ls -A"
+        alias c="cd"
         alias ls="ls -AhwG"
         alias ll="ls -AlhG"
         # sublime text 2

@@ -201,15 +201,17 @@ cask install 'marked'
 cask install 'omnigraffle'
 cask install 'omnipresence'
 cask install 'openemu-experimental'
+cask install 'chefdk'  # Chef Development Kit
 cask install 'perian'
 cask install 'quickcast'
 cask install 'rcdefaultapp'
 cask install 'reflector'
 cask install 'rstudio'
 cask install 'silverlight'
+cask install 'sshrc'        # sshした先で読み込む環境変数をローカルで定義できる
 cask install 'skitch'
 cask install 'skype'
-cask install 'stay'
+cask install 'stay'  # Window位置の記憶
 cask install 'pixel-winch'
 cask install 'teamviewer'
 cask install 'testflight'
