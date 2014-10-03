@@ -2,13 +2,13 @@
 	name = syotaro
 	email = syosyo666@gmail.com
 [color]
-  ui            = auto
+  ui            = true
   status        = auto
   branch        = auto
   grep          = auto
 [core]
   pager         = lv -c
-	excludesfile = /Users/syotaro/.gitignore.global
+  excludesfile = /Users/syotaro/.gitignore.global
   quotepath     = false
   editor = vim
   #  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -35,31 +35,33 @@
   st            = status
   co            = checkout
   d             = diff
+  vdiff         = difftool -y -t Vim
+  vd            = difftool -y -t Vim
   ksdiff        = difftool -y -t Kaleidoscope
   dc            = diff --cached
   s             = status
   ss            = status -s
   po            = push origin         # push origin
-      # merge
   mn            = merge --no-ff
   co            = checkout
-      # branch
   ba            = branch -a           # originも含めた全てのbranchを表示
   bm            = branch --merged     # merge済みのbranchを表示
   bn            = branch --no-merged  # mergeしてないbranchを表示
 [http]
   sslVerify = false
-
 [pager]
-  log = diff-highlight | less
-  show = diff-highlight | less
-  diff = diff-highlight | less
+  vdiff =
+  diff  = diff-highlight | nkf -w | LESS=-R less
+  log   = diff-highlight | nkf -w | LESS=-R less
+  show  = diff-highlight | nkf -w | LESS=-R less
 [hub]
 protocol = https
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[diff]
-	tool = Kaleidoscope
+#[diff]
+#	tool = Kaleidoscope
+[difftool "Vim"]
+	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [mergetool "Kaleidoscope"]

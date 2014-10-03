@@ -17,3 +17,8 @@ Thumbs.db
 ### intelliJ / PhPStorm ###
 .idea/
 app.iml
+
+
+# Eden Unity
+/UnityProject/Assets/Scenes/
+/UnityProject/Assets/Service/Eden/Config/

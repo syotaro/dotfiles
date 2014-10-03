@@ -78,3 +78,5 @@ gem 'rails'
 gem 'rake'
 gem 'rmagick'
 gem 'sqlite3'
+
+gem 'aws-sdk'

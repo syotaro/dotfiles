@@ -30,7 +30,6 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     chunky_png (1.2.9)
-    coderay (1.1.0)
     colored (1.2)
     commander (4.1.5)
       highline (~> 1.6.11)
@@ -136,10 +135,10 @@ PLATFORMS
 DEPENDENCIES
   CoffeeTags
   awesome_print
+  aws-sdk
   brewdler
   bundler
   capybara
-  coderay
   cucumber
   git-browse-remote
   git-issue

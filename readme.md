@@ -375,7 +375,10 @@ mysql --help | grep my.cnf
 ### Install Quicklook Plugin
 
 ```
-cp -r ~/dotfiles/quicklook_plugin/* ~/Library/QuickLook
+brew install ffmpeg --with-tools media-info
+cp -rf ~/dotfiles/Library/QuickLook/* ~/Library/QuickLook
+qlmanage -r
+qlmanage -r cache
 ```
 
 ### Configure QuickLook
