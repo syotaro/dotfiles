@@ -20,22 +20,18 @@ cask install 'xquartz'
 #install 'fuse4x'
 #install 'fuse4x-kext'
 #install 'python3'
+install 'LightPaper'
+install 'R'                    # required https://xquartz.macosforge.org/landing/
 install 'autoconf'
 install 'automake'
-install 'LightPaper'
-install 'mysql-connector-odbc'  # for Tableau
 install 'bash'
-install 'goaccess'
-install 'R'       # required https://xquartz.macosforge.org/landing/
 install 'bdw-gc'
-install 'jsonpp'
-install 'cmake'    # be require from mysql
-install 'npm'
+install 'cmake'                # be require from mysql
 install 'colordiff'
 install 'coreutils'
 install 'cscope'
 install 'ctags'
-install 'curl'  # ln -s ` --prefix curl`/bin/curl /usr/local/bin
+install 'curl'                 # ln -s ` --prefix curl`/bin/curl /usr/local/bin
 install 'gdbm'
 install 'gettext'
 install 'gh'
@@ -43,15 +39,17 @@ install 'glib'
 install 'gmp'
 install 'gnu-sed' '--default-names'
 install 'go'
+install 'goaccess'
 install 'graphicsmagick'
-install 'haskell-platform'  # Install until the end, very time-consuming
+install 'haskell-platform'     # Install until the end, very time-consuming
 install 'htop-osx'
-install 'hub' # wrapper for  git command
+install 'hub'                  # wrapper for  git command
 install 'icu4c'
 install 'imagemagick' '--disable-openmp'
 install 'jenkins'
 install 'jpeg'
-install 'jq'         # JSONパーサー
+install 'jq'                   # JSONパーサー
+install 'jsonpp'
 install 'libevent'
 install 'libffi'
 install 'libpng'
@@ -62,9 +60,11 @@ install 'lv'
 install 'lynx'
 install 'macvim' '--with-lua --override-system-vim --custom-icons'
 install 'multitail'
+install 'mysql-connector-odbc' # for Tableau
 install 'ngrep'
 install 'nkf'
-install 'nmap'    # port scan util
+install 'nmap'                 # port scan util
+install 'npm'
 install 'oniguruma'
 install 'pidof'
 install 'pkg-config'
@@ -72,11 +72,12 @@ install 'pstree'
 install 's3cmd'
 install 'sqlite'
 install 'sshfs'
-install 'tcpflow'
+install 'sshrc'                # sshした先で読み込む環境変数をローカルで定義できる
+install 'tcpflow'              # いい感じでHTTPリクエストをモニタリング
 install 'the_silver_searcher'
 install 'tree'
 install 'unixodbc'
-install 'w3m'  # CLI Web Browser
+install 'w3m'                  # CLI Web Browser
 install 'watch'
 install 'weechat' '--with-ruby --with-python --with-perl'
 install 'wget' '--enable-iri'
@@ -166,68 +167,68 @@ install brew-cask || true
 #cask install 'google-chrome-canary'
 #cask install 'google-web-designer'
 #cask install 'gyazo'
+#cask install 'keyboard-maestro'
+#cask install 'keycue'
 #cask install 'libreoffice'
+#cask install 'mamp'
 #cask install 'mysqlworkbench'
 #cask install 'parallels-9'
 #cask install 'path-finder'
 #cask install 'phpstorm'
 #cask install 'postbox'
 #cask install 'redis-desktop-manager'
+#cask install 'rstudio'
 #cask install 'sequel-pro'
 #cask install 'soundflower'
 #cask install 'splashtop-streamer'
+#cask install 'versions'             # Subversion Client
 #cask install 'x-quartz'
+#cask install 'yorufukurou'
 cask install 'adobe-air'
-cask install 'adobe-creative-cloud'  # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
+cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 cask install 'alfred'
 cask install 'android-file-transfer'
 cask install 'appcleaner'
 cask install 'bartender'
 cask install 'bettertouchtool'
 cask install 'camtasia'
+cask install 'chefdk'               # Chef Development Kit
 cask install 'cooviewer'
 cask install 'flash'
 cask install 'fluid'
 cask install 'google-japanese-ime'
 cask install 'intellij-idea'
 cask install 'iterm2'
-#cask install 'keyboard-maestro'
-#cask install 'keycue'
 cask install 'keyremap4macbook'
 cask install 'ksdiff'
 cask install 'launchrocket'
-#cask install 'mamp'
 cask install 'marked'
 cask install 'omnigraffle'
 cask install 'omnipresence'
 cask install 'openemu-experimental'
-cask install 'chefdk'  # Chef Development Kit
 cask install 'perian'
+cask install 'pixel-winch'
 cask install 'quickcast'
 cask install 'rcdefaultapp'
 cask install 'reflector'
-cask install 'rstudio'
 cask install 'silverlight'
-cask install 'sshrc'        # sshした先で読み込む環境変数をローカルで定義できる
 cask install 'skitch'
 cask install 'skype'
-cask install 'stay'  # Window位置の記憶
-cask install 'pixel-winch'
+cask install 'stay'                 # Window位置の記憶
 cask install 'teamviewer'
 cask install 'testflight'
 cask install 'totalfinder'
 cask install 'unity-web-player'
 cask install 'vagrant'
-cask install 'versions'  # Subversion Client
 cask install 'virtualbox'
 cask install 'vlc'
 cask install 'vmware-fusion'
-cask install 'yorufukurou'
 
 cask alfred link  # CaskroomをAlfredの検索パスに追加
 ################
 # QuickLook Plugin
 ################
+#cask install 'suspicious-package'
 cask install 'betterzipql'
 cask install 'qlcolorcode'
 cask install 'qlmarkdown'
@@ -236,7 +237,6 @@ cask install 'qlstephen'       # view plain text files without a file extension
 cask install 'quicklook-csv'
 cask install 'quicklook-json'
 cask install 'webp-quicklook'
-#cask install 'suspicious-package'
 
 ############################################
 # Remove outdated versions

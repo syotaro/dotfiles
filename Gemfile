@@ -80,3 +80,9 @@ gem 'rmagick'
 gem 'sqlite3'
 
 gem 'aws-sdk'
+
+
+# for TexturePacker
+gem 'ruby-graphviz'
+gem 'ruby-lzma'
+
