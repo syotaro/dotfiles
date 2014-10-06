@@ -1,25 +1,19 @@
 ############################################
 # Add Repository
 ############################################
-#tap  home/dupes        || true
-tap phinze/homebrew-cask  || true
+#tap  home/dupes               || true
+tap phinze/homebrew-cask       || true
 tap caskroom/homebrew-versions || true  # add beta pkg
-tap homebrew/binary       || true
-tap jimbojsb/launchrocket || true
-tap homebrew/science      || true
-# Make sure using latest Home
+tap homebrew/binary            || true
+tap jimbojsb/launchrocket      || true
+tap homebrew/science           || true
 update || true
 
 
-cask install 'xquartz'
 ############################################
 # Add Packages for Development
 ############################################
-#install 'bsdmake'
-#install 'freetype'
-#install 'fuse4x'
-#install 'fuse4x-kext'
-#install 'python3'
+cask install 'xquartz'         # 依存されてるので先にInstall
 install 'LightPaper'
 install 'R'                    # required https://xquartz.macosforge.org/landing/
 install 'autoconf'
@@ -84,6 +78,11 @@ install 'wget' '--enable-iri'
 install 'xz'
 install 'z'
 install 'zsh' '--disable-etcdir'
+#install 'bsdmake'
+#install 'freetype'
+#install 'fuse4x'
+#install 'fuse4x-kext'
+#install 'python3'
 ################
 #  AWS
 ################
@@ -155,35 +154,6 @@ install 'sdl'
 
 install brew-cask || true
 
-#cask install 'amazon-cloud-drive'
-#cask install 'bathyscaphe'   # 2ch ブラウザ
-#cask install 'clipmenu'
-#cask install 'cloudytabs'
-#cask install 'codekit'
-#cask install 'dropbox'
-#cask install 'evernote'
-#cask install 'forklift'
-#cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
-#cask install 'google-chrome-canary'
-#cask install 'google-web-designer'
-#cask install 'gyazo'
-#cask install 'keyboard-maestro'
-#cask install 'keycue'
-#cask install 'libreoffice'
-#cask install 'mamp'
-#cask install 'mysqlworkbench'
-#cask install 'parallels-9'
-#cask install 'path-finder'
-#cask install 'phpstorm'
-#cask install 'postbox'
-#cask install 'redis-desktop-manager'
-#cask install 'rstudio'
-#cask install 'sequel-pro'
-#cask install 'soundflower'
-#cask install 'splashtop-streamer'
-#cask install 'versions'             # Subversion Client
-#cask install 'x-quartz'
-#cask install 'yorufukurou'
 cask install 'adobe-air'
 cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 cask install 'alfred'
@@ -223,6 +193,35 @@ cask install 'vagrant'
 cask install 'virtualbox'
 cask install 'vlc'
 cask install 'vmware-fusion'
+#cask install 'amazon-cloud-drive'
+#cask install 'bathyscaphe'   # 2ch ブラウザ
+#cask install 'clipmenu'
+#cask install 'cloudytabs'
+#cask install 'codekit'
+#cask install 'dropbox'
+#cask install 'evernote'
+#cask install 'forklift'
+#cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
+#cask install 'google-chrome-canary'
+#cask install 'google-web-designer'
+#cask install 'gyazo'
+#cask install 'keyboard-maestro'
+#cask install 'keycue'
+#cask install 'libreoffice'
+#cask install 'mamp'
+#cask install 'mysqlworkbench'
+#cask install 'parallels-9'
+#cask install 'path-finder'
+#cask install 'phpstorm'
+#cask install 'postbox'
+#cask install 'redis-desktop-manager'
+#cask install 'rstudio'
+#cask install 'sequel-pro'
+#cask install 'soundflower'
+#cask install 'splashtop-streamer'
+#cask install 'versions'             # Subversion Client
+#cask install 'x-quartz'
+#cask install 'yorufukurou'
 
 cask alfred link  # CaskroomをAlfredの検索パスに追加
 ################
