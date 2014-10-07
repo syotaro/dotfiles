@@ -14,7 +14,6 @@ update || true
 # Add Packages for Development
 ############################################
 cask install 'xquartz'         # 依存されてるので先にInstall
-install 'LightPaper'
 install 'R'                    # required https://xquartz.macosforge.org/landing/
 install 'autoconf'
 install 'automake'
@@ -193,6 +192,7 @@ cask install 'vagrant'
 cask install 'virtualbox'
 cask install 'vlc'
 cask install 'vmware-fusion'
+cask install 'LightPaper'           # MarkdownEditor
 #cask install 'amazon-cloud-drive'
 #cask install 'bathyscaphe'   # 2ch ブラウザ
 #cask install 'clipmenu'

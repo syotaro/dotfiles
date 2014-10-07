@@ -352,17 +352,11 @@ else
   "NeoBundle 'itchyny/calendar.vim'
   NeoBundle 'SQLComplete.vim'
   NeoBundle 'dzeban/vim-log-syntax'
-  NeoBundle 'kakkyz81/evervim'
   NeoBundle 'moznion/hateblo.vim'
   NeoBundle 'kannokanno/previm'
   NeoBundle 'rcmdnk/vim-markdown'
   NeoBundle 'kylef/apiblueprint.vim'
 
-" インデントに色を付けて見やすくする
-NeoBundle 'Yggdroot/indentLine'
-" let g:indentLine_faster = 1
-nmap <silent><Leader>i :
-  nmap <C-i> :<C-u>IndentLinesToggle<CR>
 
   " }}}
 
@@ -801,9 +795,9 @@ autocmd FileType mysql set omnifunc=sqlcomplete#Complete
 " command! -nargs=1 EditCSV  :call <sid>edit_csv(<q-args>)
 
 
-
-" Evervim auth 
-source ~/.vimrc.evervim
+" Evervim
+" NeoBundle 'kakkyz81/evervim'
+" source ~/.vimrc.evervim
 
 " NeoSnippet
 " Plugin key-mappings.  " <C-k>でsnippetの展開
@@ -819,9 +813,6 @@ let g:neosnippet#snippets_directory = s:my_snippet
 " 独自のCSSを指定
 let g:previm_disable_default_css = 1
 let g:previm_custom_css_path = '/Users/syotaro/dotfiles/css/previm.css'
-
-
-
 
 
 set spelllang+=cjk
