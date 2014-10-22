@@ -156,7 +156,7 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する(
 export CLICOLOR=1                                     # Terminal Colorの設定
 
 # cd後、自動的にls
-function chpwd() { ls }
+function chpwd() { ls && [ -d .git ] && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && git status -s -b}
 
 # sheet で必要
 #export EDITOR=`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim
@@ -168,7 +168,7 @@ export GOPATH=~/
 
 # export PATH="/usr/local/Cellar/mysql55/5.5.30/bin:$PATH"
 
-## UDC
+## UDC(オレオレ環境変数)
 export YESTERDAY=`date -v-1d +"%Y-%m-%d"`
 export YESTERDAY2=`date -v-1d +"%Y%m%d"`
 export FIRST_DAY_THIS_MONTH=`date -v-1d +"%Y-%m-01"`

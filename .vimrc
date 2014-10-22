@@ -37,8 +37,9 @@ else
   if has('vim_starting')
     execute 'set runtimepath+='.expand(s:neobundle_dir)
   endif
-  call neobundle#rc(expand($BUNDLE))
+  call neobundle#begin(expand($BUNDLE))
   NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#end()
   " }}}
   " neoconplete & neosnippet {{{
   " --------------------------------------------------------------------------------------------------------
@@ -92,6 +93,7 @@ else
   NeoBundle 'Shougo/neomru.vim'
   let mapleader = "<space>"
     NeoBundle 'Shougo/unite.vim'
+    NeoBundle 'Shougo/unite-outline'
     let g:unite_enable_start_insert = 1
     let g:unite_cursor_line_highlight = 'CursorLine'
     "インサートモードで開始しない
@@ -142,7 +144,6 @@ else
     " NeoBundleLazy 'unite-colorscheme', {'autoload': {'unite_sources': ['colorscheme']}}
     " NeoBundleLazy 'osyo-manga/unite-highlight', {'autoload': {'unite_sources': ['highlight']}}
     NeoBundle 'ujihisa/vim-ref'
-    NeoBundle 'h1mesuke/unite-outline'
   " }}}
   " QuickRun / Filer / Outer world of Vim ( "\\" ) {{{
   " --------------------------------------------------------------------------------------------------------
@@ -274,21 +275,21 @@ else
   NeoBundle 'L9'
   " }}}
   " PHP & HTML & Smarty {{{
-" if has('multi_byte')
-"   NeoBundle 'scrooloose/syntastic'
-"   let g:syntastic_mode_map = { 'mode': 'passive' }
-"   " let g:syntastic_echo_current_error = 0
-"   " エラー行をsignで表示する
-"   let g:syntastic_enable_signs = 1
-"   let g:syntastic_enable_highlighting = 1
-"   augroup AutoSyntastic
-"     autocmd!
-"     autocmd BufWritePost *.php,*.html call s:syntastic()
-"   augroup END
-"   function! s:syntastic()
-"     if exists(':SyntasticCheck') | exec 'SyntasticCheck' | endif
-"   endfunction
-" endif
+if has('multi_byte')
+  NeoBundle 'scrooloose/syntastic'
+  let g:syntastic_mode_map = { 'mode': 'passive' }
+  " let g:syntastic_echo_current_error = 0
+  " エラー行をsignで表示する
+  let g:syntastic_enable_signs = 1
+  let g:syntastic_enable_highlighting = 1
+  augroup AutoSyntastic
+    autocmd!
+    autocmd BufWritePost *.php,*.html call s:syntastic()
+  augroup END
+  function! s:syntastic()
+    if exists(':SyntasticCheck') | exec 'SyntasticCheck' | endif
+  endfunction
+endif
   NeoBundle 'html5.vim'                  "     , {'autoload': {'filetypes': ['html']}}
   " NeoBundle 'taku-o/vim-ethna-switch'    "     , {'autoload': {'filetypes': ['php']}}
   " NeoBundle 'watanabe0621/aoi-jump.vim'  "     , {'autoload': {'filetypes': ['php']}}
@@ -796,8 +797,8 @@ autocmd FileType mysql set omnifunc=sqlcomplete#Complete
 
 
 " Evervim
-" NeoBundle 'kakkyz81/evervim'
-" source ~/.vimrc.evervim
+NeoBundle 'kakkyz81/evervim'
+source ~/.vimrc.evervim
 
 " NeoSnippet
 " Plugin key-mappings.  " <C-k>でsnippetの展開
