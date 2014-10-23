@@ -140,8 +140,12 @@ alias history="history -i"
 # git
 alias g='git'
 alias gs='git status -s -b'
+alias gs="pwd && echo '' && git remote -v && echo '' && git status -s -b && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' "
+
 # alias gst='git status -s -b'
-alias gd='git diff'
+alias gd='git diff -w'
+alias gdc='git diff --cached -w'
+
 # alias gba='git branch -a'
 # alias g='cd   $(git rev-parse --show-toplevel)'
 alias gcd='cd $(git rev-parse --show-toplevel)'
@@ -156,7 +160,7 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する(
 export CLICOLOR=1                                     # Terminal Colorの設定
 
 # cd後、自動的にls
-function chpwd() { ls && [ -d .git ] && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && git status -s -b}
+function chpwd() { ls && [ -d .git ] &&  echo ''&& git status -s -b && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' }
 
 # sheet で必要
 #export EDITOR=`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim

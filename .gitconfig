@@ -11,17 +11,17 @@
   excludesfile = /Users/syotaro/.gitignore.global
   quotepath     = false
   editor = vim
-  #  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [tig "bind"]
   generic       = g move-first-line
   generic       = G move-last-line
-[pull]
-  rebase         = true                # pullのデフォルトが--rebaseに
+#[pull]
+#  rebase         = true                # pullのデフォルトが--rebaseに
 [push]
   default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [merge]
 	tool = Kaleidoscope
-  ff            = false               # mergeのデフォルトが--no-ffに
+#  ff            = false               # mergeのデフォルトが--no-ffに
 [grep]
   lineNumber    = true
 [include]
@@ -50,8 +50,8 @@
 [http]
   sslVerify = false
 [pager]
-  vdiff =
-  diff  = diff-highlight | nkf -w | LESS=-R less
+#  vdiff =
+  diff  = diff-highlight | nkf -w
   log   = diff-highlight | nkf -w | LESS=-R less
   show  = diff-highlight | nkf -w | LESS=-R less
 [hub]
@@ -69,6 +69,6 @@ protocol = https
 	trustExitCode = true
 [mergetool]
 	prompt = false
-[diff "xlsx"]        # https://github.com/yappo/p5-git-xlsx-textconv.pl
-    binary = true
-    textconv = $GOPATH/bin/git-xlsx-textconv
+#[diff "xlsx"]        # https://github.com/yappo/p5-git-xlsx-textconv.pl
+#    binary = true
+#    textconv = $GOPATH/bin/git-xlsx-textconv
