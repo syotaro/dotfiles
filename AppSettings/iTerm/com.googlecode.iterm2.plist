@@ -612,7 +612,7 @@
 	<key>NSFontPanelPreviewHeight</key>
 	<real>0.0</real>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Dropbox (個人)/work/github/dotfiles/AppSettings/iTerm</string>
+	<string>~</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -650,11 +650,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>2892 533 445 270 1680 0 2560 1418 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>284 474 924 485 0 0 2560 1440 </string>
+	<string>284 463 605 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>-1033 674 384 129 -1680 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>213 505 2139 815 0 0 2560 1418 </string>
+	<string>1386 188 1321 1118 0 0 2560 1418 </string>
 	<key>NeverWarnAboutShortLivedSessions_5523889C-6B7E-4249-8398-E29D8E4C8831</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_DA0E9254-826E-4AF2-99CE-06AFD50E736E</key>
@@ -4357,7 +4357,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-10-02T02:49:50Z</date>
+	<date>2014-10-23T20:03:57Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -4391,7 +4391,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.Lucida Grande UI</string>
 	<key>Window Arrangements</key>
 	<dict>
 		<key>Quickrun</key>

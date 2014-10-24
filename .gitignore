@@ -10,22 +10,22 @@ tags
 /.aws/keys/*
 /.claws.yml
 
-### PPSSPP
+### Git Config
+/.gitconfig.local
 
+### PPSSPP
 /.config/
 
-### 
+###
 /.vim-anywhere/
 
 ### IntelliJ
-#
 intelliJ/
 
 ### Project
 project
 
 ### Vagrant
-
 vagrant/Vagrantfile
 
 ### Auth Token

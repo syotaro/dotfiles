@@ -147,12 +147,9 @@ install 'sdl'
 ############################################
 #  Cask          - 「 cask edit google-chrome」などで、オプション変更可能
 ############################################
-# Packages for brew-cask
-# install brew-cask
-# .dmg from brew-cask
-
 install brew-cask || true
 
+cask install 'LightPaper'           # MarkdownEditor
 cask install 'adobe-air'
 cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 cask install 'alfred'
@@ -163,9 +160,12 @@ cask install 'bettertouchtool'
 cask install 'camtasia'
 cask install 'chefdk'               # Chef Development Kit
 cask install 'cooviewer'
+cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 cask install 'flash'
 cask install 'fluid'
+cask install 'google-drive'
 cask install 'google-japanese-ime'
+cask install 'hockeyapp'            # アプリのβ版配付
 cask install 'intellij-idea'
 cask install 'iterm2'
 cask install 'keyremap4macbook'
@@ -173,7 +173,6 @@ cask install 'ksdiff'
 cask install 'launchrocket'
 cask install 'marked'
 cask install 'omnigraffle'
-cask install 'vagrant-manager'
 cask install 'omnipresence'
 cask install 'openemu-experimental'
 cask install 'owncloud'
@@ -181,28 +180,24 @@ cask install 'perian'
 cask install 'pixel-winch'
 cask install 'quickcast'
 cask install 'rcdefaultapp'
-# cask install 'reflector'
 cask install 'silverlight'
 cask install 'skitch'
 cask install 'skype'
 cask install 'stay'                 # Window位置の記憶
 cask install 'teamviewer'
 cask install 'testflight'
-cask install 'hockeyapp'            # アプリのβ版配付
 cask install 'totalfinder'
 cask install 'unity-web-player'
 cask install 'vagrant'
+cask install 'vagrant-manager'
 cask install 'virtualbox'
 cask install 'vlc'
-# cask install 'vmware-fusion'
-cask install 'LightPaper'           # MarkdownEditor
 #cask install 'amazon-cloud-drive'
 #cask install 'bathyscaphe'   # 2ch ブラウザ
 #cask install 'clipmenu'
 #cask install 'cloudytabs'
 #cask install 'codekit'
 #cask install 'dropbox'
-cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 #cask install 'forklift'
 #cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
 #cask install 'google-chrome-canary'
@@ -218,11 +213,13 @@ cask install 'evernote'             # AppStore版だと、Spotlight検索に対�
 #cask install 'phpstorm'
 #cask install 'postbox'
 #cask install 'redis-desktop-manager'
+#cask install 'reflector'
 #cask install 'rstudio'
 #cask install 'sequel-pro'
 #cask install 'soundflower'
 #cask install 'splashtop-streamer'
 #cask install 'versions'             # Subversion Client
+#cask install 'vmware-fusion'
 #cask install 'x-quartz'
 #cask install 'yorufukurou'
 
