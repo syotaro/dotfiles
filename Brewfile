@@ -46,6 +46,8 @@ install 'jsonpp'
 install 'libevent'
 install 'libffi'
 install 'libpng'
+install 'libxml2'  # for nokogiri
+install 'libxslt'  # for nokogiri
 install 'libtool'
 install 'libyaml'
 install 'lua'
@@ -230,6 +232,7 @@ cask alfred link  # CaskroomをAlfredの検索パスに追加
 #cask install 'suspicious-package'
 cask install 'betterzipql'
 cask install 'qlcolorcode'
+cask install 'qlvideo'
 cask install 'qlmarkdown'
 cask install 'qlprettypatch'
 cask install 'qlstephen'       # view plain text files without a file extension

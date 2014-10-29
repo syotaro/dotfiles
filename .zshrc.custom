@@ -140,7 +140,7 @@ alias history="history -i"
 # git
 alias g='git'
 alias gs='git status -sb'
-alias gs="pwd && echo '' && git remote -v && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' "
+alias gs="pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
 alias gd='git diff -w'                              # add前の変更差分を表示
 alias gvd='git difftool --tool=vimdiff --no-prompt' # VimDiffで
 alias gdc='git diff --cached -w'                    # addしたものの差分を表示
@@ -158,7 +158,7 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する(
 export CLICOLOR=1                                     # Terminal Colorの設定
 
 # cd後、自動的にls
-function chpwd() { ls && [ -d .git ] &&  echo ''&& git status -s -b && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' }
+function chpwd() { echo '---------------------------------------------------' && ls && echo '---------------------------------------------------' && [ -d .git ]  &&  pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo ''  }
 
 # zのパス
 . `brew --prefix`/etc/profile.d/z.sh
