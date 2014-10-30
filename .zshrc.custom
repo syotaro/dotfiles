@@ -173,3 +173,9 @@ export YESTERDAY2=`date -v-1d +"%Y%m%d"`
 export FIRST_DAY_THIS_MONTH=`date -v-1d +"%Y-%m-01"`
 export FIRST_DAY_LAST_MONTH=`date -v-1d -v-1m +"%Y-%m-01"`
 export YESTERDAY_LAST_MONTH=`date -v-1d -v-1m +"%Y-%m-%d"`
+
+
+# iTerm2のタブ名を変更する、titleコマンドが使えるようになる
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
