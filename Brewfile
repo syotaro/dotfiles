@@ -34,7 +34,7 @@ install 'gnu-sed' '--default-names'
 install 'go'
 install 'goaccess'
 install 'graphicsmagick'
-install 'haskell-platform'     # Install until the end, very time-consuming
+#install 'haskell-platform'     # Install until the end, very time-consuming
 install 'htop-osx'
 install 'hub'                  # wrapper for  git command
 install 'icu4c'
@@ -168,7 +168,8 @@ cask install 'fluid'
 cask install 'google-drive'
 cask install 'google-japanese-ime'
 cask install 'hockeyapp'            # アプリのβ版配付
-cask install 'intellij-idea'
+#cask install 'intellij-idea'
+cask install 'rubymine'
 cask install 'iterm2'
 cask install 'keyremap4macbook'
 cask install 'ksdiff'
@@ -183,7 +184,7 @@ cask install 'pixel-winch'
 cask install 'quickcast'
 cask install 'rcdefaultapp'
 cask install 'silverlight'
-cask install 'skitch'
+#cask install 'skitch'
 cask install 'skype'
 cask install 'stay'                 # Window位置の記憶
 cask install 'teamviewer'

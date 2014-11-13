@@ -1,5 +1,14 @@
 ## OSX setup flow
 
+```bash
+  # Back up the previous environment
+$ gem list
+$ brew list
+$ brew cask list
+$ defaults read
+$ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
+and check Files other than Dropbox(Recommended TimeMachine!)
+```
 ### Install Dropbox
 
 - [Dropbox](https://www.dropbox.com/home)
@@ -10,78 +19,102 @@
     # => manually
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
-1Password -> Third Party Integration
-AWS Menu Bar
+1Password
+2D Grapher
+Airmail 2
 App Language Chooser
+Astro
+Byword
+Cinemagraph Pro
 CloudPlay
-Cocoa JSON Editor
+Cobook
 CodeRunner
 ColorSchemer Studio
+Current
 Dash
+DateLine
 Desktop Calendar Plus
+Easy Image Converter
 Elastics
-Frank DeLoupe
-Gemini
+Explainer
+Export Calendars Pro
+Friends export
+GCalToolkit
+GarageBand
 GistPal
-GraphicConverter
-Handheld Designer
-Hexels
-Hype2
+GraphicConverter 9
+Hexels Pro
+IMAGEmini
+Icon Slate
 Infographics
 JPEGmini
 JSON Editor
+JenkinsNotifier
+Kaleidoscope
 Keynote
+Kobito
 LINE
-LiveReload
-Markdown Pro
-Market Junkie
-MenuTab Pro for Facebook
+MathGraph
+Microsoft OneNote
+Microsoft Remote Desktop
+Movist
 Murasaki
+MyAScript
 Navicat Data Modeler
 Navicat Premium Essentials
 Navicat for MySQL
+Nephorider
+NeverSleep
+New Relic Menu Bars
+NewsBar
 Numbers
 OmniGraphSketcher
+OmniOutliner Pro
 OmniPlan
-PDF Reader
+OmniPopPro
+Orrery
 PDF2Office for OmniGraffle
 PNG Compressor
 PageLayers
 Pages
-PaintCode
-Particle Playground
+PasteAsFile
 Patterns
 Paw
 Pixelmator
-QuickHub
+RankGuru SEO
+ReadKit
+Remote Desktop
 RocketDocs
+Server
 Skitch
-Slicy
-Softmatic ScreenLayers
-Softmatic WebLayers
+Sketch
 SoraAnnai
-Soulver
-Sparrow
-Stills
-StockSpy
-StockTouch
+TaskInsight
 Templates for Office Pro
 The Archive Browser
+TimeWorks
 Translate Tab
 Transmit
 Tuba
+Tweetbot
 Unclutter
 Visits
+VisualDiffer
+VisualGrep
 WebCode
 WhiteNoise
-WiFi Explorer
 WinArchiver
 Witch
+WordService
+XMenu
 Xcode
-YoruFukurou
-iBooks Author
+Zip Expert
+homebrew-cask
 iKeyboard
-picatext
+iMovie
+iPhoto
+iTranslate
+xScope   # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 ```
 
 ```bash

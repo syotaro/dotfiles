@@ -28,6 +28,7 @@ gem 'awesome_print' # indent and color output
 #gem 'hijack' # debug ruby process
 #gem 'gem-browse' # clone gem for inspection
 #gem 'fastri' # more powerful ruby docs
+gem 'rubocop' # ruby_checkers for vim syntastic
 
 ### Rails development
 # gem 'spring' # quick commands
@@ -86,3 +87,7 @@ gem 'aws-sdk'
 gem 'ruby-graphviz'
 gem 'ruby-lzma'
 
+# for TreasureData
+td
+td-client
+td-logger

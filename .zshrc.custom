@@ -158,7 +158,7 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する(
 export CLICOLOR=1                                     # Terminal Colorの設定
 
 # cd後、自動的にls
-function chpwd() { echo '---------------------------------------------------' && ls && echo '---------------------------------------------------' && [ -d .git ]  &&  pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo ''  }
+function chpwd() { echo '---------------------------------------------------' && ls && echo '---------------------------------------------------' && [ -d .git ]  &&  pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && [ -e .ruby-version ] && echo '---------------------------------------------------' && ruby -v && echo '---------------------------------------------------'}
 
 # zのパス
 . `brew --prefix`/etc/profile.d/z.sh
