@@ -91,3 +91,6 @@ gem 'ruby-lzma'
 td
 td-client
 td-logger
+
+# for Redmine API
+gem 'redmine-ruby'

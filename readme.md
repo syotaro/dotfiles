@@ -22,9 +22,12 @@ and check Files other than Dropbox(Recommended TimeMachine!)
 1Password
 2D Grapher
 Airmail 2
+AnyVideo Converter HD
 App Language Chooser
+Artboard
+Asset Catalog Creator
 Astro
-Byword
+Briefs
 Cinemagraph Pro
 CloudPlay
 Cobook
@@ -33,6 +36,7 @@ ColorSchemer Studio
 Current
 Dash
 DateLine
+Deliveries
 Desktop Calendar Plus
 Easy Image Converter
 Elastics
@@ -42,6 +46,7 @@ Friends export
 GCalToolkit
 GarageBand
 GistPal
+Gistify
 GraphicConverter 9
 Hexels Pro
 IMAGEmini
@@ -51,6 +56,7 @@ JPEGmini
 JSON Editor
 JenkinsNotifier
 Kaleidoscope
+Kaomoji Lover
 Keynote
 Kobito
 LINE
@@ -77,18 +83,21 @@ PDF2Office for OmniGraffle
 PNG Compressor
 PageLayers
 Pages
+PaintCode
 PasteAsFile
 Patterns
 Paw
 Pixelmator
+QuickHub
 RankGuru SEO
 ReadKit
 Remote Desktop
 RocketDocs
 Server
-Skitch
 Sketch
+Skitch
 SoraAnnai
+Tapes
 TaskInsight
 Templates for Office Pro
 The Archive Browser
@@ -114,7 +123,7 @@ iKeyboard
 iMovie
 iPhoto
 iTranslate
-xScope   # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
+xScope
 ```
 
 ```bash
@@ -446,3 +455,5 @@ $ sudo pip install markdown
 ```sh
 $ ksdiff ~/dotfiles/Library/ ~/Library
 ```
+
+
