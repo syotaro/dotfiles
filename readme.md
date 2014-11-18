@@ -140,6 +140,7 @@ xcode-select --install
 ### Setup ssh key
 
 ```bash
+ln -sf ~/Dropbox\ (個人)/ ~/Dropbox
 mkdir ~/.ssh
 ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
@@ -169,16 +170,10 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew    doctor
 brew    install git
 brew    update
-cat     ~/dotfiles/Brewfile
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-brew install brew-cask
-brew tap rcmdnk/file
-brew install brew-file
-brew file set_repo -r syotaro/Brewfile  # github上のbrewfileをローカルにclone
-brew file edit
-brew file casklist
-brew file update
-brew file cask_upgrade -C  # 古いバージョンのアプリは残さない
+brew install caskroom/cask/brew-cask
+brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+brew    bundle
 brew cask alfred link
 brew linkapps
 ```
