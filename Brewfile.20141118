@@ -172,6 +172,7 @@ cask install 'hockeyapp'            # アプリのβ版配付
 #cask install 'intellij-idea'
 cask install 'rubymine'
 cask install 'iterm2'
+cask install 'flashlight'
 cask install 'keyremap4macbook'
 cask install 'ksdiff'
 cask install 'launchrocket'

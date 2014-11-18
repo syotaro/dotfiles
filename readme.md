@@ -1,5 +1,3 @@
-## OSX setup flow
-
 ```bash
   # Back up the previous environment
 $ gem list
@@ -8,6 +6,10 @@ $ brew cask list
 $ defaults read
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 and check Files other than Dropbox(Recommended TimeMachine!)
+
+
+## OSX setup flow
+
 ```
 ### Install Dropbox
 
@@ -96,6 +98,7 @@ RocketDocs
 Server
 Sketch
 Skitch
+Slack
 SoraAnnai
 Tapes
 TaskInsight
@@ -162,13 +165,20 @@ sh ./osx.sh
 
 ```bash
     # Install
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew    doctor
+brew    install git
 brew    update
 cat     ~/dotfiles/Brewfile
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew install brew-cask
-brew bundle
+brew tap rcmdnk/file
+brew install brew-file
+brew file set_repo -r syotaro/Brewfile  # github上のbrewfileをローカルにclone
+brew file edit
+brew file casklist
+brew file update
+brew file cask_upgrade -C  # 古いバージョンのアプリは残さない
 brew cask alfred link
 brew linkapps
 ```
