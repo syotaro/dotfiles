@@ -170,13 +170,20 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew    doctor
 brew    install git
 brew    update
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-brew install caskroom/cask/brew-cask
+export  HOMEBREW_CASK_OPTS="--appdir=/Applications"
+brew    install caskroom/cask/brew-cask
+sh      brewfile.sh
 brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
-brew    bundle
-brew cask alfred link
-brew linkapps
+brew    cask alfred link
+brew    linkapps
 ```
+- open Package
+  - open /opt/homebrew-cask/Caskroom/*/*/*.pkg
+
+- manual install
+  - [Chrome Canary](https://www.google.co.jp/intl/en/chrome/browser/canary.html)
+  - [Chrome](http://www.google.com/chrome/)
+
 
 ### Configure BBT(on GUI)
 
