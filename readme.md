@@ -63,7 +63,6 @@ Keynote
 Kobito
 LINE
 MathGraph
-Microsoft OneNote
 Microsoft Remote Desktop
 Movist
 Murasaki
@@ -79,7 +78,6 @@ Numbers
 OmniGraphSketcher
 OmniOutliner Pro
 OmniPlan
-OmniPopPro
 Orrery
 PDF2Office for OmniGraffle
 PNG Compressor
@@ -94,14 +92,10 @@ QuickHub
 RankGuru SEO
 ReadKit
 Remote Desktop
-RocketDocs
-Server
 Sketch
 Skitch
 Slack
 SoraAnnai
-Tapes
-TaskInsight
 Templates for Office Pro
 The Archive Browser
 TimeWorks
@@ -118,10 +112,7 @@ WhiteNoise
 WinArchiver
 Witch
 WordService
-XMenu
 Xcode
-Zip Expert
-homebrew-cask
 iKeyboard
 iMovie
 iPhoto
