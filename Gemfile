@@ -76,3 +76,12 @@ gem 'td-logger'
 
 # for Redmine API
 gem 'redmine-ruby'
+
+gem 'date'
+gem 'mysql2'
+gem 'pp'
+gem 'td'
+gem 'td-client'
+gem 'activesupport'
+gem 'pry'
+gem 'pry-debugger'
