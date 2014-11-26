@@ -797,8 +797,8 @@ autocmd FileType mysql set omnifunc=sqlcomplete#Complete
 
 
 " Evervim
-NeoBundle 'kakkyz81/evervim'
-source ~/.vimrc.evervim
+" NeoBundle 'kakkyz81/evervim'
+" source ~/.vimrc.evervim
 
 " NeoSnippet
 " Plugin key-mappings.  " <C-k>でsnippetの展開

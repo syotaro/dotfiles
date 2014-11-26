@@ -283,7 +283,8 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 unlink ~/.zshrc
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
 unlink ~/.zshrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
@@ -306,27 +307,14 @@ brew cask install qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-cs
 
 
 ```ruby
-    # openssl、readlineのインストール
-brew install openssl readline
-    # ruby-buildをインストール
-brew install --HEAD ruby-build
-    # rbenv(rubyのバージョン管理ツール)のインストール
-brew install rbenv
-brew install rbenv-gemset
-brew install rbenv-gem-rehash
-    # 下記を.zshrcに追記してpathを通す
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
-    # Rubyをrbenv経由でバージョン指定インストール
-rbenv install -l
-brew link readline --force
-RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` --with-openssl-dir=`brew --prefix openssl`" rbenv install 2.1.2
-
+brew install rbenv ruby-build
+    # Install Ruby 2.1.3 and set it as the default version
+rbenv install 2.1.3
+rbenv global  2.1.3
+ruby -v  =>  ruby 2.1.3
     # インストールしたrubyやgemのパスを通す
 rbenv rehash
     # インストールされてるrubyのバージョン一覧を確認
-rbenv global 2.1.2
-brew unlink readline
 ```
 
 ```bash
@@ -346,14 +334,7 @@ vim
     # mkdir -p ~/.vim/bundle
     # git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 cd ~/.vim/bundle/neosnippet
-git update-index --assume-unchanged autoload/neosnippet/snippets/php.snip
 vim -c NeoBundleInstall!
-```
-```bash
-    # Build LiveStyle
-cd ~/.vim/bundle/livestyle-vim/livestyled
-go get code.google.com/p/go.net/websocket
-go build livestyled.go
 ```
 ```bash
     # Gist-vim
@@ -368,14 +349,6 @@ chmod 600 ~/.gist-vim
 ```bash
 brew install node.js
 npm install -g bower
-```
-
-### Configure KeyRemap4MakBook
-
-```bash
-    # /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > ~/dotfiles/keyremap4mb-importconfig.sh
-cd ~/dotfiles
-sh ./keyremap4mb-importconfig.sh
 ```
 
 ### Configure MySQL
@@ -442,10 +415,12 @@ cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
 ```
 
 ## Install AWS CLI
+```
 sudo easy_install pip
 sudo pip install awscli
 sudo pip install awscli --upgrade
 aws ec2 describe-instances | jq '.'
+```
 
 ### python markdown for evervim
 

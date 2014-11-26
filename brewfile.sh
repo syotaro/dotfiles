@@ -162,6 +162,7 @@ brew cask install 'bartender'
 brew cask install 'bettertouchtool'
 brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
 brew cask install 'chefdk'               # Chef Development Kit
+brew cask install 'microsoft-office'
 brew cask install 'cooviewer'
 brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 brew cask install 'flash'
