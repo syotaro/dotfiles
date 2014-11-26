@@ -66,3 +66,5 @@ protocol = https
 #[diff "xlsx"]        # https://github.com/yappo/p5-git-xlsx-textconv.pl
 #    binary = true
 #    textconv = $GOPATH/bin/git-xlsx-textconv
+[diff]
+	tool = Kaleidoscope
