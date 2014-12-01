@@ -1,4 +1,4 @@
-```bash
+```sh
   # Back up the previous environment
 $ gem list
 $ brew list
@@ -6,18 +6,19 @@ $ brew cask list
 $ defaults read
 $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 and check Files other than Dropbox(Recommended TimeMachine!)
+```
+
 
 
 ## OSX setup flow
 
-```
 ### Install Dropbox
 
 - [Dropbox](https://www.dropbox.com/home)
 
 ### Install Apps (via AppStore)
 
-```bash
+```sh
     # => manually
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
@@ -49,6 +50,7 @@ GCalToolkit
 GarageBand
 GistPal
 Gistify
+SmartPlayer
 GraphicConverter 9
 Hexels Pro
 IMAGEmini
@@ -92,6 +94,7 @@ QuickHub
 RankGuru SEO
 ReadKit
 Remote Desktop
+Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
 Sketch
 Skitch
 Slack
@@ -130,7 +133,7 @@ xcode-select --install
 
 ### Setup ssh key
 
-```bash
+```sh
 ln -sf ~/Dropbox\ (個人)/ ~/Dropbox
 mkdir ~/.ssh
 ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
@@ -140,7 +143,7 @@ chmod 600 ~/.ssh/id_*
 
 ### Setup dotfiles
 
-```bash
+```sh
 mkdir ~/dotfiles &&  cd ~/dotfiles
 git clone git@github.com:syotaro/dotfiles.git .
 sh ./setup.sh
@@ -148,14 +151,14 @@ sh ./setup.sh
 
 ### Configure OS X
 
-```bash
+```sh
 cd ~/dotfiles
 sh ./osx.sh
 ```
 
 ### Install Apps (via homebrew or other)
 
-```bash
+```sh
     # Install
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew    doctor
@@ -176,104 +179,14 @@ brew    linkapps
   - [Chrome](http://www.google.com/chrome/)
 
 
-### Configure BBT(on GUI)
-
-```
-import ~/dotfiles/bettertouchtool/bbt-setting-export
-```
-
-### Install PHP  (via php-build) + Apache
-
-```bash
-sudo vim /private/etc/apache2/httpd.conf #=> phpを有効化
-sudo ln -s ~/dotfiles/php/php.ini /etc/
-sudo apachectl -k restart
-brew install php54-xdebug phpunit phpmd php-code-sniffer
-```
-
-```bash
-//  brew install httpd
-//  brew tap     'josegonzalez/homebrew-php'
-//  brew install --HEAD 'phpenv'
-//  brew install 'php-build'
-//  ```
-//  ```diff
-//  sudo vim /usr/local/share/php-build/default_configure_options
-//  ++ --with-apxs2=/usr/local/sbin/apxs
-//  ```
-//  
-//  ```bash
-//      # phpのビルドに必要なライブラリをインストール
-//  brew install 're2c'
-//  brew install 'libjpeg'
-//  brew install 'libpng'
-//  brwe install 'mcrypt'
-//  brew install 'libmcrypt'
-//     # phpのビルド via php-build
-//  php-build --definitions
-//  php-build 5.4.13 ~/.phpenv/versions/5.4.13
-//  phpenv version
-//  phpenv global 5.4.13
-//  phpenv version
-//  phpenv rehash
-//  exec zsh -l
-//  php -v
-//      # apache module 切り替え※うまくいかない。PHPのインストール手順については、全体的に見直す必要あり
-//  git clone https://github.com/garamon/phpenv-apache-version ~/.phpenv/plugins/phpenv-apache-version
-//  cp $HOME/.phpenv/versions/5.4.13/libexec/apache2/libphp5.so $HOME/.phpenv/versions/5.4.13/
-//   phpevn apache-version
-//      # phpのoptionをInstall
-//  brew install 'pcre'
-//  brew install 'phpunit'
-//      # phpcs
-//  pear install PHP_CodeSniffer
-//      # composer
-//  cd $HOME
-//  curl -sS https://getcomposer.org/installer | php
-//  mv composer.phar /usr/local/bin/composer
-//  ```
-//  
-//  ```bash
-//  sudo apachectl restart
-//  cd /Library/WebServer/Documents
-```
-
-
-```bash
-    # PHPUnitのインストール
-pear config-set auto_discover 1
-pear install pear.phpunit.de/PHPUnit
-pear install pear.phing.info/phing
-    # phpunit コマンドが使えるようになったか確認します。
-phpunit --version
-```
-
-```bash
-    # Add phpcs for FuelPHP
-ln -s ~/.php/fuelphp-phpcs/Standards/FuelPHP `brew --prefix php-code-sniffer`/CodeSniffer/Standards/FuelPHP
-```
-
-```bash
-    # configure php
-// sudo vi /usr/local/etc/php/5.4/php.ini
- 
-[Date]
-date.timezone = Asia/Tokyo
- 
-[mbstring]
-mbstring.language = Japanese
-mbstring.internal_encoding = UTF-8
-mbstring.http_output = UTF-8
-```
 
 ### Install pandoc (via Haskell-Platform)
 
-```bash
+```sh
 cabal update
 cabal install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
 ```
-
 
 ### Setup ZshFramework(Prezto)
 
@@ -291,22 +204,16 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 
 ### Change shell(bash -> zsh)
 
-```bash
+```sh
 chsh -s /bin/zsh 
 cat /etc/shells
 ```
 
-### Add quickLook plugin
-
-```bash
-brew update; brew upgrade brew-cask
-brew cask install qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r
-```
 
 ### Install Ruby
 
 
-```ruby
+```sh
 brew install rbenv ruby-build
     # Install Ruby 2.1.3 and set it as the default version
 rbenv install 2.1.3
@@ -317,7 +224,7 @@ rbenv rehash
     # インストールされてるrubyのバージョン一覧を確認
 ```
 
-```bash
+```sh
     # gem
 gem update --system
 gem update rake
@@ -328,7 +235,7 @@ bundle install
 
 ### Configure vim & install vim plugin
 
-```bash
+```sh
     # plugin
 vim
     # mkdir -p ~/.vim/bundle
@@ -336,7 +243,8 @@ vim
 cd ~/.vim/bundle/neosnippet
 vim -c NeoBundleInstall!
 ```
-```bash
+
+```sh
     # Gist-vim
 curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations # => copy token param
 vim ~/.gist-vim            # => set token
@@ -345,15 +253,14 @@ chmod 600 ~/.gist-vim
 
 ### BOWER
 
-
-```bash
+```sh
 brew install node.js
 npm install -g bower
 ```
 
 ### Configure MySQL
 
-```bash
+```sh
     # MySQLデータベースを作成(to Dropbox)
 unset TMPDIR
 mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=$HOME/Dropbox/work/database/localhost/data --tmpdir=/tmp
@@ -392,30 +299,31 @@ mysql --help | grep my.cnf
 
 ### Install Quicklook Plugin
 
-```
+```sh
+brew update; brew upgrade brew-cask
+brew cask install qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r
 brew install ffmpeg --with-tools media-info
 cp -rf ~/dotfiles/Library/QuickLook/* ~/Library/QuickLook
 qlmanage -r
 qlmanage -r cache
-```
-
-### Configure QuickLook
-
-```
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ```
 
-### Config
-
+### Configure Other Apps (Manual)
+- BetterTouchTools
 - integrate Kaleidoscope
-
-```
-cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
-./install_git-default
-```
+   ```sh
+   cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
+   ./install_git-default
+   ```
+- TeamViewer
+- LoginItem(auto exec)
+- 1Password
+  - Enable integration with 3rd party apps
 
 ## Install AWS CLI
-```
+
+```sh
 sudo easy_install pip
 sudo pip install awscli
 sudo pip install awscli --upgrade
@@ -433,5 +341,3 @@ $ sudo pip install markdown
 ```sh
 $ ksdiff ~/dotfiles/Library/ ~/Library
 ```
-
-

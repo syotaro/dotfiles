@@ -175,6 +175,7 @@ brew cask install 'rubymine'
 brew cask install 'iterm2'
 brew cask install 'flashlight'
 brew cask install 'keyremap4macbook'
+brew cask install 'tinkertool'           # osx カスタマイズ
 brew cask install 'ksdiff'
 brew cask install 'launchrocket'
 brew cask install 'tower'
@@ -196,10 +197,12 @@ brew cask install 'testflight'
 brew cask install 'totalfinder'
 brew cask install 'unity-web-player'
 brew cask install 'vagrant'
+brew cask install 'today-scripts'        # geektoolの通知センター対応版
+brew cask install 'geektool'
 brew cask install 'vagrant-manager'
 brew cask install 'virtualbox'
-brew cask install 'vlc'
-brew cask install 'cloudytabs'
+# brew cask install 'vlc'
+# brew cask install 'cloudytabs'
 #cask install 'amazon-cloud-drive'
 #cask install 'bathyscaphe'   # 2ch ブラウザ
 #cask install 'clipmenu'
@@ -268,7 +271,6 @@ brew cleanup
 # 以下のApplicationは、現状Caskが無いので、手動でInstallする
 # - Gyazo gif
 # - GlyphDesigner
-# - MS Office
 # - ParticleDesigner
 # - Lingr
 # - Autoclick
@@ -278,4 +280,3 @@ brew cleanup
 #- https://github.com/cookpad/r53-fox
 ## 個別に設定が必要なもの
 # - Unclutter
-# - Mi

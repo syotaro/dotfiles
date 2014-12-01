@@ -85,3 +85,7 @@ gem 'td-client'
 gem 'activesupport'
 gem 'pry'
 gem 'pry-debugger'
+
+# http://brettterpstra.com/projects/otask/
+gem install 'otask'
+'
