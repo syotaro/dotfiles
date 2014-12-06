@@ -8,9 +8,11 @@ $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(
 and check Files other than Dropbox(Recommended TimeMachine!)
 ```
 
-
-
 ## OSX setup flow
+
+### HDD CleanUP
+
+- Reboot & hold Command + R & Disk Utility -> Erase & Install Yosemite
 
 ### Install Dropbox
 
@@ -92,7 +94,7 @@ Paw
 Pixelmator
 QuickHub
 RankGuru SEO
-ReadKit
+Reeder
 Remote Desktop
 Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
 Sketch
@@ -123,14 +125,6 @@ iTranslate
 xScope
 ```
 
-```bash
-    # Install Require Tools
-open /Applications/Xcode.app
-java -version                # => Java Install manually
-xcodebuild -license
-xcode-select --install
-```
-
 ### Setup ssh key
 
 ```sh
@@ -146,30 +140,31 @@ chmod 600 ~/.ssh/id_*
 ```sh
 mkdir ~/dotfiles &&  cd ~/dotfiles
 git clone git@github.com:syotaro/dotfiles.git .
-sh ./setup.sh
-```
-
-### Configure OS X
-
-```sh
-cd ~/dotfiles
-sh ./osx.sh
+sh ./deploy-dotfiles-all.s
 ```
 
 ### Install Apps (via homebrew or other)
 
+```bash
+    # Install Require Tools
+open /Applications/Xcode.app
+java -version                # => Java Install manually
+xcodebuild -license
+xcode-select --install
+```
+
 ```sh
-    # Install
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew    doctor
-brew    install git
-brew    update
-export  HOMEBREW_CASK_OPTS="--appdir=/Applications"
-brew    install caskroom/cask/brew-cask
-sh      brewfile.sh
-brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
-brew    cask alfred link
-brew    linkapps
+  # Install
+ruby   -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew   doctor
+brew   install git
+brew   update
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+brew   install caskroom/cask/brew-cask
+sh     brewfile.sh
+brew   update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
+brew   cask alfred link
+brew   linkapps
 ```
 - open Package
   - open /opt/homebrew-cask/Caskroom/*/*/*.pkg
@@ -180,17 +175,11 @@ brew    linkapps
 
 
 
-### Install pandoc (via Haskell-Platform)
 
-```sh
-cabal update
-cabal install pandoc
-export PATH=${HOME}/.cabal/bin:$PATH
-```
-
-### Setup ZshFramework(Prezto)
+### Setup zsh
 
 ```bash
+  # Prezto(ZshFramework)
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 unlink ~/.zshrc
@@ -201,51 +190,49 @@ done
 unlink ~/.zshrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
-
-### Change shell(bash -> zsh)
-
 ```sh
+  # Change shell(bash -> zsh)
 chsh -s /bin/zsh 
 cat /etc/shells
 ```
 
-
 ### Install Ruby
-
 
 ```sh
 brew install rbenv ruby-build
-    # Install Ruby 2.1.3 and set it as the default version
+   # Install Ruby 2.1.3 and set it as the default version
 rbenv install 2.1.3
 rbenv global  2.1.3
 ruby -v  =>  ruby 2.1.3
-    # インストールしたrubyやgemのパスを通す
+   # インストールしたrubyやgemのパスを通す
 rbenv rehash
-    # インストールされてるrubyのバージョン一覧を確認
+   # インストールされてるrubyのバージョン一覧を確認
 ```
 
 ```sh
-    # gem
+   # gem
 gem update --system
 gem update rake
 gem install bundler
 bundle install
 ```
-
-
 ### Configure vim & install vim plugin
 
+以下を参照してセットアップ
+
+- http://vim-bootstrap.com/
+
 ```sh
-    # plugin
+   # plugin
 vim
-    # mkdir -p ~/.vim/bundle
-    # git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+   # mkdir -p ~/.vim/bundle
+   # git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 cd ~/.vim/bundle/neosnippet
 vim -c NeoBundleInstall!
 ```
 
 ```sh
-    # Gist-vim
+   # Gist-vim
 curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations # => copy token param
 vim ~/.gist-vim            # => set token
 chmod 600 ~/.gist-vim
@@ -256,45 +243,6 @@ chmod 600 ~/.gist-vim
 ```sh
 brew install node.js
 npm install -g bower
-```
-
-### Configure MySQL
-
-```sh
-    # MySQLデータベースを作成(to Dropbox)
-unset TMPDIR
-mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=$HOME/Dropbox/work/database/localhost/data --tmpdir=/tmp
-    # アクセス権限を付与
-chmod -R 777 $HOME/Dropbox/work/database/localhost/data
-
-    # MySQLの開始
-mysql.server start
-    # MySQLの初期セットアップ
-/usr/local/opt/mysql/bin/mysql_secure_installation
-
-  Enter current password for root (enter for none): 
-  Set root password? [Y/n] Y
-  New password: 
-  Re-enter new password: 
-   ... Success!
-  Remove anonymous users? [Y/n] y
-   ... Success!
-  Disallow root login remotely? [Y/n] y
-   ... Success!
-  Remove test database and access to it? [Y/n] n
-   ... skipping.
-  Reload privilege tables now? [Y/n] y
-   ... Success!
-  installation should now be secure.
-
-  Thanks for using MySQL!
-
-    # ログイン
-mysql -uroot
-    # パスワード設定
-mysqladmin -u root password 'new-password'
-    # my.cnfの読み込み順を確認
-mysql --help | grep my.cnf
 ```
 
 ### Install Quicklook Plugin
@@ -340,4 +288,15 @@ $ sudo pip install markdown
 
 ```sh
 $ ksdiff ~/dotfiles/Library/ ~/Library
+  # cd ~/dotfiles
+  # sh ./osx.sh
+```
+
+### Install pandoc (via Haskell-Platform)
+
+```sh
+install 'haskell-platform'     # Install until the end, very time-consuming
+cabal    update
+cabal    install pandoc
+export PATH=${HOME}/.cabal/bin:$PATH
 ```

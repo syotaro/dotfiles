@@ -25,6 +25,7 @@ brew install 'coreutils'
 brew install 'cscope'
 brew install 'ctags'
 brew install 'curl'                 # ln -s ` --prefix curl`/bin/curl /usr/local/bin
+brew install 'ssh-copy-id'          # ローカルの公開鍵を対象のサーバに配置する ex) ssh-copy-id user@server
 brew install 'gdbm'
 brew install 'gettext'
 brew install 'gh'
@@ -34,6 +35,7 @@ brew install 'gnu-sed' '--default-names'
 brew install 'go'
 brew install 'goaccess'
 brew install 'graphicsmagick'
+brew install 'youtube-dl'           # youtube downloader
 brew install 'htop-osx'
 brew install 'hub'                  # wrapper for  git command
 brew install 'icu4c'
@@ -81,7 +83,6 @@ brew install 'zsh' '--disable-etcdir'
 #install 'freetype'
 #install 'fuse4x'
 #install 'fuse4x-kext'
-#install 'haskell-platform'     # Install until the end, very time-consuming
 #install 'weechat' '--with-ruby --with-python --with-perl'
 #install 'python3'
 ################
@@ -127,8 +128,8 @@ brew install 'tig'   # cli git browser
 ################
 #  MySQL
 ################
-# install 'mysql'
-brew install 'mysql55'
+install 'mysql'
+#brew install 'mysql55'
 ################
 #  FONT
 ################
@@ -151,14 +152,14 @@ brew install 'sdl'
 ############################################
 #install brew-cask || true
 
-brew cask install 'LightPaper'           # MarkdownEditor
+#brew cask install 'LightPaper'           # MarkdownEditor
 brew cask install 'adobe-air'
-brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
+# brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 brew cask install 'alfred'
 brew cask install 'android-file-transfer'
 brew cask install 'appcleaner'
 brew cask install 'flux'
-brew cask install 'bartender'
+#brew cask install 'bartender'
 brew cask install 'bettertouchtool'
 brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
 brew cask install 'chefdk'               # Chef Development Kit
@@ -166,6 +167,7 @@ brew cask install 'microsoft-office'
 brew cask install 'cooviewer'
 brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 brew cask install 'flash'
+brew cask install 'tableau'
 brew cask install 'fluid'
 brew cask install 'google-drive'
 brew cask install 'google-japanese-ime'
@@ -174,20 +176,20 @@ brew cask install 'hockeyapp'            # アプリのβ版配付
 brew cask install 'rubymine'
 brew cask install 'iterm2'
 brew cask install 'flashlight'
-brew cask install 'keyremap4macbook'
+brew cask install 'karabiner'
 brew cask install 'tinkertool'           # osx カスタマイズ
 brew cask install 'ksdiff'
 brew cask install 'launchrocket'
 brew cask install 'tower'
 brew cask install 'marked'
 brew cask install 'omnigraffle'
-brew cask install 'omnipresence'
+#brew cask install 'omnipresence'
 brew cask install 'openemu-experimental'
 brew cask install 'owncloud'
-brew cask install 'perian'
+#brew cask install 'perian'
 brew cask install 'pixel-winch'
-brew cask install 'quickcast'
-brew cask install 'rcdefaultapp'
+# brew cask install 'quickcast'
+#brew cask install 'rcdefaultapp'
 brew cask install 'silverlight'
 #brew cask install 'skitch'
 brew cask install 'skype'
@@ -204,7 +206,7 @@ brew cask install 'virtualbox'
 # brew cask install 'vlc'
 # brew cask install 'cloudytabs'
 #cask install 'amazon-cloud-drive'
-#cask install 'bathyscaphe'   # 2ch ブラウザ
+brew cask install 'bathyscaphe'   # 2ch ブラウザ
 #cask install 'clipmenu'
 #cask install 'codekit'
 #cask install 'dropbox'

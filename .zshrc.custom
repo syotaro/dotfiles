@@ -179,3 +179,10 @@ export YESTERDAY_LAST_MONTH=`date -v-1d -v-1m +"%Y-%m-%d"`
 function title {
     echo -ne "\033]0;"$*"\007"
 }
+
+
+
+# for docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/syotaro/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1

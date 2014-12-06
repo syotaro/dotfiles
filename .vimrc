@@ -354,9 +354,9 @@ endif
   NeoBundle 'SQLComplete.vim'
   NeoBundle 'dzeban/vim-log-syntax'
   NeoBundle 'moznion/hateblo.vim'
-  NeoBundle 'kannokanno/previm'
+" NeoBundle 'kannokanno/previm'
   NeoBundle 'rcmdnk/vim-markdown'
-  NeoBundle 'kylef/apiblueprint.vim'
+" NeoBundle 'kylef/apiblueprint.vim'
 
 
   " }}}
@@ -812,8 +812,8 @@ let g:neosnippet#snippets_directory = s:my_snippet
 
 " previm
 " 独自のCSSを指定
-let g:previm_disable_default_css = 1
-let g:previm_custom_css_path = '/Users/syotaro/dotfiles/css/previm.css'
+" let g:previm_disable_default_css = 1
+" let g:previm_custom_css_path = '/Users/syotaro/dotfiles/css/previm.css'
 
 
 set spelllang+=cjk
