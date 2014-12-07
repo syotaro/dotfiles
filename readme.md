@@ -154,6 +154,10 @@ xcode-select --install
 mkdir ~/dotfiles &&  cd ~/dotfiles
 git clone git@github.com:syotaro/dotfiles.git .
 sh ./deploy-dotfiles-all.s
+  # replace Dropbox
+mv dotfiles /tmp
+ln -sf ~/Dropbox/work/github/dotfiles ~/dotfiles
+
 ```
 
 
@@ -200,11 +204,9 @@ cat /etc/shells
 brew install rbenv ruby-build
    # Install Ruby 2.1.3 and set it as the default version
 rbenv install 2.1.3
-rbenv global  2.1.3
-ruby -v  =>  ruby 2.1.3
+rbenv global  2.1.3   # ruby -v  =>  ruby 2.1.3
    # インストールしたrubyやgemのパスを通す
 rbenv rehash
-   # インストールされてるrubyのバージョン一覧を確認
 ```
 
 ```sh
