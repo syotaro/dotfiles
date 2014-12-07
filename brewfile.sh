@@ -155,7 +155,7 @@ brew install 'sdl'
 #brew cask install 'LightPaper'           # MarkdownEditor
 brew cask install 'adobe-air'
 # brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
-brew cask install 'alfred'
+# brew cask install 'alfred'
 brew cask install 'android-file-transfer'
 brew cask install 'appcleaner'
 brew cask install 'flux'

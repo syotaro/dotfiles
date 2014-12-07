@@ -1,0 +1,177 @@
+set clipboard=unnamed,unnamedplus                                    " OSのクリップボードを使用する
+set list                                                             " 不可視文字表示
+set listchars=tab:▸\ ,trail:_,extends:>,precedes:<,nbsp:%            " 不可視文字の表示形式
+set nowrap                                                           " 折り返ししない
+set nowrapscan                                                       " 検索時にファイルの最後まで行ったら最初に戻らないようにする
+set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
+set mouse=a                                                          " マウスモード有効
+set nonumber
+set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
+"set ttymouse=xterm2                                                  " xtermとscreen対応
+autocmd BufRead *.sql set filetype=mysql                                                             " .sqlは、すなわちmysql
+
+"-------------------------------------------------------------------------------
+" [Keybind]
+"-------------------------------------------------------------------------------
+command! Ev        edit   $MYVIMRC                                   " Ev/Rvでvimrcの編集と反映
+command! Rv        source $MYVIMRC                                   " Ev/Rvでvimrcの編集と反映 
+
+" 行末、行の最初への移動のキーマップ設定
+:map! <C-e> <Esc>$
+:map <C-e> <Esc>$
+" 9で行末へ
+noremap 1 ^
+noremap 9 $
+" 「Ctrl+C」の2回押しでハイライト消去
+nmap <C-c><C-c> ;nohlsearch<CR><ESC>
+" us key
+noremap  ; :
+" auto migration Normal Mode
+inoremap  ; ;<ESC>
+" 挿入モードにならずに改行できる
+noremap <CR> o<ESC>
+" Ctrl + c とEscの動作を完全に一致させる
+inoremap <C-c> <ESC>
+
+" 現在のバッファを閉じます
+noremap  <silent><Space>k    :bd<CR>
+" ファイル保存(バッファ変更時のみ)
+nnoremap <silent><Space>s    :<C-u>update<CR>
+
+nmap <C-l> >>
+nmap <C-h> <<
+
+" map <C-a> <Esc>^
+map! <C-b> <Esc>h
+map! <C-f> <Esc>l
+map <C-b> <Left>
+map <C-f> <Right>
+
+
+ " C-j, C-kで1行スクロール
+noremap <C-j> <C-e>
+noremap <C-k> <C-y>
+
+
+" paste yanked string vertically。<C-v> 時に<C-p> でvertical に paste
+vnoremap <C-p> I<C-r>"<ESC><ESC>
+
+" visualモードで置き換えたい文字を選択した後、「p」で0のレジスターを使用する(visualモードで選択したあとに、ヤンクした文字をペーストするとその置き換えた文字がヤンクされてしまい2回目同じようにしようとすると、前回置き換えた文字がペーストされてしまうので）
+vnoremap <silent> p "0p<CR>
+
+" qでウインドウを閉じて Qでマクロ
+nnoremap q :<C-u>q<CR>
+nnoremap Q q
+
+"" カッコやクオートなどを入力した際に左に自動で移動します
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap <> <><left>
+"  inoremap `` ``<left>
+
+" j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk
+
+inoremap <C-d> $
+inoremap <C-a> @
+inoremap <C-j> _
+inoremap <C-l> ()
+
+"-------- コマンドラインでのキーバインド
+" マーク位置へのジャンプを行だけでなく桁位置も復元できるようにする
+" map ' `
+" Ctrl+Nで次のバッファを表示
+" map <C-N>   :bnext<CR>
+" Ctrl+Pで前のバッファを表示
+" map <C-P>   :bprevious<CR>
+" 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする
+" imap <C-K>  <ESC>"*pa
+" Ctrl+Shift+Jで上に表示しているウィンドウをスクロールさせる
+" nnoremap <C-S-J> <C-W>k<C-E><C-W><C-W>
+"Emacs スタイルにする
+" Ctrl+Aで行頭へ移動
+:cnoremap <C-A>		<Home>
+" Ctrl+Bで一文字戻る
+:cnoremap <C-B>		<Left>
+" Ctrl+Dでカーソルの下の文字を削除
+:cnoremap <C-D>		<Del>
+" Ctrl+Eで行末へ移動
+:cnoremap <C-E>		<End>
+" Ctrl+Fで一文字進む
+:cnoremap <C-F>		<Right>
+" Ctrl+Nでコマンドライン履歴を一つ進む
+:cnoremap <C-N>		<Down>
+" Ctrl+Pでコマンドライン履歴を一つ戻る
+:cnoremap <C-P>		<Up>
+" Alt+Ctrl+Bで前の単語へ移動
+" :cnoremap <Esc><C-B>	<S-Left>
+" Alt+Ctrl+Fで次の単語へ移動
+" :cnoremap <Esc><C-F>	<S-Right> 
+
+
+
+
+
+"*****************************************************************************
+"" Syntax Markdown
+"*****************************************************************************
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'plasticboy/vim-markdown'
+" NeoBundle 'gabrielelana/vim-markdown'
+" syn region markdownItalic start="\<\*\|\*\>" end="\<\*\|\*\>" keepend contains=markdownLineStart
+" syn region markdownItalic start="\<_\|_\>" end="\<_\|_\>" keepend contains=markdownLineStart
+" augroup markdown
+"     au!
+"     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=markdown
+" augroup END
+
+" molokai add setting
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+"*****************************************************************************
+"" NeoBundle user install packages
+"*****************************************************************************
+
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/neomru.vim'
+let g:unite_enable_start_insert = 1
+let g:unite_cursor_line_highlight = 'CursorLine'
+nnoremap <silent><space>/     :Unite line                   -buffer-name=line       -direction=rightbelow      -no-quit <CR>
+nnoremap <silent><space>r     :Unite file_mru      bookmark -buffer-name=file_mru   -direction=rightbelow<CR>
+nnoremap <silent><space>f     :Unite file                   -buffer-name=files      -direction=rightbelow<CR>
+nnoremap <silent><space>g     :Unite file_rec/async:!       -buffer-name=files      -direction=rightbelow<CR>
+nnoremap <silent><space>o     :Unite outline                -buffer-name=outline    -vertical    -winwidth=30  -no-quit <CR>
+nnoremap <silent><space>l     :Unite buffer_tab             -buffer-name=buffer_tab -direction=rightbelow<CR>
+
+NeoBundle 'Shougo/vimfiler'
+let g:vimfiler_as_default_explorer = 1
+" let g:vimfiler_sort_type = 'TIME'
+let g:vimfiler_safe_mode_by_default = 0
+let g:unite_enable_start_insert = 1
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_readonly_file_icon = '✗'
+let g:vimfiler_marked_file_icon = '✓'
+
+" CurrentBufferFile List
+nnoremap <silent> <Space>b  : <C-u>VimFilerBufferDir -split -no-quit -simple -winwidth=30<CR>
+" CurrentDirFileList
+nnoremap <silent> <Space>c  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
+" VimfilerExplorer
+nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
+
+nnoremap <silent><space>p :QuickRun<CR>
+
+NeoBundle 'VOoM'
+nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
+
+

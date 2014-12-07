@@ -17,6 +17,9 @@ and check Files other than Dropbox(Recommended TimeMachine!)
 ### Install Dropbox
 
 - [Dropbox](https://www.dropbox.com/home)
+- [Alfred App](http://www.alfredapp.com/)
+- [Chrome ](https://www.google.com/chrome/browser/desktop/#eula)
+- [Chrome Canary](https://www.google.com/chrome/browser/canary.html)
 
 ### Install Apps (via AppStore)
 
@@ -128,19 +131,11 @@ xScope
 ### Setup ssh key
 
 ```sh
-ln -sf ~/Dropbox\ (個人)/ ~/Dropbox
+ln -sf ~/Dropbox\ \(個人\)/ ~/Dropbox
 mkdir ~/.ssh
 ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
-```
-
-### Setup dotfiles
-
-```sh
-mkdir ~/dotfiles &&  cd ~/dotfiles
-git clone git@github.com:syotaro/dotfiles.git .
-sh ./deploy-dotfiles-all.s
 ```
 
 ### Install Apps (via homebrew or other)
@@ -152,6 +147,15 @@ java -version                # => Java Install manually
 xcodebuild -license
 xcode-select --install
 ```
+
+### Setup dotfiles
+
+```sh
+mkdir ~/dotfiles &&  cd ~/dotfiles
+git clone git@github.com:syotaro/dotfiles.git .
+sh ./deploy-dotfiles-all.s
+```
+
 
 ```sh
   # Install
@@ -167,7 +171,7 @@ brew   cask alfred link
 brew   linkapps
 ```
 - open Package
-  - open /opt/homebrew-cask/Caskroom/*/*/*.pkg
+  - open /opt/homebrew-cask/Caskroom/*/*/*.pkg  #*
 
 - manual install
   - [Chrome Canary](https://www.google.co.jp/intl/en/chrome/browser/canary.html)
@@ -258,7 +262,21 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ```
 
 ### Configure Other Apps (Manual)
+
+- System Preference
+- Finder Preference
+- Alfred2
+  - Syncing
 - BetterTouchTools
+- Karabiner
+  - Emacs binding for Excel
+  - Emacs Mode
+    - Delete,Reterm Up/Down/Left/Right
+  - for Japanese
+  
+- Google Japanese IME
+  - Dict import
+  - KeySetting Kotoeri -> ATOK
 - integrate Kaleidoscope
    ```sh
    cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
