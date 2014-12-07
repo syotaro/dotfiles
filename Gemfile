@@ -29,23 +29,13 @@ gem 'awesome_print' # indent and color output
 #gem 'gem-browse' # clone gem for inspection
 #gem 'fastri' # more powerful ruby docs
 
-### Rails development
-# gem 'spring' # quick commands
-# gem 'thin'
-gem 'rails'
-
 # git
 gem 'git-browse-remote'
 gem 'git-issue'
 
 # blog
-gem 'jekyll-s3'
+# gem 'jekyll-s3'
 # gem 'ruhoh' , '2.5'
-
-# ruhoh require
-gem 'capybara'
-gem 'rspec'
-gem 'cucumber'
 
 # Markdown Engine
 gem 'kramdown'
@@ -53,7 +43,7 @@ gem 'kramdown'
 gem 'redcarpet'
 
 # Other
-gem 'psd'
+# gem 'psd'
 
 # Redmine
 gem 'bundler'

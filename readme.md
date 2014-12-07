@@ -170,14 +170,8 @@ brew   update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 brew   cask alfred link
 brew   linkapps
 ```
-- open Package
-  - open /opt/homebrew-cask/Caskroom/*/*/*.pkg  #*
-
-- manual install
-  - [Chrome Canary](https://www.google.co.jp/intl/en/chrome/browser/canary.html)
-  - [Chrome](http://www.google.com/chrome/)
-
-
+- (option)open Package
+  - open /opt/homebrew-cask/Caskroom/\*/\*/\*.pkg
 
 
 ### Setup zsh
@@ -222,17 +216,11 @@ bundle install
 ```
 ### Configure vim & install vim plugin
 
-以下を参照してセットアップ
-
-- http://vim-bootstrap.com/
+[vim-bootstrap.com](http://vim-bootstrap.com/)参照してセットアップ
 
 ```sh
    # plugin
-vim
-   # mkdir -p ~/.vim/bundle
-   # git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-cd ~/.vim/bundle/neosnippet
-vim -c NeoBundleInstall!
+vim +NeoBundleInstall +qall
 ```
 
 ```sh
