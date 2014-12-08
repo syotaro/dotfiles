@@ -137,7 +137,7 @@ alias history="history -i"
 #alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
 
 
-# git
+# GIT1
 alias g='git'
 alias gs="pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
 alias gd='git diff'                                 # add前の変更差分を表示
