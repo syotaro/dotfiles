@@ -36,8 +36,6 @@ noremap <CR> o<ESC>
 " Ctrl + c とEscの動作を完全に一致させる
 inoremap <C-c> <ESC>
 
-" 現在のバッファを閉じます
-noremap  <silent><Space>k    :bd<CR>
 " ファイル保存(バッファ変更時のみ)
 nnoremap <silent><Space>s    :<C-u>update<CR>
 
