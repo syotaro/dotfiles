@@ -276,6 +276,18 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - LoginItem(auto exec)
 - 1Password
   - Enable integration with 3rd party apps
+- Office
+  - Excel
+    - disable check logic
+  - PowerPoint
+- Login Items
+  - Flux
+  - Alfred
+  - Dropbox
+  - Karabiner
+  - WitchDaemon
+  - TotalFinder
+  - BetterTouchTool
 
 ## Install AWS CLI
 

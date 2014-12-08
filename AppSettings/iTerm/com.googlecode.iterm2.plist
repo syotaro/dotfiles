@@ -607,8 +607,6 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dotfiles/AppSettings/iTerm</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -617,12 +615,27 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>1596 131 692 328 0 0 2560 1417 </string>
+	<key>NSTableView Columns KeyBingingTable</key>
+	<array>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATCG
+		</data>
+		<string>198</string>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATGG
+		</data>
+		<string>302</string>
+	</array>
+	<key>NSTableView Hidden Columns KeyBingingTable</key>
+	<array/>
+	<key>NSTableView Sort Ordering KeyBingingTable</key>
+	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>737 249 924 485 0 0 2560 1417 </string>
+	<string>2262 -201 924 485 1680 -390 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>101 22 1410 1395 0 0 2560 1417 </string>
+	<string>2679 251 1102 776 1680 -390 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_5523889C-6B7E-4249-8398-E29D8E4C8831</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_DA0E9254-826E-4AF2-99CE-06AFD50E736E</key>
@@ -2810,7 +2823,7 @@
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
-			<true/>
+			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -4255,8 +4268,6 @@
 			<string>~/Dropbox/work/quickrun/</string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesLost</key>
-	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -4325,7 +4336,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-12-07T10:58:36Z</date>
+	<date>2014-12-08T00:57:01Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
