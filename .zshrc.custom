@@ -139,10 +139,9 @@ alias history="history -i"
 
 # git
 alias g='git'
-alias gs='git status -sb'
 alias gs="pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
-alias gd='git diff -w'                              # add前の変更差分を表示
-alias gvd='git difftool --tool=vimdiff --no-prompt' # VimDiffで
+alias gd='git diff'                                 # add前の変更差分を表示
+#alias gd='git diff -w'                             # add前の変更差分を表示
 alias gdc='git diff --cached -w'                    # addしたものの差分を表示
 alias gdh='git diff HEAD~1'                         # 自分のcommitした内容と、その前のcommitとの差分
 alias gba='git branch -a'

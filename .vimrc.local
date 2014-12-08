@@ -5,20 +5,23 @@ set nowrap                                                           " 折り返
 set nowrapscan                                                       " 検索時にファイルの最後まで行ったら最初に戻らないようにする
 set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
 set mouse=a                                                          " マウスモード有効
-set nonumber
+set nomodeline
+set noruler
+" set nonumber
 set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
-"set ttymouse=xterm2                                                  " xtermとscreen対応
-autocmd BufRead *.sql set filetype=mysql                                                             " .sqlは、すなわちmysql
+"set ttymouse=xterm2                                                 " xtermとscreen対応
+autocmd BufRead *.sql set filetype=mysql                             " .sqlは、mysqlとして扱う
 
 "-------------------------------------------------------------------------------
 " [Keybind]
 "-------------------------------------------------------------------------------
+command! Evl       edit   ~/.vimrc.local                             " Ev/Rvでvimrcの編集と反映
 command! Ev        edit   $MYVIMRC                                   " Ev/Rvでvimrcの編集と反映
-command! Rv        source $MYVIMRC                                   " Ev/Rvでvimrcの編集と反映 
+command! Rv        source $MYVIMRC                                   " Ev/Rvでvimrcの編集と反映
 
 " 行末、行の最初への移動のキーマップ設定
 :map! <C-e> <Esc>$
-:map <C-e> <Esc>$
+:map  <C-e> <Esc>$
 " 9で行末へ
 noremap 1 ^
 noremap 9 $
@@ -44,8 +47,12 @@ nmap <C-h> <<
 " map <C-a> <Esc>^
 map! <C-b> <Esc>h
 map! <C-f> <Esc>l
-map <C-b> <Left>
-map <C-f> <Right>
+map  <C-b> <Left>
+map  <C-f> <Right>
+
+" タブ移動を直感的に
+noremap gh gT
+noremap gl gt
 
 
  " C-j, C-kで1行スクロール
@@ -169,9 +176,17 @@ nnoremap <silent> <Space>c  : <C-u>VimFiler                          -simple -wi
 " VimfilerExplorer
 nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
 
+
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tyru/open-browser.vim'
+  let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', "outputter/buffer/split" : ":botright" ,"outputter/buffer/close_on_empty" : 1}}
+  " let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 nnoremap <silent><space>p :QuickRun<CR>
 
 NeoBundle 'VOoM'
 nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
 
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'jellybeans'
+" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}

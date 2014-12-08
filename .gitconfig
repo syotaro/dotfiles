@@ -6,7 +6,7 @@
   branch        = auto
   grep          = auto
 [core]
-  pager         = lv -c
+  pager = lv -c
   excludesfile = /Users/syotaro/.gitignore.global
   quotepath     = false
   editor = vim
@@ -28,9 +28,7 @@
       # status
   st            = status
   co            = checkout
-  d             = diff
-  vdiff         = difftool -y -t Vim
-  vd            = difftool -y -t Vim
+  vimdiff       = difftool -y -t Vim
   ksdiff        = difftool -y -t Kaleidoscope
   dc            = diff --cached
   s             = status
@@ -44,10 +42,9 @@
 [http]
   sslVerify = false
 [pager]
-#  vdiff =
-  diff  = diff-highlight | nkf -w
-  log   = diff-highlight | nkf -w | LESS=-R less
-  show  = diff-highlight | nkf -w | LESS=-R less
+   diff  = LESS=-R less
+#  log   = diff-highlight | LESS=-R less
+#  show  = diff-highlight | LESS=-R less
 [hub]
 protocol = https
 [difftool "Kaleidoscope"]
