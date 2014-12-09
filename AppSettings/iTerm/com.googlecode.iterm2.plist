@@ -598,7 +598,7 @@
 	<key>IRMemory</key>
 	<integer>4</integer>
 	<key>JobName</key>
-	<false/>
+	<true/>
 	<key>LeftCommand</key>
 	<integer>7</integer>
 	<key>LeftOption</key>
@@ -608,7 +608,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/AppSettings/iTerm</string>
+	<string>~/Dropbox (個人)/work/github/dotfiles/AppSettings/iTerm</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -632,10 +632,17 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSColorPanel</key>
+	<string>2269 524 231 329 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>2262 -201 924 485 1680 -390 2560 1417 </string>
+	<string>1399 254 924 485 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2679 251 1102 776 1680 -390 2560 1417 </string>
+	<string>2138 -64 1235 1091 1680 -390 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_5523889C-6B7E-4249-8398-E29D8E4C8831</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_DA0E9254-826E-4AF2-99CE-06AFD50E736E</key>
@@ -2863,11 +2870,11 @@
 			<key>Ansi 12 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.53338390588760376</real>
+				<real>0.58025568723678589</real>
 				<key>Green Component</key>
-				<real>0.420734703540802</real>
+				<real>0.45676475763320923</real>
 				<key>Red Component</key>
-				<real>0.29605811834335327</real>
+				<real>0.32307931780815125</real>
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
@@ -2881,11 +2888,11 @@
 			<key>Ansi 14 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.45474731922149658</real>
+				<real>0.45158323645591736</real>
 				<key>Green Component</key>
-				<real>0.48341637849807739</real>
+				<real>0.4782986044883728</real>
 				<key>Red Component</key>
-				<real>0.30198413133621216</real>
+				<real>0.29965284466743469</real>
 			</dict>
 			<key>Ansi 15 Color</key>
 			<dict>
@@ -2953,11 +2960,11 @@
 			<key>Ansi 8 Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.13228283822536469</real>
+				<real>0.31974038481712341</real>
 				<key>Green Component</key>
-				<real>0.12020024657249451</real>
+				<real>0.29051464796066284</real>
 				<key>Red Component</key>
-				<real>0.11482735723257065</real>
+				<real>0.2779766321182251</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -3011,7 +3018,7 @@
 			<key>Columns</key>
 			<integer>200</integer>
 			<key>Command</key>
-			<string></string>
+			<string>pwd</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -3397,11 +3404,11 @@
 			<key>Selection Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.45526370406150818</real>
+				<real>0.38504183292388916</real>
 				<key>Green Component</key>
-				<real>0.41425135731697083</real>
+				<real>0.34984725713729858</real>
 				<key>Red Component</key>
-				<real>0.39551654458045959</real>
+				<real>0.3347485363483429</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
@@ -4336,7 +4343,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-12-08T00:57:01Z</date>
+	<date>2014-12-09T00:57:03Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
