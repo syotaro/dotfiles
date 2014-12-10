@@ -137,29 +137,7 @@ ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ```
-
-### Install Apps (via homebrew or other)
-
-```bash
-    # Install Require Tools
-open /Applications/Xcode.app
-java -version                # => Java Install manually
-xcodebuild -license
-xcode-select --install
-```
-
-### Setup dotfiles
-
-```sh
-mkdir ~/dotfiles &&  cd ~/dotfiles
-git clone git@github.com:syotaro/dotfiles.git .
-sh ./deploy-dotfiles-all.s
-  # replace Dropbox
-mv dotfiles /tmp
-ln -sf ~/Dropbox/work/github/dotfiles ~/dotfiles
-
-```
-
+### Install homebrew
 
 ```sh
   # Install
@@ -167,6 +145,17 @@ ruby   -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 brew   doctor
 brew   install git
 brew   update
+```
+
+### Install Apps (via homebrew or other)
+
+```sh
+    # Install Require Tools
+open /Applications/Xcode.app
+java -version                # => Java Install manually
+xcodebuild -license
+xcode-select --install
+    # Install apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew   install caskroom/cask/brew-cask
 sh     brewfile.sh
@@ -177,10 +166,20 @@ brew   linkapps
 - (option)open Package
   - open /opt/homebrew-cask/Caskroom/\*/\*/\*.pkg
 
+### Setup dotfiles
+
+```sh
+mkdir ~/dotfiles &&  cd ~/dotfiles
+git clone git@github.com:syotaro/dotfiles.git .
+sh ./deploy-dotfiles-all.s
+  # replace Dropbox
+mv dotfiles /tmp
+ln -sf ~/Dropbox/work/github/dotfiles ~/dotfiles
+```
 
 ### Setup zsh
 
-```bash
+```sh
   # Prezto(ZshFramework)
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -218,10 +217,14 @@ bundle install
 ```
 ### Configure vim & install vim plugin
 
-[vim-bootstrap.com](http://vim-bootstrap.com/)参照してセットアップ
+Referenced [vim-bootstrap.com](http://vim-bootstrap.com/)
 
 ```sh
+   # Pre-requisites
+brew install git
+brew install ctags
    # plugin
+mv ~/Downloads/vimrc ~/.vimrc
 vim +NeoBundleInstall +qall
 ```
 
@@ -255,31 +258,19 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 
 - System Preference
 - Finder Preference
-- Alfred2
-  - Syncing
+- Alfred2 > Syncing
 - BetterTouchTools
-- Karabiner
-  - Emacs binding for Excel
-  - Emacs Mode
-    - Delete,Reterm Up/Down/Left/Right
-  - for Japanese
-  
-- Google Japanese IME
-  - Dict import
-  - KeySetting Kotoeri -> ATOK
-- integrate Kaleidoscope
-   ```sh
-   cd /Applications/Kaleidoscope.app/Contents/Resources/Integration/scripts
-   ./install_git-default
-   ```
+- Karabiner > Emacs binding for Excel
+- Karabiner > Emacs Mode > Delete,Reterm Up/Down/Left/Right
+- Karabiner > for Japanese > コマンドキーの動作を優先モードv1
+- Unclutter
+- Google Japanese IME > KeySetting Kotoeri > ATOK
+- Google Japanese IME > Dict import
+- Kaleidoscope
 - TeamViewer
-- LoginItem(auto exec)
-- 1Password
-  - Enable integration with 3rd party apps
-- Office
-  - Excel
-    - disable check logic
-  - PowerPoint
+- 1Password    > Enable integration with 3rd party apps
+- Office Excel > disable check logic
+- Office PowerPoint
 - Login Items
   - Flux
   - Alfred
@@ -301,13 +292,13 @@ aws ec2 describe-instances | jq '.'
 ### python markdown for evervim
 
 ```sh
-$ sudo pip install markdown
+sudo pip install markdown
 ```
 
 ### Configure OSX
 
 ```sh
-$ ksdiff ~/dotfiles/Library/ ~/Library
+ksdiff ~/dotfiles/Library/ ~/Library
   # cd ~/dotfiles
   # sh ./osx.sh
 ```

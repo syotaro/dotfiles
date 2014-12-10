@@ -195,6 +195,9 @@ brew cask install 'unity-web-player'
 brew cask install 'vagrant'
 brew cask install 'vagrant-manager'
 brew cask install 'virtualbox'
+# https://github.com/cookpad/iam-fox
+# https://github.com/cookpad/elasticfox-ec2tag
+# https://github.com/cookpad/r53-fox
 #brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 #brew cask install 'alfred'
 #brew cask install 'cloudytabs'
@@ -269,16 +272,3 @@ brew cleanup
 # tap                          # (ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
 # unlink                       # パッケージを一時的に無効化
 # cd ` --prefix`               # homebrewの保存先であるCellerディレクトリの場所に移動する
-#
-# 以下のApplicationは、現状Caskが無いので、手動でInstallする
-# - Gyazo gif
-# - GlyphDesigner
-# - ParticleDesigner
-# - Lingr
-# - Autoclick
-#   SoundCleod
-#- https://github.com/cookpad/iam-fox
-#- https://github.com/cookpad/elasticfox-ec2tag
-#- https://github.com/cookpad/r53-fox
-## 個別に設定が必要なもの
-# - Unclutter
