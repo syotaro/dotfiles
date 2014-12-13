@@ -298,7 +298,6 @@ aws s3 ls
 ```sh
 sudo pip install markdown
 ```
-
 ### Configure OSX
 
 - Configure by TinkerTool

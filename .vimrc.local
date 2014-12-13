@@ -54,7 +54,6 @@ map  <C-f> <Right>
 noremap gh gT
 noremap gl gt
 
-
  " C-j, C-kで1行スクロール
 noremap <C-j> <C-e>
 noremap <C-k> <C-y>
@@ -89,16 +88,6 @@ inoremap <C-j> _
 inoremap <C-l> ()
 
 "-------- コマンドラインでのキーバインド
-" マーク位置へのジャンプを行だけでなく桁位置も復元できるようにする
-" map ' `
-" Ctrl+Nで次のバッファを表示
-" map <C-N>   :bnext<CR>
-" Ctrl+Pで前のバッファを表示
-" map <C-P>   :bprevious<CR>
-" 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする
-" imap <C-K>  <ESC>"*pa
-" Ctrl+Shift+Jで上に表示しているウィンドウをスクロールさせる
-" nnoremap <C-S-J> <C-W>k<C-E><C-W><C-W>
 "Emacs スタイルにする
 " Ctrl+Aで行頭へ移動
 :cnoremap <C-A>		<Home>
@@ -114,13 +103,6 @@ inoremap <C-l> ()
 :cnoremap <C-N>		<Down>
 " Ctrl+Pでコマンドライン履歴を一つ戻る
 :cnoremap <C-P>		<Up>
-" Alt+Ctrl+Bで前の単語へ移動
-" :cnoremap <Esc><C-B>	<S-Left>
-" Alt+Ctrl+Fで次の単語へ移動
-" :cnoremap <Esc><C-F>	<S-Right> 
-
-
-
 
 
 "*****************************************************************************
