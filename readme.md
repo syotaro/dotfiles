@@ -29,7 +29,6 @@ and check Files other than Dropbox(Recommended TimeMachine!)
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 1Password
 2D Grapher
-Airmail 2
 AnyVideo Converter HD
 App Language Chooser
 Artboard
@@ -270,17 +269,18 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Karabiner > for Japanese > コマンドキーの動作を優先モードv1
 - Office Excel > disable check logic
 - Office PowerPoint
-- System Preference
 - TeamViewer
 - Unclutter
-- Login Items
-  - Flux
-  - Alfred
-  - Dropbox
-  - Karabiner
-  - WitchDaemon
-  - TotalFinder
-  - BetterTouchTool
+- System Preference
+  `open -a "system preferences"`
+  - Login Items
+    - Flux
+    - Alfred
+    - Dropbox
+    - Karabiner
+    - WitchDaemon
+    - TotalFinder
+    - BetterTouchTool
 
 ## Install AWS CLI
 

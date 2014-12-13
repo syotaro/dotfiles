@@ -3,6 +3,8 @@ set list                                                             " 不可視
 set listchars=tab:▸\ ,trail:_,extends:>,precedes:<,nbsp:%            " 不可視文字の表示形式
 set nowrap                                                           " 折り返ししない
 set nowrapscan                                                       " 検索時にファイルの最後まで行ったら最初に戻らないようにする
+set tabstop=2
+set shiftwidth=2
 set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
 set mouse=a                                                          " マウスモード有効
 set nomodeline

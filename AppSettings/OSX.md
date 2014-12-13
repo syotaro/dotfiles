@@ -1,61 +1,6 @@
 
 # Initial Setup
 
-## Apps
-
-- Excelのオプション
-  - いじる
-- DNSに8.8.8.8を加える
-- 拡張子紐付け
-  - md : Marked
-- ATOK Passport
-  - ATOKSync設定する
-- one passwordのintegrationを有効化 →Alfredで1passwordと連携を有効化
-- AirMail
-  - GmailとGoogleAppsアカウントを有効化
-    - 署名を追加
-- Transmit
-  - iCloud同期
-- Chrome
-  - RedmineTimeTracker
-  - Vrome
-
-## システム環境設定 
-
-open -a "system preferences"
-
-### 言語と地域
-
-- 詳細から日付のフォーマットを設定しておく(Alfredなどから呼び出せる時刻のフォーマットが変わる)
-The {date} and {time} placeholders use your OS X defaults. You can change these in your Mac's System Preferences > Language & Text > Region settings.
-  - これをいじると、Excelの日付フィールドなどがバグるので、やめがほうがいい
-
-### 共有
-
-- MacにSSHでリモートログインする場合は、「リモートログイン」にチェックを入れる
-
-
-### 日付と時刻
-
-- 週の始まりを「月曜日」に変更
-
-
-### キーボード
-
-- ショートカット
-  - サービス周り、いろいろ調整
-  - 右クリックで、関連サービスがわかる
-
-### 通知
-
-- 不要なものを非表示にする
-  - カレンダー
-  - リマインダー
-  - Chatwork
-  - Skype
-  - Facebook
-  - メッセージ
-
 ### インターネットアカウント
 
 - GoogleApps(個人用)
@@ -99,20 +44,10 @@ The {date} and {time} placeholders use your OS X defaults. You can change these 
 
 - GoogleAppsの「連絡先」に、よく連絡をとる人からインポート
   - ローカルの「連絡先」から編集する
-
-
 - Excelが重く(セル文字列のコピペとかに異常に時間かかるようになったら)なったら
   - Excelを終了させる
   - mv $HOME/Library/Preferences/com.microsoft.office.plist /tmp
 
-
-## Setting Migration
-
-- keyremap4macbook
-  - export
-    /Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > $HOME/dotfiles/keyremap4mb-importconfig3.sh
-  - import
-    sh $HOME/dotfiles/AppSettings/keyremap4mb-importconfig2.sh
 
 ## キーショートカット設定
 ### Global
