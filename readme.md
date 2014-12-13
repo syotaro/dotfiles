@@ -148,6 +148,8 @@ brew   update
 
 ### Install Apps (via homebrew or other)
 
+- [syotaro/dotfiles/brewfile.sh](https://github.com/syotaro/dotfiles/blob/master/brewfile.sh)
+
 ```sh
     # Install Require Tools
 open /Applications/Xcode.app
