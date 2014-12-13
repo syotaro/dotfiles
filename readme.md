@@ -172,7 +172,7 @@ brew   linkapps
 ```sh
 mkdir ~/dotfiles &&  cd ~/dotfiles
 git clone git@github.com:syotaro/dotfiles.git .
-sh ./deploy-dotfiles-all.s
+sh ./deploy-dotfiles-all.sh
   # replace Dropbox
 mv dotfiles /tmp
 ln -sf ~/Dropbox/work/github/dotfiles ~/dotfiles
@@ -305,7 +305,7 @@ sudo pip install markdown
 - Configure by TinkerTool
 
 ```sh
-ksdiff ~/dotfiles/Library/ ~/Library
+ksdiff ~/dotfiles/osx_library/ ~/Library
   # cd ~/dotfiles
   # sh ./osx.sh
 ```
