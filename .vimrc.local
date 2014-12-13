@@ -194,3 +194,4 @@ NeoBundle 'VOoM'
 nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
 
 
+NeoBundle 'h1mesuke/vim-alignta'

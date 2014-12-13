@@ -21,6 +21,7 @@ brew install 'bash'
 brew install 'bdw-gc'
 brew install 'cmake'                # be require from mysql
 brew install 'colordiff'
+brew install 'ffmpeg'               # require by youtube-dl
 brew install 'coreutils'
 brew install 'cscope'
 brew install 'ctags'

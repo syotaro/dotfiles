@@ -286,7 +286,9 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 sudo easy_install pip
 sudo pip install awscli
 sudo pip install awscli --upgrade
+vim ~/.aws/keys/awscli.conf
 aws ec2 describe-instances | jq '.'
+aws s3 ls
 ```
 
 ### python markdown for evervim
@@ -296,6 +298,8 @@ sudo pip install markdown
 ```
 
 ### Configure OSX
+
+- Configure by TinkerTool
 
 ```sh
 ksdiff ~/dotfiles/Library/ ~/Library

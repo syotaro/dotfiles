@@ -54,6 +54,11 @@ NeoBundle 'honza/vim-snippets'
 "" Color
 NeoBundle 'tomasr/molokai'
 
+"" Vim-Bootstrap Updater
+NeoBundle 'sherzberg/vim-bootstrap-updater'
+
+let g:vim_bootstrap_langs = "ruby"
+
 "" Custom bundles
 
 "" Ruby Bundle
@@ -320,6 +325,10 @@ let g:airline_enable_syntastic = 1
 nnoremap <silent> <leader>S :call TrimWhiteSpace()<cr>:let @/=''<CR>
 
 "" Copy/Paste/Cut
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
+
 noremap YY "+y<CR>
 noremap P "+gP<CR>
 noremap XX "+x<CR>
