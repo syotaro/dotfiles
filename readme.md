@@ -256,21 +256,23 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 
 ### Configure Other Apps (Manual)
 
-- System Preference
-- Finder Preference
-- Alfred2 > Syncing
+- 1Password > Enable integration with 3rd party apps
+- Alfred2   > Syncing
 - BetterTouchTools
-- Karabiner > Emacs binding for Excel
-- Karabiner > Emacs Mode > Delete,Reterm Up/Down/Left/Right
-- Karabiner > for Japanese > コマンドキーの動作を優先モードv1
-- Unclutter
-- Google Japanese IME > KeySetting Kotoeri > ATOK
+- Finder Preference
 - Google Japanese IME > Dict import
+- Google Japanese IME > KeySetting Kotoeri > ATOK
+- iTerm 2 > Preferences > Browse
+- iTerm 2 > iTerm > Make iTerm2 Default Term
 - Kaleidoscope
-- TeamViewer
-- 1Password    > Enable integration with 3rd party apps
+- Karabiner > Emacs Mode > Delete,Reterm Up/Down/Left/Right
+- Karabiner > Emacs binding for Excel
+- Karabiner > for Japanese > コマンドキーの動作を優先モードv1
 - Office Excel > disable check logic
 - Office PowerPoint
+- System Preference
+- TeamViewer
+- Unclutter
 - Login Items
   - Flux
   - Alfred
