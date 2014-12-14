@@ -1,15 +1,13 @@
 [ -f ~/.zprezto/runcoms/zshrc ] && source ~/.zprezto/runcoms/zshrc
-[ -f ~/.zshrc.custom ]          && source ~/.zshrc.custom
+[ -f ~/.zshrc.local ]           && source ~/.zshrc.local
 
 case $(uname -s) in
     Darwin|FreeBSD)
-        [ -f ~/.zshrc.osx     ] && source ~/.zshrc.custom.osx
-        [ -f ~/.zshrc.aws     ] && source ~/.zshrc.custom.aws
+        [ -f ~/.zshrc.local.osx     ] && source ~/.zshrc.local.osx
+        [ -f ~/.zshrc.local.aws     ] && source ~/.zshrc.local.aws
+        [ -f ~/.zshrc.local.docker  ] && source ~/.zshrc.local.docker
+        [ -f ~/.zshrc.local.udc     ] && source ~/.zshrc.local.udc
     ;;
     Linux)
     ;;
 esac
-
-
-
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local

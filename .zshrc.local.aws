@@ -57,9 +57,8 @@ export EC2_URL=https://ec2.ap-northeast-1.amazonaws.com     # Tokyo
 # export EC2_URL=https://ec2.ap-southeast-1.amazonaws.com
 #
 
-
-
 # for AWS-CLI
 export AWS_CONFIG_FILE=${HOME}/.aws/keys/awscli.conf
-source /usr/local/bin/aws_zsh_completer.sh
-complete -C aws_completer aws
+export AWS_DEFAULT_REGION=ap-northeast-1
+[ -f ~/.zshrc.local.aws     ] && source /usr/local/bin/aws_zsh_completer.sh
+[ -f ~/.zshrc.local.aws     ] && complete -C aws_completer aws

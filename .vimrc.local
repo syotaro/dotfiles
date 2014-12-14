@@ -39,7 +39,14 @@ noremap <CR> o<ESC>
 inoremap <C-c> <ESC>
 
 " ファイル保存(バッファ変更時のみ)
-nnoremap <silent><Space>s    :<C-u>update<CR>
+nnoremap <silent> <Space>s     :<C-u>update<CR>
+" space + ? で各種設定をトグル
+nnoremap <silent> <Space><S-s> :setl spell!<CR>:setl spell?<CR>
+nnoremap <silent> <Space>l     :setl list!<CR>:setl list?<CR>
+nnoremap <silent> <Space>n     :setl number!<CR>:setl number?<CR>
+nnoremap <silent> <Space>t     :setl expandtab!<CR>:setl expandtab?<CR>
+nnoremap <silent> <Space>w     :setl wrap!<CR>:setl wrap?<CR>
+
 
 nmap <C-l> >>
 nmap <C-h> <<
@@ -85,7 +92,7 @@ nnoremap k gk
 inoremap <C-d> $
 inoremap <C-a> @
 inoremap <C-j> _
-inoremap <C-l> ()
+inoremap <C-l> ()<Left>
 
 "-------- コマンドラインでのキーバインド
 "Emacs スタイルにする
@@ -179,3 +186,5 @@ nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
 
 
 NeoBundle 'h1mesuke/vim-alignta'
+
+NeoBundle 'tpope/vim-abolish'

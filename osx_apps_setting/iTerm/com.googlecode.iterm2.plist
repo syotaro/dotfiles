@@ -607,8 +607,10 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Dropbox (個人)/work/github/dotfiles/AppSettings/iTerm</string>
+	<string>~/Dropbox (個人)/work/github/dotfiles/osx_apps_setting/iTerm</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -637,12 +639,12 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSColorPanel</key>
-	<string>2269 524 231 329 0 0 2560 1417 </string>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1596 131 692 194 0 0 2560 1417 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>1399 254 924 485 0 0 2560 1417 </string>
+	<string>-1146 220 924 485 -1440 -330 1440 2537 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2138 -64 1235 1091 1680 -390 2560 1417 </string>
+	<string>-1410 640 1410 1526 -1440 -330 1440 2537 </string>
 	<key>NeverWarnAboutShortLivedSessions_5523889C-6B7E-4249-8398-E29D8E4C8831</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_DA0E9254-826E-4AF2-99CE-06AFD50E736E</key>
@@ -3426,7 +3428,7 @@
 			<key>Shortcut</key>
 			<string>1</string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Smart Cursor Color</key>
 			<true/>
 			<key>Smart Selection Rules</key>
@@ -3543,7 +3545,7 @@
 			<key>Vertical Spacing</key>
 			<real>0.9428974986076355</real>
 			<key>Visual Bell</key>
-			<true/>
+			<false/>
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
@@ -4275,6 +4277,8 @@
 			<string>~/Dropbox/work/quickrun/</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesLost</key>
+	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -4325,7 +4329,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/syotaro/dotfiles/AppSettings/iTerm</string>
+	<string>/Users/syotaro/Dropbox (個人)/work/github/dotfiles/osx_apps_setting/iTerm</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -4343,7 +4347,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-12-09T00:57:03Z</date>
+	<date>2014-12-13T15:00:20Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>

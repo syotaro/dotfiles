@@ -12,8 +12,6 @@ setopt hist_reduce_blanks                # スペース排除
 setopt inc_append_history                # 履歴をインクリメンタルに追加
 setopt ignore_eof       # Ctrl+D では終了しないようになる（exit, logout などを使う）
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'       # 単語の区切り指定
-
-######################################################################## other
 setopt rm_star_wait                                   # ファイルの一括削除時に１０秒間停止する
 
 
@@ -37,19 +35,13 @@ case $(uname -s) in
     ;;
 esac
 
-########################################################################  お試し期間中設定
+########################################################################  rbenv
 
-#export PATH=/usr/local/share/zsh/site-functions/:$PATH   # emmet livestyle
  case $(uname -s) in
      Darwin)
  [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/bin:$PATH"
  [ -d $HOME/.rbenv/ ]  && export PATH="$HOME/.rbenv/shims:$PATH"
  [ -d $HOME/.rbenv/ ]  && eval "$(rbenv init - zsh)"
-
-# [ -d $HOME/.phpenv/ ] && export PATH=$PATH:$HOME/.phpenv/bin:$HOME/.phpenv/versions/5.4.16/bin
-# [ -d $HOME/.phpenv/ ] && eval "$(phpenv init - zsh)"
-#         #git diff
- [ -d /usr/local/Cellar/git/ ] && export PATH=$PATH:/usr/local/Cellar/git/`git --version | awk '{print $3}'`/share/git-core/contrib/diff-highlight
      ;;
  esac
 
@@ -58,7 +50,7 @@ esac
 case $(uname -s) in
     Darwin|FreeBSD)  # osx
         alias l="ls -A"
-        alias c="cd"
+        alias c="cd ~/Dropbox/.tmp"
         alias ls="ls -AhwG"
         alias ll="ls -AlhG"
         # sublime text 2
@@ -99,9 +91,6 @@ alias grep="grep --color=auto"
 alias top='top -ocpu'
 alias rm="rm -i"
 alias mv="mv -i"
-if [[ -x `which colordiff` ]]; then
-  alias diff='colordiff -u'
-fi
 # tmux
 alias tl='tmux ls'
 alias ta='tmux attach -t'
@@ -159,19 +148,6 @@ export CLICOLOR=1                                     # Terminal Colorの設定
 # cd後、自動的にls
 function chpwd() { echo '---------------------------------------------------' && ls && echo '---------------------------------------------------' && [ -d .git ]  &&  pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && [ -e .ruby-version ] && echo '---------------------------------------------------' && ruby -v && echo '---------------------------------------------------'}
 
-# zのパス
-. `brew --prefix`/etc/profile.d/z.sh
-
-export GOPATH=~/
-
-# export PATH="/usr/local/Cellar/mysql55/5.5.30/bin:$PATH"
-
-## UDC(オレオレ環境変数)
-export YESTERDAY=`date -v-1d +"%Y-%m-%d"`
-export YESTERDAY2=`date -v-1d +"%Y%m%d"`
-export FIRST_DAY_THIS_MONTH=`date -v-1d +"%Y-%m-01"`
-export FIRST_DAY_LAST_MONTH=`date -v-1d -v-1m +"%Y-%m-01"`
-export YESTERDAY_LAST_MONTH=`date -v-1d -v-1m +"%Y-%m-%d"`
 
 
 # iTerm2のタブ名を変更する、titleコマンドが使えるようになる
@@ -179,9 +155,3 @@ function title {
     echo -ne "\033]0;"$*"\007"
 }
 
-
-
-# for docker Env
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/syotaro/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
