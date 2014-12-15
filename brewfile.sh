@@ -25,6 +25,7 @@ brew install 'ffmpeg'               # require by youtube-dl
 brew install 'coreutils'
 brew install 'cscope'
 brew install 'ctags'
+brew install 'heroku-toolbelt'
 brew install 'curl'                 # ln -s ` --prefix curl`/bin/curl /usr/local/bin
 brew install 'ssh-copy-id'          # ローカルの公開鍵を対象のサーバに配置する ex) ssh-copy-id user@server
 brew install 'gdbm'

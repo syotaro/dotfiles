@@ -283,6 +283,18 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
     - WitchDaemon
     - TotalFinder
     - BetterTouchTool
+- osx
+  - Configure by TinkerTool
+  - Configure by OnyX
+  - Library
+    ```sh
+    ksdiff ~/dotfiles/osx_library/ ~/Library
+      # cd ~/dotfiles
+      # sh ./osx.sh
+    ```
+  - Driver
+    - http://www.pfu.fujitsu.com/hhkeyboard/macdownload.html
+- ImageCapture > 左下のオプションから、「iPhoneを接続時に開くアプリケーション」を、「割り当て無し」にする
 
 ## Install AWS CLI
 
@@ -299,15 +311,6 @@ aws s3 ls
 
 ```sh
 sudo pip install markdown
-```
-### Configure OSX
-
-- Configure by TinkerTool
-
-```sh
-ksdiff ~/dotfiles/osx_library/ ~/Library
-  # cd ~/dotfiles
-  # sh ./osx.sh
 ```
 
 ### Install pandoc (via Haskell-Platform)

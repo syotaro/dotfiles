@@ -95,7 +95,6 @@ inoremap <C-j> _
 inoremap <C-l> ()<Left>
 
 "-------- コマンドラインでのキーバインド
-"Emacs スタイルにする
 " Ctrl+Aで行頭へ移動
 :cnoremap <C-A>		<Home>
 " Ctrl+Bで一文字戻る
@@ -126,7 +125,6 @@ let g:markdown_fenced_languages = ['sh', 'erb=eruby', 'javascript', 'js=javascri
 " VimAirline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'jellybeans'
-" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
 
 " molokai add setting
 let g:molokai_original = 1
@@ -150,7 +148,6 @@ let g:unite_cursor_line_highlight = 'CursorLine'
 nnoremap <silent><space>/     :Unite line                   -buffer-name=line       -direction=rightbelow      -no-quit <CR>
 nnoremap <silent><space>r     :Unite file_mru      bookmark -buffer-name=file_mru   -direction=rightbelow<CR>
 nnoremap <silent><space>f     :Unite file                   -buffer-name=files      -direction=rightbelow<CR>
-nnoremap <silent><space>g     :Unite file_rec/async:!       -buffer-name=files      -direction=rightbelow<CR>
 nnoremap <silent><space>o     :Unite outline                -buffer-name=outline    -vertical    -winwidth=30  -no-quit <CR>
 nnoremap <silent><space>l     :Unite buffer_tab             -buffer-name=buffer_tab -direction=rightbelow<CR>
 
@@ -187,4 +184,44 @@ nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
 
 NeoBundle 'h1mesuke/vim-alignta'
 
-NeoBundle 'tpope/vim-abolish'
+
+" marks {{{
+NeoBundle 'jacquesbh/vim-showmarks'
+NeoBundle 'tacroe/unite-mark'
+set viminfo='50,\"1000,:0,n~/.vim/viminfo
+set foldmethod=marker
+let g:showmarks_marks_notime = 1
+let g:unite_source_mark_marks = '01abcABCDEFGHIJKLNMOPQRSTUVWXYZ'
+let g:showmarks_enable       = 0
+if !exists('g:markrement_char')
+    let g:markrement_char = [
+    \     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+    \     'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    \     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    \     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    \     '0'
+    \ ]
+en
+
+fu! s:AutoMarkrement()
+    if !exists('b:markrement_pos')
+        let b:markrement_pos = 0
+    else
+        let b:markrement_pos = (b:markrement_pos + 1) % len(g:markrement_char)
+    en
+    exe 'mark' g:markrement_char[b:markrement_pos]
+    echo 'marked' g:markrement_char[b:markrement_pos]
+endf
+
+aug show-marks-sync
+        au!
+        au BufReadPost * sil! ShowMarksOnce
+aug END
+
+nn [Mark] <Nop>
+nm <leader>m [Mark]
+nn <silent> [Mark]m :Unite mark<CR>
+nn [Mark] :<C-u>call <SID>AutoMarkrement()<CR><CR>:ShowMarksOnce<CR>
+com! -bar MarksDelete sil :delm! | :delm 0-9A-Z | :wv! | :ShowMarksOnce
+nn <silent>[Mark]d :MarksDelete<CR>
+" }}}
