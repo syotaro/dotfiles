@@ -117,8 +117,8 @@ VisualGrep
 WebCode
 WhiteNoise
 WinArchiver
-Witch
 WordService
+World Clock
 Xcode
 iKeyboard
 iMovie
@@ -194,7 +194,7 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
 ```sh
   # Change shell(bash -> zsh)
-chsh -s /bin/zsh 
+chsh -s /bin/zsh
 cat /etc/shells
 ```
 
@@ -272,7 +272,11 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Office Excel > disable check logic
 - Office PowerPoint
 - TeamViewer
+- Font > http://fortawesome.github.io/Font-Awesome/
+- Font > https://octicons.github.com/
+- Font > EssentialPragmataPro for Powerline
 - Unclutter
+- Tower > gitconfig
 - System Preference
   `open -a "system preferences"`
   - Login Items
@@ -283,6 +287,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
     - WitchDaemon
     - TotalFinder
     - BetterTouchTool
+  - Keyboard > Shortcut
 - osx
   - Configure by TinkerTool
   - Configure by OnyX
@@ -294,9 +299,15 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
     ```
   - Driver
     - http://www.pfu.fujitsu.com/hhkeyboard/macdownload.html
-- ImageCapture > 左下のオプションから、「iPhoneを接続時に開くアプリケーション」を、「割り当て無し」にする
+- Image Capture > 左下のオプションから、「iPhoneを接続時に開くアプリケーション」を、「割り当て無し」に
 
-## Install AWS CLI
+### osx performance tuninng
+
+- 通知センターの項目を減らす
+- ディスクのアクセス権の検証
+- ディスプレイの透明度を下げる
+
+### Install AWS CLI
 
 ```sh
 sudo easy_install pip
@@ -307,10 +318,12 @@ aws ec2 describe-instances | jq '.'
 aws s3 ls
 ```
 
-### python markdown for evervim
+### python
 
 ```sh
+  # markdown for evervim
 sudo pip install markdown
+
 ```
 
 ### Install pandoc (via Haskell-Platform)

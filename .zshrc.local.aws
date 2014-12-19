@@ -15,7 +15,7 @@ esac
 # Keys
 export EC2_PRIVATE_KEY=${AWS_HOME}/keys/pk.pem
 export EC2_CERT=${AWS_HOME}/keys/cert.pem
-export AWS_CREDENTIAL_FILE=${AWS_HOME}/keys/credential-file-path
+export AWS_CREDENTIAL_FILE=${AWS_HOME}/keys/awscli.conf
 
 # API Home
 export API_TOOLS_PATH="${AWS_HOME}/apitools"

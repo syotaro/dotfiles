@@ -9,7 +9,7 @@ set expandtab                                                        " タブを
 set mouse=a                                                          " マウスモード有効
 set nomodeline
 set noruler
-" set nonumber
+set nonumber
 set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
 "set ttymouse=xterm2                                                 " xtermとscreen対応
 autocmd BufRead *.sql set filetype=mysql                             " .sqlは、mysqlとして扱う
@@ -17,9 +17,9 @@ autocmd BufRead *.sql set filetype=mysql                             " .sqlは�
 "-------------------------------------------------------------------------------
 " [Keybind]
 "-------------------------------------------------------------------------------
-command! Evl       edit   ~/.vimrc.local                             " Ev/Rvでvimrcの編集と反映
-command! Ev        edit   $MYVIMRC                                   " Ev/Rvでvimrcの編集と反映
-command! Rv        source $MYVIMRC                                   " Ev/Rvでvimrcの編集と反映
+command! Evl       edit   ~/.vimrc.local                " vimrc.localの編集
+command! Ev        edit   $MYVIMRC                      " vimrcの編集
+command! Rv        source $MYVIMRC                      " vimrcの反映
 
 " 行末、行の最初への移動のキーマップ設定
 :map! <C-e> <Esc>$
@@ -43,8 +43,8 @@ nnoremap <silent> <Space>s     :<C-u>update<CR>
 " space + ? で各種設定をトグル
 nnoremap <silent> <Space><S-s> :setl spell!<CR>:setl spell?<CR>
 nnoremap <silent> <Space>l     :setl list!<CR>:setl list?<CR>
-nnoremap <silent> <Space>n     :setl number!<CR>:setl number?<CR>
 nnoremap <silent> <Space>t     :setl expandtab!<CR>:setl expandtab?<CR>
+nnoremap <silent> <Space>n     :setl number!<CR>:setl number?<CR>
 nnoremap <silent> <Space>w     :setl wrap!<CR>:setl wrap?<CR>
 
 
@@ -173,9 +173,7 @@ nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -wi
 
 
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tyru/open-browser.vim'
 let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', "outputter/buffer/split" : ":botright" ,"outputter/buffer/close_on_empty" : 1}}
-  " let g:quickrun_config['markdown'] = {'outputter': 'browser'}
 nnoremap <silent><space>p :QuickRun<CR>
 
 NeoBundle 'VOoM'
