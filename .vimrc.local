@@ -38,8 +38,11 @@ noremap <CR> o<ESC>
 " Ctrl + c とEscの動作を完全に一致させる
 inoremap <C-c> <ESC>
 
-" ファイル保存(バッファ変更時のみ)
+" ファイル保存及びsyntax check(バッファ変更時のみ)
 nnoremap <silent> <Space>s     :<C-u>update<CR>
+" syntax check
+nnoremap <silent> <Leader>s    :<C-u>SyntasticCheck<CR>
+
 " space + ? で各種設定をトグル
 nnoremap <silent> <Space><S-s> :setl spell!<CR>:setl spell?<CR>
 nnoremap <silent> <Space>l     :setl list!<CR>:setl list?<CR>
@@ -167,7 +170,7 @@ let g:vimfiler_marked_file_icon = '✓'
 " CurrentBufferFile List
 nnoremap <silent> <Space>b  : <C-u>VimFilerBufferDir -split -no-quit -simple -winwidth=30<CR>
 " CurrentDirFileList
-nnoremap <silent> <Space>c  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
+" nnoremap <silent> <Space>c  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
 " VimfilerExplorer
 nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
 
@@ -223,3 +226,17 @@ nn [Mark] :<C-u>call <SID>AutoMarkrement()<CR><CR>:ShowMarksOnce<CR>
 com! -bar MarksDelete sil :delm! | :delm 0-9A-Z | :wv! | :ShowMarksOnce
 nn <silent>[Mark]d :MarksDelete<CR>
 " }}}
+
+" for JSON
+NeoBundle 'elzr/vim-json'
+"" JQコマンドでJSONをパース
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+  if 0 == a:0
+    let l:arg = "."
+  else
+    let l:arg = a:1
+  endif
+  execute "%! cat % | jq \"" . l:arg . "\""
+endfunction
+

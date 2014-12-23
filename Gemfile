@@ -78,4 +78,13 @@ gem 'pry-debugger'
 
 # http://brettterpstra.com/projects/otask/
 gem install 'otask'
-'
+
+# for Rails http://tech.kayac.com/archive/22_rails10gem.html
+# gem 'carrierwave'  # 画像アップロード
+# gem 'activeadmin', github: 'gregbell/active_admin’  # 管理画面
+# gem ‘rails_config' # 環境毎に定数管理
+# gem 'whenever', :require => false # crontab管理
+# gem 'google_drive'   # スプレッドシートにアクセス
+# gem 'kaminari'
+# gem 'mechanize' # スクレイピング
+

@@ -48,6 +48,8 @@ Desktop Calendar Plus
 Easy Image Converter
 Elastics
 Explainer
+GIFBrewery                   # Gif Anime Converter
+Ultra Character Map          # Symbol Icon Viewer
 Export Calendars Pro
 Friends export
 GCalToolkit
@@ -130,9 +132,9 @@ xScope
 ### Setup ssh key
 
 ```sh
-ln -sf ~/Dropbox\ \(個人\)/ ~/Dropbox
+ln -sf ~/dropbox\ \(個人\)/ ~/dropbox
 mkdir ~/.ssh
-ln -s ~/Dropbox/work/setting/ssh/* ~/.ssh/
+ln -s ~/dropbox/work/setting/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ```
@@ -175,7 +177,7 @@ git clone git@github.com:syotaro/dotfiles.git .
 sh ./deploy-dotfiles-all.sh
   # replace Dropbox
 mv dotfiles /tmp
-ln -sf ~/Dropbox/work/github/dotfiles ~/dotfiles
+ln -sf ~/dropbox/work/github/dotfiles ~/dotfiles
 ```
 
 ### Setup zsh
@@ -275,6 +277,12 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Font > http://fortawesome.github.io/Font-Awesome/
 - Font > https://octicons.github.com/
 - Font > EssentialPragmataPro for Powerline
+- Font > http://www.masuseki.com/index.php?u=my_works/121003_mitimasu.htm  # みちます
+- Font > Favorite > みちます、fontawesome、メイリオ
+- Font > http://www.flaticon.com/categories/
+- Font > https://github.com/cognitom/symbol-font-in-web
+- Font > Ultra Character Map ![](http://s3img.jp/20141222134835.png)
+- Colors > ![](https://dl.dropboxusercontent.com/u/12750454/screenshots/20141222134906.png)
 - Unclutter
 - Tower > gitconfig
 - System Preference
@@ -307,29 +315,24 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - ディスクのアクセス権の検証
 - ディスプレイの透明度を下げる
 
-### Install AWS CLI
+### Install Python Lib
 
 ```sh
+  # AWS CLI
 sudo easy_install pip
 sudo pip install awscli
 sudo pip install awscli --upgrade
 vim ~/.aws/keys/awscli.conf
 aws ec2 describe-instances | jq '.'
 aws s3 ls
-```
-
-### python
-
-```sh
   # markdown for evervim
 sudo pip install markdown
-
 ```
 
 ### Install pandoc (via Haskell-Platform)
 
 ```sh
-install 'haskell-platform'     # Install until the end, very time-consuming
+brew install 'haskell-platform'     # Install until the end, very time-consuming
 cabal    update
 cabal    install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
