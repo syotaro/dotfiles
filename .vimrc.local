@@ -1,15 +1,15 @@
 set clipboard=unnamed,unnamedplus                                    " OSのクリップボードを使用する
+set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
 set list                                                             " 不可視文字表示
 set listchars=tab:▸\ ,trail:_,extends:>,precedes:<,nbsp:%            " 不可視文字の表示形式
-set nowrap                                                           " 折り返ししない
-set nowrapscan                                                       " 検索時にファイルの最後まで行ったら最初に戻らないようにする
-set tabstop=2
-set shiftwidth=2
-set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
 set mouse=a                                                          " マウスモード有効
 set nomodeline
-set noruler
 set nonumber
+set noruler
+set nowrap                                                           " 折り返ししない
+set nowrapscan                                                       " 検索時にファイルの最後まで行ったら最初に戻らないようにする
+set shiftwidth=2
+set tabstop=2
 set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
 "set ttymouse=xterm2                                                 " xtermとscreen対応
 autocmd BufRead *.sql set filetype=mysql                             " .sqlは、mysqlとして扱う
@@ -240,3 +240,4 @@ function! s:Jq(...)
   execute "%! cat % | jq \"" . l:arg . "\""
 endfunction
 
+nnoremap Y y$

@@ -282,6 +282,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Font > http://www.flaticon.com/categories/
 - Font > https://github.com/cognitom/symbol-font-in-web
 - Font > Ultra Character Map ![](http://s3img.jp/20141222134835.png)
+- Font > [Material Design Iconic Font :: Icons](http://zavoloklom.github.io/material-design-iconic-font/icons.html#hardware)
 - Colors > ![](https://dl.dropboxusercontent.com/u/12750454/screenshots/20141222134906.png)
 - Unclutter
 - Tower > gitconfig

@@ -57,9 +57,13 @@ NeoBundle 'tomasr/molokai'
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
-let g:vim_bootstrap_langs = "ruby"
+let g:vim_bootstrap_langs = "ruby,php,html,javascript"
 
 "" Custom bundles
+
+"" PHP Bundle
+NeoBundle 'arnaud-lb/vim-php-namespace'
+
 
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
@@ -67,6 +71,17 @@ NeoBundle "tpope/vim-rake"
 NeoBundle "tpope/vim-projectionist"
 NeoBundle "thoughtbot/vim-rspec"
 NeoBundle "majutsushi/tagbar"
+
+
+"" HTML Bundle
+NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'tpope/vim-haml'
+
+
+"" Javascript Bundle
+NeoBundle "scrooloose/syntastic"
 
 
 
@@ -361,6 +376,8 @@ vmap > >gv
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 "" Custom configs
 
+
+
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
@@ -382,6 +399,11 @@ let g:tagbar_type_ruby = {
         \ 'F:singleton methods'
     \ ]
 \ }
+
+
+
+
+let g:javascript_enable_domhtmlcss = 1
 
 
 "" Include user's local vim config
