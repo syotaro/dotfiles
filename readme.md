@@ -112,7 +112,6 @@ Translate Tab
 Transmit
 Tuba
 Tweetbot
-Unclutter
 Visits
 VisualDiffer
 VisualGrep
@@ -274,17 +273,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Office Excel > disable check logic
 - Office PowerPoint
 - TeamViewer
-- Font > http://fortawesome.github.io/Font-Awesome/
-- Font > https://octicons.github.com/
-- Font > EssentialPragmataPro for Powerline
-- Font > http://www.masuseki.com/index.php?u=my_works/121003_mitimasu.htm  # みちます
-- Font > Favorite > みちます、fontawesome、メイリオ
-- Font > http://www.flaticon.com/categories/
-- Font > https://github.com/cognitom/symbol-font-in-web
-- Font > Ultra Character Map ![](http://s3img.jp/20141222134835.png)
-- Font > [Material Design Iconic Font :: Icons](http://zavoloklom.github.io/material-design-iconic-font/icons.html#hardware)
-- Colors > ![](https://dl.dropboxusercontent.com/u/12750454/screenshots/20141222134906.png)
-- Unclutter
 - Tower > gitconfig
 - System Preference
   `open -a "system preferences"`
@@ -309,6 +297,19 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
   - Driver
     - http://www.pfu.fujitsu.com/hhkeyboard/macdownload.html
 - Image Capture > 左下のオプションから、「iPhoneを接続時に開くアプリケーション」を、「割り当て無し」に
+
+### System Asset
+- Font > ICON > http://zavoloklom.github.io/material-design-iconic-font/icons.html#hardware
+- Font > ICON > http://fortawesome.github.io/Font-Awesome/
+- Font > ICON > http://www.flaticon.com/categories/
+- Font > ICON > https://github.com/cognitom/symbol-font-in-web
+- Font > ICON > https://octicons.github.com/
+- Font > ICON > https://www.iconfinder.com/
+- Font > ICON > Ultra Character Map ![](http://s3img.jp/20141222134835.png)
+- Font > EssentialPragmataPro for Powerline
+- Font > http://www.masuseki.com/index.php?u=my_works/121003_mitimasu.htm  # みちます
+- Font > Favorite > みちます、fontawesome、メイリオ
+- Colors > ![](https://dl.dropboxusercontent.com/u/12750454/screenshots/20141222134906.png)
 
 ### osx performance tuninng
 
