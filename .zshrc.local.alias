@@ -1,0 +1,88 @@
+case $(uname -s) in
+    Darwin|FreeBSD)  # osx
+        alias l="ls -A"
+        alias c="cd ~/Dropbox/.tmp"
+        alias ls="ls -AhwG"
+        alias ll="ls -AlhG"
+        # sublime text 2
+        #alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+        #alias subll='st .'
+        # github
+        #alias hb='hub browse'
+        # less syntax
+        alias less="/usr/share/vim/vim73/macros/less.sh"
+        # vim
+        alias v='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias vi='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias vim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
+        alias gvim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim -g '
+        alias pbc='pbcopy'
+        alias ql='qlmanage -p '
+    ;;
+    Linux)      # Debian
+        alias ls="ls --color=always -ahF"
+        alias ll="ls --color=always -alhF"
+        alias vi="vim"
+        alias v="vim"
+    ;;
+    NetBSD|OpenBSD)
+        alias ls="ls -ahF"
+        alias ls="lsl -alhF"
+    ;;
+esac
+
+
+# sudoするときに、環境設定を引き継ぐ
+alias sudo='sudo -E '
+
+# Unix Command
+
+alias d='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'   # 前に行ったディレクトリに移る
+alias grep="grep --color=auto"
+alias top='top -ocpu'
+alias rm="rm -i"
+alias mv="mv -i"
+# tmux
+alias tl='tmux ls'
+alias ta='tmux attach -t'
+alias tr='tmux rename-session -t'
+
+
+# ag
+alias ag='ag -S --stats'
+alias agh='ag --hidden'
+
+# add datetime
+alias history="history -i"
+
+
+# rails
+#alias rc='rails console'
+#alias rd='rails destroy'
+#alias rdb='rails dbconsole'
+#alias rdbm='rake db:migrate db:test:clone'
+#alias rg='rails generate'
+#alias rgm='rails generate migration'
+#alias rp='rails plugin'
+#alias ru='rails runner'
+#alias rs='rails server'
+#alias rsd='rails server --debugger'
+#alias rld='tail -f log/development.log'
+#alias rdm='rake db:migrate'
+#alias rdr='rake db:rollback'
+
+
+# Find ruby file
+#alias rfind='find . -name "*.rb" | xargs grep -n'
+#alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
+
+
+# GIT1
+alias g='git'
+alias gs="pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
+alias gd='git diff'                                 # add前の変更差分を表示
+#alias gd='git diff -w'                             # add前の変更差分を表示
+alias gdc='git diff --cached -w'                    # addしたものの差分を表示
+alias gdh='git diff HEAD~1'                         # 自分のcommitした内容と、その前のcommitとの差分
+alias gba='git branch -a'
+alias gcd='cd $(git rev-parse --show-toplevel)'

@@ -12,7 +12,7 @@ and check Files other than Dropbox(Recommended TimeMachine!)
 
 ### HDD CleanUP
 
-- Reboot & hold Command + R & Disk Utility -> Erase & Install Yosemite
+- Updade Yosemite & Reboot & hold Command + R & Disk Utility -> Erase & Install Yosemite
 
 ### Install Dropbox
 

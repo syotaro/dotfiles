@@ -1,0 +1,4 @@
+# iTerm2のタブ名を変更する、titleコマンドが使えるようになる
+function title {
+    echo -ne "\033]0;"$*"\007"
+}

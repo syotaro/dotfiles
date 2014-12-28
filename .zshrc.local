@@ -1,18 +1,19 @@
-export TERM=xterm-256color
 ######################################################################## history
-export HISTFILE=~/.zsh_history           # historyファイル
+#export TERM=xterm-256color
+export HISTFILE=~/.zsh_history                  # historyファイル
 export HISTIGNORE=ls:history
-export HISTSIZE=10000                    # ファイルサイズ
-export HISTTIMEFORMAT='%Y-%m-%d %T '     # bashのhistory zshのfc -ifldで使用する時刻フォーマット
-export SAVEHIST=10000                    # saveする量
-setopt EXTENDED_HISTORY                  # zshの開始終了を記録
-setopt extended_history                  # 履歴ファイルに時刻を記録
-setopt hist_ignore_dups                  # 重複を記録しない
-setopt hist_reduce_blanks                # スペース排除
-setopt inc_append_history                # 履歴をインクリメンタルに追加
-setopt ignore_eof       # Ctrl+D では終了しないようになる（exit, logout などを使う）
+export HISTSIZE=10000                           # ファイルサイズ
+export HISTTIMEFORMAT='%Y-%m-%d %T '            # bashのhistory zshのfc -ifldで使用する時刻フォーマット
+export SAVEHIST=10000                           # saveする量
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'       # 単語の区切り指定
-setopt rm_star_wait                                   # ファイルの一括削除時に１０秒間停止する
+setopt EXTENDED_HISTORY                         # zshの開始終了を記録
+setopt extended_history                         # 履歴ファイルに時刻を記録
+setopt hist_ignore_dups                         # 重複を記録しない
+setopt hist_reduce_blanks                       # スペース排除
+setopt ignore_eof                               # Ctrl+D では終了しないようになる（exit, logout などを使う）
+setopt inc_append_history                       # 履歴をインクリメンタルに追加
+setopt rm_star_wait                             # ファイルの一括削除時に１０秒間停止する
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin  # sudoも補完の対象
 
 
 ######################################################################## PATH
@@ -26,7 +27,6 @@ case $(uname -s) in
         # export LANG=en_US.UTF-8
         # export LC_ALL=en_US.UTF-8
         export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-        export PATH="$HOME/.osx/local/bin:$PATH"
     ;;
     Linux)
         export LANGUAGE=en_US.UTF-8
@@ -45,113 +45,11 @@ esac
      ;;
  esac
 
-########################################################################  Alias
 
-case $(uname -s) in
-    Darwin|FreeBSD)  # osx
-        alias l="ls -A"
-        alias c="cd ~/Dropbox/.tmp"
-        alias ls="ls -AhwG"
-        alias ll="ls -AlhG"
-        # sublime text 2
-        #alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
-        #alias subll='st .'
-        # github
-        #alias hb='hub browse'
-        # less syntax
-        alias less="/usr/share/vim/vim73/macros/less.sh"
-        # vim
-        alias v='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
-        alias vi='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
-        alias vim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
-        alias gvim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim -g '
-        alias pbc='pbcopy'
-        alias ql='qlmanage -p '
-    ;;
-    Linux)      # Debian
-        alias ls="ls --color=always -ahF"
-        alias ll="ls --color=always -alhF"
-        alias vi="vim"
-        alias v="vim"
-    ;;
-    NetBSD|OpenBSD)
-        alias ls="ls -ahF"
-        alias ls="lsl -alhF"
-    ;;
-esac
-
-
-# sudoするときに、環境設定を引き継ぐ
-alias sudo='sudo -E '
-
-# Unix Command
-
-alias d='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'   # 前に行ったディレクトリに移る
-alias grep="grep --color=auto"
-alias top='top -ocpu'
-alias rm="rm -i"
-alias mv="mv -i"
-# tmux
-alias tl='tmux ls'
-alias ta='tmux attach -t'
-alias tr='tmux rename-session -t'
-
-
-# ag
-alias ag='ag -S --stats'
-alias agh='ag --hidden'
-
-# add datetime
-alias history="history -i"
-
-
-# rails
-#alias rc='rails console'
-#alias rd='rails destroy'
-#alias rdb='rails dbconsole'
-#alias rdbm='rake db:migrate db:test:clone'
-#alias rg='rails generate'
-#alias rgm='rails generate migration'
-#alias rp='rails plugin'
-#alias ru='rails runner'
-#alias rs='rails server'
-#alias rsd='rails server --debugger'
-#alias rld='tail -f log/development.log'
-#alias rdm='rake db:migrate'
-#alias rdr='rake db:rollback'
-
-
-# Find ruby file
-#alias rfind='find . -name "*.rb" | xargs grep -n'
-#alias pfind='find . -name "*.php" | xargs grep -n --color=auto'
-
-
-# GIT1
-alias g='git'
-alias gs="pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
-alias gd='git diff'                                 # add前の変更差分を表示
-#alias gd='git diff -w'                             # add前の変更差分を表示
-alias gdc='git diff --cached -w'                    # addしたものの差分を表示
-alias gdh='git diff HEAD~1'                         # 自分のcommitした内容と、その前のcommitとの差分
-alias gba='git branch -a'
-alias gcd='cd $(git rev-parse --show-toplevel)'
-
-
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
-zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-zstyle ':completion:*' list-colors di=34 fi=0         # 色付きで補完する
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin  # sudoも補完の対象
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
-bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
-export CLICOLOR=1                                     # Terminal Colorの設定
-
-# cd後、自動的にls
-function chpwd() { echo '---------------------------------------------------' && ls && echo '---------------------------------------------------' && [ -d .git ]  &&  pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && [ -e .ruby-version ] && echo '---------------------------------------------------' && ruby -v && echo '---------------------------------------------------'}
-
-
-
-# iTerm2のタブ名を変更する、titleコマンドが使えるようになる
-function title {
-    echo -ne "\033]0;"$*"\007"
-}
+#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
+#zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+#zstyle ':completion:*' list-colors di=34 fi=0         # 色付きで補完する
+#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
+#bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
+#export CLICOLOR=1                                     # Terminal Colorの設定
 
