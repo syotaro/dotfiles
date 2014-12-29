@@ -130,16 +130,23 @@ xScope
 
 ### Setup symblic link
 
+- iCloud Drive -> all device sync     # for selfTemplate & Env files!
+- Dropbox      -> file archive module # for product files module. like Gem!
+
 ```sh
-ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive # for Personal Files
-ln -sf ~/dropbox\ \(個人\)/ ~/dropbox                                   # for Share    Files ... And googleDrive!
+   # setup dotfiles
+ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles
+sh ./deploy-dotfiles-all.sh
+   # easy access
+ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive
+ln -sf ~/dropbox\ \(個人\)/ ~/dropbox
 ```
 
 ### Setup ssh key
 
 ```sh
 mkdir ~/.ssh
-ln -s ~/dropbox/work/setting/ssh/* ~/.ssh/
+ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ```
@@ -174,17 +181,6 @@ brew   linkapps
 - (option)open Package
   - open /opt/homebrew-cask/Caskroom/\*/\*/\*.pkg
 
-### Setup dotfiles
-
-```sh
-mkdir ~/dotfiles &&  cd ~/dotfiles
-git clone git@github.com:syotaro/dotfiles.git .
-sh ./deploy-dotfiles-all.sh
-  # replace Dropbox
-mv dotfiles /tmp
-ln -sf ~/dropbox/work/github/dotfiles ~/dotfiles
-```
-
 ### Setup zsh
 
 ```sh
@@ -211,9 +207,9 @@ cat /etc/shells
 brew install rbenv ruby-build
    # Install Ruby 2.1.3 and set it as the default version
 rbenv install 2.1.3
-rbenv global  2.1.3   # ruby -v  =>  ruby 2.1.3
+#rbenv global  2.1.3   # ruby -v  =>  ruby 2.1.3
    # インストールしたrubyやgemのパスを通す
-rbenv rehash
+#rbenv rehash
 ```
 
 ```sh
