@@ -1,14 +1,8 @@
-case $(uname -s) in
+  case $(uname -s) in
     Darwin|FreeBSD)  # osx
-        alias l="ls -A"
         alias c="cd ~/Dropbox/.tmp"
-        alias ls="ls -AhwG"
+        #alias ls="ls -AhwG"
         alias ll="ls -AlhG"
-        # sublime text 2
-        #alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
-        #alias subll='st .'
-        # github
-        #alias hb='hub browse'
         # less syntax
         alias less="/usr/share/vim/vim73/macros/less.sh"
         # vim

@@ -1,6 +1,3 @@
-### phpctags
-tags
-
 ### Original
 /.vim/bundle
 /.aws/keys/pk.pem
@@ -13,17 +10,8 @@ tags
 ### Git Config
 /.gitconfig.local
 
-### PPSSPP
-/.config/
-
-###
-/.vim-anywhere/
-
 ### IntelliJ
 intelliJ/
-
-### Project
-project
 
 ### Vagrant
 vagrant/Vagrantfile
@@ -33,10 +21,3 @@ vagrant/Vagrantfile
 /.aws/keys/awscli.conf
 /iTerm/com.googlecode.iterm2.plist
 /.hateblo.vim
-
-# Apps
-/Library/Application Support/Elasticfox/
-/Library/Application Support/R53 Fox/
-/Library/Application Support/夜フクロウ
-/Library/Application Support/iTerm
-

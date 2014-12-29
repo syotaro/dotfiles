@@ -6,6 +6,7 @@ set mouse=a                                                          " マウス
 set nomodeline
 set nonumber
 set noruler
+set vb t_vb=                                                         " ビープをならさない
 set nowrap                                                           " 折り返ししない
 set nowrapscan                                                       " 検索時にファイルの最後まで行ったら最初に戻らないようにする
 set shiftwidth=2

@@ -1,7 +1,16 @@
 # cd後に状況に応じてファイル表示
 function chpwd() {
-if [ -d .git ];then 
-	pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo ''
+if [ -d .git ];then
+	pwd
+  echo ''
+  git remote -v
+  echo ''
+  git branch -a
+  echo ''
+  git status -sb
+  echo ''
+  git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5
+  echo ''
 fi
 if [ -e .ruby-version ];then
 	echo '---------------------------------------------------------------'
@@ -9,13 +18,12 @@ if [ -e .ruby-version ];then
 	echo '---------------------------------------------------------------'
 fi
 if [ 20 -gt `ls -1 | wc -l` ]; then
-	echo '---------------------------------------------------------------'
-	ls -lah
-	echo '---------------------------------------------------------------'
+  echo ''
+	k
+  echo ''
 else
-	echo '---------------------------------------------------------------'
+  echo ''
 	ls
-	echo '---------------------------------------------------------------'
+  echo ''
 fi
 }
-

@@ -128,10 +128,16 @@ iTranslate
 xScope
 ```
 
+### Setup symblic link
+
+```sh
+ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive # for Personal Files
+ln -sf ~/dropbox\ \(個人\)/ ~/dropbox                                   # for Share    Files
+```
+
 ### Setup ssh key
 
 ```sh
-ln -sf ~/dropbox\ \(個人\)/ ~/dropbox
 mkdir ~/.ssh
 ln -s ~/dropbox/work/setting/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
