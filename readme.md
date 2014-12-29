@@ -132,7 +132,7 @@ xScope
 
 ```sh
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive # for Personal Files
-ln -sf ~/dropbox\ \(個人\)/ ~/dropbox                                   # for Share    Files
+ln -sf ~/dropbox\ \(個人\)/ ~/dropbox                                   # for Share    Files ... And googleDrive!
 ```
 
 ### Setup ssh key
