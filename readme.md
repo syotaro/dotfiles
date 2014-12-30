@@ -136,6 +136,7 @@ xScope
 ```sh
    # setup dotfiles
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles
+cd ~/dotfiles
 sh ./deploy-dotfiles-all.sh
    # easy access
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive
@@ -153,6 +154,11 @@ chmod 600 ~/.ssh/id_*
 ### Install homebrew
 
 ```sh
+  # Install Require Tools
+open /Applications/Xcode.app
+java -version                # => Java Install manually
+xcodebuild -license
+xcode-select --install
   # Install
 ruby   -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew   doctor
@@ -165,11 +171,6 @@ brew   update
 - [syotaro/dotfiles/brewfile.sh](https://github.com/syotaro/dotfiles/blob/master/brewfile.sh)
 
 ```sh
-    # Install Require Tools
-open /Applications/Xcode.app
-java -version                # => Java Install manually
-xcodebuild -license
-xcode-select --install
     # Install apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew   install caskroom/cask/brew-cask

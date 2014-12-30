@@ -245,3 +245,7 @@ nnoremap Y y$
 
 
 NeoBundle 'tpope/vim-cucumber'
+
+
+
+NeoBundle 'bash-support.vim'

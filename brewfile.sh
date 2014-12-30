@@ -21,14 +21,11 @@ brew install 'bash'
 brew install 'bdw-gc'
 brew install 'cmake'                # be require from mysql
 brew install 'colordiff'
-brew install 'ffmpeg'               # require by youtube-dl
 brew install 'coreutils'
 brew install 'cscope'
 brew install 'ctags'
-brew install 'termshare'            # ローカルのターミナル状況をブラウザでシェア
-brew install 'heroku-toolbelt'
 brew install 'curl'                 # ln -s ` --prefix curl`/bin/curl /usr/local/bin
-brew install 'ssh-copy-id'          # ローカルの公開鍵を対象のサーバに配置する ex) ssh-copy-id user@server
+brew install 'ffmpeg'               # require by youtube-dl
 brew install 'gdbm'
 brew install 'gettext'
 brew install 'gh'
@@ -38,7 +35,7 @@ brew install 'gnu-sed' '--default-names'
 brew install 'go'
 brew install 'goaccess'
 brew install 'graphicsmagick'
-brew install 'youtube-dl'           # youtube downloader
+brew install 'heroku-toolbelt'
 brew install 'htop-osx'
 brew install 'hub'                  # wrapper for  git command
 brew install 'icu4c'
@@ -70,9 +67,11 @@ brew install 'pkg-config'
 brew install 'pstree'
 brew install 's3cmd'
 brew install 'sqlite'
+brew install 'ssh-copy-id'          # ローカルの公開鍵を対象のサーバに配置する ex) ssh-copy-id user@server
 brew install 'sshfs'
 brew install 'sshrc'                # sshした先で読み込む環境変数をローカルで定義できる
 brew install 'tcpflow'              # いい感じでHTTPリクエストをモニタリング
+brew install 'termshare'            # ローカルのターミナル状況をブラウザでシェア
 brew install 'the_silver_searcher'
 brew install 'tree'
 brew install 'unixodbc'
@@ -80,6 +79,7 @@ brew install 'w3m'                  # CLI Web Browser
 brew install 'watch'
 brew install 'wget' '--enable-iri'
 brew install 'xz'
+brew install 'youtube-dl'           # youtube downloader
 brew install 'z'
 brew install 'zsh' '--disable-etcdir'
 #install 'bsdmake'
@@ -114,7 +114,7 @@ brew install 'reattach-to-user-namespace'
 ################
 #  Bench Mark
 ################
-brew install 'siege'
+#brew install 'siege'
 ################
 #  Ruby
 ################
@@ -132,7 +132,6 @@ brew install 'tig'   # cli git browser
 #  MySQL
 ################
 install 'mysql'
-#brew install 'mysql55'
 ################
 #  FONT
 ################
@@ -158,15 +157,15 @@ brew install 'sdl'
 brew cask install 'adobe-air'
 brew cask install 'android-file-transfer'
 brew cask install 'appcleaner'
-brew cask install 'bathyscaphe'   # 2ch ブラウザ
+brew cask install 'bathyscaphe'          # 2ch ブラウザ
 brew cask install 'bettertouchtool'
 brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
 brew cask install 'chefdk'               # Chef Development Kit
 brew cask install 'cooviewer'
 brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
-brew cask install 'flash'
-brew cask install 'flashlight'
-brew cask install 'fluid'
+brew cask install 'flash-player'
+brew cask install 'flashlight'           # adds plugins to Spotlight
+#brew cask install 'fluid'
 brew cask install 'flux'
 brew cask install 'geektool'
 brew cask install 'google-drive'
