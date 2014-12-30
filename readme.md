@@ -167,13 +167,15 @@ brew   update
 - [syotaro/dotfiles/brewfile.sh](https://github.com/syotaro/dotfiles/blob/master/brewfile.sh)
 
 ```sh
-    # Install apps
+  # Install apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew   install caskroom/cask/brew-cask
 sh     brewfile.sh
 brew   update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 brew   cask alfred link
 brew   linkapps
+  # 英語版msOfficeを日本語に対応させる
+open /Applications/Microsoft\ Office\ 2011/Additional\ Tools/Microsoft\ Language\ Register/Microsoft\ Language\ Register.app
 ```
 - (option)open Package
   - open /opt/homebrew-cask/Caskroom/\*/\*/\*.pkg
