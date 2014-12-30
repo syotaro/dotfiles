@@ -48,15 +48,13 @@ Desktop Calendar Plus
 Easy Image Converter
 Elastics
 Explainer
-GIFBrewery                   # Gif Anime Converter
-Ultra Character Map          # Symbol Icon Viewer
 Export Calendars Pro
 Friends export
 GCalToolkit
+GIFBrewery                   # Gif Anime Converter
 GarageBand
 GistPal
 Gistify
-SmartPlayer
 GraphicConverter 9
 Hexels Pro
 IMAGEmini
@@ -104,6 +102,7 @@ Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
 Sketch
 Skitch
 Slack
+SmartPlayer
 SoraAnnai
 Templates for Office Pro
 The Archive Browser
@@ -112,6 +111,7 @@ Translate Tab
 Transmit
 Tuba
 Tweetbot
+Ultra Character Map          # Symbol Icon Viewer
 Visits
 VisualDiffer
 VisualGrep
@@ -130,22 +130,18 @@ xScope
 
 ### Setup symblic link
 
-- iCloud Drive -> all device sync     # for selfTemplate & Env files!
+- iCloud Drive -> all device sync     # for selfTemplate & authEnv files!
 - Dropbox      -> file archive module # for product files module. like Gem!
 
 ```sh
-   # setup dotfiles
+  # setup dotfiles
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles
 cd ~/dotfiles
 sh ./deploy-dotfiles-all.sh
-   # easy access
+  # easy access
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive
 ln -sf ~/dropbox\ \(個人\)/ ~/dropbox
-```
-
-### Setup ssh key
-
-```sh
+  # Setup ssh key
 mkdir ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
@@ -205,15 +201,14 @@ cat /etc/shells
 ### Install Ruby
 
 ```sh
-brew install rbenv ruby-build
+brew install 'openssl'
+brew install 'readline'
+brew install 'ruby-build' --HEAD
    # Install Ruby 2.1.3 and set it as the default version
 rbenv install 2.1.3
 #rbenv global  2.1.3   # ruby -v  =>  ruby 2.1.3
    # インストールしたrubyやgemのパスを通す
 #rbenv rehash
-```
-
-```sh
    # gem
 gem update --system
 gem update rake
@@ -222,7 +217,7 @@ bundle install
 ```
 ### Configure vim & install vim plugin
 
-Referenced [vim-bootstrap.com](http://vim-bootstrap.com/)
+- Referenced [vim-bootstrap.com](http://vim-bootstrap.com/)
 
 ```sh
    # Pre-requisites
@@ -233,27 +228,21 @@ mv ~/Downloads/vimrc ~/.vimrc
 vim +NeoBundleInstall +qall
 ```
 
-```sh
-   # Gist-vim
-curl -i -u "GITHUB-USERNAME" -d '{"scopes":["gist"],"note":"gist vim"}' https://GITHUB-DOMAIN/api/v3/authorizations # => copy token param
-vim ~/.gist-vim            # => set token
-chmod 600 ~/.gist-vim
-```
-
-### BOWER
-
-```sh
-brew install node.js
-npm install -g bower
-```
-
 ### Install Quicklook Plugin
 
 ```sh
 brew update; brew upgrade brew-cask
-brew cask install qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r
 brew install ffmpeg --with-tools media-info
-cp -rf ~/dotfiles/Library/QuickLook/* ~/Library/QuickLook
+brew cask install 'betterzipql'
+brew cask install 'qlcolorcode'
+brew cask install 'qlvideo'
+brew cask install 'qlmarkdown'
+brew cask install 'qlprettypatch'
+brew cask install 'qlstephen'       # view plain text files without a file extension
+brew cask install 'quicklook-csv'
+brew cask install 'quicklook-json'
+brew cask install 'webp-quicklook'
+cp -rf ~/dotfiles/osx_library/QuickLook/* ~/Library/QuickLook/
 qlmanage -r
 qlmanage -r cache
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
@@ -262,7 +251,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ### Configure Other Apps (Manual)
 
 - 1Password > Enable integration with 3rd party apps
-- Alfred2   > Syncing
 - BetterTouchTools
 - Finder Preference
 - Google Japanese IME > Dict import
@@ -334,11 +322,15 @@ aws s3 ls
 sudo pip install markdown
 ```
 
-### Install pandoc (via Haskell-Platform)
+### Install other
 
 ```sh
+  # pandoc (via Haskell-Platform)
 brew install 'haskell-platform'     # Install until the end, very time-consuming
 cabal    update
 cabal    install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
+  # BOWER
+brew install node.js
+npm install -g bower
 ```

@@ -1,3 +1,6 @@
+#!/bin/bash
+
+set -e
 ############################################
 # Add Repository
 ############################################
@@ -13,6 +16,7 @@ brew tap homebrew/science           || true
 ############################################
 # Add Packages for Development
 ############################################
+brew install brew-cask
 brew cask install 'xquartz'         # 依存されてるので先にInstall
 brew install 'R'                    # required https://xquartz.macosforge.org/landing/
 brew install 'autoconf'
@@ -116,13 +120,6 @@ brew install 'reattach-to-user-namespace'
 ################
 #brew install 'siege'
 ################
-#  Ruby
-################
-brew install 'openssl'
-brew install 'readline'
-brew install 'ruby-build' --HEAD
-brew install 'rbenv'
-################
 #  Git
 ################
 brew install 'git'
@@ -201,17 +198,12 @@ brew cask install 'virtualbox'
 # https://github.com/cookpad/iam-fox
 # https://github.com/cookpad/elasticfox-ec2tag
 # https://github.com/cookpad/r53-fox
+#brew cask install 'LightPaper'           # MarkdownEditor
 #brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 #brew cask install 'alfred'
-#brew cask install 'cloudytabs'
-#brew cask install 'vlc'
-#brew cask install 'LightPaper'           # MarkdownEditor
-#brew cask install 'bartender'
-#brew cask install 'omnipresence'
-#brew cask install 'perian'
-#brew cask install 'rcdefaultapp'
 #brew cask install 'amazon-cloud-drive'
 #brew cask install 'clipmenu'
+#brew cask install 'cloudytabs'
 #brew cask install 'codekit'
 #brew cask install 'dropbox'
 #brew cask install 'forklift'
@@ -223,50 +215,24 @@ brew cask install 'virtualbox'
 #brew cask install 'keycue'
 #brew cask install 'libreoffice'
 #brew cask install 'mysqlworkbench'
+#brew cask install 'omnipresence'
 #brew cask install 'path-finder'
+#brew cask install 'perian'
 #brew cask install 'phpstorm'
 #brew cask install 'postbox'
+#brew cask install 'rcdefaultapp'
 #brew cask install 'redis-desktop-manager'
 #brew cask install 'reflector'
 #brew cask install 'rstudio'
 #brew cask install 'sequel-pro'
 #brew cask install 'soundflower'
+#brew cask install 'vlc'
 #brew cask install 'vmware-fusion'
 
 brew cask alfred link  # CaskroomをAlfredの検索パスに追加
-################
-# QuickLook Plugin
-################
-#cask install 'suspicious-package'
-brew cask install 'betterzipql'
-brew cask install 'qlcolorcode'
-brew cask install 'qlvideo'
-brew cask install 'qlmarkdown'
-brew cask install 'qlprettypatch'
-brew cask install 'qlstephen'       # view plain text files without a file extension
-brew cask install 'quicklook-csv'
-brew cask install 'quicklook-json'
-brew cask install 'webp-quicklook'
 
 ############################################
 # Remove outdated versions
 ###########################################e
 brew linkapps
 brew cleanup
-
-############################################
-#  Memo
-############################################
-# --config                     # Homebrewの設定一覧
-# --prefix pkg名               # Install path
-# cask search                  # lisgint cask Application
-# leaves | sed 's/^/install /' # install済みpkgを追記
-# cleanup
-# doctor
-# info                         # インストールしたpkgの設定方法確認
-# link                         # パッケージを有効化
-# options
-# search                       # listing pkg
-# tap                          # (ex. brew tap homebrew/dupes => GitHubにある外部のFormulaセットを追加することが可能になる
-# unlink                       # パッケージを一時的に無効化
-# cd ` --prefix`               # homebrewの保存先であるCellerディレクトリの場所に移動する
