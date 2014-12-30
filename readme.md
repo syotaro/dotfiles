@@ -40,6 +40,9 @@ CloudPlay
 Cobook
 CodeRunner
 ColorSchemer Studio
+Color Picker
+ColorSchemer Studio
+Copy em Paste               # キーボードショートカットがグローバル向いているので、無効化する必要あり
 Current
 Dash
 DateLine
