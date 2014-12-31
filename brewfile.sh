@@ -71,8 +71,7 @@ brew install 'pkg-config'
 brew install 'pstree'
 brew install 's3cmd'
 brew install 'sqlite'
-brew install 'ssh-copy-id'          # ローカルの公開鍵を対象のサーバに配置する ex) ssh-copy-id user@server
-brew install 'sshfs'
+#brew install 'ssh-copy-id'          # ローカルの公開鍵を対象のサーバに配置する ex) ssh-copy-id user@server
 brew install 'sshrc'                # sshした先で読み込む環境変数をローカルで定義できる
 brew install 'tcpflow'              # いい感じでHTTPリクエストをモニタリング
 brew install 'termshare'            # ローカルのターミナル状況をブラウザでシェア
@@ -128,7 +127,7 @@ brew install 'tig'   # cli git browser
 ################
 #  MySQL
 ################
-install 'mysql'
+brew install 'mysql'
 ################
 #  FONT
 ################
@@ -188,7 +187,7 @@ brew cask install 'teamviewer'
 brew cask install 'testflight'
 brew cask install 'tinkertool'           # osx カスタマイズ
 brew cask install 'today-scripts'        # geektoolの通知センター対応版
-brew cask install 'totalfinder'
+# brew cask install 'totalfinder'
 brew cask install 'tower'
 # https://github.com/tue-savvy/SimulatorManager
 brew cask install 'unity-web-player'
@@ -228,8 +227,6 @@ brew cask install 'virtualbox'
 #brew cask install 'soundflower'
 #brew cask install 'vlc'
 #brew cask install 'vmware-fusion'
-
-brew cask alfred link  # CaskroomをAlfredの検索パスに追加
 
 ############################################
 # Remove outdated versions

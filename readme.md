@@ -42,7 +42,7 @@ CodeRunner
 ColorSchemer Studio
 Color Picker
 ColorSchemer Studio
-Copy em Paste               # キーボードショートカットがグローバル向いているので、無効化する必要あり
+Copy em Paste               # キーボードショートカットがグローバル向いているので、無効化する必要あり。あと、helperは怪しいので使わない
 Current
 Dash
 DateLine
@@ -121,20 +121,21 @@ VisualGrep
 WebCode
 WhiteNoise
 WinArchiver
-WordService
 World Clock
 Xcode
 iKeyboard
 iMovie
 iPhoto
-iTranslate
 xScope
 ```
 
 ### Setup symblic link
 
-- iCloud Drive -> all device sync     # for selfTemplate & authEnv files!
-- Dropbox      -> file archive module # for product files module. like Gem!
+- cloudDefinition
+  - iCloud Drive -> all device sync     # for selfTemplate & authEnv files!
+  - dropbox      -> file archive module # for product files module. like Gem!
+  - github       -> sourceCode
+  - everNote     -> MyknowledgeBase     # for docs
 
 ```sh
   # setup dotfiles
