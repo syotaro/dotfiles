@@ -332,7 +332,8 @@ sudo pip install markdown
 
 ```sh
   # pandoc (via Haskell-Platform)
-brew install 'haskell-platform'     # Install until the end, very time-consuming
+brew install ghc cabal-install
+brew cask install 'haskell-platform'     # Install until the end, very time-consuming
 cabal    update
 cabal    install pandoc
 export PATH=${HOME}/.cabal/bin:$PATH
