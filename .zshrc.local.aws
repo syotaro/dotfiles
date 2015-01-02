@@ -15,7 +15,6 @@ esac
 # Keys
 export EC2_PRIVATE_KEY=${AWS_HOME}/keys/pk.pem
 export EC2_CERT=${AWS_HOME}/keys/cert.pem
-export AWS_CREDENTIAL_FILE=${AWS_HOME}/keys/awscli.conf
 
 # # API Home
 # export API_TOOLS_PATH="${AWS_HOME}/apitools"
@@ -57,7 +56,8 @@ export EC2_URL=https://ec2.ap-northeast-1.amazonaws.com     # Tokyo
 #
 
 # for AWS-CLI
-export AWS_CONFIG_FILE=${HOME}/.aws/keys/awscli.conf
+export AWS_CREDENTIAL_FILE=${AWS_HOME}/keys/awscli.conf
+export AWS_CONFIG_FILE=${AWS_HOME}/keys/awscli.conf
 export AWS_DEFAULT_REGION=ap-northeast-1
-[ -f ~/.zshrc.local.aws     ] && source /usr/local/bin/aws_zsh_completer.sh
-[ -f ~/.zshrc.local.aws     ] && complete -C aws_completer aws
+source /usr/local/bin/aws_zsh_completer.sh
+complete -C aws_completer aws

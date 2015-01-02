@@ -104,7 +104,6 @@ Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
 Sketch
 Skitch
 Slack
-SmartPlayer
 SoraAnnai
 Templates for Office Pro
 The Archive Browser
@@ -134,7 +133,8 @@ xScope
   - iCloud Drive -> all device sync     # for selfTemplate & authEnv files!
   - dropbox      -> file archive module # for product files module. like Gem!
   - github       -> sourceCode
-  - everNote     -> MyknowledgeBase     # for docs
+  - everNote     -> MyknowledgeBase
+  - googleDrive  -> shareDocs
 
 ```sh
   # setup dotfiles
@@ -151,6 +151,9 @@ chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
   # setup aws key
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/aws ~/.aws
+  # setup td key
+ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/td ~/.td
+ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/google/.google-api.yaml ~/.google-api.yaml
 ```
 ### Install homebrew
 
@@ -185,6 +188,11 @@ open /Applications/Microsoft\ Office\ 2011/Additional\ Tools/Microsoft\ Language
 - (option)open Package
   - open /opt/homebrew-cask/Caskroom/\*/\*/\*.pkg
 
+### Install Manually
+
+- R53fox
+- ElasticFox
+
 ### Setup zsh
 
 ```sh
@@ -205,33 +213,40 @@ chsh -s /bin/zsh
 cat /etc/shells
 ```
 
-### Install Ruby
+### Install rbenv
+
+- 導入の理由
+  - 複数の Ruby バージョンをインストールして管理したい
+  - root領域を汚したくない(ユーザ領域にinstall)
 
 ```sh
 brew install 'openssl'
 brew install 'readline'
-brew install 'ruby-build' --HEAD
-   # Install Ruby 2.1.3 and set it as the default version
+brew install 'rbenv' 'ruby-build'
+   # install
 rbenv install 2.1.3
-#rbenv global  2.1.3   # ruby -v  =>  ruby 2.1.3
+rbenv install 2.1.2
+   # check 
+rbenv version
+   # select ruby version
+rbenv global  2.1.3
    # インストールしたrubyやgemのパスを通す
-#rbenv rehash
+rbenv rehash
    # gem
-gem update --system
 gem update rake
 gem install bundler
+cd ~/dotfiles/
 bundle install
 ```
 ### Configure vim & install vim plugin
 
-- Referenced [vim-bootstrap.com](http://vim-bootstrap.com/)
+- .vimrcBase [vim-bootstrap.com](http://vim-bootstrap.com/)
 
 ```sh
    # Pre-requisites
 brew install git
 brew install ctags
    # plugin
-mv ~/Downloads/vimrc ~/.vimrc
 vim +NeoBundleInstall +qall
 ```
 
@@ -249,7 +264,7 @@ brew cask install 'qlstephen'       # view plain text files without a file exten
 brew cask install 'quicklook-csv'
 brew cask install 'quicklook-json'
 brew cask install 'webp-quicklook'
-cp -rf ~/dotfiles/osx_library/QuickLook/* ~/Library/QuickLook/
+cp -rf ~/icloudDrive/osx-quickLook/* ~/Library/QuickLook/
 qlmanage -r
 qlmanage -r cache
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
@@ -322,7 +337,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
   # AWS CLI
 sudo easy_install pip
 sudo pip install awscli
-sudo pip install awscli --upgrade
+pip install awscli --upgrade
 vim ~/.aws/keys/awscli.conf
 aws ec2 describe-instances | jq '.'
 aws s3 ls
