@@ -17,24 +17,23 @@ export EC2_PRIVATE_KEY=${AWS_HOME}/keys/pk.pem
 export EC2_CERT=${AWS_HOME}/keys/cert.pem
 export AWS_CREDENTIAL_FILE=${AWS_HOME}/keys/awscli.conf
 
-# API Home
-export API_TOOLS_PATH="${AWS_HOME}/apitools"
-export EC2_HOME="${API_TOOLS_PATH}/ec2"
-export EC2_AMITOOL_HOME="${API_TOOLS_PATH}/ec2-ami-tools"
-export AWSDIAGNOSTIC_HOME="${API_TOOLS_PATH}/aws-diagnostic-tools"
-export AWS_CLOUDWATCH_HOME="${API_TOOLS_PATH}/mon"
-export AWS_AUTO_SCALING_HOME="${API_TOOLS_PATH}/as"
-export AWS_ELB_HOME="${API_TOOLS_PATH}/elb"
-export AWS_CLOUDFORMATION_HOME="${API_TOOLS_PATH}/cfn"
-export AWS_ELASTICACHE_HOME="${API_TOOLS_PATH}/elasticache"
-export AWS_SNS_HOME="${API_TOOLS_PATH}/sns"
-export AWS_IAM_HOME="${API_TOOLS_PATH}/iam"
-export AWS_RDS_HOME="${API_TOOLS_PATH}/rds"
-for x in ${API_TOOLS_PATH}/*/bin
-do
-  export PATH=$x:$PATH
-done
-#export PATH=$PATH:${API_TOOLS_PATH}/s3cmd
+# # API Home
+# export API_TOOLS_PATH="${AWS_HOME}/apitools"
+# export EC2_HOME="${API_TOOLS_PATH}/ec2"
+# export EC2_AMITOOL_HOME="${API_TOOLS_PATH}/ec2-ami-tools"
+# export AWSDIAGNOSTIC_HOME="${API_TOOLS_PATH}/aws-diagnostic-tools"
+# export AWS_CLOUDWATCH_HOME="${API_TOOLS_PATH}/mon"
+# export AWS_AUTO_SCALING_HOME="${API_TOOLS_PATH}/as"
+# export AWS_ELB_HOME="${API_TOOLS_PATH}/elb"
+# export AWS_CLOUDFORMATION_HOME="${API_TOOLS_PATH}/cfn"
+# export AWS_ELASTICACHE_HOME="${API_TOOLS_PATH}/elasticache"
+# export AWS_SNS_HOME="${API_TOOLS_PATH}/sns"
+# export AWS_IAM_HOME="${API_TOOLS_PATH}/iam"
+# export AWS_RDS_HOME="${API_TOOLS_PATH}/rds"
+# for x in ${API_TOOLS_PATH}/*/bin
+# do
+#   export PATH=$x:$PATH
+# done
 
 
 

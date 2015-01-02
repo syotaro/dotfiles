@@ -16,7 +16,7 @@ and check Files other than Dropbox(Recommended TimeMachine!)
 
 ### Install Dropbox
 
-- [Dropbox](https://www.dropbox.com/home)
+- [Dropbox](https://www.dropbox.com/home)   # 個人用、会社用、両方ともlinkさせる
 - [Alfred App](http://www.alfredapp.com/)
 - [Chrome ](https://www.google.com/chrome/browser/desktop/#eula)
 - [Chrome Canary](https://www.google.com/chrome/browser/canary.html)
@@ -39,7 +39,6 @@ Cinemagraph Pro
 CloudPlay
 Cobook
 CodeRunner
-ColorSchemer Studio
 Color Picker
 ColorSchemer Studio
 Copy em Paste               # キーボードショートカットがグローバル向いているので、無効化する必要あり。あと、helperは怪しいので使わない
@@ -145,11 +144,13 @@ sh ./deploy-dotfiles-all.sh
   # easy access
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive
 ln -sf ~/dropbox\ \(個人\)/ ~/dropbox
-  # Setup ssh key
+  # setup ssh key
 mkdir ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
+  # setup aws key
+ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/aws ~/.aws
 ```
 ### Install homebrew
 
@@ -269,6 +270,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Karabiner > for Japanese > コマンドキーの動作を優先モードv1
 - Office Excel > disable check logic
 - Office PowerPoint
+- Navicat > Navicat Cloud Sign inq
 - TeamViewer
 - Tower > gitconfig
 - System Preference
