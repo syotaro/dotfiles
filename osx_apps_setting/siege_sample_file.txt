@@ -1,3 +1,0 @@
-http://localhost:9292/blog
-http://localhost:9292/note
-http://localhost:9292/game-create
