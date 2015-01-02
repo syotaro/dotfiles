@@ -41,14 +41,8 @@ alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias tr='tmux rename-session -t'
 
-
-# ag
-alias ag='ag -S --stats'
-alias agh='ag --hidden'
-
 # add datetime
 alias history="history -i"
-
 
 # rails
 #alias rc='rails console'
@@ -79,4 +73,4 @@ alias gd='git diff'                                 # add前の変更差分を�
 alias gdc='git diff --cached -w'                    # addしたものの差分を表示
 alias gdh='git diff HEAD~1'                         # 自分のcommitした内容と、その前のcommitとの差分
 alias gba='git branch -a'
-alias gcd='cd $(git rev-parse --show-toplevel)'
+alias gcd='cd "$(git rev-parse --show-toplevel)"'
