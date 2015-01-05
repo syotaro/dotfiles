@@ -227,11 +227,12 @@ brew install 'rbenv' 'ruby-build'
 rbenv install 2.1.3
 rbenv install 2.1.2
    # check 
-rbenv version
+rbenv versions
    # select ruby version
 rbenv global  2.1.3
    # インストールしたrubyやgemのパスを通す
 rbenv rehash
+exec $SHELL -l  # restart Shell
    # gem
 gem update rake
 gem install bundler
@@ -285,8 +286,11 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Karabiner > for Japanese > コマンドキーの動作を優先モードv1
 - Office Excel > disable check logic
 - Office PowerPoint
-- Navicat > Navicat Cloud Sign inq
-- TeamViewer
+- Navicat > Navicat Cloud Sign in
+- TeamViewer > sign in
+- PathFinder > Env > Keyboard > Browser Keyaction > Return > rename
+- Copy'em Paste > Shortcut > disable
+- Evernote > Env > Shortcut > disable all
 - Tower > gitconfig
 - System Preference
   `open -a "system preferences"`
@@ -296,7 +300,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
     - Dropbox
     - Karabiner
     - WitchDaemon
-    - TotalFinder
     - BetterTouchTool
   - Keyboard > Shortcut
 - osx

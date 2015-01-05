@@ -16,6 +16,3 @@ export RSYNC_RSH=ssh                                                    # rsync 
 shopt -s histappend                                                     # 履歴ファイルを上書きではなく追加する。
 shopt -s no_empty_cmd_completion                                        # なにも入力してないときはコマンド名を補完しない。
 
-
-export PS1="\$u2@\[\033[1;${col}m\]\H\[\033[0m\][\W]\$ "
-
