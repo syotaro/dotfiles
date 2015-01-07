@@ -138,7 +138,7 @@ set showcmd
 set shell=/bin/sh
 
 "*****************************************************************************
-"" Visual Settigns
+"" Visual Settings
 "*****************************************************************************
 syntax on
 set ruler
@@ -260,20 +260,35 @@ endif
 "" Autocmd Rules
 "*****************************************************************************
 "" The PC is fast enough, do syntax highlight syncing from start
-autocmd BufEnter * :syntax sync fromstart
+augroup vimrc-sync-fromstart
+  autocmd!
+  autocmd BufEnter * :syntax sync fromstart
+augroup END
 
 "" Remember cursor position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup vimrc-remember-cursor-position
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
 
 "" txt
-autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
+augroup vimrc-wrapping
+  autocmd!
+  autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
+augroup END
 
 "" make/cmake
-autocmd FileType make setlocal noexpandtab
-autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
+augroup vimrc-make-cmake
+  autocmd!
+  autocmd FileType make setlocal noexpandtab
+  autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
+augroup END
 
 if has("gui_running")
-  autocmd BufWritePre * :call TrimWhiteSpace()
+  augroup vimrc-white-space
+    autocmd!
+    autocmd BufWritePre * :call TrimWhiteSpace()
+  augroup END
 endif
 
 set autoread
@@ -382,8 +397,11 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
-autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+augroup vimrc-ruby
+  autocmd!
+  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
+  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
