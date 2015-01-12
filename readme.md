@@ -41,7 +41,6 @@ Cobook
 CodeRunner
 Color Picker
 ColorSchemer Studio
-Current
 Dash
 DateLine
 Deliveries
