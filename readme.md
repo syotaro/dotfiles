@@ -41,7 +41,6 @@ Cobook
 CodeRunner
 Color Picker
 ColorSchemer Studio
-Copy em Paste               # キーボードショートカットがグローバル向いているので、無効化する必要あり。あと、helperは怪しいので使わない
 Current
 Dash
 DateLine
@@ -289,7 +288,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Navicat > Navicat Cloud Sign in
 - TeamViewer > sign in
 - PathFinder > Env > Keyboard > Browser Keyaction > Return > rename
-- Copy'em Paste > Shortcut > disable
 - Evernote > Env > Shortcut > disable all
 - Tower > gitconfig
 - System Preference

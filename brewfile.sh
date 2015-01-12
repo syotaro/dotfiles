@@ -158,6 +158,7 @@ brew cask install 'bettertouchtool'
 brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
 brew cask install 'chefdk'               # Chef Development Kit
 brew cask install 'cooviewer'
+brew cask install 'licecap'              # GIFアニメキャプチャ
 brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 brew cask install 'flash-player'
 brew cask install 'flashlight'           # adds plugins to Spotlight

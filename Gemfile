@@ -88,3 +88,6 @@ gem install 'otask'
 # gem 'kaminari'
 # gem 'mechanize' # スクレイピング
 
+
+
+
