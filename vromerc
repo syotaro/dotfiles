@@ -11,8 +11,8 @@ map x <M-d>
 unmap <M-f>
 unmap <M-l>
 
-map j 5j
-map k 5k
+map j 10j
+map k 10k
 map d <C-d>
 map u <C-u>
 

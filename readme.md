@@ -12,7 +12,7 @@ and check Files other than Dropbox(Recommended TimeMachine!)
 
 ### HDD CleanUP
 
-- Upgrade Yosemite & Reboot & hold Command + R & Disk Utility -> Erase & Install Yosemite
+- Upgrade Yosemite & Reboot & hold Command + R & Disk Utility -> ディスクの検証 -> Erase & Install Yosemite
 
 ### Install Dropbox
 
@@ -62,6 +62,7 @@ Icon Slate
 Infographics
 JPEGmini
 JSON Editor
+JSON Query
 JenkinsNotifier
 Kaleidoscope
 Kaomoji Lover
