@@ -189,8 +189,8 @@ brew cask install 'testflight'
 brew cask install 'tinkertool'           # osx カスタマイズ
 brew cask install 'today-scripts'        # geektoolの通知センター対応版
 # brew cask install 'totalfinder'
-brew cask install 'tower'
 # https://github.com/tue-savvy/SimulatorManager
+brew cask install 'sourcetree'
 brew cask install 'unity-web-player'
 brew cask install 'vagrant'
 brew cask install 'vagrant-manager'

@@ -289,7 +289,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - TeamViewer > sign in
 - PathFinder > Env > Keyboard > Browser Keyaction > Return > rename
 - Evernote > Env > Shortcut > disable all
-- Tower > gitconfig
 - System Preference
   `open -a "system preferences"`
   - Login Items

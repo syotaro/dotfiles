@@ -7,7 +7,7 @@
   grep          = auto
 [core]
   pager = lv -c
-  excludesfile = /Users/syotaro/.gitignore.global
+	excludesfile = /Users/syotaro/.gitignore.global
   quotepath     = false
   editor = vim
 #  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -16,8 +16,6 @@
   generic       = G move-last-line
 [push]
   default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
-[merge]
-	tool = Kaleidoscope
 [grep]
   lineNumber    = true
 [github]
@@ -47,21 +45,25 @@
 #  show  = diff-highlight | LESS=-R less
 [hub]
 protocol = https
+
+
+# difftool
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-#[diff]
-#	tool = Kaleidoscope
 [difftool "Vim"]
 	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+# merge
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [mergetool]
 	prompt = false
-#[diff "xlsx"]        # https://github.com/yappo/p5-git-xlsx-textconv.pl
-#    binary = true
-#    textconv = $GOPATH/bin/git-xlsx-textconv
-[diff]
-	tool = Kaleidoscope
