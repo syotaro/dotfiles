@@ -22,6 +22,7 @@ brew install 'R'                    # required https://xquartz.macosforge.org/la
 brew install 'autoconf'
 brew install 'automake'
 brew install 'bash'
+brew install 'android-sdk'
 brew install 'bdw-gc'
 brew install 'cmake'                # be require from mysql
 brew install 'colordiff'
@@ -158,6 +159,7 @@ brew cask install 'bettertouchtool'
 brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
 brew cask install 'chefdk'               # Chef Development Kit
 brew cask install 'cooviewer'
+brew cask install 'android-studio'
 brew cask install 'licecap'              # GIFアニメキャプチャ
 brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 brew cask install 'flash-player'

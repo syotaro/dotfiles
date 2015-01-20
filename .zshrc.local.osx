@@ -5,6 +5,11 @@ export PATH=/usr/local/bin:/usr/local/share:$PATH
 
 PATH=${HOME}/Library/Haskell/bin:$PATH
 
+## Android Studio
+export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
+export PATH=${HOME}/Library/Android/sdk/tools:$PATH
+
+
 ########################################################################  tmux
 ## クリップボードを使用する
 #export PATH="$HOME/.tmux:$PATH"
