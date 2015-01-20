@@ -10,3 +10,6 @@ open /Applications/Safari.app
 open /Applications/Stickies.app
 open /opt/homebrew-cask/Caskroom/google-drive/latest/Google Drive.app
 open ~/Applications/Flux.app
+
+cd ~/vagrant-now
+vagrant up
