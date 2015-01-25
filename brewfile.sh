@@ -5,7 +5,7 @@ set -e
 # Add Repository
 ############################################
 #tap  home/dupes               || true
-#tap phinze/homebrew-cask       || true
+brew tap phinze/homebrew-cask       || true
 brew tap caskroom/homebrew-versions || true  # add beta pkg
 brew tap homebrew/binary            || true
 brew tap jimbojsb/launchrocket      || true
@@ -156,14 +156,14 @@ brew cask install 'android-file-transfer'
 brew cask install 'appcleaner'
 brew cask install 'bathyscaphe'          # 2ch ブラウザ
 brew cask install 'bettertouchtool'
-brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
+#brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
 brew cask install 'chefdk'               # Chef Development Kit
 brew cask install 'cooviewer'
 brew cask install 'android-studio'
 brew cask install 'licecap'              # GIFアニメキャプチャ
 brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
-brew cask install 'flash-player'
-brew cask install 'flashlight'           # adds plugins to Spotlight
+#brew cask install 'flash-player'
+#brew cask install 'flashlight'           # adds plugins to Spotlight
 #brew cask install 'fluid'
 brew cask install 'flux'
 brew cask install 'geektool'
@@ -179,7 +179,7 @@ brew cask install 'microsoft-office'
 brew cask install 'omnifocus'
 brew cask install 'omnigraffle'
 brew cask install 'openemu-experimental'
-brew cask install 'owncloud'
+#brew cask install 'owncloud'
 brew cask install 'pixel-winch'
 brew cask install 'rubymine'
 brew cask install 'silverlight'
@@ -189,7 +189,7 @@ brew cask install 'tableau'
 brew cask install 'teamviewer'
 brew cask install 'testflight'
 brew cask install 'tinkertool'           # osx カスタマイズ
-brew cask install 'today-scripts'        # geektoolの通知センター対応版
+#brew cask install 'today-scripts'        # geektoolの通知センター対応版
 # brew cask install 'totalfinder'
 # https://github.com/tue-savvy/SimulatorManager
 brew cask install 'sourcetree'

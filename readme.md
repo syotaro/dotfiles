@@ -160,7 +160,7 @@ ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/google/.google-api.yaml
   # Install Require Tools
 open /Applications/Xcode.app
 java -version                # => Java Install manually
-xcodebuild -license
+sudo xcodebuild -license
 xcode-select --install
   # Install
 ruby   -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -177,6 +177,7 @@ brew   update
   # Install apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew   install caskroom/cask/brew-cask
+cd ~/dotfiles
 sh     brewfile.sh
 brew   update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 brew   cask alfred link

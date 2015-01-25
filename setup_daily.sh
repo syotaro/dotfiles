@@ -3,7 +3,7 @@ vim +NeoBundleInstall +qall
 brew update
 brew cask update
 
-
+# check AppStore
 open /Applications/CopyLess.app
 open /Applications/QuickTime\ Player.app  # for iphone record
 open /Applications/Safari.app

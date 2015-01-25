@@ -1,5 +1,9 @@
 source 'https://rubygems.org/'
 
+
+gem 'activerecord'
+
+
 # Terminal
 #gem 'tmuxinator'
 # gem 'git-smart' # smart pull/rebase/merge/log
@@ -87,6 +91,7 @@ gem install 'otask'
 # gem 'google_drive'   # スプレッドシートにアクセス
 # gem 'kaminari'
 # gem 'mechanize' # スクレイピング
+
 
 
 
