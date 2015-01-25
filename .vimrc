@@ -31,7 +31,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
@@ -133,7 +133,6 @@ set nobackup
 set noswapfile
 
 set fileformats=unix,dos,mac
-set backspace=indent,eol,start
 set showcmd
 set shell=/bin/sh
 
@@ -152,7 +151,7 @@ set mousemodel=popup
 set t_Co=256
 set nocursorline
 set guioptions=egmrti
-set gfn=Monospace\ 8
+set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -181,9 +180,6 @@ set scrolloff=3
 
 "" Status bar
 set laststatus=2
-
-"" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
 "" Use modeline overrides
 set modeline
