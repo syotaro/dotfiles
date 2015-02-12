@@ -41,13 +41,15 @@ inoremap <C-c> <ESC>
 
 " ファイル保存及びsyntax check(バッファ変更時のみ)
 nnoremap <silent> <Space>s     :<C-u>update<CR>
+" tmpでファイル保存
+nnoremap <silent> <Space>t     :save! ~/dropbox/.tmp/tmp.md<CR>
 " syntax check
 nnoremap <silent> <Leader>s    :<C-u>SyntasticCheck<CR>
 
 " space + ? で各種設定をトグル
 nnoremap <silent> <Space><S-s> :setl spell!<CR>:setl spell?<CR>
 nnoremap <silent> <Space>l     :setl list!<CR>:setl list?<CR>
-nnoremap <silent> <Space>t     :setl expandtab!<CR>:setl expandtab?<CR>
+" nnoremap <silent> <Space>t     :setl expandtab!<CR>:setl expandtab?<CR>
 nnoremap <silent> <Space>n     :setl number!<CR>:setl number?<CR>
 nnoremap <silent> <Space>w     :setl wrap!<CR>:setl wrap?<CR>
 
@@ -247,3 +249,7 @@ nnoremap Y y$
 NeoBundle 'tpope/vim-cucumber'
 
 
+
+
+
+autocmd BufNewFile,BufRead *.csv setlocal filetype=txt

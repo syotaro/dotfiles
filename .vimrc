@@ -37,6 +37,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
+NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -58,6 +59,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 let g:vim_bootstrap_langs = "ruby,php,html,javascript"
+let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 "" Custom bundles
 
@@ -78,12 +80,18 @@ NeoBundle 'amirh/HTML-AutoCloseTag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
+NeoBundle 'mattn/emmet-vim'
 
 
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
 
 
+
+"" Include user's extra bundle
+if filereadable(expand("~/.vimrc.local.bundles"))
+  source ~/.vimrc.local.bundles
+endif
 
 call neobundle#end()
 
@@ -144,7 +152,6 @@ set ruler
 set number
 
 let no_buffers_menu=1
-highlight BadWhitespace ctermbg=red guibg=red
 colorscheme molokai
 
 set mousemodel=popup
@@ -189,7 +196,11 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
 
 let g:airline_theme = 'powerlineish'
 let g:airline_enable_branch = 1
@@ -244,14 +255,6 @@ if !exists('*s:setupWrapping')
   endfunction
 endif
 
-if !exists('*TrimWhiteSpace')
-  function TrimWhiteSpace()
-    let @*=line(".")
-    %s/\s*$//e
-    ''
-  endfunction
-endif
-
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
@@ -279,13 +282,6 @@ augroup vimrc-make-cmake
   autocmd FileType make setlocal noexpandtab
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
-
-if has("gui_running")
-  augroup vimrc-white-space
-    autocmd!
-    autocmd BufWritePre * :call TrimWhiteSpace()
-  augroup END
-endif
 
 set autoread
 
@@ -349,9 +345,6 @@ let g:syntastic_aggregate_errors = 1
 " vim-airline
 let g:airline_enable_syntastic = 1
 
-"" Remove trailing whitespace on <leader>S
-nnoremap <silent> <leader>S :call TrimWhiteSpace()<cr>:let @/=''<CR>
-
 "" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
@@ -385,6 +378,7 @@ vmap > >gv
 
 "" Open current line on GitHub
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+
 "" Custom configs
 
 
@@ -418,6 +412,7 @@ let g:tagbar_type_ruby = {
 
 
 let g:javascript_enable_domhtmlcss = 1
+
 
 
 "" Include user's local vim config

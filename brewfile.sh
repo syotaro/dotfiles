@@ -169,7 +169,7 @@ brew cask install 'flux'
 brew cask install 'geektool'
 brew cask install 'google-drive'
 brew cask install 'google-japanese-ime'
-brew cask install 'hockeyapp'            # アプリのβ版配付
+brew cask install 'hockey'            # アプリのβ版配付
 brew cask install 'iterm2'
 brew cask install 'karabiner'
 brew cask install 'ksdiff'
@@ -188,7 +188,6 @@ brew cask install 'stay'                 # Window位置の記憶
 brew cask install 'tableau'
 brew cask install 'teamviewer'
 brew cask install 'testflight'
-brew cask install 'tinkertool'           # osx カスタマイズ
 #brew cask install 'today-scripts'        # geektoolの通知センター対応版
 # brew cask install 'totalfinder'
 # https://github.com/tue-savvy/SimulatorManager
