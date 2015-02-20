@@ -16,6 +16,7 @@ if !filereadable(neobundle_readme)
   echo ""
   silent !mkdir -p ~/.vim/bundle
   silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
+  let g:not_set_color = "yes"
 endif
 
 " Required:
@@ -58,13 +59,13 @@ NeoBundle 'tomasr/molokai'
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
-let g:vim_bootstrap_langs = "ruby,php,html,javascript"
+let g:vim_bootstrap_langs = "javascript,ruby,php,html"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 "" Custom bundles
 
-"" PHP Bundle
-NeoBundle 'arnaud-lb/vim-php-namespace'
+"" Javascript Bundle
+NeoBundle "scrooloose/syntastic"
 
 
 "" Ruby Bundle
@@ -83,8 +84,8 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'mattn/emmet-vim'
 
 
-"" Javascript Bundle
-NeoBundle "scrooloose/syntastic"
+"" PHP Bundle
+NeoBundle 'arnaud-lb/vim-php-namespace'
 
 
 
@@ -152,7 +153,9 @@ set ruler
 set number
 
 let no_buffers_menu=1
-colorscheme molokai
+if !exists('g:not_set_color')
+  colorscheme molokai
+endif
 
 set mousemodel=popup
 set t_Co=256
@@ -203,10 +206,23 @@ if exists("*fugitive#statusline")
 endif
 
 let g:airline_theme = 'powerlineish'
-let g:airline_enable_branch = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 "*****************************************************************************
 "" Abbreviations
@@ -343,7 +359,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_aggregate_errors = 1
 
 " vim-airline
-let g:airline_enable_syntastic = 1
+let g:airline#extensions#syntastic#enabled = 1
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -381,6 +397,7 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 
 "" Custom configs
 
+let g:javascript_enable_domhtmlcss = 1
 
 
 let g:rubycomplete_buffer_loading = 1
@@ -411,7 +428,6 @@ let g:tagbar_type_ruby = {
 
 
 
-let g:javascript_enable_domhtmlcss = 1
 
 
 
