@@ -35,6 +35,7 @@ Artboard
 Asset Catalog Creator
 Astro
 Briefs
+Bee
 Cinemagraph Pro
 CloudPlay
 Cobook
@@ -95,6 +96,7 @@ PasteAsFile
 Patterns
 Paw
 Pixelmator
+Pushbullet
 QuickHub
 RankGuru SEO
 Reeder

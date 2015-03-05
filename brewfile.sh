@@ -199,7 +199,7 @@ brew cask install 'virtualbox'
 # https://github.com/cookpad/iam-fox
 # https://github.com/cookpad/elasticfox-ec2tag
 # https://github.com/cookpad/r53-fox
-#brew cask install 'LightPaper'           # MarkdownEditor
+brew cask install 'lightpaper'           # MarkdownEditor
 #brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
 #brew cask install 'alfred'
 #brew cask install 'amazon-cloud-drive'

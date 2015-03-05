@@ -16,7 +16,18 @@ if !filereadable(neobundle_readme)
   echo ""
   silent !mkdir -p ~/.vim/bundle
   silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
-  let g:not_set_color = "yes"
+  let g:not_finsh_neobundle = "yes"
+
+  " Run shell script if exist on custom select language
+  
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/javascript/javascript.sh | bash -s stable
+  
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/ruby/ruby.sh | bash -s stable
+  
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/html/html.sh | bash -s stable
+  
+  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/php/php.sh | bash -s stable
+  
 endif
 
 " Required:
@@ -134,8 +145,8 @@ set smartcase
 
 "" Encoding
 set bomb
-set ttyfast
 set binary
+set ttyfast
 
 "" Directories for swp files
 set nobackup
@@ -153,7 +164,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-if !exists('g:not_set_color')
+if !exists('g:not_finsh_neobundle')
   colorscheme molokai
 endif
 
@@ -309,10 +320,10 @@ noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Git
-noremap <Leader>ga :!git add .<CR>
-noremap <Leader>gc :!git commit -m '<C-R>="'"<CR>
-noremap <Leader>gsh :!git push<CR>
-noremap <Leader>gll :!git pull<CR>
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
