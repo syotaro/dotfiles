@@ -45,7 +45,7 @@ brew install 'htop-osx'
 brew install 'hub'                  # wrapper for  git command
 brew install 'icu4c'
 brew install 'imagemagick' '--disable-openmp'
-brew install 'jenkins'
+#brew install 'jenkins'
 brew install 'jpeg'
 brew install 'jq'                   # JSONパーサー
 brew install 'jsonpp'

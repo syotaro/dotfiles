@@ -253,3 +253,12 @@ NeoBundle 'tpope/vim-cucumber'
 
 
 autocmd BufNewFile,BufRead *.csv setlocal filetype=txt
+
+
+
+
+
+NeoBundle 'chrisbra/vim-diff-enhanced'
+if &diff " ignore white space
+    set diffopt+=iwhite
+endif

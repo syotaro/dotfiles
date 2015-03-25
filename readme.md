@@ -102,7 +102,7 @@ RankGuru SEO
 Reeder
 Remote Desktop
 Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
-Sketch
+Sketch         # http://www.vandelaydesign.com/sketch-plugins-for-designers/
 Skitch
 Slack
 SoraAnnai
@@ -360,4 +360,17 @@ export PATH=${HOME}/.cabal/bin:$PATH
   # BOWER
 brew install node.js
 npm install -g bower
+```
+
+### install Atom Plugin
+
+```sh
+apm install term2
+apm install vim-mode
+apm install file-icons
+apm install minimap
+apm install localization
+apm install project-manager
+apm install color-picker
+apm install atom-color-highlight
 ```
