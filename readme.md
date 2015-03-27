@@ -28,7 +28,6 @@ and check Files other than Dropbox(Recommended TimeMachine!)
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 1Password
-2D Grapher
 AnyVideo Converter HD
 App Language Chooser
 Artboard
@@ -44,16 +43,15 @@ Color Picker
 ColorSchemer Studio
 Dash
 DateLine
-Deliveries
 Desktop Calendar Plus
 Easy Image Converter
+Fantastical 2
 Elastics
 Explainer
 Export Calendars Pro
 Friends export
 GCalToolkit
 GIFBrewery                   # Gif Anime Converter
-GarageBand
 GistPal
 Gistify
 GraphicConverter 9
@@ -66,13 +64,11 @@ JSON Editor
 JSON Query
 JenkinsNotifier
 Kaleidoscope
-Kaomoji Lover
 Keynote
 Kobito
 LINE
 MathGraph
 Microsoft Remote Desktop
-Movist
 Murasaki
 MyAScript
 Navicat Data Modeler
@@ -105,13 +101,10 @@ Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
 Sketch         # http://www.vandelaydesign.com/sketch-plugins-for-designers/
 Skitch
 Slack
-SoraAnnai
 Templates for Office Pro
 The Archive Browser
-TimeWorks
 Translate Tab
 Transmit
-Tuba
 Tweetbot
 Ultra Character Map          # Symbol Icon Viewer
 Visits
@@ -123,9 +116,6 @@ WinArchiver
 World Clock
 Xcode
 iKeyboard
-iMovie
-iPhoto
-xScope
 ```
 
 ### Setup symblic link
