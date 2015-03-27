@@ -248,14 +248,7 @@ nnoremap Y y$
 
 NeoBundle 'tpope/vim-cucumber'
 
-
-
-
-
 autocmd BufNewFile,BufRead *.csv setlocal filetype=txt
-
-
-
 
 
 NeoBundle 'chrisbra/vim-diff-enhanced'
