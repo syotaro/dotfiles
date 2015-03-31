@@ -178,6 +178,7 @@ brew cask install 'ksdiff'
 brew cask install 'launchrocket'
 brew cask install 'marked'
 brew cask install 'microsoft-office'
+brew cask install 'genymotion'       # Androidエミュレータ
 brew cask install 'omnifocus'
 brew cask install 'omnigraffle'
 brew cask install 'openemu-experimental'
