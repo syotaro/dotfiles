@@ -12,6 +12,8 @@ case $(uname -s) in
         [ -f ~/.zshrc.local.osx     ] && source ~/.zshrc.local.osx
         [ -f ~/.zshrc.local.rbenv   ] && source ~/.zshrc.local.rbenv
         [ -f ~/.zshrc.local.udc     ] && source ~/.zshrc.local.udc
+        [ -f ~/.zshrc.local.peco    ] && source ~/.zshrc.local.peco
+        [ -f ~/.zshrc.local.android ] && source ~/.zshrc.local.android
     ;;
     Linux)
     ;;

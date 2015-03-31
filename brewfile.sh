@@ -21,6 +21,8 @@ brew cask install 'xquartz'         # 依存されてるので先にInstall
 brew install 'R'                    # required https://xquartz.macosforge.org/landing/
 brew install 'autoconf'
 brew install 'automake'
+brew install 'pidcat'               # Android Debug Log viewer
+brew install 'peco'
 brew install 'bash'
 brew install 'android-sdk'
 brew install 'bdw-gc'
@@ -180,7 +182,7 @@ brew cask install 'omnifocus'
 brew cask install 'omnigraffle'
 brew cask install 'openemu-experimental'
 #brew cask install 'owncloud'
-brew cask install 'pixel-winch'
+brew cask install 'pixel-winch'          # 画像をインポートしてピクセルサイズをアノテーション
 brew cask install 'rubymine'
 brew cask install 'silverlight'
 brew cask install 'skype'
