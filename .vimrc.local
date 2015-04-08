@@ -255,3 +255,5 @@ NeoBundle 'chrisbra/vim-diff-enhanced'
 if &diff " ignore white space
     set diffopt+=iwhite
 endif
+         " ignore white space
+let g:gitgutter_diff_args = '-w'
