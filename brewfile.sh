@@ -25,6 +25,7 @@ brew install 'pidcat'               # Android Debug Log viewer
 brew install 'peco'
 brew install 'bash'
 brew install 'android-sdk'
+brew install 'pngquant'             # compression PNG for eden project
 brew install 'bdw-gc'
 brew install 'cmake'                # be require from mysql
 brew install 'colordiff'
