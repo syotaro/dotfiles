@@ -327,6 +327,10 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ### Install Python Lib
 
 ```sh
+brew install python
+sudo pip install awsebcli
+
+
   # AWS CLI
 sudo easy_install pip
 sudo pip install awscli

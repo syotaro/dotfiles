@@ -25,6 +25,7 @@ brew install 'pidcat'               # Android Debug Log viewer
 brew install 'peco'
 brew install 'bash'
 brew install 'android-sdk'
+brew install 'arp-scan'             # LAN内で利用されているIPアドレスを調べる
 brew install 'pngquant'             # compression PNG for eden project
 brew install 'bdw-gc'
 brew install 'cmake'                # be require from mysql
@@ -188,6 +189,7 @@ brew cask install 'pixel-winch'          # 画像をインポートしてピク�
 brew cask install 'rubymine'
 brew cask install 'silverlight'
 brew cask install 'skype'
+brew cask install 'jadengeller-helium'
 brew cask install 'stay'                 # Window位置の記憶
 brew cask install 'tableau'
 brew cask install 'teamviewer'
