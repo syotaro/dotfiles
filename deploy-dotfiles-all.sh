@@ -13,4 +13,3 @@ done
 #ln -s ~/Dropbox/work/github ~/github
 #ln -s ~/Dropbox/work/github/dotfiles ~/github/dotfiles
 #
-porcelain

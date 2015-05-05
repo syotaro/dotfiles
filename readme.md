@@ -142,6 +142,8 @@ chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
   # setup aws key
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/aws ~/.aws
+  # setup eb
+ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/elasticbeanstalk ~/.elasticbeanstalk
   # setup td key
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/td ~/.td
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/google/.google-api.yaml ~/.google-api.yaml
@@ -328,15 +330,13 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 
 ```sh
 brew install python
-sudo pip install awsebcli
-
 
   # AWS CLI
 sudo easy_install pip
 sudo pip install awscli
 pip install awscli --upgrade
-vim ~/.aws/keys/awscli.conf
-aws ec2 describe-instances | jq '.'
+vim ~/.aws/credentials
+aws ec2 describe-instances --profile default | jq '.'
 aws s3 ls
   # markdown for evervim
 sudo pip install markdown

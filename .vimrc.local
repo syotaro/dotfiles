@@ -10,7 +10,6 @@ set vb t_vb=                                                         " ビープ
 set nowrap                                                           " 折り返ししない
 set nowrapscan                                                       " 検索時にファイルの最後まで行ったら最初に戻らないようにする
 set shiftwidth=2
-set tabstop=2
 set whichwrap=b,s,h,l,<,>,[,]                                        " カーソルを行頭、行末で止まらないようにする
 set display=lastline                                                 " 一行の文字数が多くてもきちんと描画
 set showmatch
@@ -24,8 +23,9 @@ autocmd BufNewFile,BufRead *.csv setlocal filetype=txt                      " cs
 "-------------------------------------------------------------------------------
 " [Keybind]
 "-------------------------------------------------------------------------------
-command! Evl       edit   ~/.vimrc.local                " vimrc.localの編集
 command! Ev        edit   $MYVIMRC                      " vimrcの編集
+command! Evl       edit   ~/.vimrc.local                " vimrc.localの編集
+command! Evlb      edit   ~/.vimrc.local.bundles        " vimrc.local.bundlesの編集
 command! Rv        source $MYVIMRC                      " vimrcの反映
 
 " 行末、行の最初への移動のキーマップ設定
@@ -39,7 +39,7 @@ nmap <C-c><C-c> ;nohlsearch<CR><ESC>
 " us key
 noremap  ; :
 " auto migration Normal Mode
-inoremap  ; ;<ESC>
+inoremap  ; ;<ESC> 
 " 挿入モードにならずに改行できる
 noremap <CR> o<ESC>
 " Ctrl + c とEscの動作を完全に一致させる
@@ -125,10 +125,6 @@ inoremap <C-l> ()<Left>
 :cnoremap <C-P>		<Up>
 
 
-" VimAirline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'jellybeans'
-
 " molokai add setting
 let g:molokai_original = 1
 let g:rehash256 = 1
@@ -197,25 +193,15 @@ endif
 " インデント Indent
 "-------------------------------------------------------------------------------
 set autoindent   " 自動でインデント
-"set paste        " ペースト時にautoindentを無効に(onにするとautocomplpop.vimが動かない)
 set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
 set cindent      " Cプログラムファイルの自動インデントを始める
-
-" softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
-set tabstop=2 shiftwidth=2 softtabstop=0
-
+set tabstop=2 shiftwidth=2 softtabstop=0 " softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
 " 連続インデント
 vnoremap < <gv
 vnoremap > >gv
-
 if has("autocmd")
-  "ファイルタイプの検索を有効にする
   filetype plugin on
-  "そのファイルタイプにあわせたインデントを利用する
   filetype indent on
-  " これらのftではインデントを無効に
-  "autocmd FileType php filetype indent off
-
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
@@ -243,3 +229,4 @@ if has("autocmd")
   autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
 endif
+
