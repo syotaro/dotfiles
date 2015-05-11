@@ -1,3 +1,4 @@
+# コマンド履歴
 function peco-select-history() {
     local tac
     if which tac > /dev/null; then
@@ -5,11 +6,33 @@ function peco-select-history() {
     else
         tac="tail -r"
     fi
-    BUFFER=$(\history -n 1 | \
-        eval $tac | \
-        peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
+      BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER" --prompt "HISTORY>")
+      CURSOR=$#BUFFER
     zle clear-screen
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+
+# プロセス一覧を peco で表示
+function peco-ps() {
+  # TODO 引数なしの場合のデフォルトオプション設定する
+  # OSXの場合: aux, Linuxの場合: auxf
+  \ps $@ | peco --prompt 'PROCESS>'
+}
+
+alias ps=peco-ps
+
+
+# sshconfig からホスト一覧を取得して peco で表示
+function peco-ssh() {
+  local config="$HOME/.ssh/config"
+  [ -f $config ] || return
+  local host=$(grep "^\s*Host " $config | sed s/"[\s ]*Host "// | grep -v "^\*$" | sort | peco --prompt "SSH>")
+  [ -z "$host" ] && return
+  BUFFER="ssh $host"
+  CURSOR=$#BUFFER
+}
+
+zle -N peco-ssh
+bindkey '^s' peco-ssh

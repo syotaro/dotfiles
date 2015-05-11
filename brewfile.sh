@@ -172,6 +172,7 @@ brew cask install 'evernote'             # AppStore版だと、Spotlight検索�
 brew cask install 'flux'
 brew cask install 'geektool'
 brew cask install 'google-drive'
+brew cask install 'kindle'
 brew cask install 'google-japanese-ime'
 brew cask install 'hockey'            # アプリのβ版配付
 brew cask install 'iterm2'

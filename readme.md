@@ -337,7 +337,10 @@ sudo pip install awscli
 pip install awscli --upgrade
 vim ~/.aws/credentials
 aws ec2 describe-instances --profile default | jq '.'
-aws s3 ls
+aws s3 ls --profile default
+  # AWS EB 3.x CLI
+sudo pip install awsebcli
+
   # markdown for evervim
 sudo pip install markdown
 ```
