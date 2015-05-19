@@ -157,86 +157,86 @@ brew install 'sdl'
 
 brew cask install 'adobe-air'
 brew cask install 'android-file-transfer'
+brew cask install 'android-studio'
 brew cask install 'appcleaner'
 brew cask install 'bathyscaphe'          # 2ch ブラウザ
 brew cask install 'bettertouchtool'
-#brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
 brew cask install 'chefdk'               # Chef Development Kit
 brew cask install 'cooviewer'
-brew cask install 'android-studio'
-brew cask install 'licecap'              # GIFアニメキャプチャ
 brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
-#brew cask install 'flash-player'
-#brew cask install 'flashlight'           # adds plugins to Spotlight
-#brew cask install 'fluid'
 brew cask install 'flux'
 brew cask install 'geektool'
+brew cask install 'genymotion'       # Androidエミュレータ
 brew cask install 'google-drive'
-brew cask install 'kindle'
 brew cask install 'google-japanese-ime'
 brew cask install 'hockey'            # アプリのβ版配付
 brew cask install 'iterm2'
+brew cask install 'jadengeller-helium'
 brew cask install 'karabiner'
+brew cask install 'kindle'
 brew cask install 'ksdiff'
 brew cask install 'launchrocket'
+brew cask install 'licecap'              # GIFアニメキャプチャ
+brew cask install 'lightpaper'           # MarkdownEditor
 brew cask install 'marked'
 brew cask install 'microsoft-office'
-brew cask install 'genymotion'       # Androidエミュレータ
 brew cask install 'omnifocus'
 brew cask install 'omnigraffle'
 brew cask install 'openemu-experimental'
-#brew cask install 'owncloud'
+brew cask install 'path-finder'
 brew cask install 'pixel-winch'          # 画像をインポートしてピクセルサイズをアノテーション
 brew cask install 'rubymine'
 brew cask install 'silverlight'
+brew cask install 'sketch-tool'
 brew cask install 'skype'
-brew cask install 'jadengeller-helium'
+brew cask install 'sourcetree'
 brew cask install 'stay'                 # Window位置の記憶
 brew cask install 'tableau'
 brew cask install 'teamviewer'
-brew cask install 'testflight'
-#brew cask install 'today-scripts'        # geektoolの通知センター対応版
-# brew cask install 'totalfinder'
-# https://github.com/tue-savvy/SimulatorManager
-brew cask install 'sourcetree'
 brew cask install 'unity-web-player'
 brew cask install 'vagrant'
 brew cask install 'vagrant-manager'
 brew cask install 'virtualbox'
-# https://github.com/cookpad/iam-fox
+# brew cask install 'owncloud'
+# brew cask install 'testflight'
+# brew cask install 'today-scripts'        # geektoolの通知センター対応版
+# brew cask install 'totalfinder'
 # https://github.com/cookpad/elasticfox-ec2tag
+# https://github.com/cookpad/iam-fox
 # https://github.com/cookpad/r53-fox
-brew cask install 'lightpaper'           # MarkdownEditor
-#brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
-#brew cask install 'alfred'
-#brew cask install 'amazon-cloud-drive'
-#brew cask install 'clipmenu'
-#brew cask install 'cloudytabs'
-#brew cask install 'codekit'
-#brew cask install 'dropbox'
-#brew cask install 'forklift'
-#brew cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
-#brew cask install 'google-chrome-canary'
-#brew cask install 'google-web-designer'
-#brew cask install 'gyazo'
-#brew cask install 'intellij-idea'
-#brew cask install 'keycue'
-#brew cask install 'libreoffice'
-#brew cask install 'mysqlworkbench'
-#brew cask install 'omnipresence'
-brew cask install 'path-finder'
-brew cask install 'sketch-tool'
-#brew cask install 'perian'
-#brew cask install 'phpstorm'
-#brew cask install 'postbox'
-#brew cask install 'rcdefaultapp'
-#brew cask install 'redis-desktop-manager'
-#brew cask install 'reflector'
-#brew cask install 'rstudio'
-#brew cask install 'sequel-pro'
-#brew cask install 'soundflower'
-#brew cask install 'vlc'
-#brew cask install 'vmware-fusion'
+# https://github.com/tue-savvy/SimulatorManager
+# brew cask install 'adobe-creative-cloud' # open  '/opt/homebrew-cask/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app'
+# brew cask install 'alfred'
+# brew cask install 'amazon-cloud-drive'
+# brew cask install 'camtasia'             # 動画キャプチャ(mac,iPhoneの録画)、AnimationGIFのexport、
+# brew cask install 'clipmenu'
+# brew cask install 'cloudytabs'
+# brew cask install 'codekit'
+# brew cask install 'dropbox'
+# brew cask install 'flash-player'
+# brew cask install 'flashlight'           # adds plugins to Spotlight
+# brew cask install 'fluid'
+# brew cask install 'forklift'
+# brew cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
+# brew cask install 'google-chrome-canary'
+# brew cask install 'google-web-designer'
+# brew cask install 'gyazo'
+# brew cask install 'intellij-idea'
+# brew cask install 'keycue'
+# brew cask install 'libreoffice'
+# brew cask install 'mysqlworkbench'
+# brew cask install 'omnipresence'
+# brew cask install 'perian'
+# brew cask install 'phpstorm'
+# brew cask install 'postbox'
+# brew cask install 'rcdefaultapp'
+# brew cask install 'redis-desktop-manager'
+# brew cask install 'reflector'
+# brew cask install 'rstudio'
+# brew cask install 'sequel-pro'
+# brew cask install 'soundflower'
+# brew cask install 'vlc'
+# brew cask install 'vmware-fusion'
 
 ############################################
 # Remove outdated versions
