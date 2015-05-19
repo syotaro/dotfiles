@@ -1,74 +1,14 @@
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'godlygeek/tabular'
-" NeoBundle 'chrisbra/vim-diff-enhanced'
-
-"*****************************************************************************
-"" Markdown
-"*****************************************************************************
-" markdown code fenced syntax
-autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
-let g:markdown_fenced_languages = ['sh', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'diff', 'bash=sh', 'yaml']
-
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'git://github.com/itspriddle/vim-marked.git'
 NeoBundle 'VOoM'
-nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
-
-
-"*****************************************************************************
-"" Shougo
-"*****************************************************************************
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
-let g:unite_enable_start_insert = 1
-let g:unite_cursor_line_highlight = 'CursorLine'
-nnoremap <silent><space>/     :Unite line                   -buffer-name=line       -direction=rightbelow      -no-quit <CR>
-nnoremap <silent><space>r     :Unite file_mru      bookmark -buffer-name=file_mru   -direction=rightbelow<CR>
-nnoremap <silent><space>f     :Unite file                   -buffer-name=files      -direction=rightbelow<CR>
-nnoremap <silent><space>o     :Unite outline                -buffer-name=outline    -vertical    -winwidth=30  -no-quit <CR>
-nnoremap <silent><space>l     :Unite buffer_tab             -buffer-name=buffer_tab -direction=rightbelow<CR>
-
 NeoBundle 'Shougo/vimfiler'
-let g:vimfiler_as_default_explorer = 1
-" let g:vimfiler_sort_type = 'TIME'
-let g:vimfiler_safe_mode_by_default = 0
-let g:unite_enable_start_insert = 1
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimfiler_tree_leaf_icon = ' '
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = '-'
-let g:vimfiler_readonly_file_icon = '✗'
-let g:vimfiler_marked_file_icon = '✓'
+" NeoBundle 'tpope/vim-cucumber'
+" NeoBundle 'chrisbra/vim-diff-enhanced'
 
-" CurrentBufferFile List
-nnoremap <silent> <Space>b  : <C-u>VimFilerBufferDir -split -no-quit -simple -winwidth=30<CR>
-" CurrentDirFileList
-" nnoremap <silent> <Space>c  : <C-u>VimFiler                          -simple -winwidth=30  -auto-cd<cR>
-" VimfilerExplorer
-nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -winwidth=30 <CR>
-
-
-"*****************************************************************************
-"" Other
-"*****************************************************************************
-
-NeoBundle 'thinca/vim-quickrun'
-let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', "outputter/buffer/split" : ":botright" ,"outputter/buffer/close_on_empty" : 1}}
-nnoremap <silent><space>p :QuickRun<CR>
-
-" ignore white-space
-let g:gitgutter_diff_args = '-w'
-
-" vim-gitgutter
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_removed = '➖'
-
-
-" VimAirline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'jellybeans'

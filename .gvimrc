@@ -11,4 +11,4 @@ set guioptions-=r " スクロールバー隠す
 set guioptions-=R " スクロールバー隠す
 set guioptions-=l " スクロールバー隠す
 set guioptions-=L " スクロールバー隠す
-"set background=dark
+set background=dark

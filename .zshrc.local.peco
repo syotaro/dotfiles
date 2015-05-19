@@ -6,13 +6,14 @@ function peco-select-history() {
     else
         tac="tail -r"
     fi
-      BUFFER=$(history -n 1 | eval $tac | peco --query "$LBUFFER" --prompt "HISTORY>")
-      CURSOR=$#BUFFER
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
     zle clear-screen
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
-
 
 # プロセス一覧を peco で表示
 function peco-ps() {
