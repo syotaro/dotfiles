@@ -28,92 +28,34 @@ and check Files other than Dropbox(Recommended TimeMachine!)
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
 1Password
-AnyVideo Converter HD
-App Language Chooser
-Artboard
-Asset Catalog Creator
-Astro
-Briefs
-Bee
-Cinemagraph Pro
 CloudPlay
-Cobook
-CodeRunner
 Color Picker
 ColorSchemer Studio
-Dash
-DateLine
 Desktop Calendar Plus
-Easy Image Converter
-Fantastical 2
-Elastics
 Explainer
-Export Calendars Pro
-Friends export
-GCalToolkit
-GIFBrewery                   # Gif Anime Converter
-GistPal
-Gistify
-GraphicConverter 9
-Hexels Pro
-IMAGEmini
-Icon Slate
-Infographics
-JPEGmini
-JSON Editor
-JSON Query
-JenkinsNotifier
 Kaleidoscope
-Keynote
-Kobito
 LINE
-MathGraph
 Microsoft Remote Desktop
 Murasaki
-MyAScript
-Navicat Data Modeler
 Navicat Premium Essentials
-Navicat for MySQL
-Nephorider
 NeverSleep
-New Relic Menu Bars
 NewsBar
-Numbers
-OmniGraphSketcher
-OmniOutliner Pro
-OmniPlan
-Orrery
-PDF2Office for OmniGraffle
-PNG Compressor
-PageLayers
-Pages
-PaintCode
-PasteAsFile
-Patterns
 Paw
 Pixelmator
 Pushbullet
-QuickHub
-RankGuru SEO
 Reeder
 Remote Desktop
 Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
 Sketch         # http://www.vandelaydesign.com/sketch-plugins-for-designers/
 Skitch
 Slack
-Templates for Office Pro
 The Archive Browser
-Translate Tab
 Transmit
 Tweetbot
 Ultra Character Map          # Symbol Icon Viewer
 Visits
-VisualDiffer
-VisualGrep
-WebCode
 WhiteNoise
 WinArchiver
-World Clock
 Xcode
 iKeyboard
 ```
