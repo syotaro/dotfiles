@@ -35,7 +35,6 @@ Desktop Calendar Plus
 Explainer
 Kaleidoscope
 LINE
-Microsoft Remote Desktop
 Murasaki
 Navicat Premium Essentials
 NeverSleep
@@ -58,6 +57,7 @@ WhiteNoise
 WinArchiver
 Xcode
 iKeyboard
+    # Microsoft Remote Desktop
 ```
 
 ### Setup symblic link
@@ -113,12 +113,12 @@ brew   update
   # Install apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 brew   install caskroom/cask/brew-cask
-cd ~/dotfiles
+cd     ~/dotfiles
 sh     brewfile.sh
 brew   update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
 brew   cask alfred link
 brew   linkapps
-  # 英語版msOfficeを日本語に対応させる
+  # 英語版msOffice2011を日本語に対応させる
 open /Applications/Microsoft\ Office\ 2011/Additional\ Tools/Microsoft\ Language\ Register/Microsoft\ Language\ Register.app
 ```
 - (option)open Package
@@ -159,14 +159,9 @@ cat /etc/shells
 brew install 'openssl'
 brew install 'readline'
 brew install 'rbenv' 'ruby-build'
-   # install
-rbenv install 2.1.3
-rbenv install 2.1.2
-   # check 
+rbenv install 2.1.5
 rbenv versions
-   # select ruby version
-rbenv global  2.1.3
-   # インストールしたrubyやgemのパスを通す
+rbenv global  2.1.5
 rbenv rehash
 exec $SHELL -l  # restart Shell
    # gem
@@ -190,18 +185,16 @@ vim +NeoBundleInstall +qall
 ### Install Quicklook Plugin
 
 ```sh
-brew update; brew upgrade brew-cask
-brew install ffmpeg --with-tools media-info
-brew cask install 'betterzipql'
-brew cask install 'qlcolorcode'
-brew cask install 'qlvideo'
-brew cask install 'qlmarkdown'
-brew cask install 'qlprettypatch'
-brew cask install 'qlstephen'       # view plain text files without a file extension
+# brew install ffmpeg --with-tools media-info
+# brew cask install 'betterzipql'
+# brew cask install 'qlcolorcode'
+# brew cask install 'qlvideo'
+# brew cask install 'qlmarkdown'
+# brew cask install 'qlprettypatch'
+# brew cask install 'qlstephen'       # view plain text files without a file extension
 brew cask install 'quicklook-csv'
-brew cask install 'quicklook-json'
-brew cask install 'webp-quicklook'
-cp -rf ~/icloudDrive/osx-quickLook/* ~/Library/QuickLook/
+# brew cask install 'quicklook-json'
+# brew cask install 'webp-quicklook'
 qlmanage -r
 qlmanage -r cache
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
@@ -224,7 +217,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - Office PowerPoint
 - Navicat > Navicat Cloud Sign in
 - TeamViewer > sign in
-- PathFinder > Env > Keyboard > Browser Keyaction > Return > rename
 - Evernote > Env > Shortcut > disable all
 - System Preference
   `open -a "system preferences"`
@@ -247,7 +239,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
     ```
   - Driver
     - http://www.pfu.fujitsu.com/hhkeyboard/macdownload.html
-- Image Capture > 左下のオプションから、「iPhoneを接続時に開くアプリケーション」を、「割り当て無し」に
 
 ### System Asset
 - Font > ICON > http://zavoloklom.github.io/material-design-iconic-font/icons.html#hardware

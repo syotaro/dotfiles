@@ -2,6 +2,7 @@ source 'https://rubygems.org/'
 
 
 gem 'activerecord'
+gem 'activesupport'
 
 
 # Terminal
@@ -11,14 +12,15 @@ gem 'activerecord'
 # gem 'lunchy' # much nicer OSX launchctl
 
 # Vim
-gem 'CoffeeTags' # coffeescript support for ctags
+#gem 'CoffeeTags' # coffeescript support for ctags
 #gem 'rcodetools' # ruby autocomplete and more
 
 # Prettier IRB
 gem 'awesome_print' # indent and color output
 
 # Pry REPL
-#gem 'pry'
+gem 'pry-debugger'
+gem 'pry'
 #gem 'pry-doc'
 #gem 'pry-theme'
 
@@ -60,8 +62,8 @@ gem 'aws-sdk-core'
 
 
 # for TexturePacker
-gem 'ruby-graphviz'
-gem 'ruby-lzma'
+#gem 'ruby-graphviz'
+#gem 'ruby-lzma'
 
 # for TreasureData
 gem 'td'
@@ -71,17 +73,7 @@ gem 'td-logger'
 # for Redmine API
 gem 'redmine-ruby'
 
-gem 'date'
-gem 'mysql2'
-gem 'pp'
-gem 'td'
-gem 'td-client'
-gem 'activesupport'
-gem 'pry'
-gem 'pry-debugger'
 
-# http://brettterpstra.com/projects/otask/
-gem install 'otask'
 
 # for Rails http://tech.kayac.com/archive/22_rails10gem.html
 # gem 'carrierwave'  # 画像アップロード
@@ -91,8 +83,4 @@ gem install 'otask'
 # gem 'google_drive'   # スプレッドシートにアクセス
 # gem 'kaminari'
 # gem 'mechanize' # スクレイピング
-
-
-
-
 
