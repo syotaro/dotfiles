@@ -185,16 +185,7 @@ vim +NeoBundleInstall +qall
 ### Install Quicklook Plugin
 
 ```sh
-# brew install ffmpeg --with-tools media-info
-# brew cask install 'betterzipql'
-# brew cask install 'qlcolorcode'
-# brew cask install 'qlvideo'
-# brew cask install 'qlmarkdown'
-# brew cask install 'qlprettypatch'
-# brew cask install 'qlstephen'       # view plain text files without a file extension
 brew cask install 'quicklook-csv'
-# brew cask install 'quicklook-json'
-# brew cask install 'webp-quicklook'
 qlmanage -r
 qlmanage -r cache
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder

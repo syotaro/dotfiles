@@ -98,7 +98,7 @@ inoremap <> <><left>
 nnoremap j gj
 nnoremap k gk
 
-inoremap <C-d> $
+" inoremap <C-d> $
 inoremap <C-a> @
 inoremap <C-j> _
 inoremap <C-l> ()<Left>
@@ -127,21 +127,6 @@ autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai  " カラースキーマ molokai 指定
 
 
-" JQコマンドでJSONをパース
-" command! -nargs=? Jq call s:Jq(<f-args>)
-" function! s:Jq(...)
-"   if 0 == a:0
-"     let l:arg = "."
-"   else
-"     let l:arg = a:1
-"   endif
-"   execute "%! cat % | jq \"" . l:arg . "\""
-" endfunction
-
-
-if &diff " ignore white-space
-    set diffopt+=iwhite
-endif
 
 "-------------------------------------------------------------------------------
 " インデント Indent
@@ -156,47 +141,12 @@ endif
 vnoremap < <gv
 vnoremap > >gv
 
-" if has("autocmd")
-"   filetype plugin on
-"   filetype indent on
-"   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-"   autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
-"   autocmd FileType markdown   setlocal sw=2 sts=2 ts=2 et
-" endif
 
 
 " バッファ上の内容をワンコマンドでファイル保存
 let $TODAY = strftime('%Y%m%d%H%M')
-nnoremap <silent> <Space>d     :save! ~/dropbox/$TODAY.md<CR>
-
-
-autocmd BufRead *.sql set filetype=mysql                                    " .sqlは、mysqlとして扱う
-autocmd BufNewFile,BufRead *.md,*.markdown,*.txt setlocal filetype=markdown " デフォルトバッファ、txt,mdは、Markdownとして扱う
-autocmd BufNewFile,BufRead *.csv setlocal filetype=txt                      " csvはtxtとして扱う
+nnoremap <silent><Space>d :save! ~/dropbox/.tmp/$TODAY.md<CR>
+inoremap <C-d> <ESC>      :save! ~/dropbox/.tmp/$TODAY.md<CR>
 
 
 "*****************************************************************************
@@ -244,14 +194,47 @@ nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -wi
 let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', "outputter/buffer/split" : ":botright" ,"outputter/buffer/close_on_empty" : 1}}
 nnoremap <silent><space>p :QuickRun<CR>
 
-" ignore white-space
-let g:gitgutter_diff_args = '-w'
-
 " vim-gitgutter
+let g:gitgutter_diff_args = '-w'
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '➖'
 
-
-" " VimAirline
+ " VimAirline
 let g:airline_powerline_fonts = 1
+
+autocmd BufRead *.sql            setf mysql      " .sqlは、mysqlとして扱う
+autocmd BufRead *.csv            setf txt        " csvはtxtとして扱う
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+
+
+
+
+if &diff " ignore white-space
+    set diffopt+=iwhite
+end
+
+
+
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+let g:previm_enable_realtime = 1
+
+
+
+" JQコマンドでJSONをパース
+" command! -nargs=? Jq call s:Jq(<f-args>)
+" function! s:Jq(...)
+"   if 0 == a:0
+"     let l:arg = "."
+"   else
+"     let l:arg = a:1
+"   endif
+"   execute "%! cat % | jq \"" . l:arg . "\""
+" endfunction
+"
+
+
+

@@ -45,7 +45,7 @@ gem 'git-issue'
 
 # Markdown Engine
 gem 'kramdown'
-# gem 'coderay'   # kramdownのcodeブロックをsyntax highlight してくれるようになる。
+gem 'coderay'   # kramdownのcodeブロックをsyntax highlight してくれるようになる。
 gem 'redcarpet'
 
 # Other
@@ -69,11 +69,6 @@ gem 'aws-sdk-core'
 gem 'td'
 gem 'td-client'
 gem 'td-logger'
-
-# for Redmine API
-gem 'redmine-ruby'
-
-
 
 # for Rails http://tech.kayac.com/archive/22_rails10gem.html
 # gem 'carrierwave'  # 画像アップロード
