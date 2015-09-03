@@ -170,7 +170,6 @@ brew install 'tig'   # cli git browser
 # brew cask install 'openemu-experimental'
 # brew cask install 'owncloud'
 # brew cask install 'path-finder'
-# brew cask install 'perian'
 # brew cask install 'phpstorm'
 # brew cask install 'postbox'
 # brew cask install 'rcdefaultapp'

@@ -27,6 +27,7 @@ and check Files other than Dropbox(Recommended TimeMachine!)
     # => manually
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
+Affinity Designer
 1Password
 CloudPlay
 Color Picker

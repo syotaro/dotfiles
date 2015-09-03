@@ -1,3 +1,4 @@
+set nocursorline
 set clipboard=unnamed,unnamedplus                                    " OSのクリップボードを使用する
 set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開
 set list                                                             " 不可視文字表示
@@ -16,6 +17,21 @@ set showmatch
 set matchtime=1
 "set ttymouse=xterm2                                                 " xtermとscreen対応
 
+" 全角文字をハイライト表示
+function! Zenkaku()
+    highlight Zenkaku cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+
+if has('syntax')
+    augroup Zenkaku
+        autocmd!
+        autocmd ColorScheme       * call Zenkaku()
+        autocmd VimEnter,WinEnter * let w:m1 = matchadd("Zenkaku", '[　０１２３４５６７８９]')
+        autocmd VimEnter,WinEnter * let w:m2 = matchadd("Zenkaku", '[ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ]')
+        autocmd VimEnter,WinEnter * let w:m3 = matchadd("Zenkaku", '[ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ]')
+    augroup END
+    call Zenkaku()
+endif
 
 "-------------------------------------------------------------------------------
 " [Keybind]
@@ -235,6 +251,4 @@ let g:previm_enable_realtime = 1
 "   execute "%! cat % | jq \"" . l:arg . "\""
 " endfunction
 "
-
-
 
