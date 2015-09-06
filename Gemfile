@@ -19,8 +19,8 @@ gem 'activesupport'
 gem 'awesome_print' # indent and color output
 
 # Pry REPL
-gem 'pry-debugger'
-gem 'pry'
+#gem 'pry-debugger'
+#gem 'pry'
 #gem 'pry-doc'
 #gem 'pry-theme'
 
@@ -46,18 +46,18 @@ gem 'git-issue'
 # Markdown Engine
 gem 'kramdown'
 gem 'coderay'   # kramdownのcodeブロックをsyntax highlight してくれるようになる。
-gem 'redcarpet'
+#gem 'redcarpet'
 
 # Other
 # gem 'psd'
 
 # Redmine
-gem 'bundler'
-gem 'mysql2'
+#gem 'bundler'
+#gem 'mysql2'
 gem 'rails'
-gem 'rake'
-gem 'rmagick'
-gem 'sqlite3'
+#gem 'rake'
+#gem 'rmagick'
+#gem 'sqlite3'
 gem 'aws-sdk-core'
 
 
@@ -66,9 +66,9 @@ gem 'aws-sdk-core'
 #gem 'ruby-lzma'
 
 # for TreasureData
-gem 'td'
-gem 'td-client'
-gem 'td-logger'
+#gem 'td'
+#gem 'td-client'
+#gem 'td-logger'
 
 # for Rails http://tech.kayac.com/archive/22_rails10gem.html
 # gem 'carrierwave'  # 画像アップロード

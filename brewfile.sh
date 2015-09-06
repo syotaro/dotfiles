@@ -16,7 +16,7 @@ brew tap homebrew/science           || true
 ############################################
 # Add Packages for Development
 ############################################
-brew install brew-cask
+# brew install brew-cask
 brew cask install 'xquartz'         # 依存されてるので先にInstall
 #brew install 'R'                    # required https://xquartz.macosforge.org/landing/
 brew install 'autoconf'
@@ -25,7 +25,7 @@ brew install 'pidcat'               # Android Debug Log viewer
 brew install 'peco'
 brew install 'bash'
 brew install 'android-sdk'
-brew install 'arp-scan'             # LAN内で利用されているIPアドレスを調べる
+#brew install 'arp-scan'             # LAN内で利用されているIPアドレスを調べる
 brew install 'pngquant'             # compression PNG for eden project
 brew install 'bdw-gc'
 brew install 'cmake'                # be require from mysql
@@ -41,11 +41,11 @@ brew install 'gh'
 brew install 'glib'
 brew install 'gmp'
 brew install 'gnu-sed' '--default-names'
-brew install 'go'
-brew install 'goaccess'
+#brew install 'go'
+#brew install 'goaccess'
 brew install 'graphicsmagick'
 #brew install 'heroku-toolbelt'
-brew install 'htop-osx'
+#brew install 'htop-osx'
 brew install 'hub'                  # wrapper for  git command
 brew install 'icu4c'
 brew install 'imagemagick' '--disable-openmp'
@@ -75,7 +75,7 @@ brew install 'pidof'
 brew install 'pkg-config'
 brew install 'pstree'
 brew install 's3cmd'
-brew install 'sqlite'
+#brew install 'sqlite'
 #brew install 'ssh-copy-id'          # ローカルの公開鍵を対象のサーバに配置する ex) ssh-copy-id user@server
 brew install 'sshrc'                # sshした先で読み込む環境変数をローカルで定義できる
 brew install 'tcpflow'              # いい感じでHTTPリクエストをモニタリング
@@ -169,7 +169,7 @@ brew install 'tig'   # cli git browser
 # brew cask install 'omnipresence'
 # brew cask install 'openemu-experimental'
 # brew cask install 'owncloud'
-# brew cask install 'path-finder'
+brew cask install 'path-finder'
 # brew cask install 'phpstorm'
 # brew cask install 'postbox'
 # brew cask install 'rcdefaultapp'
@@ -203,19 +203,20 @@ brew cask install 'google-drive'
 brew cask install 'google-japanese-ime'
 brew cask install 'iterm2'
 brew cask install 'karabiner'
+brew cask install 'imageoptim'
 brew cask install 'kindle'
 brew cask install 'ksdiff'
 brew cask install 'licecap'              # GIFアニメキャプチャ
 brew cask install 'lightpaper'           # MarkdownEditor
 brew cask install 'marked'
-brew cask install 'microsoft-office'
+#brew cask install 'microsoft-office'
 brew cask install 'omnigraffle'
 brew cask install 'pixel-winch'          # 画像をインポートしてピクセルサイズをアノテーション
 brew cask install 'silverlight'
 brew cask install 'sourcetree'
 brew cask install 'tableau'
 brew cask install 'teamviewer'
-brew cask install 'totalfinder'
+#brew cask install 'totalfinder'
 brew cask install 'unity-web-player'
 brew cask install 'vagrant'
 brew cask install 'virtualbox'

@@ -117,7 +117,6 @@ brew   install caskroom/cask/brew-cask
 cd     ~/dotfiles
 sh     brewfile.sh
 brew   update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
-brew   cask alfred link
 brew   linkapps
   # 英語版msOffice2011を日本語に対応させる
 open /Applications/Microsoft\ Office\ 2011/Additional\ Tools/Microsoft\ Language\ Register/Microsoft\ Language\ Register.app
@@ -166,7 +165,6 @@ rbenv global  2.1.5
 rbenv rehash
 exec $SHELL -l  # restart Shell
    # gem
-gem update rake
 gem install bundler
 cd ~/dotfiles/
 bundle install
