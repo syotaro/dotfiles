@@ -11,7 +11,7 @@ endif
 
 let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 
-let g:vim_bootstrap_langs = "javascript,ruby,php,html"
+let g:vim_bootstrap_langs = "javascript,ruby,c,php,html"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(neobundle_readme)
@@ -22,6 +22,8 @@ if !filereadable(neobundle_readme)
   let g:not_finsh_neobundle = "yes"
 
   " Run shell script if exist on custom select language
+  
+  
   
   
   
@@ -53,6 +55,7 @@ NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -88,6 +91,9 @@ if v:version >= 704
 endif
 
 "" Custom bundles
+
+NeoBundle 'vim-scripts/c.vim'
+
 
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
@@ -305,7 +311,7 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 20
+let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
@@ -313,6 +319,8 @@ noremap <F3> :NERDTreeToggle<CR>
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
+let Grep_Skip_Files = '*.log *.db'
+let Grep_Skip_Dirs = '.git node_modules'
 
 " vimshell.vim
 let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
@@ -406,7 +414,7 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "" ctrlp.vim
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|git|hg|svn))$'
 let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
 let g:ctrlp_use_caching = 0
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
@@ -478,6 +486,11 @@ vnoremap K :m '<-2<CR>gv=gv
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 
 "" Custom configs
+
+" Tagbar
+nmap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
 
 let g:javascript_enable_domhtmlcss = 1
 

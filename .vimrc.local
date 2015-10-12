@@ -19,7 +19,7 @@ set matchtime=1
 
 " 全角文字をハイライト表示
 function! Zenkaku()
-    highlight Zenkaku cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+    highlight Zenkaku cterm=reverse ctermfg=red gui=reverse guifg=red
 endfunction
 
 if has('syntax')
@@ -228,17 +228,13 @@ augroup END
 
 
 
-
 if &diff " ignore white-space
     set diffopt+=iwhite
 end
 
 
-
-let g:previm_open_cmd = 'open -a Google\ Chrome'
-let g:previm_enable_realtime = 1
-
-
+" let g:previm_open_cmd = 'open -a Google\ Chrome'
+" let g:previm_enable_realtime = 1
 
 " JQコマンドでJSONをパース
 " command! -nargs=? Jq call s:Jq(<f-args>)
@@ -250,5 +246,3 @@ let g:previm_enable_realtime = 1
 "   endif
 "   execute "%! cat % | jq \"" . l:arg . "\""
 " endfunction
-"
-
