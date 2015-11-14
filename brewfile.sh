@@ -156,7 +156,6 @@ brew install 'tig'   # cli git browser
 # brew cask install 'flash-player'
 # brew cask install 'flashlight'           # adds plugins to Spotlight
 # brew cask install 'fluid'
-# brew cask install 'forklift'
 # brew cask install 'google-chrome'          # 手動で実体を/Applicationsフォルダに設置したほうがよい。でないと、1PasswordのExtentionが正常に動かない
 # brew cask install 'google-chrome-canary'
 # brew cask install 'gyazo'
@@ -170,6 +169,7 @@ brew install 'tig'   # cli git browser
 # brew cask install 'openemu-experimental'
 # brew cask install 'owncloud'
 brew cask install 'path-finder'
+brew cask install 'prott'
 # brew cask install 'phpstorm'
 # brew cask install 'postbox'
 # brew cask install 'rcdefaultapp'
@@ -191,11 +191,11 @@ brew cask install 'path-finder'
 # https://github.com/cookpad/iam-fox
 # https://github.com/cookpad/r53-fox
 # https://github.com/tue-savvy/SimulatorManager
-brew cask install 'adobe-air'
+# brew cask install 'adobe-air'
 brew cask install 'appcleaner'
 brew cask install 'bettertouchtool'
 brew cask install 'cooviewer'
-brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
+# brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 brew cask install 'flux'
 brew cask install 'geektool'
 brew cask install 'genymotion'       # Androidエミュレータ

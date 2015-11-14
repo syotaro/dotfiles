@@ -227,7 +227,6 @@ augroup PrevimSettings
 augroup END
 
 
-
 if &diff " ignore white-space
     set diffopt+=iwhite
 end
@@ -236,13 +235,3 @@ end
 " let g:previm_open_cmd = 'open -a Google\ Chrome'
 " let g:previm_enable_realtime = 1
 
-" JQコマンドでJSONをパース
-" command! -nargs=? Jq call s:Jq(<f-args>)
-" function! s:Jq(...)
-"   if 0 == a:0
-"     let l:arg = "."
-"   else
-"     let l:arg = a:1
-"   endif
-"   execute "%! cat % | jq \"" . l:arg . "\""
-" endfunction
