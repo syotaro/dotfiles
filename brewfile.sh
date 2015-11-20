@@ -195,6 +195,7 @@ brew cask install 'prott'
 brew cask install 'appcleaner'
 brew cask install 'bettertouchtool'
 brew cask install 'cooviewer'
+brew cask install 'keepingyouawake'
 # brew cask install 'evernote'             # AppStore版だと、Spotlight検索に対応してないので、Download版で入れること
 brew cask install 'flux'
 brew cask install 'geektool'
@@ -214,8 +215,8 @@ brew cask install 'omnigraffle'
 brew cask install 'pixel-winch'          # 画像をインポートしてピクセルサイズをアノテーション
 brew cask install 'silverlight'
 brew cask install 'sourcetree'
-brew cask install 'tableau'
-brew cask install 'teamviewer'
+#brew cask install 'tableau'
+#brew cask install 'teamviewer'
 #brew cask install 'totalfinder'
 brew cask install 'unity-web-player'
 brew cask install 'vagrant'
@@ -282,3 +283,4 @@ brew cleanup
     # VisualDiffer
     # VisualGrep
     # WebCode
+    # GifGrabber
