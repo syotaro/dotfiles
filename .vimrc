@@ -11,7 +11,7 @@ endif
 
 let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 
-let g:vim_bootstrap_langs = "javascript,ruby,c,php,html"
+let g:vim_bootstrap_langs = "javascript,ruby,html"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(neobundle_readme)
@@ -22,10 +22,6 @@ if !filereadable(neobundle_readme)
   let g:not_finsh_neobundle = "yes"
 
   " Run shell script if exist on custom select language
-  
-  
-  
-  
   
   
   
@@ -89,9 +85,6 @@ NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 "" Custom bundles
 
-NeoBundle 'vim-scripts/c.vim'
-
-
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
 
@@ -111,10 +104,6 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'mattn/emmet-vim'
-
-
-"" PHP Bundle
-NeoBundle 'arnaud-lb/vim-php-namespace'
 
 
 
@@ -444,11 +433,6 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 
 "" Custom configs
 
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
-
 let g:javascript_enable_domhtmlcss = 1
 
 
@@ -492,8 +476,6 @@ nnoremap <leader>rit  :RInlineTemp<cr>
 vnoremap <leader>rrlv :RRenameLocalVariable<cr>
 vnoremap <leader>rriv :RRenameInstanceVariable<cr>
 vnoremap <leader>rem  :RExtractMethod<cr>
-
-
 
 
 
