@@ -11,7 +11,7 @@ endif
 
 let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 
-let g:vim_bootstrap_langs = "javascript,ruby,html"
+let g:vim_bootstrap_langs = "ruby"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(neobundle_readme)
@@ -22,10 +22,6 @@ if !filereadable(neobundle_readme)
   let g:not_finsh_neobundle = "yes"
 
   " Run shell script if exist on custom select language
-  
-  
-  
-  
   
   
   
@@ -85,10 +81,6 @@ NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 "" Custom bundles
 
-"" Javascript Bundle
-NeoBundle "scrooloose/syntastic"
-
-
 "" Ruby Bundle
 NeoBundle "tpope/vim-rails"
 NeoBundle "tpope/vim-rake"
@@ -96,14 +88,6 @@ NeoBundle "tpope/vim-projectionist"
 NeoBundle "thoughtbot/vim-rspec"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "ecomba/vim-ruby-refactoring"
-
-
-"" HTML Bundle
-NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'mattn/emmet-vim'
 
 
 
@@ -433,9 +417,6 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 
 "" Custom configs
 
-let g:javascript_enable_domhtmlcss = 1
-
-
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
@@ -476,8 +457,6 @@ nnoremap <leader>rit  :RInlineTemp<cr>
 vnoremap <leader>rrlv :RRenameLocalVariable<cr>
 vnoremap <leader>rriv :RRenameInstanceVariable<cr>
 vnoremap <leader>rem  :RExtractMethod<cr>
-
-
 
 
 
