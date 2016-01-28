@@ -201,10 +201,10 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 - iTerm 2 > iTerm > Make iTerm2 Default Term
 - Kaleidoscope
 - Karabiner 
-  ![](http://s3img.jp/20150906105952.png)
-  - Karabiner > Emacs Mode > Delete,Reterm Up/Down/Left/Right
-  - Karabiner > Emacs binding for Excel
-  - Karabiner > for Japanese > コマンドキーの動作を優先モードv1
+![](http://s3img.jp/20150906105952.png)
+    - Karabiner > Emacs Mode > Delete,Reterm Up/Down/Left/Right
+    - Karabiner > Emacs binding for Excel
+    - Karabiner > for Japanese > コマンドキーの動作を優先モードv1
 - Office Excel > disable check logic
 - Office PowerPoint
 - Navicat > Navicat Cloud Sign in
