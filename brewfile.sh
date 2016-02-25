@@ -22,6 +22,7 @@ brew cask install 'xquartz'         # 依存されてるので先にInstall
 brew install 'autoconf'
 brew install 'automake'
 brew install 'pidcat'               # Android Debug Log viewer
+brew install 'argon/mas/mas'
 brew install 'peco'
 brew install 'bash'
 brew install 'android-sdk'

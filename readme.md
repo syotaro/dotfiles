@@ -27,49 +27,39 @@ and check Files other than Dropbox(Recommended TimeMachine!)
     # => manually
     # app list generate command
     # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
-Affinity Designer
-1Password
-CloudPlay
-Color Picker
-ColorSchemer Studio
-Desktop Calendar Plus
-Explainer
-Kaleidoscope
-LINE
-Murasaki
-Navicat Premium Essentials
-NeverSleep
-NewsBar
-Paw
-Pixelmator
-Pushbullet
-Reeder
-Remote Desktop
-Revisions      # Dropbox revision manager(diff integrate Kaleidoscope)
-Sketch         # http://www.vandelaydesign.com/sketch-plugins-for-designers/
-Skitch
-Slack
-The Archive Browser
-Transmit
-Tweetbot
-Ultra Character Map          # Symbol Icon Viewer
-Visits
-WhiteNoise
-WinArchiver
-Xcode
-iKeyboard
-    # Microsoft Remote Desktop
+
+brew install 'argon/mas/mas'
+524576324 SmartZipper Pro
+587512244 Kaleidoscope
+539883307 LINE
+409183694 Keynote
+411246225 Caffeine
+407963104 Pixelmator
+584653203 Paw
+466416967 Navicat Premium Essentials
+443987910 1Password
+409203825 Numbers
+497799835 Xcode
+557168941 Tweetbot
+403388562 Transmit
+409201541 Pages
+408981434 iMovie
+948415170 Pushbullet
+462227149 Visits
+852320343 Sketch
+803453959 Slack
+520265986 Ultra Character Map
+824171161 Affinity Designer
 ```
 
 ### Setup symblic link
 
 - cloudDefinition
-  - iCloud Drive -> all device sync     # for selfTemplate & authEnv files!
+  - iCloud Drive -> all device sync     # for Personal
   - dropbox      -> file archive module # for product files module. like Gem!
   - github       -> sourceCode
   - everNote     -> MyknowledgeBase
-  - googleDrive  -> shareDocs
-
+  - googleDrive  -> # for JobProducts
 ```sh
   # setup dotfiles
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles

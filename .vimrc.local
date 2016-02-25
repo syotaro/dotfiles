@@ -156,6 +156,8 @@ colorscheme molokai  " カラースキーマ molokai 指定
 " set shiftwidth=2
 " set tabstop=2
 " 連続インデント
+
+
 vnoremap < <gv
 vnoremap > >gv
 
@@ -209,9 +211,6 @@ nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -wi
 "" Other
 "*****************************************************************************
 
-" let g:quickrun_config = {'_': {'runner': 'vimproc', 'runner/vimproc/updatetime': 60, 'split': 'vertical', "outputter/buffer/split" : ":botright" ,"outputter/buffer/close_on_empty" : 1}}
-" nnoremap <silent><space>p :QuickRun<CR>
-
 " vim-gitgutter
 let g:gitgutter_diff_args = '-w'
 let g:gitgutter_sign_added = '✚'
@@ -237,3 +236,6 @@ end
 " let g:previm_open_cmd = 'open -a Google\ Chrome'
 " let g:previm_enable_realtime = 1
 
+
+autocmd BufRead *.tsv  set tabstop=18
+autocmd BufRead *.tsv  set noexpandtab
