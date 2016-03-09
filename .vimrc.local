@@ -239,3 +239,33 @@ end
 
 autocmd BufRead *.tsv  set tabstop=18
 autocmd BufRead *.tsv  set noexpandtab
+
+
+
+
+" NVIM 設定
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+
+  if has('nvim')
+    NeoBundleLazy 'Shougo/deoplete.nvim', {
+          \ "autoload": {"insert": 1}}
+  else
+    NeoBundleLazy 'Shougo/neocomplete.vim', {
+          \ "autoload": {"insert": 1}}
+  endif
+
+if has('nvim')
+  let s:hooks = neobundle#get_hooks("deoplete.nvim")
+  function! s:hooks.on_source(bundle)
+    let g:deoplete#enable_at_startup = 1
+  endfunction
+else
+  let s:hooks = neobundle#get_hooks("neocomplete.vim")
+  function! s:hooks.on_source(bundle)
+    let g:neocomplete#enable_smart_case = 1
+    let g:neocomplete#enable_at_startup = 1
+  endfunction
+endif
