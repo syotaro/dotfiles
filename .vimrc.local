@@ -5,7 +5,7 @@ set list                                                             " 不可視
 set listchars=tab:▸\ ,trail:_,extends:>,precedes:<,nbsp:%            " 不可視文字の表示形式
 set mouse=a                                                          " マウスモード有効
 set nomodeline
-set nonumber
+set number
 set noruler
 set vb t_vb=                                                         " ビープをならさない
 set nowrap                                                           " 折り返ししない
@@ -18,7 +18,7 @@ set showmatch
 set matchtime=1
 "set ttymouse=xterm2                                                 " xtermとscreen対応
 
-" 全角文字をハイライト表示
+" 全角文字をハイライトして表示
 function! Zenkaku()
     highlight Zenkaku cterm=reverse ctermfg=red gui=reverse guifg=red
 endfunction

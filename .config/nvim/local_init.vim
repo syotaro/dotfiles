@@ -1,0 +1,1 @@
+/Users/syotaro/.vimrc.local

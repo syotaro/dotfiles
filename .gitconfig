@@ -14,14 +14,12 @@
 [tig "bind"]
   generic       = g move-first-line
   generic       = G move-last-line
-[push]
-  default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
+#[push]
+#  default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [grep]
   lineNumber    = true
 [github]
   user = syotaro
-[url "git@github.com:syotaro/"]
-  insteadof     = gh:
 [alias]
       # status
   st            = status
@@ -37,30 +35,22 @@
   ba            = branch -a           # originも含めた全てのbranchを表示
   bm            = branch --merged     # merge済みのbranchを表示
   bn            = branch --no-merged  # mergeしてないbranchを表示
-[http]
-  sslVerify = false
+#[http]
+#  sslVerify = false
 [pager]
    diff  = LESS=-R less
 #  log   = diff-highlight | LESS=-R less
 #  show  = diff-highlight | LESS=-R less
-[hub]
-protocol = https
+#[hub]
+#protocol = https
 
 
-# difftool
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "Vim"]
 	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
 
 # merge
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	cmd = 
 	trustExitCode = true
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
@@ -71,3 +61,6 @@ protocol = https
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path = 

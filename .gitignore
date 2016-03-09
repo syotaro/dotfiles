@@ -13,3 +13,9 @@ vagrant/Vagrantfile
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+
+.config/nvim/bundle/*
+.config/nvim/session/*
+.config/nvim/.init.vim-rplugin~
+

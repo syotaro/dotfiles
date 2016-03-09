@@ -169,6 +169,7 @@ brew install git
 brew install ctags
    # plugin
 vim +NeoBundleInstall +qall
+pip install neovim
 ```
 
 ### Install Quicklook Plugin

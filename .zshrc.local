@@ -34,12 +34,3 @@ case $(uname -s) in
         export LC_ALL=en_US.UTF-8
     ;;
 esac
-
-
-#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 色付きで補完する
-#zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-#zstyle ':completion:*' list-colors di=34 fi=0         # 色付きで補完する
-#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
-#bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
-#export CLICOLOR=1                                     # Terminal Colorの設定
-

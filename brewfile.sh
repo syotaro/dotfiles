@@ -4,12 +4,10 @@ set -e
 ############################################
 # Add Repository
 ############################################
-#tap  home/dupes               || true
-brew tap phinze/homebrew-cask       || true
-brew tap caskroom/homebrew-versions || true  # add beta pkg
-brew tap homebrew/binary            || true
-brew tap jimbojsb/launchrocket      || true
-brew tap homebrew/science           || true
+# brew untap caskroom/homebrew-versions || true  # add beta pkg
+# brew untap homebrew/binary            || true
+# brew untap jimbojsb/launchrocket      || true
+# brew untap homebrew/science           || true
 #update || true
 
 
@@ -96,7 +94,7 @@ brew install 'zsh' '--disable-etcdir'
 #install 'fuse4x'
 #install 'fuse4x-kext'
 #install 'weechat' '--with-ruby --with-python --with-perl'
-#install 'python3'
+install 'python3'
 ################
 #  AWS
 ################
