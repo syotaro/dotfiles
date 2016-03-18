@@ -146,23 +146,6 @@ autocmd colorscheme molokai highlight Visual ctermbg=8
 colorscheme molokai  " カラースキーマ molokai 指定
 
 
-
-"-------------------------------------------------------------------------------
-" インデント Indent
-"-------------------------------------------------------------------------------
-" set autoindent   " 自動でインデント
-" set cindent      " Cプログラムファイルの自動インデントを始める
-" set softtabstop=0 " softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
-" set shiftwidth=2
-" set tabstop=2
-" 連続インデント
-
-
-vnoremap < <gv
-vnoremap > >gv
-
-
-
 " バッファ上の内容をワンコマンドでファイル保存
 let $TODAY = strftime('%Y%m%d%H%M')
 nnoremap <silent><Space>d :save! ~/dropbox/.tmp/$TODAY.md<CR>
@@ -221,6 +204,8 @@ let g:gitgutter_sign_removed = '➖'
 let g:airline_powerline_fonts = 1
 
 autocmd BufRead *.sql            setf mysql      " .sqlは、mysqlとして扱う
+autocmd BufRead *.tsv            set tabstop=18
+autocmd BufRead *.tsv            set noexpandtab
 " autocmd BufRead *.csv            setf txt        " csvはtxtとして扱う
 " augroup PrevimSettings
 "     autocmd!
@@ -231,16 +216,6 @@ autocmd BufRead *.sql            setf mysql      " .sqlは、mysqlとして扱�
 if &diff " ignore white-space
     set diffopt+=iwhite
 end
-
-
-" let g:previm_open_cmd = 'open -a Google\ Chrome'
-" let g:previm_enable_realtime = 1
-
-
-autocmd BufRead *.tsv  set tabstop=18
-autocmd BufRead *.tsv  set noexpandtab
-
-
 
 
 " NVIM 設定
