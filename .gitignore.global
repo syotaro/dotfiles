@@ -20,5 +20,5 @@ app.iml
 
 
 # Eden Unity
-/UnityProject/Assets/Scenes/
-/UnityProject/Assets/Service/Eden/Config/
+ProjectSettings.asset
+QualitySettings.asset

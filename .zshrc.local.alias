@@ -7,10 +7,10 @@
         alias less="/usr/share/vim/vim73/macros/less.sh"
         # vim
         alias n='nvim'
-        alias v='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
-        alias vi='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
-        alias vim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim'
-        alias gvim='`brew --prefix macvim`/MacVim.app/Contents/MacOS/Vim -g '
+        alias v='/Applications/MacVim.app/Contents/MacOS/Vim'
+        alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+        alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+        alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g '
         # others
         alias pbc='pbcopy'
         alias ql='qlmanage -p '

@@ -19,3 +19,5 @@ vagrant/Vagrantfile
 .config/nvim/session/*
 .config/nvim/.init.vim-rplugin~
 
+
+.vimrc.local.secrets

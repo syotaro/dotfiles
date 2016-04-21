@@ -1,6 +1,6 @@
-"NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'tommcdo/vim-lion'   "Align
+" NeoBundle 'tommcdo/vim-lion'   "Align
 " NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'godlygeek/tabular'
 " NeoBundle 'itspriddle/vim-marked'
