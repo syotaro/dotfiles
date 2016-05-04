@@ -64,3 +64,5 @@
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 
+[difftool]
+	prompt = false

@@ -146,12 +146,14 @@ cat /etc/shells
   - root領域を汚したくない(ユーザ領域にinstall)
 
 ```sh
-brew install 'openssl'
 brew install 'readline'
 brew install 'rbenv' 'ruby-build'
-rbenv install 2.1.5
+brew install 'openssl'
+rbenv install --list
+brew upgrade ruby-build
+rbenv install 2.3.1  # rbenv local 2.3.1
 rbenv versions
-rbenv global  2.1.5
+rbenv global  2.3.1
 rbenv rehash
 exec $SHELL -l  # restart Shell
    # gem
