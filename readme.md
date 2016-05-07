@@ -19,7 +19,6 @@ and check Files other than Dropbox(Recommended TimeMachine!)
 - [Dropbox](https://www.dropbox.com/home)   # 個人用、会社用、両方ともlinkさせる
 - [Alfred App](http://www.alfredapp.com/)
 - [Chrome ](https://www.google.com/chrome/browser/desktop/#eula)
-- [Chrome Canary](https://www.google.com/chrome/browser/canary.html)
 
 ### Install Apps (via AppStore)
 

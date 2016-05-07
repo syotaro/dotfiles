@@ -14,11 +14,11 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-### intelliJ / PhPStorm ###
-.idea/
-app.iml
+
+/CasperUnityProject/CasperUnityProject.usertasks
+/CasperUnityProject/Assets/Services/Casper/Editor/ShortcutKey*
+/.vimrc.local.secrets
 
 
-# Eden Unity
-ProjectSettings.asset
-QualitySettings.asset
+/.config/nvim/bundle/
+/.gitconfig.local
