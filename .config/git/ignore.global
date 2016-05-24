@@ -15,8 +15,8 @@ Thumbs.db
 .Trashes
 
 
-/CasperUnityProject/CasperUnityProject.usertasks
-/CasperUnityProject/Assets/Services/Casper/Editor/ShortcutKey*
+# /CasperUnityProject/CasperUnityProject.usertasks
+# /CasperUnityProject/Assets/Services/Casper/Editor/ShortcutKey*
 /.vimrc.local.secrets
 
 

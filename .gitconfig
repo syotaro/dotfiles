@@ -21,13 +21,13 @@
 [github]
   user = syotaro
 [alias]
-      # status
   st            = status
+  graph         = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+  precommit     = diff --cached --diff-algorithm=minimal -w
   co            = checkout
   vimdiff       = difftool -y -t Vim
   ksdiff        = difftool -y -t Kaleidoscope
   dc            = diff --cached
-  s             = status
   ss            = status -s
   po            = push origin         # push origin
   mn            = merge --no-ff

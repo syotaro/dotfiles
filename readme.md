@@ -20,6 +20,15 @@ and check Files other than Dropbox(Recommended TimeMachine!)
 - [Alfred App](http://www.alfredapp.com/)
 - [Chrome ](https://www.google.com/chrome/browser/desktop/#eula)
 
+
+### Configure OSX
+
+```bash
+rm ~/Downloads/.localized | rm ~/Documents/.localized | rm ~/Applications/.localized | rm ~/Desktop/.localized | rm ~/Library/.localized | rm ~/Movies/.localized | rm ~/Pictures/.localized | rm ~/Music/.localized | rm ~/Public/.localized
+killall Finder
+```
+
+
 ### Install Apps (via AppStore)
 
 ```sh

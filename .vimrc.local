@@ -1,12 +1,12 @@
 set nocursorline
 set clipboard=unnamed,unnamedplus                                    " OSのクリップボードを使用する
-set noexpandtab                                                        " タブを入力した際に自動でホワイトスペースに展開しない
+set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開しない
 set list                                                             " 不可視文字表示
 set listchars=tab:▸\ ,trail:_,extends:>,precedes:<,nbsp:%            " 不可視文字の表示形式
 " set listchars=tab:-\ ,trail:_
 set mouse=a                                                          " マウスモード有効
 set nomodeline
-set number
+set nonumber
 set noruler
 set vb t_vb=                                                         " ビープをならさない
 set nowrap                                                           " 折り返ししない
