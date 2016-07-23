@@ -1,0 +1,4 @@
+/.config/gtk-2.0/
+/.config/nvim/autoload/
+/.config/nvim/plugged/
+/.config/stetic/

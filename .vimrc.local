@@ -201,26 +201,12 @@ if &diff " ignore white-space
 end
 
 
-" NVIM 設定
-if has('nvim')
-  NeoBundleLazy 'Shougo/deoplete.nvim', {
-        \ "autoload": {"insert": 1}}
-endif
-
-if has('nvim')
-  let s:hooks = neobundle#get_hooks("deoplete.nvim")
-  function! s:hooks.on_source(bundle)
-    let g:deoplete#enable_at_startup = 1
-  endfunction
-endif
-
 " EasyAlign
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
 
 
 "" Include user's extra bundle

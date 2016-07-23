@@ -1,28 +1,16 @@
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'gabrielelana/vim-markdown'
-" NeoBundle 'tommcdo/vim-lion'   "Align
-" NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'godlygeek/tabular'
-" NeoBundle 'itspriddle/vim-marked'
-NeoBundle 'VOoM'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimfiler'
-" NeoBundle 'junegunn/vim-easy-align'
-" NeoBundle 'kannokanno/previm'
-" NeoBundle 'tpope/vim-cucumber'
+Plug 'h1mesuke/vim-alignta'
+Plug 'elzr/vim-json'
+Plug 'gabrielelana/vim-markdown'
+" Plug 'tommcdo/vim-lion'   "Align
+" Plug 'thinca/vim-quickrun'
+Plug 'godlygeek/tabular'
+" Plug 'itspriddle/vim-marked'
+Plug 'VOoM'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/vimfiler'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'kannokanno/previm'
+" Plug 'tpope/vim-cucumber'
 "
-
-
-NeoBundleLazy 'OmniSharp/omnisharp-vim', {
-      \   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },
-      \   'build': {
-      \     'windows' : 'msbuild server/OmniSharp.sln',
-      \     'mac': 'xbuild server/OmniSharp.sln',
-      \     'unix': 'xbuild server/OmniSharp.sln',
-      \   },
-      \ }
-let g:OmniSharp_selector_ui = 'unite'
-let g:OmniSharp_selector_ui = 'ctrlp'
