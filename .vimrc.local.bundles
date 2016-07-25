@@ -1,11 +1,14 @@
 Plug 'h1mesuke/vim-alignta'
-Plug 'elzr/vim-json'
-Plug 'gabrielelana/vim-markdown'
+" Plug 'elzr/vim-json'
+" Plug 'gabrielelana/vim-markdown'
+Plug 'nelstrom/vim-markdown-folding', { 'for' : 'markdown' }
+" Plug 'tpope/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 " Plug 'tommcdo/vim-lion'   "Align
 " Plug 'thinca/vim-quickrun'
 Plug 'godlygeek/tabular'
 " Plug 'itspriddle/vim-marked'
-Plug 'VOoM'
+" Plug 'VOoM'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/neomru.vim'
@@ -13,4 +16,3 @@ Plug 'Shougo/vimfiler'
 " Plug 'junegunn/vim-easy-align'
 " Plug 'kannokanno/previm'
 " Plug 'tpope/vim-cucumber'
-"
