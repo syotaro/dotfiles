@@ -1,1 +1,1 @@
-let blacklists = ["https://mail.google.com/*","https://appmagi.atlassian.net/*"]
+let blacklists = ["https://mail.google.com/*","https://crearts.atlassian.net/*"]
