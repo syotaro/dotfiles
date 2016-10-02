@@ -1,1 +1,7 @@
 let blacklists = ["https://mail.google.com/*","https://crearts.atlassian.net/*"]
+
+let locale = "jp"
+set noautofocus
+
+
+unmap <C-k>
