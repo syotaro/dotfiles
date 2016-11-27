@@ -14,8 +14,6 @@
 [tig "bind"]
   generic       = g move-first-line
   generic       = G move-last-line
-#[push]
-#  default = simple                   # カレントブランチと同名のリモートブランチが存在する場合のみ、カレントブランチのpushが行われる
 [grep]
   lineNumber    = true
 [github]
