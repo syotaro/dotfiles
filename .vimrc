@@ -7,7 +7,7 @@ endif
 
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "ruby,c"
+let g:vim_bootstrap_langs = "html,javascript,ruby"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
@@ -15,8 +15,6 @@ if !filereadable(vimplug_exists)
   echo ""
   silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   let g:not_finish_vimplug = "yes"
-
-  " Run shell script if exist on custom select language
 
   autocmd VimEnter * PlugInstall
 endif
@@ -35,7 +33,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
@@ -46,7 +43,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 
 let g:make = 'gmake'
-if system('uname -o') =~ '^GNU/'
+if exists('make')
         let g:make = 'make'
 endif
 Plug 'Shougo/vimproc.vim', {'do': g:make}
@@ -70,14 +67,34 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'tomasr/molokai'
 
+"*****************************************************************************
 "" Custom bundles
-Plug 'vim-scripts/c.vim'
+"*****************************************************************************
 
+" html
+"" HTML Bundle
+Plug 'amirh/HTML-AutoCloseTag'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'tpope/vim-haml'
+Plug 'mattn/emmet-vim'
+
+
+" javascript
+"" Javascript Bundle
+Plug 'jelera/vim-javascript-syntax'
+
+
+" ruby
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-projectionist'
 Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring'
+
+
+"*****************************************************************************
+"*****************************************************************************
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -97,6 +114,9 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+set bomb
+set binary
+set ttyfast
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -118,11 +138,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-
-"" Encoding
-set bomb
-set binary
-set ttyfast
 
 "" Directories for swp files
 set nobackup
@@ -180,9 +195,11 @@ else
 
 endif
 
+
 if &term =~ '256color'
   set t_ut=
 endif
+
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
@@ -211,6 +228,7 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
 
 "*****************************************************************************
 "" Abbreviations
@@ -374,7 +392,10 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " Disable visualbell
-set novisualbell t_vb=
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -420,11 +441,26 @@ vnoremap K :m '<-2<CR>gv=gv
 "" Open current line on GitHub
 nnoremap <Leader>o :.Gbrowse<CR>
 
+"*****************************************************************************
 "" Custom configs
+"*****************************************************************************
+
+" html
+" for html files, 2 spaces
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
 
+" javascript
+let g:javascript_enable_domhtmlcss = 1
+
+" vim-javascript
+augroup vimrc-javascript
+  autocmd!
+  autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4 smartindent
+augroup END
 
 
+" ruby
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
@@ -462,6 +498,10 @@ nnoremap <leader>rit  :RInlineTemp<cr>
 vnoremap <leader>rrlv :RRenameLocalVariable<cr>
 vnoremap <leader>rriv :RRenameInstanceVariable<cr>
 vnoremap <leader>rem  :RExtractMethod<cr>
+
+
+"*****************************************************************************
+"*****************************************************************************
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
@@ -507,3 +547,4 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+

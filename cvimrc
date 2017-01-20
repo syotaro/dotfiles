@@ -1,4 +1,4 @@
-let blacklists = ["https://mail.google.com/*","https://crearts.atlassian.net/*"]
+let blacklists = ["https://mail.google.com/*","https://crearts.atlassian.net/*","https://drive.google.com/*"]
 
 let locale = "jp"
 set noautofocus
