@@ -7,10 +7,9 @@
   grep          = auto
 [core]
   pager = lv -c
-	excludesfile = /Users/syotaro/.config/git/ignore.global
+  excludesfile = /Users/syotaro/.config/git/ignore.global
   quotepath     = false
   editor = vim
-#  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [tig "bind"]
   generic       = g move-first-line
   generic       = G move-last-line
@@ -50,9 +49,6 @@
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
 [mergetool]
 	prompt = false
 [filter "lfs"]
@@ -64,3 +60,5 @@
 	path = 
 [difftool]
 	prompt = false
+[http]
+	postBuffer = 524288000

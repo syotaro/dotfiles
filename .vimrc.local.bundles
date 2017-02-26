@@ -7,7 +7,7 @@ Plug 'nelstrom/vim-markdown-folding', { 'for' : 'markdown' }
 " Plug 'tommcdo/vim-lion'   "Align
 " Plug 'thinca/vim-quickrun'
 Plug 'godlygeek/tabular'
-" Plug 'itspriddle/vim-marked'
+Plug 'itspriddle/vim-marked'
 " Plug 'VOoM'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/unite-outline'

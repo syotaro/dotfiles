@@ -147,8 +147,8 @@ colorscheme molokai  " カラースキーマ molokai 指定
 
 " バッファ上の内容をワンコマンドでファイル保存
 let $TODAY = strftime('%Y%m%d%H%M')
-nnoremap <silent><Space>d :save! ~/dropbox/.tmp/$TODAY.md<CR>
-inoremap <C-d> <ESC>      :save! ~/dropbox/.tmp/$TODAY.md<CR>
+nnoremap <silent><Space>d :save! ~/Desktop/$TODAY.md<CR>
+inoremap <C-d> <ESC>      :save! ~/Desktop/$TODAY.md<CR>
 
 
 "*****************************************************************************
