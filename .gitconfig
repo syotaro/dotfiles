@@ -62,3 +62,6 @@
 	prompt = false
 [http]
 	postBuffer = 524288000
+[user]
+	name = syotaro
+	email = yamamoto@crearts.jp
