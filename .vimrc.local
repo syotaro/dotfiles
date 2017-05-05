@@ -161,7 +161,7 @@ nnoremap <silent> <Space>v       : <C-u>Voom markdown<CR>
 "*****************************************************************************
 "" Shougo
 "*****************************************************************************
-let g:unite_enable_start_insert = 1
+" let g:unite_enable_start_insert = 1
 let g:unite_cursor_line_highlight = 'CursorLine'
 nnoremap <silent><space>/     :Unite line                   -buffer-name=line       -direction=rightbelow      -no-quit <CR>
 nnoremap <silent><space>r     :Unite file_mru      bookmark -buffer-name=file_mru   -direction=rightbelow<CR>

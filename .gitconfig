@@ -13,6 +13,8 @@
 [tig "bind"]
   generic       = g move-first-line
   generic       = G move-last-line
+[http]
+	postBuffer = 524288000
 [grep]
   lineNumber    = true
 [github]
@@ -32,36 +34,21 @@
   ba            = branch -a           # originも含めた全てのbranchを表示
   bm            = branch --merged     # merge済みのbranchを表示
   bn            = branch --no-merged  # mergeしてないbranchを表示
-#[http]
-#  sslVerify = false
 [pager]
    diff  = LESS=-R less
-#  log   = diff-highlight | LESS=-R less
-#  show  = diff-highlight | LESS=-R less
-#[hub]
-#protocol = https
-
-
 [difftool "Vim"]
 	cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
-
-# merge
-[mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[mergetool]
-	prompt = false
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
-	path = 
+[diff]
+    tool = Kaleidoscope
 [difftool]
-	prompt = false
-[http]
-	postBuffer = 524288000
-[user]
-	name = syotaro
-	email = yamamoto@crearts.jp
+    prompt = false
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[merge]
+    tool = Kaleidoscope
+    keepBackup = false
+[mergetool]
+    prompt = false
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
