@@ -4,7 +4,7 @@
 case $(uname -s) in
     Darwin|FreeBSD)
         [ -f ~/.zshrc.local.alias   ] && source ~/.zshrc.local.alias
-        [ -f ~/.zshrc.local.aws     ] && source ~/.zshrc.local.aws
+        # [ -f ~/.zshrc.local.aws     ] && source ~/.zshrc.local.aws
         [ -f ~/.zshrc.local.chpwd   ] && source ~/.zshrc.local.chpwd
         # [ -f ~/.zshrc.local.iterm   ] && source ~/.zshrc.local.iterm
         [ -f ~/.zshrc.local.k       ] && source ~/.zshrc.local.k
