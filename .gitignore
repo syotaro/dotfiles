@@ -3,3 +3,4 @@
 /.config/nvim/plugged/
 /.config/stetic/
 /.config/xbuild/
+/.gitconfig.local

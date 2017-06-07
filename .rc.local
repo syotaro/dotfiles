@@ -6,6 +6,7 @@ set listchars=tab:▸\ ,trail:_,extends:>,precedes:<,nbsp:%            " 不可�
 " set listchars=tab:-\ ,trail:_
 set mouse=a                                                          " マウスモード有効
 set nomodeline
+set fixendofline  " 改行入れたい
 set nonumber
 set noruler
 set vb t_vb=                                                         " ビープをならさない
@@ -38,15 +39,15 @@ endif
 " [Keybind]
 "-------------------------------------------------------------------------------
 command! Ev        edit   $MYVIMRC                      " vimrcの編集
-command! Evl       edit   ~/.vimrc.local                " vimrc.localの編集
-command! Evlb      edit   ~/.vimrc.local.bundles        " vimrc.local.bundlesの編集
+command! Evl       edit   ~/.rc.local                " vimrc.localの編集
+command! Evlb      edit   ~/.rc.local.bundles        " vimrc.local.bundlesの編集
 command! Rv        source $MYVIMRC                      " vimrcの反映
 
 " 行末、行の最初への移動のキーマップ設定
-:map! <C-e> <Esc>$
-:map  <C-e> <Esc>$
-" 全削除
-noremap DD ggVGD
+map! <C-e> <Esc>$
+map  <C-e> <Esc>$
+" 全選択
+noremap AA ggVG
 
 " 9で行末へ
 noremap 1 ^
@@ -120,7 +121,7 @@ nnoremap k gk
 
 " inoremap <C-d> $
 inoremap <C-a> @
-inoremap <C-j> _
+"inoremap <C-j> _
 inoremap <C-k> ()<Left>
 inoremap <C-l> <Esc>>>
 
@@ -149,7 +150,7 @@ set background=dark
 autocmd colorscheme molokai highlight Visual ctermbg=8
 if &term == "xterm-256color"
     colorscheme molokai
-    hi Comment ctermfg=102   "molokaiのコメントの見づらさ解消
+    hi Comment ctermfg=102
     "hi Visual  ctermbg=236
     hi Normal ctermbg=none
 endif
@@ -202,6 +203,7 @@ let g:airline_powerline_fonts = 1
 
 autocmd BufRead *.sql            setf mysql      " .sqlは、mysqlとして扱う
 autocmd BufRead *.tsv            set tabstop=24
+
 " autocmd BufRead *.csv            setf txt        " csvはtxtとして扱う
 " augroup PrevimSettings
 "     autocmd!
@@ -217,3 +219,4 @@ end
 if filereadable(expand("~/.vimrc.local.secrets"))
   source ~/.vimrc.local.secrets
 endif
+

@@ -1,3 +1,5 @@
+" vim-bootstrap 3340bde
+
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
@@ -5,28 +7,30 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 endif
 
-let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+let vimplug_exists=expand('~/./autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "html"
-let g:vim_bootstrap_editor = "vim"				" nvim or vim
+let g:vim_bootstrap_langs = ""
+let g:vim_bootstrap_editor = ""				" nvim or vim
 
 if !filereadable(vimplug_exists)
+  if !executable("curl")
+    echoerr "You have to install curl or first install vim-plug yourself!"
+    execute "q!"
+  endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !\curl -fLo ~/./autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
 endif
 
 " Required:
-call plug#begin(expand('~/.vim/plugged'))
+call plug#begin(expand('~/./plugged'))
 
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -75,20 +79,12 @@ Plug 'tomasr/molokai'
 "" Custom bundles
 "*****************************************************************************
 
-" html
-"" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
-Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-haml'
-Plug 'mattn/emmet-vim'
-
-
 "*****************************************************************************
 "*****************************************************************************
 
 "" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-  source ~/.vimrc.local.bundles
+if filereadable(expand("~/.rc.local.bundles"))
+  source ~/.rc.local.bundles
 endif
 
 call plug#end()
@@ -143,7 +139,7 @@ else
 endif
 
 " session management
-let g:session_directory = "~/.vim/session"
+let g:session_directory = "~/./session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
@@ -448,17 +444,12 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "" Custom configs
 "*****************************************************************************
 
-" html
-" for html files, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-
-
 "*****************************************************************************
 "*****************************************************************************
 
 "" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(expand("~/.rc.local"))
+  source ~/.rc.local
 endif
 
 "*****************************************************************************
@@ -500,4 +491,3 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-
