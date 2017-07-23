@@ -14,6 +14,7 @@
         # others
         alias pbc='pbcopy'
         alias ql='qlmanage -p '
+        alias o='open .'
     ;;
     Linux)      # Debian
         alias ls="ls --color=always -ahF"
