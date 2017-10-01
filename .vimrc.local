@@ -39,8 +39,8 @@ endif
 " [Keybind]
 "-------------------------------------------------------------------------------
 command! Ev        edit   $MYVIMRC                      " vimrcの編集
-command! Evl       edit   ~/.rc.local                " vimrc.localの編集
-command! Evlb      edit   ~/.rc.local.bundles        " vimrc.local.bundlesの編集
+command! Evl       edit   ~/.vimrc.local                " vimrc.localの編集
+command! Evlb      edit   ~/.vimrc.local.bundles        " vimrc.local.bundlesの編集
 command! Rv        source $MYVIMRC                      " vimrcの反映
 
 " 行末、行の最初への移動のキーマップ設定

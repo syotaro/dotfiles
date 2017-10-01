@@ -1,4 +1,4 @@
-" vim-bootstrap 3340bde
+" vim-bootstrap 59114be
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -7,10 +7,10 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 endif
 
-let vimplug_exists=expand('~/./autoload/plug.vim')
+let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = ""
-let g:vim_bootstrap_editor = ""				" nvim or vim
+let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -19,18 +19,20 @@ if !filereadable(vimplug_exists)
   endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent !\curl -fLo ~/./autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
 endif
 
 " Required:
-call plug#begin(expand('~/./plugged'))
+call plug#begin(expand('~/.vim/plugged'))
 
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -83,8 +85,8 @@ Plug 'tomasr/molokai'
 "*****************************************************************************
 
 "" Include user's extra bundle
-if filereadable(expand("~/.rc.local.bundles"))
-  source ~/.rc.local.bundles
+if filereadable(expand("~/.vimrc.local.bundles"))
+  source ~/.vimrc.local.bundles
 endif
 
 call plug#end()
@@ -130,7 +132,6 @@ set nobackup
 set noswapfile
 
 set fileformats=unix,dos,mac
-set showcmd
 
 if exists('$SHELL')
     set shell=$SHELL
@@ -139,7 +140,7 @@ else
 endif
 
 " session management
-let g:session_directory = "~/./session"
+let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
@@ -240,6 +241,18 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+
+"" NERDTree configuration
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeWinSize = 50
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+nnoremap <silent> <F2> :NERDTreeFind<CR>
+noremap <F3> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -436,8 +449,8 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "*****************************************************************************
 
 "" Include user's local vim config
-if filereadable(expand("~/.rc.local"))
-  source ~/.rc.local
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
 endif
 
 "*****************************************************************************
