@@ -1,4 +1,4 @@
-" vim-bootstrap 59114be
+" vim-bootstrap a9ad349
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -176,7 +176,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-
+  
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -184,7 +184,7 @@ else
       set term=xterm-256color
     endif
   endif
-
+  
 endif
 
 
@@ -252,7 +252,7 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
-noremap <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>

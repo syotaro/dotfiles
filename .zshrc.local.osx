@@ -1,9 +1,5 @@
 
 export PATH=/usr/local/bin:/usr/local/share:$PATH
 
-##pandoc
-
-PATH=${HOME}/Library/Haskell/bin:$PATH
-
 ## XDG for nvim
 export XDG_CONFIG_HOME=$HOME/.config
