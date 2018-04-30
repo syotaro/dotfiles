@@ -70,7 +70,7 @@ alias history="history -i"
 
 # GIT1
 alias g='git'
-alias gs="pwd && echo '' && git remote -v && echo '' && git branch -a && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
+alias gs="pwd && echo '' && git remote -v && echo '' && echo '' && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
 alias gd='git diff --ignore-space-change'                                 # add前の変更差分を表示
 #alias gd='git diff -w'                             # add前の変更差分を表示
 alias gdc='git diff --cached -w'                    # addしたものの差分を表示

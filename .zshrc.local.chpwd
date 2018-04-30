@@ -5,8 +5,6 @@ if [ -d .git ];then
   echo ''
   git remote -v
   echo ''
-  git branch -a
-  echo ''
   git status -sb
   echo ''
   git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5
