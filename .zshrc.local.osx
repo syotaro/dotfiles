@@ -1,5 +1,5 @@
 
-export PATH=/usr/local/bin:/usr/local/share:$HOME/google-cloud-sdk/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/share:$PATH
 
 ## XDG for nvim
 export XDG_CONFIG_HOME=$HOME/.config
