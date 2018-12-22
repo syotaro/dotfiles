@@ -1,3 +1,4 @@
+source ~/.profile
 # use zsh
 #if [ -f /bin/zsh ]; then
 #    exec /bin/zsh

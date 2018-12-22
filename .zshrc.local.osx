@@ -6,3 +6,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 
 export PATH=${0:A:h}/bin:$PATH
+
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
