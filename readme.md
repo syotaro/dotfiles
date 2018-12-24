@@ -106,6 +106,7 @@ vim +PlugInstall +qall
 - Google Japanese IME > Dict import
 - Google Japanese IME > KeySetting Kotoeri > ATOK
 - 英かな
+  - ![](https://docs.google.com/drawings/d/e/2PACX-1vQsYdl_2dBPDAGda40og3Ovs-C2V9mzefiOdYUUe7jsuGy_rGQvMCqbIYmAc9MVkmULR4fNnkTeQTll/pub?w=657&h=691)
 
 
 
