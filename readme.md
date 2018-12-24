@@ -66,6 +66,8 @@ brew install 'youtube-dl'           # youtube downloader
 brew install 'z'
 ```
 
+- [google SDK](https://cloud.google.com/sdk/downloads?hl=ja)
+
 ### Setup zsh
 
 ```sh
