@@ -62,27 +62,14 @@ brew   update
 - [syotaro/dotfiles/brewfile.sh](https://github.com/syotaro/dotfiles/blob/master/brewfile.sh)
 
 ```sh
-  # Install apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-brew   install caskroom/cask/brew-cask
-cd     ~/dotfiles
-sh     brewfile.sh
-brew   update && brew upgrade brew-cask && brew cleanup && brew cask cleanup
-brew   linkapps
-  # 英語版msOffice2011を日本語に対応させる
-open /Applications/Microsoft\ Office\ 2011/Additional\ Tools/Microsoft\ Language\ Register/Microsoft\ Language\ Register.app
+brew install 'youtube-dl'           # youtube downloader
+brew install 'z'
 ```
-- (option)open Package
-  - open /opt/homebrew-cask/Caskroom/\*/\*/\*.pkg
-
-### Install Manually
-
-- R53fox
-- ElasticFox
 
 ### Setup zsh
 
 ```sh
+brew install 'zsh' '--disable-etcdir'
   # Prezto(ZshFramework)
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -93,35 +80,11 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 unlink ~/.zshrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
-```
-```sh
   # Change shell(bash -> zsh)
 chsh -s /bin/zsh
 cat /etc/shells
 ```
 
-### Install rbenv
-
-- 導入の理由
-  - 複数の Ruby バージョンをインストールして管理したい
-  - root領域を汚したくない(ユーザ領域にinstall)
-
-```sh
-brew install 'readline'
-brew install 'rbenv' 'ruby-build'
-brew install 'openssl'
-rbenv install --list
-brew upgrade ruby-build
-rbenv install 2.3.1  # rbenv local 2.3.1
-rbenv versions
-rbenv global  2.3.1
-rbenv rehash
-exec $SHELL -l  # restart Shell
-   # gem
-gem install bundler
-cd ~/dotfiles/
-bundle install
-```
 ### Configure vim & install vim plugin
 
 - .vimrcBase [vim-bootstrap.com](http://vim-bootstrap.com/)
@@ -132,8 +95,7 @@ brew install git
 brew install ctags
 brew install 'macvim' '--with-lua --override-system-vim --custom-icons'
    # plugin
-vim +NeoBundleInstall +qall
-pip install neovim
+vim +PlugInstall +qall
 ```
 
 ### Configure Other Apps (Manual)
