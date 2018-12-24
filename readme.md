@@ -1,24 +1,10 @@
-```sh
-  # Back up the previous environment
-$ gem list
-$ brew list
-$ brew cask list
-$ defaults read
-$ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
-and check Files other than Dropbox(Recommended TimeMachine!)
-```
 
 ## OSX setup flow
 
 ### HDD CleanUP
 
-- Upgrade Yosemite & Reboot & hold Command + R & Disk Utility -> ディスクの検証 -> Erase & Install Yosemite
-
-### Install Dropbox
-
-- [Dropbox](https://www.dropbox.com/home)   # 個人用、会社用、両方ともlinkさせる
-- [Alfred App](http://www.alfredapp.com/)
-- [Chrome ](https://www.google.com/chrome/browser/desktop/#eula)
+- Upgrade Yosemite & Reboot & hold Command + R & Disk Utility -> ディスクの検証 -> Erase & Install
+- sign in apple id
 
 
 ### Configure OSX
@@ -28,46 +14,20 @@ rm ~/Downloads/.localized | rm ~/Documents/.localized | rm ~/Applications/.local
 killall Finder
 ```
 
-
 ### Install Apps (via AppStore)
 
-```sh
-    # => manually
-    # app list generate command
-    # => $ mdfind "kMDItemAppStoreHasReceipt=1" | awk -F \/ '{ print $3 ; }' | awk '{sub(".app","")}{print}' | sort
-
-brew install 'argon/mas/mas'
-524576324 SmartZipper Pro
-587512244 Kaleidoscope
-539883307 LINE
-409183694 Keynote
-411246225 Caffeine
-407963104 Pixelmator
-584653203 Paw
-466416967 Navicat Premium Essentials
-443987910 1Password
-409203825 Numbers
-497799835 Xcode
-557168941 Tweetbot
-403388562 Transmit
-409201541 Pages
-408981434 iMovie
-948415170 Pushbullet
-462227149 Visits
-852320343 Sketch
-803453959 Slack
-520265986 Ultra Character Map
-824171161 Affinity Designer
-```
+- Kaleidoscope
+- github
+- LINE
+- Navicat Premium Essentials
+- 1Password
+- Xcode
+- Transmit
+- Slack
+- Ultra Character Map
 
 ### Setup symblic link
 
-- cloudDefinition
-  - iCloud Drive -> all device sync     # for Personal
-  - dropbox      -> file archive module # for product files module. like Gem!
-  - github       -> sourceCode
-  - everNote     -> MyknowledgeBase
-  - googleDrive  -> # for JobProducts
 ```sh
   # setup dotfiles
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles
@@ -75,19 +35,11 @@ cd ~/dotfiles
 sh ./deploy-dotfiles-all.sh
   # easy access
 ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive
-ln -sf ~/dropbox\ \(個人\)/ ~/dropbox
   # setup ssh key
 mkdir ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
-  # setup aws key
-ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/aws ~/.aws
-  # setup eb
-ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/elasticbeanstalk ~/.elasticbeanstalk
-  # setup td key
-ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/td ~/.td
-ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/google/.google-api.yaml ~/.google-api.yaml
 ```
 ### Install homebrew
 
@@ -98,7 +50,8 @@ java -version                # => Java Install manually
 sudo xcodebuild -license
 xcode-select --install
   # Install
-ruby   -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 brew   doctor
 brew   install git
 brew   update
@@ -177,18 +130,10 @@ bundle install
    # Pre-requisites
 brew install git
 brew install ctags
+brew install 'macvim' '--with-lua --override-system-vim --custom-icons'
    # plugin
 vim +NeoBundleInstall +qall
 pip install neovim
-```
-
-### Install Quicklook Plugin
-
-```sh
-brew cask install 'quicklook-csv'
-qlmanage -r
-qlmanage -r cache
-defaults write com.apple.finder QLEnableTextSelection -bool TRUE;killall Finder
 ```
 
 ### Configure Other Apps (Manual)
