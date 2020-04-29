@@ -22,6 +22,8 @@ set matchtime=3                                                      " 対応括
 "" Directories for swp files
 set nobackup
 set noswapfile
+set noundofile
+
 
 " 全角文字をハイライトして表示
 function! Zenkaku()
