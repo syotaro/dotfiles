@@ -5,3 +5,4 @@
 /.config/xbuild/
 /.gitconfig.local
 /google-cloud-sdk/
+..*.un~
