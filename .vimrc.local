@@ -19,6 +19,10 @@ set display=lastline                                                 " 一行の
 set showmatch
 set matchtime=3                                                      " 対応括弧の表示秒数を3秒にする"
 
+"" Directories for swp files
+set nobackup
+set noswapfile
+
 " 全角文字をハイライトして表示
 function! Zenkaku()
     highlight Zenkaku cterm=reverse ctermfg=red gui=reverse guifg=red

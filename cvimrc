@@ -1,4 +1,4 @@
-let blacklists = ["https://docs.google.com/*","https://mail.google.com/*","https://www.wrike.com/*","https://drive.google.com/*","https://airtable.com/*"]
+let blacklists = ["https://docs.google.com/*","https://mail.google.com/*","https://www.wrike.com/*","https://drive.google.com/*","https://airtable.com/*","https://admin.typeform.com/*","https://shakyo.io/*","https://workona.com/*"]
 let completionengines = ['google', 'google-image', 'youtube'] " Show only these engines in the command bar
 let locale = "jp"
 set noautofocus
