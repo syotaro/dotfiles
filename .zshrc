@@ -20,7 +20,7 @@ esac
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/syotaro/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/syotaro/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/shotaro/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/shotaro/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/syotaro/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/syotaro/Library/Mobile Documents/com~apple~CloudDocs/dotfiles/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/shotaro/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/shotaro/google-cloud-sdk/completion.zsh.inc'; fi

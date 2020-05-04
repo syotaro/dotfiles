@@ -24,7 +24,6 @@ killall Finder
 - Xcode
 - Transmit
 - Slack
-- Ultra Character Map
 
 ### Setup symblic link
 
@@ -62,7 +61,6 @@ brew   update
 - [syotaro/dotfiles/brewfile.sh](https://github.com/syotaro/dotfiles/blob/master/brewfile.sh)
 
 ```sh
-brew install 'youtube-dl'           # youtube downloader
 brew install 'z'
 ```
 
@@ -71,7 +69,6 @@ brew install 'z'
 ### Setup zsh
 
 ```sh
-brew install 'zsh' '--disable-etcdir'
   # Prezto(ZshFramework)
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -83,19 +80,19 @@ done
 unlink ~/.zshrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
   # Change shell(bash -> zsh)
-chsh -s /bin/zsh
 cat /etc/shells
 ```
 
 ### Configure vim & install vim plugin
 
+- install https://github.com/splhack/macvim-kaoriya
+- フォントはsource code Pro 等を利用　https://github.com/powerline/fonts
 - .vimrcBase [vim-bootstrap.com](http://vim-bootstrap.com/)
 
 ```sh
    # Pre-requisites
-brew install git
 brew install ctags
-brew install 'macvim' '--with-lua --override-system-vim --custom-icons'
+brew install 'macvim'
    # plugin
 vim +PlugInstall +qall
 ```
