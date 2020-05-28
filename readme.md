@@ -16,14 +16,52 @@ killall Finder
 
 ### Install Apps (via AppStore)
 
-- Kaleidoscope
-- github
-- LINE
-- Navicat Premium Essentials
-- 1Password
-- Xcode
-- Transmit
-- Slack
+- Application
+  - Adobe Creative Cloud
+  - Apple Configurator 2
+  - BusyContacts
+  - Chatwork
+  - Cyberduck→google cloud storage
+  - Discord
+  - Karabiner-Elements
+  - Kindle
+  - LINE
+  - Local by Flywheel
+  - Messenger
+  - Microsoft Excel
+  - Microsoft PowerPoint
+  - Microsoft Teams
+  - Microsoft Word
+  - Navicat Premium Essentials
+  - OneDrive
+  - Postman
+  - Remote Desktop
+  - Stoplight Studio
+  - Transmit
+  - Typora
+  - WorkSpaces
+  - Wrike for Mac
+  - Xcode
+  - busycal
+  - chrome
+  - github desktop
+  - macvim
+  - newsbar
+  - slack
+  - spotify
+  - twitter Typora
+  - zoom
+  - 1Password 7
+  - Airtable
+- Chrome アプリ
+  - Chrome リモート デスクトップ
+  - Gatsby
+  - WordPress.com
+- JetBrains Toolbox
+  - DataGrip
+  - PhpStorm
+  - RubyMine
+  - WebStorm
 
 ### Setup symblic link
 
@@ -100,8 +138,6 @@ vim +PlugInstall +qall
 ### Configure Other Apps (Manual)
 
 - 1Password > Enable integration with 3rd party apps
-- Google Japanese IME > Dict import
-- Google Japanese IME > KeySetting Kotoeri > ATOK
 - 英かな
   - ![](https://docs.google.com/drawings/d/e/2PACX-1vQsYdl_2dBPDAGda40og3Ovs-C2V9mzefiOdYUUe7jsuGy_rGQvMCqbIYmAc9MVkmULR4fNnkTeQTll/pub?w=657&h=691)
 
