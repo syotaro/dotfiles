@@ -6,7 +6,6 @@
 - Upgrade Yosemite & Reboot & hold Command + R & Disk Utility -> ディスクの検証 -> Erase & Install
 - sign in apple id
 
-
 ### Configure OSX
 
 ```bash
@@ -95,14 +94,14 @@ brew   update
 ### Install Apps (via homebrew or other)
 
 ```sh
-brew install 'z'
+$ brew install 'z'
 ```
 
 - [google SDK](https://cloud.google.com/sdk/downloads?hl=ja)
 
 ### Setup zsh
 
-```sh
+```bash
   # Prezto(ZshFramework)
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -119,7 +118,8 @@ cat /etc/shells
 
 ### フォント
 rictyか、もしくは、source code Pro 等を利用　https://github.com/powerline/fonts
-```
+
+```bash
 brew install ricty
 brew reinstall --with-powerline --with-patch-in-place ricty
 cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
@@ -127,12 +127,12 @@ fc-cache -vf
 prompt -p
 ```
 
-### Configure vim & install vim plugin
+### Vim
 
 - install https://github.com/splhack/macvim-kaoriya
-- .vimrcBase [vim-bootstrap.com](http://vim-bootstrap.com/)
+- [vim-bootstrap.com](http://vim-bootstrap.com/)
 
-```sh
+```bash
    # Pre-requisites
 brew install ctags
 brew install 'macvim'
@@ -144,7 +144,7 @@ vim +PlugInstall +qall
 
 - 1Password > Enable integration with 3rd party apps
 - 英かな
-  - ![](https://docs.google.com/drawings/d/e/2PACX-1vQsYdl_2dBPDAGda40og3Ovs-C2V9mzefiOdYUUe7jsuGy_rGQvMCqbIYmAc9MVkmULR4fNnkTeQTll/pub?w=657&h=691)
+  - ![英かなイメージ画像](https://docs.google.com/drawings/d/e/2PACX-1vQsYdl_2dBPDAGda40og3Ovs-C2V9mzefiOdYUUe7jsuGy_rGQvMCqbIYmAc9MVkmULR4fNnkTeQTll/pub?w=657&h=691)
 
 
 ### osx performance tuninng
@@ -155,7 +155,7 @@ vim +PlugInstall +qall
 
 ### install cli
 
-```
+```bash
 brew install 'youtube-dl'           # youtube downloader
 brew install 'peco'
 ```
