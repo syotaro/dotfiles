@@ -11,7 +11,7 @@ Plug 'Shougo/vimfiler'
 " Plug 'kannokanno/previm'
 " Plug 'tpope/vim-cucumber'
 " Plug 'tpope/vim-markdown'
-" Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 " Plug 'tommcdo/vim-lion'   "Align
 " Plug 'thinca/vim-quickrun'
 " Plug 'elzr/vim-json'

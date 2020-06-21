@@ -15,45 +15,45 @@ killall Finder
 
 ### Install Apps (via AppStore)
 
-- Application
-  - 1Password 7
-  - Adobe Creative Cloud
-  - Airtable
-  - Apple Configurator 2
-  - BusyContacts
-  - Chatwork
-  - Cyberduck→google cloud storage
-  - Discord
-  - JetBrains Toolbox
-  - Karabiner-Elements
-  - Kindle
-  - LINE
-  - Local by Flywheel
-  - Messenger
-  - Microsoft Excel
-  - Microsoft PowerPoint
-  - Microsoft Teams
-  - Microsoft Word
-  - Navicat Premium Essentials
-  - OneDrive
-  - Postman
-  - Remote Desktop
-  - Stoplight Studio
-  - Transmit
-  - Typora
-  - WordPress.com
-  - WorkSpaces
-  - Wrike for Mac
-  - Xcode
-  - busycal
-  - chrome
-  - github desktop
-  - macvim
-  - newsbar
-  - slack
-  - spotify
-  - twitter
-  - zoom
+- 1Password
+- Adobe Creative Cloud
+- Airtable
+- Apple Configurator 2
+- BusyContacts
+- Canva
+- Chatwork
+- Cyberduck→google cloud storage
+- Discord
+- JetBrains Toolbox
+- Karabiner-Elements
+- Kindle
+- LINE
+- Local by Flywheel
+- Messenger
+- Microsoft Excel
+- Microsoft PowerPoint
+- Microsoft Teams
+- Microsoft Word
+- Navicat Premium Essentials
+- OneDrive
+- Postman
+- Remote Desktop
+- Stoplight Studio
+- Transmit
+- Typora
+- WordPress.com
+- WorkSpaces
+- Wrike for Mac
+- Xcode
+- busycal
+- chrome
+- github desktop
+- macvim
+- newsbar
+- slack
+- spotify
+- twitter
+- zoom
 - Chrome アプリ
   - Chrome リモート デスクトップ
   - Gatsby

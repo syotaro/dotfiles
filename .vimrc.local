@@ -87,7 +87,7 @@ nnoremap Y y$
 nmap <C-l> >>
 nmap <C-h> <<
 
-" map <C-a> <Esc>^
+  " map <C-a> <Esc>
 map! <C-b> <Esc>h
 map! <C-f> <Esc>l
 map  <C-b> <Left>
