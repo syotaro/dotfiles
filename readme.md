@@ -52,6 +52,7 @@ killall Finder
 - newsbar
 - slack
 - spotify
+- WinArchiver
 - twitter
 - zoom
 - Chrome アプリ
