@@ -17,33 +17,31 @@ killall Finder
 
 - 1Password
 - Adobe Creative Cloud
-- Airtable
+- Alfred 4
 - Apple Configurator 2
 - BusyContacts
 - Canva
-- Chatwork
-- Cyberduck→google cloud storage
+- Cyberduck ※for google cloud storage
 - Discord
 - JetBrains Toolbox
 - Karabiner-Elements
 - Kindle
 - LINE
 - Local by Flywheel
+- Meeter
 - Messenger
 - Microsoft Excel
 - Microsoft PowerPoint
 - Microsoft Teams
 - Microsoft Word
-- Navicat Premium Essentials
-- OneDrive
+- Navicat Premium Essentials / TablePlus / Sequel Pro
 - Postman
 - Remote Desktop
 - Stoplight Studio
 - Transmit
-- Typora
+- WinArchiver
 - WordPress.com
 - WorkSpaces
-- Wrike for Mac
 - Xcode
 - busycal
 - chrome
@@ -51,14 +49,8 @@ killall Finder
 - macvim
 - newsbar
 - slack
-- spotify
-- WinArchiver
 - twitter
-- zoom
-- Chrome アプリ
-  - Chrome リモート デスクトップ
-  - Gatsby
-  - WordPress.com
+- zoom.us
 
 
 ### Setup symblic link
@@ -152,7 +144,6 @@ vim +PlugInstall +qall
 - 通知センターの項目を減らす
 - ディスクのアクセス権の検証
 - ディスプレイの透明度を下げる
-
 
 ### install cli
 
