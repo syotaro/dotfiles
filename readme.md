@@ -17,6 +17,7 @@ killall Finder
 
 - 1Password
 - Adobe Creative Cloud
+- AWS VPN Client
 - Alfred 4
 - Apple Configurator 2
 - BusyContacts
