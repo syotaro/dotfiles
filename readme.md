@@ -66,7 +66,6 @@ killall Finder
 ```sh
   # 事前にgithub DesktopでDocumentフォルダにdotfiles.gitをcloneしておく
   # setup dotfiles
-  # ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles
 ln -sf /Users/shikilab/Documents/GitHub/dotfiles/ ~/dotfiles
 cd ~/dotfiles
 sh ./deploy-dotfiles-all.sh
