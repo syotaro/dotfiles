@@ -57,8 +57,10 @@ killall Finder
 ### Setup symblic link
 
 ```sh
+  # 事前にgithub DesktopでDocumentフォルダにdotfiles.gitをcloneしておく
   # setup dotfiles
-ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles
+  # ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/dotfiles/ ~/dotfiles
+ln -sf /Users/shikilab/Documents/GitHub/dotfiles/ ~/dotfiles
 cd ~/dotfiles
 sh ./deploy-dotfiles-all.sh
   # easy access
@@ -78,7 +80,7 @@ java -version                # => Java Install manually
 sudo xcodebuild -license
 xcode-select --install
   # Install
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew   doctor
 brew   install git
