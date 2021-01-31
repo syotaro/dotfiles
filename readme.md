@@ -16,9 +16,16 @@ killall Finder
 ### Install Apps (via AppStore)
 
 - 1Password
+  - 1password.comと連携
 - Adobe Creative Cloud
 - AWS VPN Client
 - Alfred 4
+  - clipboard有効化
+    - plain text→1ヶ月
+    - keep images
+    - keep file list
+    - ホットキー変更→ control + n
+  - web bookmark有効化
 - Apple Configurator 2
 - BusyContacts
 - Canva
@@ -113,15 +120,9 @@ cat /etc/shells
 ```
 
 ### フォント
-rictyか、もしくは、source code Pro 等を利用　https://github.com/powerline/fonts
-
-```bash
-brew install ricty
-brew reinstall --with-powerline --with-patch-in-place ricty
-cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-fc-cache -vf
-prompt -p
-```
+brew tap homebrew/cask-fonts
+brew install --cask font-hackgen
+brew install --cask font-hackgen-nerd
 
 ### Vim
 
