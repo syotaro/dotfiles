@@ -1,3 +1,6 @@
+
+
+
 set nocursorline
 set clipboard=unnamed,unnamedplus                                    " OSのクリップボードを使用する
 set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開しない
@@ -204,8 +207,6 @@ nnoremap <silent> <Space>e  : <C-u>VimFilerExplorer  -split -no-quit -simple -wi
 "*****************************************************************************
 "" Other
 "*****************************************************************************
- " VimAirline
-let g:airline_powerline_fonts = 1
 
 autocmd BufRead *.sql            setf mysql      " .sqlは、mysqlとして扱う
 autocmd BufRead *.tsv            set tabstop=24
@@ -225,4 +226,3 @@ end
 if filereadable(expand("~/.vimrc.local.secrets"))
   source ~/.vimrc.local.secrets
 endif
-

@@ -86,7 +86,10 @@ java -version                # => Java Install manually
 sudo xcodebuild -license
 xcode-select --install
   # Install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+cd /opt
+sudo mkdir homebrew
+sudo chown $USER:admin homebrew
+curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 brew   doctor
 brew   install git
@@ -139,18 +142,9 @@ vim +PlugInstall +qall
 ### Configure Other Apps (Manual)
 
 - 1Password > Enable integration with 3rd party apps
-- 英かな
-  - ![英かなイメージ画像](https://docs.google.com/drawings/d/e/2PACX-1vQsYdl_2dBPDAGda40og3Ovs-C2V9mzefiOdYUUe7jsuGy_rGQvMCqbIYmAc9MVkmULR4fNnkTeQTll/pub?w=657&h=691)
-
-
-### osx performance tuninng
-- 通知センターの項目を減らす
-- ディスクのアクセス権の検証
-- ディスプレイの透明度を下げる
 
 ### install cli
 
 ```bash
-brew install 'youtube-dl'           # youtube downloader
 brew install 'peco'
 ```
