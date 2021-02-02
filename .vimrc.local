@@ -1,6 +1,3 @@
-
-
-
 set nocursorline
 set clipboard=unnamed,unnamedplus                                    " OSのクリップボードを使用する
 set expandtab                                                        " タブを入力した際に自動でホワイトスペースに展開しない

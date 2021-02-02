@@ -1,8 +1,4 @@
-" set guifontwide=Migu\ 1M:h14
-" set guifont=Migu\ 1M:h14
-set guifont=Essential\ PragmataPro\ for\ Powerline:h12
-set guifontwide=Essential\ PragmataPro\ for\ Powerline:h12
-set guifont=Essential\ PragmataPro\ for\ Powerline:h12
+set guifont=HackGen\ 14,Cica\ 14,Ricty\ Diminished\ 14,Space\ Mono\ 13
 " set lines=97
 " set columns=100
 set guioptions-=T  " ツールバー隠す
