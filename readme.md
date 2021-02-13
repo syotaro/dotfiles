@@ -28,6 +28,7 @@ killall Finder
   - web bookmark有効化
 - Apple Configurator 2
 - BusyContacts
+- BetterSnapTool
 - Canva
 - Cyberduck ※for google cloud storage
 - Discord
@@ -92,7 +93,7 @@ sudo chown $USER:admin homebrew
 curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 brew   doctor
-brew   install git
+brew   install git composer
 brew   update
 ```
 
@@ -139,12 +140,15 @@ brew install 'macvim'
 vim +PlugInstall +qall
 ```
 
-### Configure Other Apps (Manual)
+### Configure Other Apps
 
 - 1Password > Enable integration with 3rd party apps
+
 
 ### install cli
 
 ```bash
 brew install 'peco'
 ```
+
+
