@@ -28,7 +28,6 @@ killall Finder
   - web bookmark有効化
 - Apple Configurator 2
 - BusyContacts
-- BetterSnapTool
 - Canva
 - Cyberduck ※for google cloud storage
 - Discord
