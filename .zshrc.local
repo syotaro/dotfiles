@@ -14,6 +14,7 @@ setopt ignore_eof                               # Ctrl+D では終了しない�
 setopt inc_append_history                       # 履歴をインクリメンタルに追加
 setopt rm_star_wait                             # ファイルの一括削除時に10秒間停止する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin  # sudoも補完の対象
+export GIT_PAGER="LESSCHARSET=utf-8 less"
 
 
 ######################################################################## PATH

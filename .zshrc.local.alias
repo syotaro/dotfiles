@@ -44,3 +44,5 @@ alias tr='tmux rename-session -t'
 # add datetime
 alias history="history -i"
 
+# git
+alias gs="pwd && echo '' && git remote -v  && git status -sb && echo '' && git log --date=short --max-count=5 --date=iso --pretty=format:'%Cgreen %ad %Cblue%cn%x09%Creset%s' | tail -5 && echo '' && echo ''"
