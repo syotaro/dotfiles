@@ -36,7 +36,7 @@ killall Finder
 - Kindle
 - LINE
 - Local by Flywheel
-- Meeter
+- MeetingBar
 - Messenger
 - Microsoft Excel
 - Microsoft PowerPoint
