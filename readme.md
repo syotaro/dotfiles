@@ -148,6 +148,7 @@ vim +PlugInstall +qall
 
 ```bash
 brew install 'peco'
+brew install 'ffmpeg'
 ```
 
 
