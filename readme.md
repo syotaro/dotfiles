@@ -30,6 +30,7 @@ killall Finder
 - BusyContacts
 - Canva
 - Cyberduck ※for google cloud storage
+- Google Drive.app
 - Discord
 - Karabiner-Elements
 - LINE
