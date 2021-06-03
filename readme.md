@@ -31,9 +31,7 @@ killall Finder
 - Canva
 - Cyberduck ※for google cloud storage
 - Discord
-- JetBrains Toolbox
 - Karabiner-Elements
-- Kindle
 - LINE
 - Local by Flywheel
 - MeetingBar
@@ -57,6 +55,7 @@ killall Finder
 - macvim
 - newsbar
 - slack
+- Vimeo.app
 - twitter
 - zoom.us
 
