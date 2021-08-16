@@ -1,12 +1,12 @@
 
-## OSX setup flow
+## macOS setup flow
 
 ### HDD CleanUP
 
-- Upgrade Yosemite & Reboot & hold Command + R & Disk Utility -> ディスクの検証 -> Erase & Install
+- Reboot & 電源ボタンを10秒間以上長押し & Disk Utility -> ディスクの検証 -> Erase & Install
 - sign in apple id
 
-### Configure OSX
+### Configure
 
 ```bash
 rm ~/Downloads/.localized | rm ~/Documents/.localized | rm ~/Applications/.localized | rm ~/Desktop/.localized | rm ~/Library/.localized | rm ~/Movies/.localized | rm ~/Pictures/.localized | rm ~/Music/.localized | rm ~/Public/.localized
@@ -27,11 +27,9 @@ killall Finder
     - ホットキー変更→ control + n
   - web bookmark有効化
 - Apple Configurator 2
-- BusyContacts
 - Canva
 - Cyberduck ※for google cloud storage
 - Google Drive.app
-- Discord
 - Karabiner-Elements
 - LINE
 - Local by Flywheel
@@ -41,7 +39,7 @@ killall Finder
 - Microsoft PowerPoint
 - Microsoft Teams
 - Microsoft Word
-- Navicat Premium Essentials / TablePlus / Sequel Pro
+- TablePlus
 - Postman
 - Remote Desktop
 - Stoplight Studio
