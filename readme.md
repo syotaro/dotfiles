@@ -29,7 +29,7 @@ killall Finder
 - Canva
 - Cyberduck ※for google cloud storage
 - Google Drive.app
-- Karabiner-Elements
+- Karabiner-Elements OR 英かな https://github.com/taisukef/cmd-eikana
 - LINE
 - Local by Flywheel
 - MeetingBar
