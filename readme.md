@@ -26,7 +26,6 @@ killall Finder
     - keep file list
     - ホットキー変更→ control + n
   - web bookmark有効化
-- Apple Configurator 2
 - Canva
 - Cyberduck ※for google cloud storage
 - Google Drive.app
@@ -40,10 +39,7 @@ killall Finder
 - Microsoft Teams
 - Microsoft Word
 - TablePlus
-- Postman
 - Remote Desktop
-- Stoplight Studio
-- Transmit
 - WinArchiver
 - WordPress.com
 - WorkSpaces
