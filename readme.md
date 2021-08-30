@@ -1,18 +1,3 @@
-
-## macOS setup flow
-
-### HDD CleanUP
-
-- Reboot & 電源ボタンを10秒間以上長押し & Disk Utility -> ディスクの検証 -> Erase & Install
-- sign in apple id
-
-### Configure
-
-```bash
-rm ~/Downloads/.localized | rm ~/Documents/.localized | rm ~/Applications/.localized | rm ~/Desktop/.localized | rm ~/Library/.localized | rm ~/Movies/.localized | rm ~/Pictures/.localized | rm ~/Music/.localized | rm ~/Public/.localized
-killall Finder
-```
-
 ### Install Apps (via AppStore)
 
 - 1Password
@@ -29,7 +14,7 @@ killall Finder
 - Canva
 - Cyberduck ※for google cloud storage
 - Google Drive.app
-- Karabiner-Elements OR 英かな https://github.com/taisukef/cmd-eikana
+- Karabiner-Elements
 - LINE
 - Local by Flywheel
 - MeetingBar
@@ -55,52 +40,28 @@ killall Finder
 - zoom.us
 
 
-### Setup symblic link
+### Setup CLI
 
 ```sh
-  # 事前にgithub DesktopでDocumentフォルダにdotfiles.gitをcloneしておく
-  # setup dotfiles
-ln -sf /Users/shikilab/Documents/GitHub/dotfiles/ ~/dotfiles
-cd ~/dotfiles
-sh ./deploy-dotfiles-all.sh
-  # easy access
-ln -sf ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ ~/icloudDrive
+  # homebrew
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
   # setup ssh key
 mkdir ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
-```
-### Install homebrew
-
-```sh
-  # Install Require Tools
-open /Applications/Xcode.app
-java -version                # => Java Install manually
-sudo xcodebuild -license
-xcode-select --install
-  # Install
-cd /opt
-sudo mkdir homebrew
-sudo chown $USER:admin homebrew
-curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 brew   doctor
 brew   install git composer
 brew   update
 ```
 
-### Install Apps (via homebrew or other)
-
-```sh
-$ brew install 'z'
-```
-
-- [google SDK](https://cloud.google.com/sdk/downloads?hl=ja)
-
 ### Setup zsh
 
 ```bash
+brew install 'z'
   # Prezto(ZshFramework)
 zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -133,10 +94,6 @@ brew install 'macvim'
 vim +PlugInstall +qall
 ```
 
-### Configure Other Apps
-
-- 1Password > Enable integration with 3rd party apps
-
 
 ### install cli
 
@@ -144,5 +101,3 @@ vim +PlugInstall +qall
 brew install 'peco'
 brew install 'ffmpeg'
 ```
-
-
