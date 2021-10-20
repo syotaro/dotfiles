@@ -40,6 +40,21 @@
 - zoom.us
 
 
+### 環境設定
+
+- キーボード
+  - キーボード
+    - 修飾キー
+      - CapsLockをControlキーにマッピング
+  - ユーザ辞書
+    - 全部チェック外す
+  - 入力ソース
+    - 日本語
+      - 下記のチェックを外す
+        - タイプミスを修正
+        - 推測候補表示
+        - 数字を全角入力
+
 ### Setup CLI
 
 ```sh
@@ -57,6 +72,12 @@ brew   doctor
 brew   install git composer
 brew   update
 ```
+
+### フォント
+brew tap homebrew/cask-fonts
+brew install --cask font-hackgen
+brew install --cask font-hackgen-nerd
+
 
 ### Setup zsh
 
@@ -76,10 +97,6 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 cat /etc/shells
 ```
 
-### フォント
-brew tap homebrew/cask-fonts
-brew install --cask font-hackgen
-brew install --cask font-hackgen-nerd
 
 ### Vim
 
