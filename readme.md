@@ -2,7 +2,6 @@
 
 - 1Password
   - 1password.comと連携
-- Adobe Creative Cloud
 - AWS VPN Client
 - Alfred 4
   - clipboard有効化
@@ -22,7 +21,6 @@
 - Microsoft Excel
 - Microsoft PowerPoint
 - Microsoft Teams
-- Microsoft Word
 - TablePlus
 - Remote Desktop
 - WinArchiver
