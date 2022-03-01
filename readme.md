@@ -116,3 +116,10 @@ vim +PlugInstall +qall
 brew install 'peco'
 brew install 'ffmpeg'
 ```
+
+## 細かい設定
+- macOSであらゆるアプリのWebViewでDevToolsのInspectを開く設定
+
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+defaults write -g WebKitDeveloperExtras -bool YES
+
