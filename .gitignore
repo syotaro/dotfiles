@@ -6,3 +6,4 @@
 /.gitconfig.local
 /google-cloud-sdk/
 ..*.un~
+.DS_Store
