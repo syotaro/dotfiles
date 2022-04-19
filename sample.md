@@ -13,6 +13,8 @@ data-game-url: https://shiki-lab.sales.ptalk.app/  ## embed用
 </button>
 ```
 
+プレゼントーク形式で見たい人は、↑で。
+ブログっぽく縦読みしたい人は、↓を見る感じ。一つのスライドから両方とも生成されるからgood
 
 ![タイトルスライド](https://docs.google.com/presentation/d/12h0UHktPDx28qJcjE9-PjkBFwR4EgP34_NlUpa0Izw4/export/svg?pageid=gec5b33a58d_1_0)
 
