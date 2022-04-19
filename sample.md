@@ -22,3 +22,4 @@ data-game-url: https://shiki-lab.sales.ptalk.app/  ## embed用
 ![2枚目スライド](https://docs.google.com/presentation/d/12h0UHktPDx28qJcjE9-PjkBFwR4EgP34_NlUpa0Izw4/export/svg?pageid=g122f41e1b8f_0_0)
 
 ここはスピーカーノートの内容が記述2
+（SVG内のアニGIFが動いているのがすごい！）
