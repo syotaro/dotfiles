@@ -1,5 +1,0 @@
-## Android Studio
-export PATH=${HOME}/Library/Android/sdk/platform-tools:$PATH
-export PATH=${HOME}/Library/Android/sdk/tools:$PATH
-
-alias adb-uninstall='adb shell pm list package | sed -e s/package:// | peco | xargs adb uninstall'
