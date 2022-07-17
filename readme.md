@@ -111,16 +111,6 @@ OK
 
 # ~/.gitconfig が更新されたことを確認
 > cat ~/.gitconfig
-[user]
-	name = non-97
-	email = <GitHubアカウントのメールアドレス>
-[secrets]
-	providers = git secrets --aws-provider
-	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
-	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
-	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
-	allowed = AKIAIOSFODNN7EXAMPLE
-	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 # リポジトリ用のGit hooksを ~/.git-templates/git-secrets にインストール
 > git secrets --install ~/.git-templates/git-secrets
@@ -133,13 +123,13 @@ OK
 
 ```
 
-```
+```sh
 > brew install tree
-> brew install macvim
 ```
 
 ## システムにインストールされているマニュアルページをfishに読み込む
-``
+
+``sh
 > fish_update_completions
 
 ### GUIアプリのインストール
@@ -163,7 +153,7 @@ OK
 
 ### SSH key
 
-```
+```sh
   # setup ssh key
 mkdir ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
@@ -174,3 +164,12 @@ chmod 600 ~/.ssh/id_*
 ### フォント
 
 https://fonts.google.com/specimen/BIZ+UDGothic
+
+## VIM
+
+```sh
+# https://vim-bootstrap.com/
+% brew install neovim
+% python3 -m pip install --user --upgrade pynvim
+% vim ~/.config/nvim/init.vim
+```
