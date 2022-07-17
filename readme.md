@@ -168,8 +168,10 @@ https://fonts.google.com/specimen/BIZ+UDGothic
 ## VIM
 
 ```sh
-# https://vim-bootstrap.com/
+% brew install git ctags
 % brew install neovim
 % python3 -m pip install --user --upgrade pynvim
-% vim ~/.config/nvim/init.vim
+# https://vim-bootstrap.com/ # コマンドなどは、READMEに書いてある
+% mv ~/Downloads/generate.vim $XDG_CONFIG_HOME/nvim/init.vim
+
 ```
