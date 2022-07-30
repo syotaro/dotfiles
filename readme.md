@@ -163,15 +163,27 @@ chmod 600 ~/.ssh/id_*
 
 ### フォント
 
-https://fonts.google.com/specimen/BIZ+UDGothic
+https://fonts.google.com/specimen/BIZ+UDGothic     # GUI用
+https://github.com/yuru7/udev-gothic               # CUI用
 
 ## VIM
 
 ```sh
 % brew install git ctags
 % brew install neovim
+% brew install neovim-qt
 % python3 -m pip install --user --upgrade pynvim
 # https://vim-bootstrap.com/ # コマンドなどは、READMEに書いてある
 % mv ~/Downloads/generate.vim $XDG_CONFIG_HOME/nvim/init.vim
 
 ```
+
+## Java & Xcode
+
+https://www.java.com/ja/download/
+
+
+## 1password CLI
+1passwrodに格納されたSSH秘密鍵を用いて、ssh接続できるようにする。また、その際生体認証も有効にする→機密性と便利性の両立の為
+https://1password.com/downloads/command-line/
+https://developer.1password.com/docs/ssh/get-started/
