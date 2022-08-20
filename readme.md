@@ -150,6 +150,7 @@ OK
 - github desktop
 - slack
 - zoom.us
+- devutils
 
 ### SSH key
 
@@ -187,3 +188,10 @@ https://www.java.com/ja/download/
 1passwrodに格納されたSSH秘密鍵を用いて、ssh接続できるようにする。また、その際生体認証も有効にする→機密性と便利性の両立の為
 https://1password.com/downloads/command-line/
 https://developer.1password.com/docs/ssh/get-started/
+
+## macOS config
+h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
+
+```
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+```
