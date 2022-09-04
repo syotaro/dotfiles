@@ -38,26 +38,11 @@
 
 ```sh
 # fishの設定
-% cat ~/.config/fish/config.fish
+## 設定のバックアップ
+cp -ip ~/.config/fish/config.fish                         ~/GitHub/syotaro/dotfiles/.config/fish/config.fish
+## 設定のリストア
+cp -ip ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish 
 
-# メッセージを消す
-set fish_greeting
-
-# LSCOLORS
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
-# fzf
-set -U FZF_LEGACY_KEYBINDINGS 0
-set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
-
-#ALIAS
-alias tree='tree -a -I "\.DS_Store|\.git|node_modules|cdk.out|venv|package|vendor\/bundle" -N'
-
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-    source (/opt/homebrew/bin/brew shellenv|psub)
-    source (/opt/homebrew/bin/anyenv init - fish|psub)
-end
 ```
 
 ```sh
@@ -87,8 +72,8 @@ end
 % anyenv update
 
 % anyenv install rbenv
-% rbenv install 2.7.6
-% rbenv global 2.7.6
+% rbenv install 3.1.2
+% rbenv global 3.1.2
 ```
 
 ## その他のCLI
@@ -135,8 +120,9 @@ OK
 
 ## システムにインストールされているマニュアルページをfishに読み込む
 
-``sh
+```sh
 > fish_update_completions
+```
 
 ### GUIアプリのインストール
 
@@ -173,18 +159,20 @@ chmod 600 ~/.ssh/id_*
 https://fonts.google.com/specimen/BIZ+UDGothic     # GUI用
 https://github.com/yuru7/udev-gothic               # CUI用
 
-## VIM
+## NVIM
 
 ```sh
 % brew install git ctags
 % brew install neovim
 % brew install neovim-qt
 % python3 -m pip install --user --upgrade pynvim
-# https://vim-bootstrap.com/ # コマンドなどは、READMEに書いてある
-% mv ~/Downloads/generate.vim $XDG_CONFIG_HOME/nvim/init.vim
-# 必要な設定を確認(vimを開いて実行)
+ # vim-bootstrap.comから基本設定をDL
+% curl 'https://vim-bootstrap.com/generate.vim' --data 'editor=nvim&theme=molokai&langs=javascript&langs=typescript&langs=html&langs=ruby' > ~/.config/nvim/init.vim
+ # カスタム設定を配置
+% cp -ip ~/GitHub/syotaro/dotfiles/.config/nvim/local_bundles.vim  ~/.config/nvim/local_bundles.vim
+% cp -ip ~/GitHub/syotaro/dotfiles/.config/nvim/local_init.vim     ~/.config/nvim/local_init.vim
+ # 必要な設定を確認(vimを開いて実行)
 % :checkhealth provider
-
 ```
 
 ## Java & Xcode
