@@ -69,20 +69,26 @@ end
 > brew install fzf
 > fisher install fisherman/fzf
 
+# vscodeのターミナルシェル連携の設定
+# https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
 ```
 
 ## anyenv
 
 ```sh
-> brew install anyenv
-> anyenv install --init
-> anyenv install --list
-> anyenv install nodenv
-> nodenv install 16.14.0
-> nodeenv global 16.14.0
-> mkdir -p $(anyenv root)/plugins
-> git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
-> anyenv update
+% brew install anyenv
+% anyenv install --init
+% anyenv install --list
+% anyenv install nodenv
+% nodenv install 16.14.0
+% nodeenv global 16.14.0
+% mkdir -p $(anyenv root)/plugins
+% git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+% anyenv update
+
+% anyenv install rbenv
+% rbenv install 2.7.6
+% rbenv global 2.7.6
 ```
 
 ## その他のCLI
@@ -176,6 +182,8 @@ https://github.com/yuru7/udev-gothic               # CUI用
 % python3 -m pip install --user --upgrade pynvim
 # https://vim-bootstrap.com/ # コマンドなどは、READMEに書いてある
 % mv ~/Downloads/generate.vim $XDG_CONFIG_HOME/nvim/init.vim
+# 必要な設定を確認(vimを開いて実行)
+% :checkhealth provider
 
 ```
 
@@ -192,6 +200,7 @@ https://developer.1password.com/docs/ssh/get-started/
 ## macOS config
 h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
 
+```sh
+$ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
 ```
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-```
+
