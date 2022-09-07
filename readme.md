@@ -154,6 +154,7 @@ chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ```
 
+
 ### フォント
 
 https://fonts.google.com/specimen/BIZ+UDGothic     # GUI用
@@ -173,6 +174,14 @@ https://github.com/yuru7/udev-gothic               # CUI用
 % cp -ip ~/GitHub/syotaro/dotfiles/.config/nvim/local_init.vim     ~/.config/nvim/local_init.vim
  # 必要な設定を確認(vimを開いて実行)
 % :checkhealth provider
+```
+
+
+```sh
+# 言語サーバー
+gem install neovim
+gem environment
+gem install solargraph
 ```
 
 ## Java & Xcode
