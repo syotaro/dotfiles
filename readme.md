@@ -1,17 +1,17 @@
-# 端末setup
+# 端末 setup
 
-## mac OS関連
+## mac OS 関連
 
 - update
 - キーボード
-    - CapsLockをControlキーにマッピング
-    - ユーザ辞書
-        - 全部チェック外す
-    - 入力ソース
-        - 日本語の、下記のチェックを外す
-            - タイプミスを修正
-            - 推測候補表示
-            - 数字を全角入力
+  - CapsLock を Control キーにマッピング
+  - ユーザ辞書
+    - 全部チェック外す
+  - 入力ソース
+    - 日本語の、下記のチェックを外す
+      - タイプミスを修正
+      - 推測候補表示
+      - 数字を全角入力
 
 ## CLI（homebrew & fish）
 
@@ -41,7 +41,7 @@
 ## 設定のバックアップ
 cp -ip ~/.config/fish/config.fish                         ~/GitHub/syotaro/dotfiles/.config/fish/config.fish
 ## 設定のリストア
-cp -ip ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish 
+cp -ip ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 
 ```
 
@@ -76,7 +76,7 @@ cp -ip ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.
 % rbenv global 3.1.2
 ```
 
-## その他のCLI
+## その他の CLI
 
 ```sh
  # git
@@ -118,13 +118,13 @@ OK
 > brew install tree
 ```
 
-## システムにインストールされているマニュアルページをfishに読み込む
+## システムにインストールされているマニュアルページを fish に読み込む
 
 ```sh
 > fish_update_completions
 ```
 
-### GUIアプリのインストール
+### GUI アプリのインストール
 
 - 1Password
 - AWS VPN Client
@@ -154,11 +154,10 @@ chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ```
 
-
 ### フォント
 
-https://fonts.google.com/specimen/BIZ+UDGothic     # GUI用
-https://github.com/yuru7/udev-gothic               # CUI用
+https://fonts.google.com/specimen/BIZ+UDGothic # GUI 用
+https://github.com/yuru7/udev-gothic # CUI 用
 
 ## NVIM
 
@@ -176,7 +175,6 @@ https://github.com/yuru7/udev-gothic               # CUI用
 % :checkhealth provider
 ```
 
-
 ```sh
 # 言語サーバー
 gem install neovim
@@ -188,16 +186,16 @@ gem install solargraph
 
 https://www.java.com/ja/download/
 
-
 ## 1password CLI
-1passwrodに格納されたSSH秘密鍵を用いて、ssh接続できるようにする。また、その際生体認証も有効にする→機密性と便利性の両立の為
+
+1passwrod に格納された SSH 秘密鍵を用いて、ssh 接続できるようにする。また、その際生体認証も有効にする → 機密性と便利性の両立の為
 https://1password.com/downloads/command-line/
 https://developer.1password.com/docs/ssh/get-started/
 
 ## macOS config
+
 h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
 
 ```sh
-$ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+% defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
 ```
-
