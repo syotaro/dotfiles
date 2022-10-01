@@ -13,46 +13,46 @@
       - 推測候補表示
       - 数字を全角入力
 
-## CLI（homebrew & fish） 
+## CLI（homebrew & fish）
 
 ```sh
-# install
+ # install
 % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# zshのプロファイルにパスを通す
+ # zshのプロファイルにパスを通す
 % echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /<ホームディレクトリ>/.zprofile
-# 現在のセッションにHomebrewのパスを認識させる
+ # 現在のセッションにHomebrewのパスを認識させる
 % eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# install fish
+ # install fish
 % brew install fish
-# fishのパスを確認
+ # fishのパスを確認
 % which fish
   /opt/homebrew/bin/fish
-# ログインシェルをfishに変更
+ # ログインシェルをfishに変更
 % chsh -s /opt/homebrew/bin/fish
   Changing shell for <ユーザー名>.
   Password for <ユーザー名>:
-# ログインシェルとして有効なシェルにfishを追加
+ # ログインシェルとして有効なシェルにfishを追加
 % sudo vi /etc/shells # 最終行に、/opt/homebrew/bin/fish を追記
 ```
 
 ```sh
-# fishの設定
-## 設定のバックアップ
-cp -ip ~/.config/fish/config.fish                         ~/GitHub/syotaro/dotfiles/.config/fish/config.fish
-## 設定のリストア
-cp -ip ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ # fishの設定
+ ## 設定のバックアップ
+% cp -f ~/.config/fish/config.fish                         ~/GitHub/syotaro/dotfiles/.config/fish/config.fish
+  ## 設定のリストア
+cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 
 ```
 
 ```sh
-# fishのプラグインinstall
+ # fishのプラグインinstall
 # fisherのインストール
-> curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-> fisher install jethrokuan/z
-> fisher install 0rax/fish-bd
-> brew install fzf
-> fisher install fisherman/fzf
+% curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+% fisher install jethrokuan/z
+% fisher install 0rax/fish-bd
+% brew install fzf
+% fisher install fisherman/fzf
 
 # vscodeのターミナルシェル連携の設定
 # https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
@@ -80,13 +80,13 @@ cp -ip ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.
 
 ```sh
  # git
-> brew install git
-> git config --global user.name "syotaro"
-> git config --global user.email "<GitHubアカウントのメールアドレス>"
-> mkdir -p ~/.config/git/
-> echo .DS_Store > ~/.config/git/ignore
-> cat ~/.config/git/ignore
-.DS_Store
+% brew install git
+% git config --global user.name "syotaro"
+% git config --global user.email "<GitHubアカウントのメールアドレス>"
+% vim ~/.gitignore
+% mkdir -p ~/.config/git/
+   .dccache
+   .DS_Store
 
  # github
 > brew install gh
@@ -154,46 +154,51 @@ chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ```
 
-### フォント
+### NVIM 用フォント(アイコン)
 
-https://fonts.google.com/specimen/BIZ+UDGothic # GUI 用
-https://github.com/yuru7/udev-gothic # CUI 用
-
-$ brew tap homebrew/cask-fonts
-$ brew install font-hackgen
-$ brew install font-hackgen-nerd
+- https://fonts.google.com/specimen/BIZ+UDGothic # GUI 用
 
 ## NVIM
 
-```sh
-% brew install Alacritty
-% vim ~/.config/alacritty/alacritty.yml
-% git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-% nvim +PackerSync
-```
-
+- 事前に iTerm2 をインストールしておく(デフォルトのターミナルだと、TrueColor 非対応につき、アイコンが文字化けする為)
 
 ```sh
+ # NERDフォントをインストール
+% brew tap homebrew/cask-fonts
+% brew install font-hackgen
+% brew install font-hackgen-nerd
+
+
+ # NVIM本体をインストール
 % brew install git ctags
 % brew install neovim
 % brew install neovim-qt
 % python3 -m pip install --user --upgrade pynvim
- # vim-bootstrap.comから基本設定をDL
-% curl 'https://vim-bootstrap.com/generate.vim' --data 'editor=nvim&theme=molokai&langs=javascript&langs=typescript&langs=html&langs=ruby' > ~/.config/nvim/init.vim
+
+
+ # NVIMの設定を時短するため、AstroNvimをインストール
+% git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+% nvim +PackerSync
+
  # カスタム設定を配置
 % cp -ip ~/GitHub/syotaro/dotfiles/.config/nvim/local_bundles.vim  ~/.config/nvim/local_bundles.vim
 % cp -ip ~/GitHub/syotaro/dotfiles/.config/nvim/local_init.vim     ~/.config/nvim/local_init.vim
- # 必要な設定を確認(vimを開いて実行)
-% :checkhealth provider
-```
 
-```sh
-# 言語サーバー
-gem install neovim
-gem environment
-gem install solargraph
-gem install rubocop
-nvim # → :CocInstall coc-solargraph
+ # 必要な設定を確認
+% nvim +checkhealth provider
+ # LSPをインストール(AstroNvimのメニューから)
+    ✓ solargraph
+    ✓ cssmodules-language-server
+    ✓ eslint-lsp
+    ✓ lua-language-server
+    ✓ prettier
+    ✓ rubocop
+    ✓ typescript-language-server
+ # AstroNVIMのカスタム設定をバックアップして、アップデート
+cp -f ~/.config/nvim/lua/default_theme/base.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/default_theme/base.lua
+cp -f ~/.config/nvim/init.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/init.lua
+cp -f ~/.config/nvim/lua/core/mappings.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/core/mappings.lua
+:AstroUpdate
 
 ```
 
