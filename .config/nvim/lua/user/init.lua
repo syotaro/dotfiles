@@ -37,6 +37,7 @@ local config = {
       local C = require "default_theme.colors"
 
       highlights.Normal = { fg = C.fg, bg = C.bg }
+      highlights.MatchParen = { fg = C.fg, bg = C.red } -- ペアの括弧のハイライトが灰色で見えにくいので赤色に
       return highlights
     end,
   },
@@ -46,11 +47,11 @@ local config = {
     opt = {
       ambiwidth = "single",
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
+      -- cmdheight = 0, -- nvim0.8以降でサポート。かっこいい
       background = "dark",
       backspace = "indent,eol,start",
       backup = false,
       clipboard = "unnamedplus",
-      cmdheight = 1,
       fenc = "utf-8",
       hidden = true,
       hlsearch = true,
@@ -178,38 +179,50 @@ local config = {
   -- lower level configuration and more robust one. (which-key will
   -- automatically pick-up stored data by this setting.)
   mappings = {
-    -- first key is the mode
-    n = {
-      -- second key is the lefthand side of the map
-      -- mappings seen under group name "Buffer"
+    n = { -- n:ノーマルモード
+      -- ["<LEADER>n"] = { "<CMD>enew<CR>", desc = "NEW FILE" },
+      ["<LEADER>r"] = { function() require("telescope.builtin").oldfiles() end, desc = "履歴検索" },
+
+      ["1"] = { "^", desc = "" },
+      ["9"] = { "$", desc = "" },
+      [";"] = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
+      ["<C-b>"] = { "<LEFT>", desc = "" },
+      ["<C-f>"] = { "<RIGHT>", desc = "" },
+      ["<C-e>"] = { "<ESC>$", desc = "" },
+      ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
+      ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
+      ["<C-c>"] = { "<ESC>", desc = "Ctrl + c とEscの動作を完全に一致させる" },
+      ["<C-c><C-c>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
+      ["<C-H>"] = { "<<", desc = "" },
+      ["<C-L>"] = { ">>", desc = "" },
+      ["<CR>"] = { "o<ESC>", desc = "挿入モードにならずに改行" },
+      ["<LEADER>f"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
       ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-      -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-      ["<C-c>"] = { "<ESC>", desc = "Ctrl + c とEscの動作を完全に一致させる" },
+      ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
+      ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+      ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+      ["q"] = { ":q<cr>", desc = "qだけでエディタを閉じる" },
+      ["z"] = { ":setl wrap!<CR>:setl wrap?<CR>", desc = "wrapをトグル" },
     },
-    t = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
+    t = { -- t:ターミナルモード
     },
-
-    i = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
+    i = { -- i:インサートモード
+      ["<C-k>"] = { "()<LEFT>", desc = "()をサクッと呼び出す" },
     },
-    v = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
+    c = { -- c:コマンドモード
     },
-    c = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
+    v = { -- v:ヴィジュアルモード
+      ["9"] = { "$", desc = "" },
+      ["1"] = { "^", desc = "" },
     },
-    x = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
+    x = { -- x:ヴィジュアルブロックモード
+      ["9"] = { "$", desc = "" },
+      ["1"] = { "^", desc = "" },
+      ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
+      ["p"] = { "_dP", desc = "ペーストする際、ヤンクせずに削除" },
     },
   },
 
