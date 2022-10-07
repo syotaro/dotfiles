@@ -80,6 +80,8 @@
 % brew install tree
  # agコマンド
 % brew install the_silver_searcher
+ # terraform
+% brew install terraform
 ```
 
 ## システムにインストールされているマニュアルページを fish に読み込む
@@ -160,7 +162,8 @@ cp -f ~/.config/nvim/lua/core/mappings.lua  ~/GitHub/syotaro/dotfiles/.config/nv
     ✓ prettier
     ✓ rubocop
     ✓ typescript-language-server
-
+ # Syntax（TreeSitter）の設定確認
+% vim +TSInstallInfo
 ```
 
 ## Java & Xcode
@@ -175,8 +178,9 @@ https://developer.1password.com/docs/ssh/get-started/
 
 ## macOS config
 
-h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
-
 ```sh
+ # h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
 % defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+ # スクリーンショットのファイル名固定文字列を削除
+% defaults write com.apple.screencapture name ""
 ```

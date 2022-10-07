@@ -54,6 +54,10 @@ local config = {
       clipboard = "unnamedplus",
       fenc = "utf-8",
       hidden = true,
+      -- helplang = "ja",
+      -- title = true,
+      -- autoindent = true,
+      -- smartindent = true,
       hlsearch = true,
       laststatus = 2,
       lazyredraw = true,
@@ -217,6 +221,8 @@ local config = {
     v = { -- v:ヴィジュアルモード
       ["9"] = { "$", desc = "" },
       ["1"] = { "^", desc = "" },
+      ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
+      ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
     },
     x = { -- x:ヴィジュアルブロックモード
       ["9"] = { "$", desc = "" },
@@ -229,27 +235,17 @@ local config = {
   -- Configure plugins
   plugins = {
     init = {
-      -- You can disable default plugins as follows:
-      -- ["goolord/alpha-nvim"] = { disable = true },
+      {
+        "glepnir/lspsaga.nvim", -- UIがかっこよくなるらしい
+        branch = "main",
+        config = function()
+          local saga = require "lspsaga"
 
-      -- You can also add new plugins here as well:
-      -- Add plugins, the packer syntax without the "use"
-      -- { "andweeb/presence.nvim" },
-      -- {
-      --   "ray-x/lsp_signature.nvim",
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
-
-      -- We also support a key value style plugin definition similar to NvChad:
-      -- ["ray-x/lsp_signature.nvim"] = {
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
+          saga.init_lsp_saga {
+            -- your configuration
+          }
+        end,
+      },
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
@@ -277,15 +273,30 @@ local config = {
       return config -- return final config table to use in require("null-ls").setup(config)
     end,
     treesitter = { -- overrides `require("treesitter").setup(...)`
-      ensure_installed = { "lua" },
+      ensure_installed = { "lua", "markdown", "tsx", "javascript", "typescript", "css", "dockerfile", "hcl" },
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-      ensure_installed = { "sumneko_lua" },
+      ensure_installed = { "sumneko_lua", automatic_installation = true },
     },
     -- use mason-tool-installer to configure DAP/Formatters/Linter installation
     ["mason-tool-installer"] = { -- overrides `require("mason-tool-installer").setup(...)`
-      ensure_installed = { "prettier", "stylua" },
+      ensure_installed = {
+        -- Lsp
+        "css-lsp",
+        "cssmodules-language-server",
+        "eslint-lsp",
+        "json-lsp",
+        "lua-language-server",
+        "solargraph", -- ruby
+        "typescript-language-server",
+        "terraform-ls",
+        -- Formatter
+        "prettier",
+        "stylua",
+        -- Linter
+        "rubocop",
+      },
     },
     packer = { -- overrides `require("packer").setup(...)`
       compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
