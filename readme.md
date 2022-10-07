@@ -2,8 +2,8 @@
 
 ## mac OS 関連
 
-- update
-- キーボード
+- OS update
+- 設定 > キーボード
   - CapsLock を Control キーにマッピング
   - ユーザ辞書
     - 全部チェック外す
@@ -19,7 +19,7 @@
  # install
 % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
  # zshのプロファイルにパスを通す
-% echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /<ホームディレクトリ>/.zprofile
+% echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
  # 現在のセッションにHomebrewのパスを認識させる
 % eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -34,28 +34,18 @@
   Password for <ユーザー名>:
  # ログインシェルとして有効なシェルにfishを追加
 % sudo vi /etc/shells # 最終行に、/opt/homebrew/bin/fish を追記
-```
-
-```sh
- # fishの設定
- ## 設定のバックアップ
-% cp -f ~/.config/fish/config.fish                         ~/GitHub/syotaro/dotfiles/.config/fish/config.fish
-  ## 設定のリストア
-cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
-
-```
-
-```sh
+ # 設定ファイルを配置
+% cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
  # fishのプラグインinstall
-# fisherのインストール
+ # fisherのインストール
 % curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 % fisher install jethrokuan/z
 % fisher install 0rax/fish-bd
 % brew install fzf
 % fisher install fisherman/fzf
 
-# vscodeのターミナルシェル連携の設定
-# https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
+ # vscodeのターミナルシェル連携の設定
+ # https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
 ```
 
 ## anyenv
@@ -81,47 +71,21 @@ cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.f
 ```sh
  # git
 % brew install git
-% git config --global user.name "syotaro"
-% git config --global user.email "<GitHubアカウントのメールアドレス>"
-% vim ~/.gitignore
-% mkdir -p ~/.config/git/
-   .dccache
-   .DS_Store
-
+% ls ~/Github/syotaro/dotfiles/.config/git
  # github
-> brew install gh
-> gh auth login
-> gh auth status
-
- # git-secrets
-> brew install git-secrets
-
-# AWSアクセスキーの標準パターンをGitの設定ファイルに書き込む
-> git secrets --register-aws --global
-OK
-
-# ~/.gitconfig が更新されたことを確認
-> cat ~/.gitconfig
-
-# リポジトリ用のGit hooksを ~/.git-templates/git-secrets にインストール
-> git secrets --install ~/.git-templates/git-secrets
-✓ Installed commit-msg hook to /<ホームディレクトリ>/.git-templates/git-secrets/hooks/commit-msg
-✓ Installed pre-commit hook to /<ホームディレクトリ>/.git-templates/git-secrets/hooks/pre-commit
-✓ Installed prepare-commit-msg hook to /<ホームディレクトリ>/.git-templates/git-secrets/hooks/prepare-commit-msg
-
-# インストールしたテンプレートを読み込む
-> git config --global init.templatedir '~/.git-templates/git-secrets'
-
-```
-
-```sh
-> brew install tree
+% brew install gh
+% gh auth login
+% gh auth status
+ # tree
+% brew install tree
+ # agコマンド
+% brew install the_silver_searcher
 ```
 
 ## システムにインストールされているマニュアルページを fish に読み込む
 
 ```sh
-> fish_update_completions
+% fish_update_completions
 ```
 
 ### GUI アプリのインストール
@@ -154,9 +118,9 @@ chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 ```
 
-### NVIM 用フォント(アイコン)
+### フォント
 
-- https://fonts.google.com/specimen/BIZ+UDGothic # GUI 用
+- https://fonts.google.com/specimen/BIZ+UDGothic
 
 ## NVIM
 
@@ -180,9 +144,11 @@ chmod 600 ~/.ssh/id_*
 % git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 % nvim +PackerSync
 
- # カスタム設定を配置
-% cp -ip ~/GitHub/syotaro/dotfiles/.config/nvim/local_bundles.vim  ~/.config/nvim/local_bundles.vim
-% cp -ip ~/GitHub/syotaro/dotfiles/.config/nvim/local_init.vim     ~/.config/nvim/local_init.vim
+ # AstroNVIMのカスタム設定をバックアップして、アップデート
+cp -f ~/.config/nvim/lua/default_theme/base.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/default_theme/base.lua
+cp -f ~/.config/nvim/init.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/init.lua
+cp -f ~/.config/nvim/lua/core/mappings.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/core/mappings.lua
+:AstroUpdate
 
  # 必要な設定を確認
 % nvim +checkhealth provider
@@ -194,11 +160,6 @@ chmod 600 ~/.ssh/id_*
     ✓ prettier
     ✓ rubocop
     ✓ typescript-language-server
- # AstroNVIMのカスタム設定をバックアップして、アップデート
-cp -f ~/.config/nvim/lua/default_theme/base.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/default_theme/base.lua
-cp -f ~/.config/nvim/init.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/init.lua
-cp -f ~/.config/nvim/lua/core/mappings.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/core/mappings.lua
-:AstroUpdate
 
 ```
 
