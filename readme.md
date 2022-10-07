@@ -144,14 +144,11 @@ chmod 600 ~/.ssh/id_*
 
  # NVIMの設定を時短するため、AstroNvimをインストール
 % git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+% git checkout nightly # nvim0.8.0対応のためにnightlyへ
 % nvim +PackerSync
-
- # AstroNVIMのカスタム設定をバックアップして、アップデート
-cp -f ~/.config/nvim/lua/default_theme/base.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/default_theme/base.lua
-cp -f ~/.config/nvim/init.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/init.lua
-cp -f ~/.config/nvim/lua/core/mappings.lua  ~/GitHub/syotaro/dotfiles/.config/nvim/lua/core/mappings.lua
-:AstroUpdate
-
+ # 設定ファイルをコピー
+% mkdir -p ~/.config/nvim/lua/user/
+% ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/init.lua.nightly ~/.config/nvim/lua/user/init.lua
  # 必要な設定を確認
 % nvim +checkhealth provider
  # LSPをインストール(AstroNvimのメニューから)
