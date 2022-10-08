@@ -47,10 +47,8 @@ local config = {
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
-      ambiwidth = "single",
+      -- ambiwidth = "single",
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
-      -- cmdheight = 0, -- nvim0.8以降でサポート。かっこいい
-      background = "dark",
       backspace = "indent,eol,start",
       backup = false,
       clipboard = "unnamedplus",
@@ -61,8 +59,7 @@ local config = {
       -- autoindent = true,
       -- smartindent = true,
       hlsearch = true,
-      laststatus = 2,
-      lazyredraw = true,
+      -- lazyredraw = true,
       list = true, -- 不可視文字表示
       listchars = "tab:▸ ,trail:_,extends:>,precedes:<,nbsp:%", -- " 不可視文字の表示形式
       mouse = "a",
@@ -80,8 +77,12 @@ local config = {
       whichwrap = "b,s,h,l,[,],<,>", -- カーソルを行頭、行末で止まらないようにする
       wildmenu = true, -- コマンドラインで補完候補をメニュー表示する
       writebackup = false,
-      signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
+      wrap = false,
+      -- AstroNVIMでデフォルト設定されているので、あえてやらないでいいやつ
+      ---- signcolumn = "true", signcolumnは常に有効にして、ファイル開く直後のガタつき予防
+      ---- laststatus = 2,
+      ---- cmdheight = 0, -- nvim0.8以降でサポート。かっこいい
+      ---- background = "dark", --デフォルト有効になっている
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -189,15 +190,10 @@ local config = {
         ["<C-L>"] = { ">>", desc = "" },
         ["<CR>"] = { "o<ESC>", desc = "挿入モードにならずに改行" },
         ["<LEADER>f"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
-        ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-        ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-        ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-        ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
         ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
         ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
         ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
         ["q"] = { ":q<cr>", desc = "qだけでエディタを閉じる" },
-        ["z"] = { ":setl wrap!<CR>:setl wrap?<CR>", desc = "wrapをトグル" },
       },
       t = { -- t:ターミナルモード
       },
@@ -310,7 +306,7 @@ local config = {
       return config -- return final config table
     end,
     treesitter = { -- overrides `require("treesitter").setup(...)`
-      ensure_installed = { "lua", "markdown", "tsx", "javascript", "typescript", "css", "dockerfile", "hcl" },
+      ensure_installed = { "lua", "tsx", "javascript", "typescript", "css", "dockerfile", "hcl" },
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
