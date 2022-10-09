@@ -62,40 +62,40 @@ which fish   # => /opt/homebrew/bin/fish
 ## anyenv
 
 ```sh
-% brew install anyenv
-% anyenv install --init
-% anyenv install --list
-% anyenv install nodenv
-% nodenv install 16.14.0
-% nodeenv global 16.14.0
-% mkdir -p $(anyenv root)/plugins
-% git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
-% anyenv update
+brew install anyenv
+anyenv install --init
+anyenv install --list
+anyenv install nodenv
+nodenv install 16.14.0
+nodeenv global 16.14.0
+mkdir -p $(anyenv root)/plugins
+git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+anyenv update
 
-% anyenv install rbenv
-% rbenv install 3.1.2
-% rbenv global 3.1.2
+anyenv install rbenv
+rbenv install 3.1.2
+rbenv global 3.1.2
 ```
 
 ## その他の CLI
 
 ```sh
  # github
-% brew install gh
-% gh auth login
-% gh auth status
+brew install gh
+gh auth login
+gh auth status
  # tree
-% brew install tree
+brew install tree
  # agコマンド
-% brew install the_silver_searcher
+brew install the_silver_searcher
  # terraform
-% brew install terraform
+brew install terraform
 ```
 
-## システムにインストールされているマニュアルページを fish に読み込む
+## fish の補完を最適化する為、CLI help を fish にロード
 
 ```sh
-% fish_update_completions
+fish_update_completions
 ```
 
 ### GUI アプリのインストール
@@ -117,6 +117,7 @@ which fish   # => /opt/homebrew/bin/fish
 - slack
 - zoom.us
 - devutils
+- [Java](https://www.java.com/ja/download/)
 
 ### SSH key
 
@@ -126,6 +127,12 @@ mkdir ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
 chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
+
+  # 1password CLI
+  # => 1passwrod に格納された SSH 秘密鍵を用いて、ssh 接続できるようにする。また、その際生体認証も有効にする → 機密性と便利性の両立の為
+  # => https://1password.com/downloads/command-line/
+  # => https://developer.1password.com/docs/ssh/get-started/
+
 ```
 
 ### フォント
@@ -171,16 +178,6 @@ nvim +checkhealth provider
 vim +TSInstallInfo
 ```
 
-## Java & Xcode
-
-https://www.java.com/ja/download/
-
-## 1password CLI
-
-1passwrod に格納された SSH 秘密鍵を用いて、ssh 接続できるようにする。また、その際生体認証も有効にする → 機密性と便利性の両立の為
-https://1password.com/downloads/command-line/
-https://developer.1password.com/docs/ssh/get-started/
-
 ## macOS config
 
 ```sh
@@ -189,3 +186,8 @@ https://developer.1password.com/docs/ssh/get-started/
  # スクリーンショットのファイル名固定文字列を削除
 % defaults write com.apple.screencapture name ""
 ```
+
+## そのほか
+
+- prettier で md 自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
+  - https://github.com/prettier/prettier/pull/11597
