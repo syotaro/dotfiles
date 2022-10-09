@@ -16,28 +16,39 @@
 ## CLI（homebrew & fish）
 
 ```sh
- # install
-% /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+ # brew install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+ # git install
+brew install git
+mkdir -p ~/Github/syotaro/dotfiles/.config/git
+ln -s    ~/GitHub/syotaro/dotfiles/.config/git/config ~/.config/git/config
+ln -s    ~/GitHub/syotaro/dotfiles/.config/git/ignore ~/.config/git/ignore
+
  # zshのプロファイルにパスを通す
-% echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+
  # 現在のセッションにHomebrewのパスを認識させる
-% eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
  # install fish
-% brew install fish
+brew install fish
+
  # fishのパスを確認
-% which fish
-  /opt/homebrew/bin/fish
+which fish   # => /opt/homebrew/bin/fish
+
  # ログインシェルをfishに変更
 % chsh -s /opt/homebrew/bin/fish
-  Changing shell for <ユーザー名>.
-  Password for <ユーザー名>:
+   # =>Changing shell for <ユーザー名>.
+   # =>Password for <ユーザー名>:
+
  # ログインシェルとして有効なシェルにfishを追加
 % sudo vi /etc/shells # 最終行に、/opt/homebrew/bin/fish を追記
+
  # 設定ファイルを配置
 % cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
- # fishのプラグインinstall
- # fisherのインストール
+
+ # fishのプラグイン(fisher)install
 % curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 % fisher install jethrokuan/z
 % fisher install 0rax/fish-bd
@@ -45,7 +56,7 @@
 % fisher install fisherman/fzf
 
  # vscodeのターミナルシェル連携の設定
- # https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
+ # => https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
 ```
 
 ## anyenv
@@ -69,9 +80,6 @@
 ## その他の CLI
 
 ```sh
- # git
-% brew install git
-% ls ~/Github/syotaro/dotfiles/.config/git
  # github
 % brew install gh
 % gh auth login
@@ -130,27 +138,27 @@ chmod 600 ~/.ssh/id_*
 
 ```sh
  # NERDフォントをインストール
-% brew tap homebrew/cask-fonts
-% brew install font-hackgen
-% brew install font-hackgen-nerd
+brew tap homebrew/cask-fonts
+brew install font-hackgen
+brew install font-hackgen-nerd
 
 
  # NVIM本体をインストール
-% brew install git ctags
-% brew install neovim
-% brew install neovim-qt
-% python3 -m pip install --user --upgrade pynvim
+brew install git ctags
+brew install neovim
+brew install neovim-qt
+python3 -m pip install --user --upgrade pynvim
 
 
  # NVIMの設定を時短するため、AstroNvimをインストール
-% git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-% git checkout nightly # nvim0.8.0対応のためにnightlyへ
-% nvim +PackerSync
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git checkout nightly # nvim0.8.0対応のためにnightlyへ
+nvim +PackerSync
  # 設定ファイルをコピー
-% mkdir -p ~/.config/nvim/lua/user/
-% ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/init.lua.nightly ~/.config/nvim/lua/user/init.lua
+mkdir -p ~/.config/nvim/lua/user/
+ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/nightly.init.lua ~/.config/nvim/lua/user/init.lua
  # 必要な設定を確認
-% nvim +checkhealth provider
+nvim +checkhealth provider
  # LSPをインストール(AstroNvimのメニューから)
     ✓ solargraph
     ✓ cssmodules-language-server
@@ -160,7 +168,7 @@ chmod 600 ~/.ssh/id_*
     ✓ rubocop
     ✓ typescript-language-server
  # Syntax（TreeSitter）の設定確認
-% vim +TSInstallInfo
+vim +TSInstallInfo
 ```
 
 ## Java & Xcode
