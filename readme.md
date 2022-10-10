@@ -1,4 +1,4 @@
-# 端末 setup
+# macOS setup
 
 ## mac OS 関連
 
@@ -38,22 +38,22 @@ brew install fish
 which fish   # => /opt/homebrew/bin/fish
 
  # ログインシェルをfishに変更
-% chsh -s /opt/homebrew/bin/fish
+chsh -s /opt/homebrew/bin/fish
    # =>Changing shell for <ユーザー名>.
    # =>Password for <ユーザー名>:
 
  # ログインシェルとして有効なシェルにfishを追加
-% sudo vi /etc/shells # 最終行に、/opt/homebrew/bin/fish を追記
+sudo vi /etc/shells # 最終行に、/opt/homebrew/bin/fish を追記
 
  # 設定ファイルを配置
-% cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 
  # fishのプラグイン(fisher)install
-% curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-% fisher install jethrokuan/z
-% fisher install 0rax/fish-bd
-% brew install fzf
-% fisher install fisherman/fzf
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install jethrokuan/z
+fisher install 0rax/fish-bd
+brew install fzf
+fisher install fisherman/fzf
 
  # vscodeのターミナルシェル連携の設定
  # => https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
@@ -165,29 +165,47 @@ nvim +PackerSync
 mkdir -p ~/.config/nvim/lua/user/
 ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/nightly.init.lua ~/.config/nvim/lua/user/init.lua
  # 必要な設定を確認
-nvim +checkhealth provider
- # LSPをインストール(AstroNvimのメニューから)
-    ✓ solargraph
-    ✓ cssmodules-language-server
-    ✓ eslint-lsp
-    ✓ lua-language-server
-    ✓ prettier
-    ✓ rubocop
-    ✓ typescript-language-server
+nvim
+:checkhealth provider
+:Mason
+  # =>Installed
+  # =>  ✓ css-lsp
+  # =>  ✓ cssmodules-language-server
+  # =>  ✓ eslint-lsp
+  # =>  ✓ json-lsp
+  # =>  ✓ lua-language-server
+  # =>  ✓ prettier
+  # =>  ✓ rubocop
+  # =>  ✓ solargraph
+  # =>  ✓ stylua
+  # =>  ✓ terraform-ls
+  # =>  ✓ typescript-language-server
  # Syntax（TreeSitter）の設定確認
-vim +TSInstallInfo
+:TSInstallInfo
+:Copilot setup   #=> 自身のgithub ユーザ名が表示されること
+:Copilot status  #=> Copilot: Enabled and online
+:Copilot version #=> Nodeのバージョンが17以上必須
 ```
 
 ## macOS config
 
 ```sh
  # h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
-% defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
  # スクリーンショットのファイル名固定文字列を削除
-% defaults write com.apple.screencapture name ""
+defaults write com.apple.screencapture name ""
 ```
 
 ## そのほか
 
 - prettier で md 自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
   - https://github.com/prettier/prettier/pull/11597
+
+## vim 操作のメモ
+
+- NormalMode で
+  - <C-o> :元いた場所に戻る
+  - <C-i> :元いた場所に進む
+- 編集モードで
+  - <C-o> :一時的にノーマルモードになり、一回だけコマンドを実行できる
+  - Escape key: jj, jk

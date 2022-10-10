@@ -9,7 +9,7 @@ local config = {
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
-    channel = "nightly", -- "stable" or "nightly"
+    channel = "stable", -- "stable" or "nightly"
     version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
     branch = "main", -- branch name (NIGHTLY ONLY)
     commit = nil, -- commit hash (NIGHTLY ONLY)
@@ -51,13 +51,13 @@ local config = {
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
       backspace = "indent,eol,start",
       backup = false,
-      clipboard = "unnamedplus",
-      fenc = "utf-8",
+      clipboard = "unnamedplus", -- クリップボードを共有する
+      fenc = "utf-8", -- ファイルのエンコーディングを指定
       hidden = true,
       -- helplang = "ja",
       -- title = true,
-      autoindent = true, -- ファイル保存時に、自動でインデントを揃える
-      -- smartindent = true,
+      -- autoindent = true, -- ファイル保存時に、自動でインデントを揃える
+      autochdir = true, -- ファイルを開くときにカレントディレクトリをファイルのディレクトリにする
       hlsearch = true,
       -- lazyredraw = true,
       list = true, -- 不可視文字表示
@@ -90,6 +90,16 @@ local config = {
       autopairs_enabled = true, -- enable autopairs at start
       diagnostics_enabled = true, -- enable diagnostics at start
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
+      copilot_assume_mapped = true,
+      copilot_filetypes = {
+        ["*"] = true,
+        ["javascript"] = true,
+        ["typescript"] = true,
+        ["lua"] = true,
+        ["markdown"] = true,
+        ["ruby"] = true,
+        ["php"] = true,
+      },
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -174,7 +184,7 @@ local config = {
     mappings = {
       n = { -- n:ノーマルモード
         -- ["<LEADER>n"] = { "<CMD>enew<CR>", desc = "NEW FILE" },
-        ["<LEADER>r"] = { function() require("telescope.builtin").oldfiles() end, desc = "履歴検索" },
+        -- ["<LEADER>r"] = { function() require("telescope.builtin").oldfiles() end, desc = "履歴検索" },
 
         ["1"] = { "^", desc = "" },
         ["9"] = { "$", desc = "" },
@@ -184,12 +194,12 @@ local config = {
         ["<C-e>"] = { "<ESC>$", desc = "" },
         ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
         ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-        ["<C-c>"] = { "<ESC>", desc = "Ctrl + c とEscの動作を完全に一致させる" },
-        ["<C-c><C-c>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
+        -- ["<C-c>"] = { "<ESC>", desc = "Ctrl + c とEscの動作を完全に一致させる" },
+        ["<Esc><Esc>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
         ["<C-H>"] = { "<<", desc = "" },
         ["<C-L>"] = { ">>", desc = "" },
         ["<CR>"] = { "o<ESC>", desc = "挿入モードにならずに改行" },
-        ["<LEADER>f"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
+        ["<LEADER>m"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
         ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
         ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
         ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
@@ -211,8 +221,8 @@ local config = {
       x = { -- x:ヴィジュアルブロックモード
         ["9"] = { "$", desc = "" },
         ["1"] = { "^", desc = "" },
-        ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
-        ["p"] = { "_dP", desc = "ペーストする際、ヤンクせずに削除" },
+        ["d"] = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
+        ["p"] = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
       },
     },
 
@@ -273,6 +283,7 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
+      { "github/copilot.vim" },
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -321,14 +332,12 @@ local config = {
         "eslint-lsp",
         "json-lsp",
         "lua-language-server",
-        "solargraph", -- ruby
-        "typescript-language-server",
-        "terraform-ls",
-        -- Formatter
         "prettier",
-        "stylua",
-        -- Linter
         "rubocop",
+        "solargraph", -- ruby
+        "stylua",
+        "terraform-ls",
+        "typescript-language-server",
       },
     },
   },
