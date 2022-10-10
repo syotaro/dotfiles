@@ -19,9 +19,10 @@ alias vim="nvim"
 alias gs='git status -sb -uall'
 alias l='ls -ThA'
 alias gd='git diff'
-# alias l='tree -L 1 -a'
 alias e='exa -la'
 alias c='code'
+alias gcd='cd "$(git rev-parse --show-superproject-working-tree --show-toplevel | head -1)"'  # git root
+
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
