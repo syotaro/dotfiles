@@ -57,7 +57,6 @@ local config = {
       -- helplang = "ja",
       -- title = true,
       -- autoindent = true, -- ファイル保存時に、自動でインデントを揃える
-      autochdir = true, -- ファイルを開くときにカレントディレクトリをファイルのディレクトリにする
       hlsearch = true,
       -- lazyredraw = true,
       list = true, -- 不可視文字表示
@@ -113,9 +112,7 @@ local config = {
   -- end,
 
   -- Set dashboard header
-  header = {
-    "nightly",
-  },
+  header = { "" },
 
   -- Default theme configuration
   default_theme = {
@@ -163,6 +160,7 @@ local config = {
   diagnostics = {
     virtual_text = true,
     underline = true,
+    cspell = true,
   },
 
   -- Extend LSP configuration

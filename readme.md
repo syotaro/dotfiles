@@ -118,6 +118,7 @@ fish_update_completions
 - zoom.us
 - devutils
 - [Java](https://www.java.com/ja/download/)
+- `brew install --cask easy-move-plus-resize`
 
 ### SSH key
 
