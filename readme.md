@@ -54,6 +54,7 @@ fisher install jethrokuan/z
 fisher install 0rax/fish-bd
 brew install fzf
 fisher install fisherman/fzf
+fisher install ilancosman/tide@v5
 
  # vscodeのターミナルシェル連携の設定
  # => https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
@@ -98,18 +99,22 @@ brew install terraform
 fish_update_completions
 ```
 
-### GUI アプリのインストール
+## GUI アプリのインストール
 
 - 1Password
 - AWS VPN Client
-- Alfred 5
+- Alfred
 - Canva
 - Cyberduck ※for google cloud storage
 - Google Drive.app
 - Karabiner-Elements
 - LINE
 - MeetingBar
-- Shifter
+- VSCode
+- LottieFiles
+- Messanger
+- mimestream
+- DeepL
 - Xcode
 - busycal
 - chrome
@@ -120,7 +125,7 @@ fish_update_completions
 - [Java](https://www.java.com/ja/download/)
 - `brew install --cask easy-move-plus-resize`
 
-### SSH key
+## SSH key
 
 ```sh
   # setup ssh key
@@ -136,7 +141,7 @@ chmod 600 ~/.ssh/id_*
 
 ```
 
-### フォント
+## フォント
 
 - https://fonts.google.com/specimen/BIZ+UDGothic
 
@@ -195,6 +200,17 @@ nvim
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
  # スクリーンショットのファイル名固定文字列を削除
 defaults write com.apple.screencapture name ""
+```
+
+## cspell
+
+- 事前に、vscode の拡張機能をインストールしておく
+
+```sh
+ # vscodeのcspellの辞書ファイルを、icloudに同期させる
+unlink ~/.cspell/custom-dictionary-user.txt
+rm ~/.cspell/custom-dictionary-user.txt
+ln -s ~/Documents/cspell/custom-dictionary-user.txt ~/.cspell/
 ```
 
 ## そのほか

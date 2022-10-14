@@ -1,8 +1,0 @@
-# Custom Dictionary Words
-eyecatch
-microcms
-plaiceholder
-ptalk
-shikigaku
-SIRO
-wrike
