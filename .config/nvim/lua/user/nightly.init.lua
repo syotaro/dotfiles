@@ -149,7 +149,7 @@ local config = {
       ["nvim-tree"] = false,
       ["nvim-web-devicons"] = true,
       rainbow = true,
-      symbols_outline = true,
+      symbols_outline = false,
       telescope = true,
       vimwiki = false,
       ["which-key"] = true,
@@ -282,6 +282,7 @@ local config = {
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
       { "github/copilot.vim" },
+
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -315,7 +316,24 @@ local config = {
       return config -- return final config table
     end,
     treesitter = { -- overrides `require("treesitter").setup(...)`
-      ensure_installed = { "lua", "tsx", "javascript", "typescript", "css", "dockerfile", "hcl" },
+      highlight = {
+        enable = true,
+        disable = {},
+      },
+      ensure_installed = {
+        "css",
+        "dockerfile",
+        "hcl",
+        "javascript",
+        "json",
+        "lua",
+        "markdown",
+        "scss",
+        "tsx",
+        "typescript",
+        "yaml",
+      },
+      autotag = { enable = true },
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
