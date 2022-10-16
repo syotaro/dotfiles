@@ -101,29 +101,37 @@ fish_update_completions
 
 ## GUI アプリのインストール
 
-- 1Password
-- AWS VPN Client
-- Alfred
-- Canva
-- Cyberduck ※for google cloud storage
-- Google Drive.app
-- Karabiner-Elements
-- LINE
-- MeetingBar
-- VSCode
-- LottieFiles
-- Messanger
-- mimestream
-- DeepL
-- Xcode
-- busycal
-- chrome
-- github desktop
-- slack
-- zoom.us
-- devutils
-- [Java](https://www.java.com/ja/download/)
-- `brew install --cask easy-move-plus-resize`
+- 1Password.app
+- AWS VPN Client.app
+- Alfred.app
+- Asana.app
+- Binance.app
+- BusyCal.app
+- Busycal.app
+- Canva.app
+- Cyberduck ※for google cloud storage.app
+- DeepL.app
+- DevUtilsAppStore.app
+- Devutils.app
+- Docker.app
+- Easy Move+Resize.app
+- Figma.app
+- Github desktop.app
+- Google Chrome.app
+- Google Drive.app.app
+- Kaleidoscope.app
+- Karabiner-Elements.app
+- LINE.app
+- LottieFiles.app
+- MeetingBar.app
+- Messanger.app
+- Mimestream.app
+- Postman.app
+- Slack.app
+- Visual Studio Code.app
+- Xcode.app
+- iTerm.app
+- zoom.us.app
 
 ## GUI 設定
 
