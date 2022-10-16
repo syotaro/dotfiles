@@ -1,6 +1,6 @@
 # macOS setup
 
-## mac OS 関連
+## macOS 関連
 
 - OS update
 - 設定 > キーボード
@@ -93,7 +93,7 @@ brew install the_silver_searcher
 brew install terraform
 ```
 
-## fish の補完を最適化する為、CLI help を fish にロード
+## fish の補完を最適化するため、CLIhelp を fish にロード
 
 ```sh
 fish_update_completions
@@ -251,6 +251,7 @@ ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 npm install --location=global textlint
 npm install --location=global textlint-rule-preset-smarthr
 npm install --location=global textlint-rule-preset-ja-technical-writing
+ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
 ```
 
 ```sh
