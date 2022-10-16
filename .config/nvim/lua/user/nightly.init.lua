@@ -184,12 +184,12 @@ local config = {
         -- ["<LEADER>n"] = { "<CMD>enew<CR>", desc = "NEW FILE" },
         -- ["<LEADER>r"] = { function() require("telescope.builtin").oldfiles() end, desc = "履歴検索" },
 
-        ["1"] = { "^", desc = "" },
-        ["9"] = { "$", desc = "" },
+        ["1"] = { "^", desc = "Start of line (non-blank)" },
+        ["9"] = { "$", desc = "End of line" },
         [";"] = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
-        ["<C-b>"] = { "<LEFT>", desc = "" },
-        ["<C-f>"] = { "<RIGHT>", desc = "" },
-        ["<C-e>"] = { "<ESC>$", desc = "" },
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
         ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
         ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
         -- ["<C-c>"] = { "<ESC>", desc = "Ctrl + c とEscの動作を完全に一致させる" },
@@ -201,12 +201,12 @@ local config = {
         ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
         ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
         ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
-        ["q"] = { ":q<cr>", desc = "qだけでエディタを閉じる" },
+        ["q"] = { "<ESC>:q<CR>", desc = "qだけでエディタを閉じる" },
       },
       t = { -- t:ターミナルモード
       },
       i = { -- i:インサートモード
-        ["<C-k>"] = { "()<LEFT>", desc = "()をサクッと呼び出す" },
+        ["<C-k>"] = { "<LEFT>()<LEFT>", desc = "()をサクッと呼び出す" },
       },
       c = { -- c:コマンドモード
       },
@@ -301,9 +301,8 @@ local config = {
       -- },
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
-    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
-      -- config variable is the default configuration table for the setup functino call
-      -- local null_ls = require "null-ls"
+    ["null-ls"] = function(config)
+      local null_ls = require "null-ls"
 
       -- Check supported formatters and linters
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
@@ -312,9 +311,13 @@ local config = {
         -- Set a formatter
         -- null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.formatting.prettier,
+        null_ls.builtins.diagnostics.textlint.with {
+          filetypes = { "markdown", "text" }, -- textlintの対象はtextとmarkdownだけ
+        },
       }
       return config -- return final config table
     end,
+
     treesitter = { -- overrides `require("treesitter").setup(...)`
       highlight = {
         enable = true,

@@ -5,7 +5,7 @@
 - OS update
 - 設定 > キーボード
   - CapsLock を Control キーにマッピング
-  - ユーザ辞書
+  - ユーザー辞書
     - 全部チェック外す
   - 入力ソース
     - 日本語の、下記のチェックを外す
@@ -125,6 +125,16 @@ fish_update_completions
 - [Java](https://www.java.com/ja/download/)
 - `brew install --cask easy-move-plus-resize`
 
+## GUI 設定
+
+- chrome
+  - chrome://flags/#following-feed-sidepanel
+  - chrome://flags/#desktop-partial-translate
+- macOS 設定
+  - 通知
+    - 音は鳴らさない
+- [github CLI](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
+
 ## SSH key
 
 ```sh
@@ -210,7 +220,7 @@ defaults write com.apple.screencapture name ""
  # vscodeのcspellの辞書ファイルを、icloudに同期させる
 unlink ~/.cspell/custom-dictionary-user.txt
 rm ~/.cspell/custom-dictionary-user.txt
-ln -s ~/Documents/cspell/custom-dictionary-user.txt ~/.cspell/
+ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 ```
 
 ## そのほか
@@ -218,11 +228,41 @@ ln -s ~/Documents/cspell/custom-dictionary-user.txt ~/.cspell/
 - prettier で md 自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
   - https://github.com/prettier/prettier/pull/11597
 
-## vim 操作のメモ
+## vim 操作のメモ 2
 
 - NormalMode で
   - <C-o> :元いた場所に戻る
   - <C-i> :元いた場所に進む
+  - K: カーソル位置の関数のドキュメントを表示
+  - <C-w>: ウインドウ操作
+  - <C-q>: 強制的に終了
+  - [ ] : カーソル操作
 - 編集モードで
   - <C-o> :一時的にノーマルモードになり、一回だけコマンドを実行できる
   - Escape key: jj, jk
+- mac
+  - opt+cmd+d →OSdock ON/OFF
+  - opt+cmd+g →Gdrive ランチャー
+
+## textlint
+
+```sh
+ # global
+npm install --location=global textlint
+npm install --location=global textlint-rule-preset-smarthr
+npm install --location=global textlint-rule-preset-ja-technical-writing
+```
+
+```sh
+ # リポジトリ
+npm install --save-dev textlint
+npm install --save-dev textlint-rule-preset-smarthr
+npx textlint --init
+```
+
+## prettier
+
+```sh
+ # global
+yarn global add prettier prettier-plugin-md-nocjsp
+```
