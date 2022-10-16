@@ -5,6 +5,7 @@ module.exports = {
       files: ["*.md"],
       options: {
         parser: "markdown-nocjsp",
+        quickFix: "true",
       },
     },
   ],

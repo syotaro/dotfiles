@@ -4,7 +4,7 @@
 
 - OS update
 - 設定 > キーボード
-  - CapsLock を Control キーにマッピング
+  - CapsLockをControlキーにマッピング
   - ユーザー辞書
     - 全部チェック外す
   - 入力ソース
@@ -130,7 +130,7 @@ fish_update_completions
 - chrome
   - chrome://flags/#following-feed-sidepanel
   - chrome://flags/#desktop-partial-translate
-- macOS 設定
+- macOS設定
   - 通知
     - 音は鳴らさない
 - [github CLI](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
@@ -157,7 +157,7 @@ chmod 600 ~/.ssh/id_*
 
 ## NVIM
 
-- 事前に iTerm2 をインストールしておく(デフォルトのターミナルだと、TrueColor 非対応につき、アイコンが文字化けする為)
+- 事前にiTerm2をインストールしておく(デフォルトのターミナルだと、TrueColor 非対応につき、アイコンが文字化けする為)
 
 ```sh
  # NERDフォントをインストール
@@ -216,7 +216,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 
 ## cspell
 
-- 事前に、vscode の拡張機能をインストールしておく
+- 事前に、vscodeの拡張機能をインストールしておく
 
 ```sh
  # vscodeのcspellの辞書ファイルを、icloudに同期させる
@@ -227,12 +227,12 @@ ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 
 ## そのほか
 
-- prettier で md 自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
+- prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
   - https://github.com/prettier/prettier/pull/11597
 
 ## vim 操作のメモ 2
 
-- NormalMode で
+- NormalModeで
   - <C-o> :元いた場所に戻る
   - <C-i> :元いた場所に進む
   - K: カーソル位置の関数のドキュメントを表示
@@ -244,7 +244,7 @@ ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
   - Escape key: jj, jk
 - mac
   - opt+cmd+d →OSdock ON/OFF
-  - opt+cmd+g →Gdrive ランチャー
+  - opt+cmd+g →Gdriveランチャー
 
 ## textlint
 
@@ -254,18 +254,21 @@ npm install --location=global textlint
 npm install --location=global textlint-rule-preset-smarthr
 npm install --location=global textlint-rule-preset-ja-technical-writing
 ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
-```
-
-```sh
  # リポジトリ
 npm install --save-dev textlint
 npm install --save-dev textlint-rule-preset-smarthr
-npx textlint --init
+npx textlint --init  # => .textlintrc が生成される
 ```
 
 ## prettier
 
 ```sh
  # global
-yarn global add prettier prettier-plugin-md-nocjsp
+npm install --location=global prettier
+npm install --location=global prettier-plugin-md-nocjsp
+ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # エラー回避で必要だった
+ # リポジトリ
+npm install --location=global prettier
+npm install --location=global prettier-plugin-md-nocjsp
+vim ./prettierrc.js  # うまく設定しないと、prettier-plugin-md-nocjspがちゃんとロードされない
 ```
