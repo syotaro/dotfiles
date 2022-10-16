@@ -210,6 +210,8 @@ nvim
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
  # スクリーンショットのファイル名固定文字列を削除
 defaults write com.apple.screencapture name ""
+ # 
+defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 ```
 
 ## cspell
