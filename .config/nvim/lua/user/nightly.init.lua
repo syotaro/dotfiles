@@ -321,7 +321,7 @@ local config = {
     treesitter = { -- overrides `require("treesitter").setup(...)`
       highlight = {
         enable = true,
-        disable = {},
+        disable = { "markdown" }, -- なぜかTSによるmarkdownのハイライトがされないので解決するまで無効
       },
       ensure_installed = {
         "css",
@@ -331,6 +331,7 @@ local config = {
         "json",
         "lua",
         "markdown",
+        "markdown_inline",
         "scss",
         "tsx",
         "typescript",

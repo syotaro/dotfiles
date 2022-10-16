@@ -161,11 +161,11 @@ chmod 600 ~/.ssh/id_*
 
 ## フォント
 
-- https://fonts.google.com/specimen/BIZ+UDGothic
+- <https://fonts.google.com/specimen/BIZ+UDGothic>
 
 ## NVIM
 
-- 事前にiTerm2をインストールしておく(デフォルトのターミナルだと、TrueColor 非対応につき、アイコンが文字化けする為)
+- 事前にiTerm2をインストールしておく(デフォルトのターミナルだと、TrueColor非対応につき、アイコンが文字化けするため)
 
 ```sh
  # NERDフォントをインストール
@@ -215,10 +215,10 @@ nvim
 
 ```sh
  # h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false  # For vscode
  # スクリーンショットのファイル名固定文字列を削除
 defaults write com.apple.screencapture name ""
- # 
+ # ネットワーク上にDS_Storeファイルを作成しない
 defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 ```
 
@@ -236,19 +236,19 @@ ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 ## そのほか
 
 - prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
-  - https://github.com/prettier/prettier/pull/11597
+  - <https://github.com/prettier/prettier/pull/11597>
 
 ## vim 操作のメモ 2
 
 - NormalModeで
-  - <C-o> :元いた場所に戻る
-  - <C-i> :元いた場所に進む
+  - C-o :元いた場所に戻る
+  - C-i :元いた場所に進む
   - K: カーソル位置の関数のドキュメントを表示
-  - <C-w>: ウインドウ操作
-  - <C-q>: 強制的に終了
+  - C-w: ウインドウ操作
+  - C-q: 強制的に終了
   - [ ] : カーソル操作
 - 編集モードで
-  - <C-o> :一時的にノーマルモードになり、一回だけコマンドを実行できる
+  - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
   - Escape key: jj, jk
 - mac
   - opt+cmd+d →OSdock ON/OFF
