@@ -16,7 +16,7 @@
 ## CLI（homebrew & fish）
 
 ```sh
- # brew install
+  # brew install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
  # git install
@@ -37,7 +37,7 @@ brew install fish
  # fishのパスを確認
 which fish   # => /opt/homebrew/bin/fish
 
- # ログインシェルをfishに変更
+   # ログインシェルをfishに変更
 chsh -s /opt/homebrew/bin/fish
    # =>Changing shell for <ユーザー名>.
    # =>Password for <ユーザー名>:
@@ -69,6 +69,10 @@ anyenv install --list
 anyenv install nodenv
 nodenv install 16.14.0
 nodeenv global 16.14.0
+  # Verify that nodenv is properly set up using this nodenv-doctor script:
+curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
+
+
 mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 anyenv update
@@ -143,7 +147,7 @@ fish_update_completions
     - 音は鳴らさない
 - [github CLI](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
 
-## SSH key
+## SSH key(今後は不要かも。ほぼ利用しない)
 
 ```sh
   # setup ssh key
@@ -157,6 +161,12 @@ chmod 600 ~/.ssh/id_*
   # => https://1password.com/downloads/command-line/
   # => https://developer.1password.com/docs/ssh/get-started/
 
+```
+
+## AWS 鍵の配置(vscode toolkitなどから利用する)
+
+```sh
+ln -s ~/Documents/config/aws  ~/.aws
 ```
 
 ## フォント
@@ -257,12 +267,12 @@ ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 ## textlint
 
 ```sh
- # global
+  # global
 npm install --location=global textlint
 npm install --location=global textlint-rule-preset-smarthr
 npm install --location=global textlint-rule-preset-ja-technical-writing
 ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
- # リポジトリ
+  # リポジトリ
 npm install --save-dev textlint
 npm install --save-dev textlint-rule-preset-smarthr
 npx textlint --init  # => .textlintrc が生成される
@@ -271,12 +281,22 @@ npx textlint --init  # => .textlintrc が生成される
 ## prettier
 
 ```sh
- # global
+  # global
 npm install --location=global prettier
 npm install --location=global prettier-plugin-md-nocjsp
 ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # エラー回避で必要だった
- # リポジトリ
+  # リポジトリ
 npm install --location=global prettier
 npm install --location=global prettier-plugin-md-nocjsp
 vim ./prettierrc.js  # うまく設定しないと、prettier-plugin-md-nocjspがちゃんとロードされない
 ```
+
+## vscodeの心得
+
+- textlint拡張は、ワークスペースを開いていないと、サーバーエラーになる
+
+## セキュリティの心得
+
+- Wifiの自動接続は無効にする（信頼するネットワークだけ自動接続は可能）
+- 暗号化されていないWi-Fiスポットを利用しない
+- ファイアウォールは有効にする

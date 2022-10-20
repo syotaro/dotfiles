@@ -99,6 +99,13 @@ local config = {
         ["ruby"] = true,
         ["php"] = true,
       },
+      vim_markdown_folding_disabled = 1, -- 折り畳みを無効化
+      vim_markdown_conceal_code_blocks = 0, --   "構文隠蔽無効化
+      vim_markdown_conceal = 0, --   "構文隠蔽無効化
+      vim_markdown_frontmatter = 1, --   "frontmatterを強調表示
+      vim_markdown_fenced_languages = "['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini']",
+      vim_markdown_new_list_item_indent = 2, -- "listのインデントのスペースの数を4から2へ
+      vim_markdown_folding_style_pythonic = 1,
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -282,18 +289,12 @@ local config = {
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
       { "github/copilot.vim" },
+      { "godlygeek/tabular" },
+      { "preservim/vim-markdown" },
 
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
-
-      -- We also support a key value style plugin definition similar to NvChad:
-      -- ["ray-x/lsp_signature.nvim"] = {
       --   event = "BufRead",
       --   config = function()
       --     require("lsp_signature").setup()
@@ -312,20 +313,22 @@ local config = {
         -- null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.textlint.with {
-          filetypes = { "markdown", "text" }, -- textlintの対象はtextとmarkdownだけ
+          filetypes = { "markdown" }, -- textlintの対象はmarkdownだけ
         },
       }
       return config -- return final config table
     end,
 
     treesitter = { -- overrides `require("treesitter").setup(...)`
-      highlight = {
-        enable = true,
-        disable = { "markdown" }, -- なぜかTSによるmarkdownのハイライトがされないので解決するまで無効
-      },
+      -- highlight = {
+      --   enable = true,
+      --   disable = { "markdown" }, -- なぜかTSによるmarkdownのハイライトがされないので解決するまで無効
+      -- },
       ensure_installed = {
+        "bash",
         "css",
         "dockerfile",
+        "html",
         "hcl",
         "javascript",
         "json",
@@ -336,8 +339,9 @@ local config = {
         "tsx",
         "typescript",
         "yaml",
+        "toml",
+        "rust",
       },
-      autotag = { enable = true },
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
