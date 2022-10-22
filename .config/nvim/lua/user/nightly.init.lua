@@ -223,6 +223,8 @@ local config = {
         ["1"] = { "^", desc = "" },
         ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
         ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
+        ["<C-H>"] = { "<<", desc = "" },
+        ["<C-L>"] = { ">>", desc = "" },
       },
       x = { -- x:ヴィジュアルブロックモード
         ["9"] = { "$", desc = "" },

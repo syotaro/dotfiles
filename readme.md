@@ -148,7 +148,7 @@ fish_update_completions
 - macOS設定
   - 通知
     - 音は鳴らさない
-- [github CLI](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
+- [github CLI設定](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
 
 ## SSH key(今後は不要かも。ほぼ利用しない)
 
@@ -246,27 +246,6 @@ rm ~/.cspell/custom-dictionary-user.txt
 ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 ```
 
-## そのほか
-
-- prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
-  - <https://github.com/prettier/prettier/pull/11597>
-
-## vim 操作のメモ 2
-
-- NormalModeで
-  - C-o :元いた場所に戻る
-  - C-i :元いた場所に進む
-  - K: カーソル位置の関数のドキュメントを表示
-  - C-w: ウインドウ操作
-  - C-q: 強制的に終了
-  - [ ] : カーソル操作
-- 編集モードで
-  - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
-  - Escape key: jj, jk
-- mac
-  - opt+cmd+d →OSdock ON/OFF
-  - opt+cmd+g →Gdriveランチャー
-
 ## textlint
 
 ```sh
@@ -283,6 +262,9 @@ npx textlint --init  # => .textlintrc が生成される
 
 ## prettier
 
+- prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
+  - <https://github.com/prettier/prettier/pull/11597>
+
 ```sh
   # global
 npm install --location=global prettier
@@ -294,6 +276,15 @@ npm install --location=global prettier-plugin-md-nocjsp
 vim ./prettierrc.js  # うまく設定しないと、prettier-plugin-md-nocjspがちゃんとロードされない
 ```
 
+## markdownlint
+
+```sh
+  # global
+ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
+  # リポジトリ
+  # =>プロジェクトのworkspace_directoryに置く場合は.markdownlint.jsoncという名前にする。
+```
+
 ## vscodeの心得
 
 - textlint拡張は、ワークスペースを開いていないと、サーバーエラーになる
@@ -303,3 +294,21 @@ vim ./prettierrc.js  # うまく設定しないと、prettier-plugin-md-nocjsp�
 - Wifiの自動接続は無効にする（信頼するネットワークだけ自動接続は可能）
 - 暗号化されていないWi-Fiスポットを利用しない
 - ファイアウォールは有効にする
+
+## vim 操作のメモ 2
+
+- NormalModeで
+  - C-o :元いた場所に戻る
+  - C-i :元いた場所に進む
+  - K: カーソル位置の関数のドキュメントを表示
+  - C-w: ウインドウ操作
+  - C-q: 強制的に終了
+  - [ ] : カーソル操作
+- 編集モードで
+  - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
+  - Escape key: jj, jk
+
+## macの操作メモ
+
+- opt+cmd+d →OSdock ON/OFF
+- opt+cmd+g →Gdriveランチャー
