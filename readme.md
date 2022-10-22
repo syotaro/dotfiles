@@ -105,37 +105,40 @@ fish_update_completions
 
 ## GUI アプリのインストール
 
-- 1Password.app
-- AWS VPN Client.app
-- Alfred.app
-- Asana.app
-- Binance.app
-- BusyCal.app
-- Busycal.app
-- Canva.app
-- Cyberduck ※for google cloud storage.app
-- DeepL.app
-- DevUtilsAppStore.app
-- Devutils.app
-- Docker.app
-- Easy Move+Resize.app
-- Figma.app
-- Github desktop.app
-- Google Chrome.app
-- Google Drive.app.app
-- Kaleidoscope.app
-- Karabiner-Elements.app
-- LINE.app
-- LottieFiles.app
-- MeetingBar.app
-- Messanger.app
-- Mimestream.app
-- Postman.app
-- Slack.app
-- Visual Studio Code.app
-- Xcode.app
-- iTerm.app
-- zoom.us.app
+- AppStore
+  - Kaleidoscope.app
+  - DevUtils.app
+  - LottieFiles.app
+  - MeetingBar.app
+  - Microsoft Excel.app
+  - Microsoft PowerPoint.app
+  - Microsoft Word.app
+  - Slack.app
+  - Xcode.app
+  - LINE.app
+  - Kindle.app
+- Other
+  - 1Password.app
+  - AWS VPN Client.app
+  - Alfred.app
+  - Asana.app
+  - Binance.app
+  - Busycal.app
+  - Canva.app
+  - Cyberduck ※for google cloud storage.app
+  - DeepL.app
+  - Docker.app
+  - Easy Move+Resize.app
+  - Figma.app
+  - Github desktop.app
+  - Google Chrome.app
+  - Google Drive.app.app
+  - Karabiner-Elements.app
+  - Messanger.app
+  - Postman.app
+  - Visual Studio Code.app
+  - iTerm.app
+  - zoom.us.app
 
 ## GUI 設定
 

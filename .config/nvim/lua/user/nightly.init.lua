@@ -56,7 +56,8 @@ local config = {
       hidden = true,
       -- helplang = "ja",
       -- title = true,
-      -- autoindent = true, -- ファイル保存時に、自動でインデントを揃える
+      autoindent = true, -- ファイル保存時に、自動でインデントを揃える
+      smartindent = true, -- ファイル保存時に、自動でインデントを揃える
       hlsearch = true,
       -- lazyredraw = true,
       list = true, -- 不可視文字表示
@@ -203,7 +204,7 @@ local config = {
         ["<Esc><Esc>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
         ["<C-H>"] = { "<<", desc = "" },
         ["<C-L>"] = { ">>", desc = "" },
-        ["<CR>"] = { "o<ESC>", desc = "挿入モードにならずに改行" },
+        ["<CR>"] = { "<ESC>$a<CR>", desc = "挿入モードにならずに改行" },
         ["<LEADER>m"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
         ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
         ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
@@ -360,6 +361,7 @@ local config = {
         "rubocop",
         "solargraph", -- ruby
         "stylua",
+        "stylelint-lsp",
         "terraform-ls",
         "typescript-language-server",
       },
