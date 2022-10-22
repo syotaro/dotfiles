@@ -104,7 +104,6 @@ local config = {
       vim_markdown_conceal_code_blocks = 0, --   "構文隠蔽無効化
       vim_markdown_conceal = 0, --   "構文隠蔽無効化
       vim_markdown_frontmatter = 1, --   "frontmatterを強調表示
-      vim_markdown_fenced_languages = "['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini']",
       vim_markdown_new_list_item_indent = 2, -- "listのインデントのスペースの数を4から2へ
       vim_markdown_folding_style_pythonic = 1,
     },
@@ -202,10 +201,12 @@ local config = {
         ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
         -- ["<C-c>"] = { "<ESC>", desc = "Ctrl + c とEscの動作を完全に一致させる" },
         ["<Esc><Esc>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
-        ["<C-H>"] = { "<<", desc = "" },
-        ["<C-L>"] = { ">>", desc = "" },
-        ["<CR>"] = { "<ESC>$a<CR>", desc = "挿入モードにならずに改行" },
-        ["<LEADER>m"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
+        ["<C-h>"] = { "<<", desc = "" },
+        ["<C-l>"] = { ">>", desc = "" },
+        ["o"] = { "<ESC>$a<CR>", desc = "挿入モードにならずに改行" },
+        ["<CR>"] = { "<ESC>$o<ESC>", desc = "挿入モードにならずに改行" },
+
+        ["<LEADER>dd"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
         ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
         ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
         ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
@@ -215,16 +216,22 @@ local config = {
       },
       i = { -- i:インサートモード
         ["<C-k>"] = { "<LEFT>()<LEFT>", desc = "()をサクッと呼び出す" },
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+        ["<C-l>"] = { "<ESC>>>", desc = "" },
       },
       c = { -- c:コマンドモード
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
       },
       v = { -- v:ヴィジュアルモード
         ["9"] = { "$", desc = "" },
         ["1"] = { "^", desc = "" },
         ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
         ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
-        ["<C-H>"] = { "<<", desc = "" },
-        ["<C-L>"] = { ">>", desc = "" },
+        ["<C-h>"] = { "<<", desc = "" },
+        ["<C-l>"] = { ">>", desc = "" },
       },
       x = { -- x:ヴィジュアルブロックモード
         ["9"] = { "$", desc = "" },

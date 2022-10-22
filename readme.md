@@ -15,7 +15,7 @@
 
 ## CLI（homebrew & fish）
 
-```sh
+```bash
   # brew install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -62,7 +62,7 @@ fisher install ilancosman/tide@v5
 
 ## anyenv
 
-```sh
+```bash
 brew install anyenv
 anyenv install --init
 anyenv install --list
@@ -84,7 +84,7 @@ rbenv global 3.1.2
 
 ## その他の CLI
 
-```sh
+```bash
  # github
 brew install gh
 gh auth login
@@ -99,7 +99,7 @@ brew install terraform
 
 ## fish の補完を最適化するため、CLIhelp を fish にロード
 
-```sh
+```bash
 fish_update_completions
 ```
 
@@ -152,7 +152,7 @@ fish_update_completions
 
 ## SSH key(今後は不要かも。ほぼ利用しない)
 
-```sh
+```bash
   # setup ssh key
 mkdir ~/.ssh
 ln -s ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/ssh/* ~/.ssh/
@@ -168,7 +168,7 @@ chmod 600 ~/.ssh/id_*
 
 ## AWS 鍵の配置(vscode toolkitなどから利用する)
 
-```sh
+```bash
 ln -s ~/Documents/config/aws  ~/.aws
 ```
 
@@ -180,7 +180,7 @@ ln -s ~/Documents/config/aws  ~/.aws
 
 - 事前にiTerm2をインストールしておく(デフォルトのターミナルだと、TrueColor非対応につき、アイコンが文字化けするため)
 
-```sh
+```bash
  # NERDフォントをインストール
 brew tap homebrew/cask-fonts
 brew install font-hackgen
@@ -226,7 +226,7 @@ nvim
 
 ## macOS config
 
-```sh
+```bash
  # h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false  # For vscode
  # スクリーンショットのファイル名固定文字列を削除
@@ -239,7 +239,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 
 - 事前に、vscodeの拡張機能をインストールしておく
 
-```sh
+```bash
  # vscodeのcspellの辞書ファイルを、icloudに同期させる
 unlink ~/.cspell/custom-dictionary-user.txt
 rm ~/.cspell/custom-dictionary-user.txt
@@ -248,7 +248,7 @@ ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 
 ## textlint
 
-```sh
+```bash
   # global
 npm install --location=global textlint
 npm install --location=global textlint-rule-preset-smarthr
@@ -265,7 +265,7 @@ npx textlint --init  # => .textlintrc が生成される
 - prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
   - <https://github.com/prettier/prettier/pull/11597>
 
-```sh
+```bash
   # global
 npm install --location=global prettier
 npm install --location=global prettier-plugin-md-nocjsp
@@ -278,7 +278,7 @@ vim ./prettierrc.js  # うまく設定しないと、prettier-plugin-md-nocjsp�
 
 ## markdownlint
 
-```sh
+```bash
   # global
 ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   # リポジトリ
