@@ -28,39 +28,38 @@ local config = {
   -- Set colorscheme to use
   colorscheme = "default_theme",
 
-  -- Override highlight groups in any theme
+  -- Add highlight groups in any theme
   highlights = {
-    -- duskfox = { -- a table of overrides/changes to the default
-    --   Normal = { bg = "#000000" },
-    -- },
     default_theme = function(highlights) -- or a function that returns a new table of colors to set
-      local C = require "default_theme.colors"
-
-      highlights.Normal = { fg = C.fg, bg = C.bg }
       highlights.MatchParen = { fg = C.fg, bg = C.red } -- ペアの括弧のハイライトが灰色で見えにくいので赤色に
       return highlights
     end,
+
+    -- init = { -- this table overrides highlights in all themes
+    --   Normal = { bg = "#000000" },
+    -- }
+    -- duskfox = { -- a table of overrides/changes to the duskfox theme
+    --   Normal = { bg = "#000000" },
+    --
+    -- },
   },
 
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
-      ambiwidth = "single",
+      -- ambiwidth = "single",
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
-      -- cmdheight = 0, -- nvim0.8以降でサポート。かっこいい
-      background = "dark",
       backspace = "indent,eol,start",
       backup = false,
-      clipboard = "unnamedplus",
-      fenc = "utf-8",
+      clipboard = "unnamedplus", -- クリップボードを共有する
+      fenc = "utf-8", -- ファイルのエンコーディングを指定
       hidden = true,
       -- helplang = "ja",
       -- title = true,
-      -- autoindent = true,
-      -- smartindent = true,
+      autoindent = true, -- ファイル保存時に、自動でインデントを揃える
+      smartindent = true, -- ファイル保存時に、自動でインデントを揃える
       hlsearch = true,
-      laststatus = 2,
-      lazyredraw = true,
+      -- lazyredraw = true,
       list = true, -- 不可視文字表示
       listchars = "tab:▸ ,trail:_,extends:>,precedes:<,nbsp:%", -- " 不可視文字の表示形式
       mouse = "a",
@@ -78,9 +77,35 @@ local config = {
       whichwrap = "b,s,h,l,[,],<,>", -- カーソルを行頭、行末で止まらないようにする
       wildmenu = true, -- コマンドラインで補完候補をメニュー表示する
       writebackup = false,
+      wrap = false,
+      -- AstroNVIMでデフォルト設定されているので、あえてやらないでいいやつ
+      ---- signcolumn = "true", signcolumnは常に有効にして、ファイル開く直後のガタつき予防
+      ---- laststatus = 2,
+      ---- cmdheight = 0, -- nvim0.8以降でサポート。かっこいい
+      ---- background = "dark", --デフォルト有効になっている
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
+      cmp_enabled = true, -- enable completion at start
+      autopairs_enabled = true, -- enable autopairs at start
+      diagnostics_enabled = true, -- enable diagnostics at start
+      status_diagnostics_enabled = true, -- enable diagnostics in statusline
+      copilot_assume_mapped = true,
+      copilot_filetypes = {
+        ["*"] = true,
+        ["javascript"] = true,
+        ["typescript"] = true,
+        ["lua"] = true,
+        ["markdown"] = true,
+        ["ruby"] = true,
+        ["php"] = true,
+      },
+      vim_markdown_folding_disabled = 1, -- 折り畳みを無効化
+      vim_markdown_conceal_code_blocks = 0, --   "構文隠蔽無効化
+      vim_markdown_conceal = 0, --   "構文隠蔽無効化
+      vim_markdown_frontmatter = 1, --   "frontmatterを強調表示
+      vim_markdown_new_list_item_indent = 2, -- "listのインデントのスペースの数を4から2へ
+      vim_markdown_folding_style_pythonic = 1,
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -94,17 +119,28 @@ local config = {
   -- end,
 
   -- Set dashboard header
-  header = {},
+  header = { "" },
 
   -- Default theme configuration
   default_theme = {
-    -- set the highlight style for diagnostic messages
-    diagnostics_style = { italic = true },
     -- Modify the color palette for the default theme
     colors = {
       fg = "#abb2bf",
       bg = "#1e222a",
     },
+    highlights = function(hl) -- or a function that returns a new table of colors to set
+      local C = require "default_theme.colors"
+
+      hl.Normal = { fg = C.fg, bg = C.bg }
+
+      -- New approach instead of diagnostic_style
+      hl.DiagnosticError.italic = true
+      hl.DiagnosticHint.italic = true
+      hl.DiagnosticInfo.italic = true
+      hl.DiagnosticWarn.italic = true
+
+      return hl
+    end,
     -- enable or disable highlighting for extra plugins
     plugins = {
       aerial = true,
@@ -120,17 +156,18 @@ local config = {
       ["nvim-tree"] = false,
       ["nvim-web-devicons"] = true,
       rainbow = true,
-      symbols_outline = true,
+      symbols_outline = false,
       telescope = true,
       vimwiki = false,
       ["which-key"] = true,
     },
   },
 
-  -- Diagnostics configuration (for vim.diagnostics.config({...}))
+  -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
+    cspell = true,
   },
 
   -- Extend LSP configuration
@@ -139,12 +176,67 @@ local config = {
     servers = {
       -- "pyright"
     },
+    formatting = {
+      disabled = { -- disable formatting capabilities for the listed clients
+        -- "sumneko_lua",
+      },
+      -- filter = function(client) -- fully override the default formatting function
+      --   return true
+      -- end
+    },
     -- easily add or disable built in mappings added during LSP attaching
+
     mappings = {
-      n = {
-        -- ["<leader>lf"] = false -- disable formatting keymap
+      n = { -- n:ノーマルモード
+        ["1"] = { "^", desc = "Start of line (non-blank)" },
+        ["9"] = { "$", desc = "End of line" },
+        [";"] = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+        ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
+        ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
+        ["<C-h>"] = { "<<", desc = "" },
+        ["<C-l>"] = { ">>", desc = "" },
+        ["<CR>"] = { "<ESC>$o<ESC>", desc = "挿入モードにならずに改行" },
+        ["<Esc><Esc>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
+        -- ["<LEADER>dd"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
+        ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
+        ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+        ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+        ["o"] = { "<ESC>$a<CR>", desc = "挿入モードにならずに改行" },
+        ["q"] = { "<ESC>:q<CR>", desc = "qだけでエディタを閉じる" },
+      },
+      t = { -- t:ターミナルモード
+      },
+      i = { -- i:インサートモード
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+        ["<C-k>"] = { "<LEFT>()<LEFT>", desc = "()をサクッと呼び出す" },
+        ["<C-l>"] = { "<ESC>>>", desc = "" },
+        ["<C-s>"] = { "<ESC><C-s>", desc = "" },
+      },
+      c = { -- c:コマンドモード
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+      },
+      v = { -- v:ヴィジュアルモード
+        ["9"] = { "$", desc = "" },
+        ["1"] = { "^", desc = "" },
+        ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
+        ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
+        ["<C-h>"] = { "<<", desc = "" },
+        ["<C-l>"] = { ">>", desc = "" },
+      },
+      x = { -- x:ヴィジュアルブロックモード
+        ["9"] = { "$", desc = "" },
+        ["1"] = { "^", desc = "" },
+        ["d"] = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
+        ["p"] = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
       },
     },
+
     -- add to the global LSP on_attach function
     -- on_attach = function(client, bufnr)
     -- end,
@@ -168,12 +260,6 @@ local config = {
       --     },
       --   },
       -- },
-      -- Example disabling formatting for a specific language server
-      -- gopls = { -- override table for require("lspconfig").gopls.setup({...})
-      --   on_attach = function(client, bufnr)
-      --     client.resolved_capabilities.document_formatting = false
-      --   end
-      -- }
     },
   },
 
@@ -183,97 +269,85 @@ local config = {
   -- lower level configuration and more robust one. (which-key will
   -- automatically pick-up stored data by this setting.)
   mappings = {
-    n = { -- n:ノーマルモード
-      -- ["<LEADER>n"] = { "<CMD>enew<CR>", desc = "NEW FILE" },
-      ["<LEADER>r"] = { function() require("telescope.builtin").oldfiles() end, desc = "履歴検索" },
-
-      ["1"] = { "^", desc = "" },
-      ["9"] = { "$", desc = "" },
-      [";"] = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
-      ["<C-b>"] = { "<LEFT>", desc = "" },
-      ["<C-f>"] = { "<RIGHT>", desc = "" },
-      ["<C-e>"] = { "<ESC>$", desc = "" },
-      ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
-      ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-      ["<C-c>"] = { "<ESC>", desc = "Ctrl + c とEscの動作を完全に一致させる" },
-      ["<C-c><C-c>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
-      ["<C-H>"] = { "<<", desc = "" },
-      ["<C-L>"] = { ">>", desc = "" },
-      ["<CR>"] = { "o<ESC>", desc = "挿入モードにならずに改行" },
-      ["<LEADER>f"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
+    -- first key is the mode
+    n = {
+      -- second key is the lefthand side of the map
+      -- mappings seen under group name "Buffer"
       ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-      ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
-      ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
-      ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
-      ["q"] = { ":q<cr>", desc = "qだけでエディタを閉じる" },
-      ["z"] = { ":setl wrap!<CR>:setl wrap?<CR>", desc = "wrapをトグル" },
+      -- quick save
+      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
-    t = { -- t:ターミナルモード
-    },
-    i = { -- i:インサートモード
-      ["<C-k>"] = { "()<LEFT>", desc = "()をサクッと呼び出す" },
-    },
-    c = { -- c:コマンドモード
-    },
-    v = { -- v:ヴィジュアルモード
-      ["9"] = { "$", desc = "" },
-      ["1"] = { "^", desc = "" },
-      ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
-      ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
-    },
-    x = { -- x:ヴィジュアルブロックモード
-      ["9"] = { "$", desc = "" },
-      ["1"] = { "^", desc = "" },
-      ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
-      ["p"] = { "_dP", desc = "ペーストする際、ヤンクせずに削除" },
+    t = {
+      -- setting a mapping to false will disable it
+      -- ["<esc>"] = false,
     },
   },
 
   -- Configure plugins
   plugins = {
     init = {
-      {
-        "glepnir/lspsaga.nvim", -- UIがかっこよくなるらしい
-        branch = "main",
-        config = function()
-          local saga = require "lspsaga"
+      -- You can disable default plugins as follows:
+      -- ["goolord/alpha-nvim"] = { disable = true },
 
-          saga.init_lsp_saga {
-            -- your configuration
-          }
-        end,
-      },
+      -- You can also add new plugins here as well:
+      -- Add plugins, the packer syntax without the "use"
+      { "github/copilot.vim" },
+      { "godlygeek/tabular" },
+      { "preservim/vim-markdown" },
+
+      -- { "andweeb/presence.nvim" },
+      -- {
+      --   "ray-x/lsp_signature.nvim",
+      --   event = "BufRead",
+      --   config = function()
+      --     require("lsp_signature").setup()
+      --   end,
+      -- },
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
-    ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
-      -- config variable is the default configuration table for the setup functino call
+    ["null-ls"] = function(config)
       local null_ls = require "null-ls"
+
       -- Check supported formatters and linters
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       config.sources = {
         -- Set a formatter
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.formatting.stylua,
+        -- null_ls.builtins.formatting.prettier,
+        null_ls.builtins.diagnostics.textlint.with {
+          filetypes = { "markdown" }, -- textlintの対象はmarkdownだけ
+        },
       }
-      -- set up null-ls's on_attach function
-      -- NOTE: You can remove this on attach function to disable format on save
-      config.on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            desc = "Auto format before save",
-            pattern = "<buffer>",
-            callback = vim.lsp.buf.formatting_sync,
-          })
-        end
-      end
-      return config -- return final config table to use in require("null-ls").setup(config)
+      return config -- return final config table
     end,
+
     treesitter = { -- overrides `require("treesitter").setup(...)`
-      ensure_installed = { "lua", "markdown", "tsx", "javascript", "typescript", "css", "dockerfile", "hcl" },
+      -- highlight = {
+      --   enable = true,
+      --   disable = { "markdown" }, -- なぜかTSによるmarkdownのハイライトがされないので解決するまで無効
+      -- },
+      ensure_installed = {
+        "bash",
+        "css",
+        "dockerfile",
+        "html",
+        "hcl",
+        "javascript",
+        "json",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "scss",
+        "tsx",
+        "typescript",
+        "yaml",
+        "toml",
+        "rust",
+      },
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
@@ -288,18 +362,14 @@ local config = {
         "eslint-lsp",
         "json-lsp",
         "lua-language-server",
-        "solargraph", -- ruby
-        "typescript-language-server",
-        "terraform-ls",
-        -- Formatter
         "prettier",
-        "stylua",
-        -- Linter
         "rubocop",
+        "solargraph", -- ruby
+        "stylua",
+        "stylelint-lsp",
+        "terraform-ls",
+        "typescript-language-server",
       },
-    },
-    packer = { -- overrides `require("packer").setup(...)`
-      compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
     },
   },
 
@@ -309,7 +379,7 @@ local config = {
     vscode_snippet_paths = {},
     -- Extend filetypes
     filetype_extend = {
-      javascript = { "javascriptreact" },
+      -- javascript = { "javascriptreact" },
     },
   },
 
@@ -331,7 +401,7 @@ local config = {
   -- Modify which-key registration (Use this with mappings table in the above.)
   ["which-key"] = {
     -- Add bindings which show up as group name
-    register_mappings = {
+    register = {
       -- first key is the mode, n == normal mode
       n = {
         -- second key is the prefix, <leader> prefixes
@@ -348,16 +418,6 @@ local config = {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
-    -- Set key binding
-    -- Set autocommands
-    vim.api.nvim_create_augroup("packer_conf", { clear = true })
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      desc = "Sync packer after modifying plugins.lua",
-      group = "packer_conf",
-      pattern = "plugins.lua",
-      command = "source <afile> | PackerSync",
-    })
-
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {

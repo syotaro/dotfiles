@@ -200,7 +200,7 @@ git checkout nightly # nvim0.8.0対応のためにnightlyへ
 nvim +PackerSync
  # 設定ファイルをコピー
 mkdir -p ~/.config/nvim/lua/user/
-ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/nightly.init.lua ~/.config/nvim/lua/user/init.lua
+ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/init.lua ~/.config/nvim/lua/user/init.lua
  # 必要な設定を確認
 nvim
 :checkhealth provider

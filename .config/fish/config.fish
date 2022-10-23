@@ -13,9 +13,10 @@ set -U FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
 
 #ALIAS
 alias tree='tree -a -I "\.DS_Store|\.git|node_modules|cdk.out|venv|package|vendor\/bundle" -N'
-alias v="nvim"
-alias vv="nvim -c 'Telescope oldfiles'"
+alias vv="nvim"
+alias v="nvim -c 'Telescope oldfiles'"
 alias vim="nvim"
+alias vimdiff="nvim -d"
 alias gs='git status -sb -uall'
 alias l='ls -ThA'
 alias gd='git diff'
