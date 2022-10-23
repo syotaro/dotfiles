@@ -47,7 +47,7 @@ local config = {
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
-      -- ambiwidth = "single",
+      ambiwidth = "single", -- https://github.com/rbtnn/vim-ambiwidth
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
       backspace = "indent,eol,start",
       backup = false,
@@ -297,6 +297,7 @@ local config = {
       { "github/copilot.vim" },
       { "godlygeek/tabular" },
       { "preservim/vim-markdown" },
+      { "rbtnn/vim-ambiwidth" },
 
       -- { "andweeb/presence.nvim" },
       -- {
@@ -319,7 +320,7 @@ local config = {
         -- null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.textlint.with {
-          filetypes = { "markdown" }, -- textlintの対象はmarkdownだけ
+          filetypes = { "markdown", "html" }, -- textlintの対象はmarkdownだけ
         },
       }
       return config -- return final config table

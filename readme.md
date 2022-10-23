@@ -251,6 +251,7 @@ ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
 ```bash
   # global
 npm install --location=global textlint
+npm install textlint-plugin-html
 npm install --location=global textlint-rule-preset-smarthr
 npm install --location=global textlint-rule-preset-ja-technical-writing
 ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
@@ -307,6 +308,11 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
 - 編集モードで
   - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
   - Escape key: jj, jk
+- Copilotキーマップ ※<M-x>はMetaキー。iTerm2で、Profile>Keys>General>Left Option keyでEsc+設定が事前に必要
+  - 提案を入力する: `<Tab>`
+  - 提案を却下する: `<C-]>`
+  - 次の提案に移る: `<M-]>`
+  - 前の提案に移る: `<M-[>`
 
 ## macの操作メモ
 

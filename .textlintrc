@@ -2,5 +2,8 @@
   "filters": {},
   "rules": {
     "preset-smarthr": true,
-  }
+  },
+  "plugins": [
+    "html",
+  ]
 }
