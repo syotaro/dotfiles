@@ -263,6 +263,12 @@ npx textlint --init  # => .textlintrc が生成される
 
 ## prettier
 
+```bash
+  # これはいらないかも
+brew install prettier
+brew install fsouza/prettierd/prettierd
+```
+
 - prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
   - <https://github.com/prettier/prettier/pull/11597>
 

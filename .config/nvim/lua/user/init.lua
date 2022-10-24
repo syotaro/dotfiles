@@ -51,6 +51,7 @@ local config = {
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
       backspace = "indent,eol,start",
       backup = false,
+      spell = false, -- sets vim.opt.spell
       clipboard = "unnamedplus", -- クリップボードを共有する
       fenc = "utf-8", -- ファイルのエンコーディングを指定
       hidden = true,
@@ -86,10 +87,12 @@ local config = {
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
+      autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
       cmp_enabled = true, -- enable completion at start
       autopairs_enabled = true, -- enable autopairs at start
       diagnostics_enabled = true, -- enable diagnostics at start
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
+      icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       copilot_assume_mapped = true,
       copilot_filetypes = {
         ["*"] = true,
@@ -146,6 +149,7 @@ local config = {
       aerial = true,
       beacon = false,
       bufferline = true,
+      cmp = true,
       dashboard = true,
       highlighturl = true,
       hop = false,
@@ -158,6 +162,7 @@ local config = {
       rainbow = true,
       symbols_outline = false,
       telescope = true,
+      treesitter = true,
       vimwiki = false,
       ["which-key"] = true,
     },
@@ -177,15 +182,25 @@ local config = {
       -- "pyright"
     },
     formatting = {
-      disabled = { -- disable formatting capabilities for the listed clients
+      -- control auto formatting on save
+      format_on_save = {
+        enabled = true, -- enable or disable format on save globally
+        allow_filetypes = { -- enable format on save for specified filetypes only
+          -- "go",
+        },
+        ignore_filetypes = { -- disable format on save for specified filetypes
+          -- "python",
+        },
+      },
+      disabled = { -- disable formatting capabilities for the listed language servers
         -- "sumneko_lua",
       },
+      timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
       --   return true
       -- end
     },
     -- easily add or disable built in mappings added during LSP attaching
-
     mappings = {
       n = { -- n:ノーマルモード
         ["1"] = { "^", desc = "Start of line (non-blank)" },
@@ -196,8 +211,8 @@ local config = {
         ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
         ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
         ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-        ["<C-h>"] = { "<<", desc = "" },
-        ["<C-l>"] = { ">>", desc = "" },
+        ["<C-h>"] = { "<<", desc = "Left Indent" },
+        ["<C-l>"] = { ">>", desc = "Right Indent" },
         ["<CR>"] = { "<ESC>$o<ESC>", desc = "挿入モードにならずに改行" },
         ["<Esc><Esc>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
         -- ["<LEADER>dd"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
@@ -214,24 +229,24 @@ local config = {
         ["<C-e>"] = { "<ESC>$", desc = "End of line" },
         ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
         ["<C-k>"] = { "<LEFT>()<LEFT>", desc = "()をサクッと呼び出す" },
-        ["<C-l>"] = { "<ESC>>>", desc = "" },
-        ["<C-s>"] = { "<ESC><C-s>", desc = "" },
+        ["<C-l>"] = { "<ESC>>>", desc = "Left Indent" },
+        ["<C-s>"] = { "<ESC><C-s>", desc = "Right Indent" },
       },
       c = { -- c:コマンドモード
         ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
         ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
       },
       v = { -- v:ヴィジュアルモード
-        ["9"] = { "$", desc = "" },
-        ["1"] = { "^", desc = "" },
+        ["1"] = { "^", desc = "Start of line (non-blank)" },
+        ["9"] = { "$", desc = "End of line" },
         ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
         ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
-        ["<C-h>"] = { "<<", desc = "" },
-        ["<C-l>"] = { ">>", desc = "" },
+        ["<C-h>"] = { "<<", desc = "Left Indent" },
+        ["<C-l>"] = { ">>", desc = "Right Indent" },
       },
       x = { -- x:ヴィジュアルブロックモード
-        ["9"] = { "$", desc = "" },
-        ["1"] = { "^", desc = "" },
+        ["9"] = { "$", desc = "Start of line (non-blank)" },
+        ["1"] = { "^", desc = "End of line" },
         ["d"] = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
         ["p"] = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
       },
@@ -302,6 +317,14 @@ local config = {
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
+      --   event = "BufRead",
+      --   config = function()
+      --     require("lsp_signature").setup()
+      --   end,
+      -- },
+
+      -- We also support a key value style plugin definition similar to NvChad:
+      -- ["ray-x/lsp_signature.nvim"] = {
       --   event = "BufRead",
       --   config = function()
       --     require("lsp_signature").setup()
