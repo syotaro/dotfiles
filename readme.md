@@ -167,7 +167,7 @@ chmod 600 ~/.ssh/config
 chmod 600 ~/.ssh/id_*
 
   # 1password CLI
-  # => 1passwrod に格納された SSH 秘密鍵を用いて、ssh 接続できるようにする。また、その際生体認証も有効にする → 機密性と便利性の両立の為
+  # => 1password に格納された SSH 秘密鍵を用いて、ssh 接続できるようにする。また、その際生体認証も有効にする → 機密性と便利性の両立の為
   # => https://1password.com/downloads/command-line/
   # => https://developer.1password.com/docs/ssh/get-started/
 
@@ -247,10 +247,10 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 - 事前に、vscodeの拡張機能をインストールしておく
 
 ```bash
- # vscodeのcspellの辞書ファイルを、icloudに同期させる
-unlink ~/.cspell/custom-dictionary-user.txt
-rm ~/.cspell/custom-dictionary-user.txt
-ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/
+ # vscodeとnvimのcspellのファイルと辞書ファイル(辞書には機密が記載されている可能性があるので、icloudと同期）
+mkdir ~/.cspell
+ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/custom-dictionary-user.txt
+ln -s ~/GitHub/syotaro/dotfiles/.cspell/cspell.json ~/.cspell/cspell.json
 ```
 
 ## textlint
