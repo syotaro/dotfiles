@@ -3,15 +3,25 @@
 ## macOS 関連
 
 - OS update
-- 設定 > キーボード
-  - CapsLockをControlキーにマッピング
-  - ユーザー辞書
-    - 全部チェック外す
-  - 入力ソース
-    - 日本語の、下記のチェックを外す
-      - タイプミスを修正
-      - 推測候補表示
-      - 数字を全角入力
+- 設定
+  - キーボード
+    - CapsLockをControlキーにマッピング
+    - ユーザー辞書
+      - 全部チェック外す
+    - 入力ソース
+      - 日本語の、下記のチェックを外す
+        - タイプミスを修正
+        - 推測候補表示
+        - 数字を全角入力
+    - 通知
+      - 音は鳴らさない
+    - サウンド
+      - 入力
+        - 外付けディスプレイ(Studio Display)が選択されていることを確認
+        - 入力音量は最大
+      - 出力
+        - 外付けディスプレイ(Studio Display)が選択されていることを確認
+      - 「メニューバーにサウンドを表示」にチェック
 
 ## CLI（homebrew & fish）
 
@@ -68,7 +78,7 @@ anyenv install --init
 anyenv install --list
 anyenv install nodenv
 nodenv install 16.14.0
-nodeenv global 16.14.0
+nodenv global 16.14.0
   # Verify that nodenv is properly set up using this nodenv-doctor script:
 curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
 
@@ -103,7 +113,7 @@ brew install terraform
 fish_update_completions
 ```
 
-## GUI アプリのインストール
+## アプリのインストール
 
 - AppStore
   - Kaleidoscope.app
@@ -140,14 +150,11 @@ fish_update_completions
   - iTerm.app
   - zoom.us.app
 
-## GUI 設定
+## アプリ設定
 
 - chrome
   - chrome://flags/#following-feed-sidepanel
   - chrome://flags/#desktop-partial-translate
-- macOS設定
-  - 通知
-    - 音は鳴らさない
 - [github CLI設定](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
 
 ## SSH key(今後は不要かも。ほぼ利用しない)
@@ -263,12 +270,6 @@ npx textlint --init  # => .textlintrc が生成される
 
 ## prettier
 
-```bash
-  # これはいらないかも
-brew install prettier
-brew install fsouza/prettierd/prettierd
-```
-
 - prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
   - <https://github.com/prettier/prettier/pull/11597>
 
@@ -302,7 +303,7 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
 - 暗号化されていないWi-Fiスポットを利用しない
 - ファイアウォールは有効にする
 
-## vim 操作のメモ 2
+## AstroNvim 操作のメモ
 
 - NormalModeで
   - C-o :元いた場所に戻る
@@ -311,6 +312,34 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   - C-w: ウインドウ操作
   - C-q: 強制的に終了
   - [ ] : カーソル操作
+  - iはカーソル位置から入力開始。
+  - aはカーソルの次の位置から入力開始。
+  - oはカーソルの次の行の先頭から入力開始。
+  - Iは行の先頭から入力開始。
+  - Aは行の終わりから入力開始。
+  - Oはカーソルの前の行の先頭から入力開始。
+  - Window操作
+    - left window you need to press Ctrl + h
+    - right window you need to press Ctrl + l
+  - タブ操作
+    - left buffer you need to press Shift + h
+    - right buffer you need to press Shift + l
+  - Opening terminal: To toggle terminal you need to press F7
+  - Opening LSP symbols: To toggle symbols outline you need to press Space + lS
+  - Close buffer: To close the current buffer you need to press Space + c
+  - Commenting: To comment on a one or multiple lines you need to press Space + /
+  - Show line diagnostics: To see line diagnostics you need to press g + l
+  - Hover document: To hover over a document you need to press Shift + k
+  - Open rename prompt: To open rename prompt you need to press Space + lr
+  - Go to definition: To go to the definition you need to press g + d
+  - Telescope git status: To get git status you need to press Space + gt
+  - Telescope old files: To find old files you need to press Space + fo
+  - Escape key jj, jk
+  - Force Write Ctrl + s
+  - Force Quit Ctrl + q
+  - Close Buffer Space + c
+  - Comment Space + /
+
 - 編集モードで
   - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
   - Escape key: jj, jk
@@ -319,6 +348,16 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   - 提案を却下する: `<C-]>`
   - 次の提案に移る: `<M-]>`
   - 前の提案に移る: `<M-[>`
+- Insertモード
+  - Ctrl+tやCtrl+dでインデント
+
+## Nvimのキャッシュクリア
+
+```bash
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
+mv ~/.cache/nvim ~/.cache/nvim.bak
+nvim +PackerSync
+```
 
 ## macの操作メモ
 

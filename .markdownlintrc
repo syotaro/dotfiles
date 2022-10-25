@@ -32,5 +32,8 @@
     "siblings_only": true
   },
   // Allow inline HTML
-  "MD033": false
+  "MD033": false,
+  "MD025": {
+    "front_matter_title": "title"
+    }
 }

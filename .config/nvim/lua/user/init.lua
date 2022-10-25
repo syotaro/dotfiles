@@ -211,8 +211,8 @@ local config = {
         ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
         ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
         ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-        ["<C-h>"] = { "<<", desc = "Left Indent" },
-        ["<C-l>"] = { ">>", desc = "Right Indent" },
+        -- ["<C-h>"] = { "<<", desc = "Left Indent" },
+        -- ["<C-l>"] = { ">>", desc = "Right Indent" },
         ["<CR>"] = { "<ESC>$o<ESC>", desc = "挿入モードにならずに改行" },
         ["<Esc><Esc>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
         -- ["<LEADER>dd"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
@@ -223,14 +223,15 @@ local config = {
         ["q"] = { "<ESC>:q<CR>", desc = "qだけでエディタを閉じる" },
       },
       t = { -- t:ターミナルモード
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
       },
       i = { -- i:インサートモード
         ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
         ["<C-e>"] = { "<ESC>$", desc = "End of line" },
         ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-        ["<C-k>"] = { "<LEFT>()<LEFT>", desc = "()をサクッと呼び出す" },
-        ["<C-l>"] = { "<ESC>>>", desc = "Left Indent" },
-        ["<C-s>"] = { "<ESC><C-s>", desc = "Right Indent" },
+        ["kk"] = { "()<LEFT>", desc = "call ()" },
       },
       c = { -- c:コマンドモード
         ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
@@ -241,8 +242,8 @@ local config = {
         ["9"] = { "$", desc = "End of line" },
         ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
         ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
-        ["<C-h>"] = { "<<", desc = "Left Indent" },
-        ["<C-l>"] = { ">>", desc = "Right Indent" },
+        -- ["<C-h>"] = { "<<", desc = "Left Indent" },
+        -- ["<C-l>"] = { ">>", desc = "Right Indent" },
       },
       x = { -- x:ヴィジュアルブロックモード
         ["9"] = { "$", desc = "Start of line (non-blank)" },
@@ -343,7 +344,7 @@ local config = {
         -- null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.textlint.with {
-          filetypes = { "markdown", "html" }, -- textlintの対象はmarkdownだけ
+          filetypes = { "markdown", "html" }, -- textlintの対象
         },
       }
       return config -- return final config table
@@ -352,7 +353,7 @@ local config = {
     treesitter = { -- overrides `require("treesitter").setup(...)`
       -- highlight = {
       --   enable = true,
-      --   disable = { "markdown" }, -- なぜかTSによるmarkdownのハイライトがされないので解決するまで無効
+      --   disable = { "markdown" },
       -- },
       ensure_installed = {
         "bash",
@@ -364,7 +365,6 @@ local config = {
         "json",
         "lua",
         "markdown",
-        "markdown_inline",
         "scss",
         "tsx",
         "typescript",
@@ -381,18 +381,20 @@ local config = {
     ["mason-tool-installer"] = { -- overrides `require("mason-tool-installer").setup(...)`
       ensure_installed = {
         -- Lsp
-        "css-lsp",
-        "cssmodules-language-server",
-        "eslint-lsp",
-        "json-lsp",
-        "lua-language-server",
-        "prettier",
-        "rubocop",
-        "solargraph", -- ruby
-        "stylua",
+        -- "css-lsp",
+        -- "cssmodules-language-server",
+        -- "json-lsp",
+        "tflint",
         "stylelint-lsp",
-        "terraform-ls",
+        "ruby-lsp",
+        "solargraph",
+        "eslint-lsp",
+        "textlint",
+        "markdownlint",
         "typescript-language-server",
+        "rubocop",
+        "prettier",
+        "lua-language-server",
       },
     },
   },
