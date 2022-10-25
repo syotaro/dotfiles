@@ -430,13 +430,13 @@ local config = {
         -- Set a formatter
         -- null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier.with({
-          filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "json", "yaml", "markdown" },
+          -- filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "json", "yaml", "markdown" },
         }),
         null_ls.builtins.diagnostics.textlint.with({
           filetypes = { "markdown", "html" }, -- textlintの対象
         }),
         null_ls.builtins.diagnostics.cspell.with({
-          -- filetypes = { "markdown", "json" },
+          -- filetypes = { "markdown", "html" },
           extra_args = { "--config", vim.fn.expand("~/.cspell/cspell.json") },
         }),
         null_ls.builtins.code_actions.cspell,
