@@ -79,6 +79,7 @@ anyenv install --list
 anyenv install nodenv
 nodenv install 16.14.0
 nodenv global 16.14.0
+npm install --location=global yarn
   # Verify that nodenv is properly set up using this nodenv-doctor script:
 curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
 
@@ -199,7 +200,7 @@ brew install git ctags
 brew install neovim
 brew install neovim-qt
 python3 -m pip install --user --upgrade pynvim
-
+npm install --location=global neovim
 
  # NVIMの設定を時短するため、AstroNvimをインストール
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
@@ -213,19 +214,24 @@ nvim
 :checkhealth provider
 :Mason
   # =>Installed
-  # =>  ✓ css-lsp
-  # =>  ✓ cssmodules-language-server
-  # =>  ✓ eslint-lsp
-  # =>  ✓ json-lsp
-  # =>  ✓ lua-language-server
-  # =>  ✓ prettier
-  # =>  ✓ rubocop
-  # =>  ✓ solargraph
-  # =>  ✓ stylua
-  # =>  ✓ terraform-ls
-  # =>  ✓ typescript-language-server
+    ✓ cspell                      # => cspellのインストールが必要
+    ✓ cssmodules-language-server  #npm install --global cssmodules-language-server
+    ✓ eslint-lsp                  #npm install --global eslint-lsp
+    ✓ json-lsp                    # npm install --save vscode-json-languageservice
+    ✓ lua-language-server
+    ✓ markdownlint
+    ✓ prettier         # formatter
+    ✓ rubocop         # Linter
+    ✓ ruby-lsp
+    ✓ solargraph
+    ✓ stylelint-lsp
+    ✓ terraform-ls      # Terraform Formatter
+    ✓ textlint        # Linter
+    ✓ tflint           # Linter
+    ✓ typescript-language-server
  # Syntax（TreeSitter）の設定確認
 :TSInstallInfo
+ # github Copilotの設定確認
 :Copilot setup   #=> 自身のgithub ユーザ名が表示されること
 :Copilot status  #=> Copilot: Enabled and online
 :Copilot version #=> Nodeのバージョンが17以上必須
