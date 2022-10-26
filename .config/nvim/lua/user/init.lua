@@ -60,9 +60,7 @@ local config = {
       autoindent = true, -- ファイル保存時に、自動でインデントを揃える
       smartindent = true, -- ファイル保存時に、自動でインデントを揃える
       hlsearch = true,
-      -- lazyredraw = true,
       list = true, -- 不可視文字表示
-      listchars = "tab:▸ ,trail:_,extends:>,precedes:<,nbsp:%", -- " 不可視文字の表示形式
       mouse = "a",
       number = true,
       relativenumber = false,
@@ -78,8 +76,9 @@ local config = {
       whichwrap = "b,s,h,l,[,],<,>", -- カーソルを行頭、行末で止まらないようにする
       wildmenu = true, -- コマンドラインで補完候補をメニュー表示する
       writebackup = false,
-      wrap = false,
+      wrap = true,
       -- AstroNVIMでデフォルト設定されているので、あえてやらないでいいやつ
+      -- listchars = "tab:▸ ,trail:_,extends:>,precedes:<,nbsp:%", -- " 不可視文字の表示形式
       ---- signcolumn = "true", signcolumnは常に有効にして、ファイル開く直後のガタつき予防
       ---- laststatus = 2,
       ---- cmdheight = 0, -- nvim0.8以降でサポート。かっこいい
@@ -96,11 +95,6 @@ local config = {
       copilot_assume_mapped = true,
       copilot_filetypes = {
         ["*"] = true,
-        ["javascript"] = true,
-        ["typescript"] = true,
-        ["lua"] = true,
-        ["markdown"] = true,
-        ["ruby"] = true,
         ["php"] = true,
       },
       vim_markdown_folding_disabled = 1, -- 折り畳みを無効化
@@ -211,9 +205,7 @@ local config = {
         ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
         ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
         ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-        -- ["<C-h>"] = { "<<", desc = "Left Indent" },
-        -- ["<C-l>"] = { ">>", desc = "Right Indent" },
-        ["<CR>"] = { "<ESC>$o<ESC>", desc = "挿入モードにならずに改行" },
+        ["<CR>"] = { "<ESC>o<ESC>", desc = "挿入モードにならずに改行" },
         ["<Esc><Esc>"] = { ":nohlsearch<CR><ESC>", desc = "ハイライト削除" },
         -- ["<LEADER>dd"] = { ":save ~/Desktop/memo.md<CR>", desc = "メモをサクッと作成" },
         ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
@@ -240,6 +232,9 @@ local config = {
       v = { -- v:ヴィジュアルモード
         ["1"] = { "^", desc = "Start of line (non-blank)" },
         ["9"] = { "$", desc = "End of line" },
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-e>"] = { "$", desc = "End of line" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
         ["<C-j>"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
         ["<C-k>"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
         -- ["<C-h>"] = { "<<", desc = "Left Indent" },
@@ -250,6 +245,9 @@ local config = {
         ["1"] = { "^", desc = "End of line" },
         ["d"] = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
         ["p"] = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
+        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+        ["<C-e>"] = { "$", desc = "End of line" },
+        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
       },
     },
 
