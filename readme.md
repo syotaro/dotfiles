@@ -77,6 +77,7 @@ brew install anyenv
 anyenv install --init
 anyenv install --list
 anyenv install nodenv
+nodenv install --list
 nodenv install 16.14.0
 nodenv global 16.14.0
 npm install --location=global yarn
@@ -89,6 +90,7 @@ git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv
 anyenv update
 
 anyenv install rbenv
+rbenv install --list # https://www.ruby-lang.org/en/downloads/ から安定版のバージョンを確認
 rbenv install 3.1.2
 rbenv global 3.1.2
 ```
@@ -318,6 +320,7 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   - C-w: ウインドウ操作
   - C-q: 強制的に終了
   - [ ] : カーソル操作
+  - = : インデントを揃える
   - iはカーソル位置から入力開始。
   - aはカーソルの次の位置から入力開始。
   - oはカーソルの次の行の先頭から入力開始。
