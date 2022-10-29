@@ -335,7 +335,6 @@ local config = {
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config)
       -- cspell start
-      --
       local cspell_config_dir = '~/.cspell'
       local cspell_data_dir = '~/.cspell'
       local cspell_files = {
@@ -437,7 +436,9 @@ local config = {
           filetypes = { "markdown", "html" }, -- textlintの対象
         }),
         null_ls.builtins.diagnostics.cspell.with({
-          -- filetypes = { "markdown", "html" },
+          filetypes = { "markdown", "text", "json", "yaml", "html", "css", "scss", "less", "javascript",
+            "javascriptreact", "typescript", "typescriptreact", "lua", "python", "rust", "dockerfile", "vim", "toml",
+            "php", "ruby", "vue" },
           extra_args = { "--config", vim.fn.expand("~/.cspell/cspell.json") },
         }),
         null_ls.builtins.code_actions.cspell,
