@@ -2,7 +2,7 @@
 set fish_greeting
 
 # LSCOLORS
-export LSCOLORS=Gxfxcxdxbxegedabagacad
+export LSCOLORS='Gxfxcxdxbxegedabagacad'
 
 # ターミナルの256色表示
 export TERM=xterm-256color
@@ -32,4 +32,4 @@ if status is-interactive
     source (/opt/homebrew/bin/anyenv init - fish|psub)
 end
 
-string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)
+# string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)

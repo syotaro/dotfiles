@@ -226,6 +226,7 @@ nvim
     ✓ rubocop         # Linter
     ✓ ruby-lsp
     ✓ solargraph
+    ✓ spectral-language-server
     ✓ stylelint-lsp
     ✓ terraform-ls      # Terraform Formatter
     ✓ textlint        # Linter
@@ -372,3 +373,8 @@ nvim +PackerSync
 
 - opt+cmd+d →OSdock ON/OFF
 - opt+cmd+g →Gdriveランチャー
+
+## macで、slackやvscodeで`Command + [`や`Shift+Command+[`のショートカットキーが効かなくなる問題
+
+- 以下のショートカットをなにか別のものに変えた後、OSを再起動する。
+  - システム環境設定->キーボード->ショートカット->キーボード->次のウインドウを操作対象にする

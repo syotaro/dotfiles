@@ -47,9 +47,10 @@ local config = {
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
+      encoding = "utf-8",
       ambiwidth = "single", -- https://github.com/rbtnn/vim-ambiwidth
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
-      backspace = "indent,eol,start",
+      backspace = "indent,eol,start", -- インサートモード中の BS、CTRL-W、CTRL-U による文字削除を柔軟にする
       backup = false,
       spell = false, -- sets vim.opt.spell
       clipboard = "unnamedplus", -- クリップボードを共有する
@@ -76,7 +77,7 @@ local config = {
       whichwrap = "b,s,h,l,[,],<,>", -- カーソルを行頭、行末で止まらないようにする
       wildmenu = true, -- コマンドラインで補完候補をメニュー表示する
       writebackup = false,
-      wrap = true,
+      wrap = false,
       -- AstroNVIMでデフォルト設定されているので、あえてやらないでいいやつ
       -- listchars = "tab:▸ ,trail:_,extends:>,precedes:<,nbsp:%", -- " 不可視文字の表示形式
       ---- signcolumn = "true", signcolumnは常に有効にして、ファイル開く直後のガタつき予防
@@ -196,62 +197,7 @@ local config = {
     },
     -- easily add or disable built in mappings added during LSP attaching
     mappings = {
-      n = { -- n:ノーマルモード
-        ["1"] = { "^", desc = "Start of line (non-blank)" },
-        ["9"] = { "$", desc = "End of line" },
-        [";"] = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
-        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
-        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-        ["<C-h>"] = { "<<", desc = "left indent" },
-        ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
-        ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-        ["<C-l>"] = { ">>", desc = "right indent" },
-        ["<CR>"] = { "<ESC>o<ESC>i", desc = "ノーマルモードのまま空行を挿入" },
-        ["<Esc><Esc>"] = { "<cmd>nohlsearch<CR><ESC>", desc = "ハイライト削除" },
-        ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
-        ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
-        ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
-        ["o"] = { "A<CR>", desc = "行末に移動して改行" },
-        ["q"] = { "<cmd>q<CR>", desc = "qだけでエディタを閉じる" },
-      },
-      t = { -- t:ターミナルモード
-        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
-        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-      },
-      i = { -- i:インサートモード
-        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-        ["<C-e>"] = { "<ESC>$", desc = "End of line" },
-        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-        ["<C-h>"] = { "<C-d>", desc = "Left Indent" },
-        ["<C-l>"] = { "<C-t>", desc = "Right Indent" },
-        ["kk"] = { "()<LEFT>", desc = "call ()" },
-      },
-      c = { -- c:コマンドモード
-        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-      },
-      v = { -- v:ヴィジュアルモード
-        ["1"] = { "^", desc = "Start of line (non-blank)" },
-        ["9"] = { "$", desc = "End of line" },
-        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-        ["<C-e>"] = { "$", desc = "End of line" },
-        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-        ["<C-j>"] = { "<cmd>move '>+1<CR>gv-gv", desc = "Move lines of code up" },
-        ["<C-k>"] = { "<cmd>move '<-2<CR>gv-gv", desc = "Move lines of code down" },
-        ["<C-h>"] = { "<gv", desc = "Left Indent & v-mode continue" },
-        ["<C-l>"] = { ">gv", desc = "Right Indent & v-mode continue" },
-      },
-      x = { -- x:ヴィジュアルブロックモード
-        ["9"] = { "$", desc = "Start of line (non-blank)" },
-        ["1"] = { "^", desc = "End of line" },
-        ["d"] = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
-        ["p"] = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
-        ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-        ["<C-e>"] = { "$", desc = "End of line" },
-        ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-      },
+      n = {} -- n:ノーマルモード
     },
 
     -- add to the global LSP on_attach function
@@ -287,9 +233,7 @@ local config = {
   -- automatically pick-up stored data by this setting.)
   mappings = {
     -- first key is the mode
-    n = {
-      -- second key is the lefthand side of the map
-      -- mappings seen under group name "Buffer"
+    n = { -- n:ノーマルモード
       ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
@@ -299,12 +243,62 @@ local config = {
         "<cmd>e " .. vim.fn.stdpath "config" .. "/lua/user/init.lua<CR>",
         desc = "Open Astronvim config",
       },
-      -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      ["1"] = { "^", desc = "Start of line (non-blank)" },
+      ["9"] = { "$", desc = "End of line" },
+      [";"] = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
+      ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+      ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+      ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+      -- ["<C-h>"] = { "<<", desc = "left indent" },
+      ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
+      ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
+      -- ["<C-l>"] = { ">>", desc = "right indent" },
+      ["<CR>"] = { "<ESC>o<ESC>i", desc = "ノーマルモードのまま空行を挿入" },
+      ["<Esc><Esc>"] = { "<cmd>nohlsearch<CR><ESC>", desc = "ハイライト削除" },
+      ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
+      ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+      ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+      ["o"] = { "A<CR>", desc = "行末に移動して改行" },
+      ["q"] = { "<cmd>q<CR>", desc = "qだけでエディタを閉じる" },
     },
-    t = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
+    t = { -- t:ターミナルモード
+      ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+      ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+      ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+    },
+    i = { -- i:インサートモード
+      ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+      ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+      ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+      ["<C-n>"] = { "<DOWN>", desc = "DOWN" },
+      ["<C-p>"] = { "<UP>", desc = "UP" },
+      ["<C-h>"] = { "<BACKSPACE>", desc = "delete left character" },
+      ["<C-l>"] = { "<C-t>", desc = "Right Indent" },
+      ["kk"] = { "()<LEFT>", desc = "call ()" },
+    },
+    c = { -- c:コマンドモード
+      ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+      ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+    },
+    v = { -- v:ヴィジュアルモード
+      ["1"] = { "^", desc = "Start of line (non-blank)" },
+      ["9"] = { "$", desc = "End of line" },
+      ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+      ["<C-e>"] = { "$", desc = "End of line" },
+      ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+      ["<C-j>"] = { "<cmd>move '>+1<CR>gv-gv", desc = "Move lines of code up" },
+      ["<C-k>"] = { "<cmd>move '<-2<CR>gv-gv", desc = "Move lines of code down" },
+      ["<C-h>"] = { "<gv", desc = "Left Indent & v-mode continue" },
+      ["<C-l>"] = { ">gv", desc = "Right Indent & v-mode continue" },
+    },
+    x = { -- x:ヴィジュアルブロックモード
+      ["9"] = { "$", desc = "Start of line (non-blank)" },
+      ["1"] = { "^", desc = "End of line" },
+      ["d"] = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
+      ["p"] = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
+      ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
+      ["<C-e>"] = { "$", desc = "End of line" },
+      ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
     },
   },
 
@@ -341,6 +335,7 @@ local config = {
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config)
       -- cspell start
+      --
       local cspell_config_dir = '~/.cspell'
       local cspell_data_dir = '~/.cspell'
       local cspell_files = {
@@ -480,21 +475,22 @@ local config = {
     -- use mason-tool-installer to configure DAP/Formatters/Linter installation
     ["mason-tool-installer"] = { -- overrides `require("mason-tool-installer").setup(...)`
       ensure_installed = {
-        -- Lsp
-        -- "css-lsp",
-        -- "cssmodules-language-server",
-        -- "json-lsp",
-        "tflint",
-        "stylelint-lsp",
+        "cspell",
+        "cssmodules-language-serve",
+        "eslint-lsp",
+        "json-lsp",
+        "lua-language-server",
+        "markdownlint",
+        "prettier",
+        "rubocop",
         "ruby-lsp",
         "solargraph",
-        "eslint-lsp",
+        "spectral-language-server",
+        "stylelint-lsp",
+        "terraform-ls",
         "textlint",
-        "markdownlint",
-        "typescript-language-server",
-        "rubocop",
-        "prettier",
-        "lua-language-server",
+        "tflint",
+        "typescript-language-serve",
       },
     },
   },
