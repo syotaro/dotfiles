@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "textlint": "^12.2.2",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0",
+    "textlint-rule-preset-smarthr": "^1.15.1"
+  },
+  "dependencies": {
+    "prettier-plugin-md-nocjsp": "^1.4.0",
+    "textlint-plugin-html": "^0.3.0"
+  }
+}

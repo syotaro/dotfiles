@@ -23,7 +23,7 @@
         - 外付けディスプレイ(Studio Display)が選択されていることを確認
       - 「メニューバーにサウンドを表示」にチェック
 
-## CLI（homebrew & fish）
+## CLI（homebrew）
 
 ```bash
   # brew install
@@ -37,10 +37,11 @@ ln -s    ~/GitHub/syotaro/dotfiles/.config/git/ignore ~/.config/git/ignore
 
  # zshのプロファイルにパスを通す
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+```
 
- # 現在のセッションにHomebrewのパスを認識させる
-eval "$(/opt/homebrew/bin/brew shellenv)"
+## CLI(fish)
 
+```bash
  # install fish
 brew install fish
 
@@ -56,7 +57,7 @@ chsh -s /opt/homebrew/bin/fish
 sudo vi /etc/shells # 最終行に、/opt/homebrew/bin/fish を追記
 
  # 設定ファイルを配置
-cp -f ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -s ~/GitHub/syotaro/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 
  # fishのプラグイン(fisher)install
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
@@ -65,32 +66,54 @@ fisher install 0rax/fish-bd
 brew install fzf
 fisher install fisherman/fzf
 fisher install ilancosman/tide@v5
-
+ # fish の補完を最適化するため、CLIhelp を fish にロード
+fish_update_completions
  # vscodeのターミナルシェル連携の設定
  # => https://code.visualstudio.com/docs/terminal/shell-integration#_manual-installation
+ # => やるとなんかshellでEnter連打でエラー出るのでやらない方がいい
 ```
 
-## anyenv
+## CLI(anyenv)
 
 ```bash
 brew install anyenv
 anyenv install --init
 anyenv install --list
+mkdir -p $(anyenv root)/plugins
+git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+anyenv update
+```
+
+## CLI(nodenv on anyenv)
+
+- 事前にnodeのLTS（長期サポートバージョン）を確認しておく
+
+```bash
+ # global
+npm root --location=global
+npm bin --location=global
+node -e "console.log(global.module.paths)"
+ # current dir
+npm root
 anyenv install nodenv
 nodenv install --list
-nodenv install 16.14.0
-nodenv global 16.14.0
+nodenv install 18.12.0
+nodenv global 18.12.0
 npm install --location=global yarn
   # Verify that nodenv is properly set up using this nodenv-doctor script:
 curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
 
+ln -s ~/GitHub/syotaro/dotfiles/package.json ~/
+ln -s ~/GitHub/syotaro/dotfiles/package-lock.json ~/
+```
 
-mkdir -p $(anyenv root)/plugins
-git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
-anyenv update
+## CLI(ruby version manager)
 
+- 事前に <https://www.ruby-lang.org/en/downloads/> から安定版のバージョンを確認しておく
+
+```bash
 anyenv install rbenv
-rbenv install --list # https://www.ruby-lang.org/en/downloads/ から安定版のバージョンを確認
+rbenv install --list 
 rbenv install 3.1.2
 rbenv global 3.1.2
 ```
@@ -108,15 +131,13 @@ brew install tree
 brew install the_silver_searcher
  # terraform
 brew install terraform
+ # xcode関連CLI
+xcode-select --install
+ # exa
+brew install exa
 ```
 
-## fish の補完を最適化するため、CLIhelp を fish にロード
-
-```bash
-fish_update_completions
-```
-
-## アプリのインストール
+## GUIアプリのインストール
 
 - AppStore
   - Kaleidoscope.app
@@ -153,7 +174,7 @@ fish_update_completions
   - iTerm.app
   - zoom.us.app
 
-## アプリ設定
+## GUIアプリ設定
 
 - chrome
   - chrome://flags/#following-feed-sidepanel
@@ -182,31 +203,23 @@ chmod 600 ~/.ssh/id_*
 ln -s ~/Documents/config/aws  ~/.aws
 ```
 
-## フォント
-
-- <https://fonts.google.com/specimen/BIZ+UDGothic>
-
 ## NVIM
 
 - 事前にiTerm2をインストールしておく(デフォルトのターミナルだと、TrueColor非対応につき、アイコンが文字化けするため)
 
 ```bash
- # NERDフォントをインストール
+ # NERD対応フォントをインストール
 brew tap homebrew/cask-fonts
 brew install font-hackgen
 brew install font-hackgen-nerd
 
-
  # NVIM本体をインストール
 brew install git ctags
 brew install neovim
-brew install neovim-qt
 python3 -m pip install --user --upgrade pynvim
 npm install --location=global neovim
-
  # NVIMの設定を時短するため、AstroNvimをインストール
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-git checkout nightly # nvim0.8.0対応のためにnightlyへ
 nvim +PackerSync
  # 設定ファイルをコピー
 mkdir -p ~/.config/nvim/lua/user/
@@ -222,15 +235,15 @@ nvim
     ✓ json-lsp                    # npm install --save vscode-json-languageservice
     ✓ lua-language-server
     ✓ markdownlint
-    ✓ prettier         # formatter
-    ✓ rubocop         # Linter
+    ✓ prettier                    # formatter
+    ✓ rubocop                     # Linter
     ✓ ruby-lsp
     ✓ solargraph
     ✓ spectral-language-server
     ✓ stylelint-lsp
-    ✓ terraform-ls      # Terraform Formatter
-    ✓ textlint        # Linter
-    ✓ tflint           # Linter
+    ✓ terraform-ls                # Terraform Formatter
+    ✓ textlint                    # 自然言語Linter
+    ✓ tflint                      # Terraform Linter
     ✓ typescript-language-server
  # Syntax（TreeSitter）の設定確認
 :TSInstallInfo
@@ -251,15 +264,15 @@ defaults write com.apple.screencapture name ""
 defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 ```
 
-## cspell
+## cspell config
 
-- 事前に、vscodeの拡張機能をインストールしておく
+- 事前に、vscodeとnvim側の設定は完了しているものとする
 
 ```bash
  # vscodeとnvimのcspellのファイルと辞書ファイル(辞書には機密が記載されている可能性があるので、icloudと同期）
 mkdir ~/.cspell
 ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/custom-dictionary-user.txt
-ln -s ~/GitHub/syotaro/dotfiles/.cspell/cspell.json ~/.cspell/cspell.json
+ln -s ~/GitHub/syotaro/dotfiles/.cspell/cspell.json        ~/.cspell/cspell.json
 ```
 
 ## textlint
@@ -267,44 +280,33 @@ ln -s ~/GitHub/syotaro/dotfiles/.cspell/cspell.json ~/.cspell/cspell.json
 ```bash
   # global
 npm install --location=global textlint
-npm install textlint-plugin-html
+npm install --location=global textlint-plugin-html
 npm install --location=global textlint-rule-preset-smarthr
 npm install --location=global textlint-rule-preset-ja-technical-writing
 ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
-  # リポジトリ
-npm install --save-dev textlint
-npm install --save-dev textlint-rule-preset-smarthr
-npx textlint --init  # => .textlintrc が生成される
 ```
 
-## prettier
+- textlint拡張は、ワークスペースを開いていないと、サーバーエラーになる
 
-- prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題
-  - <https://github.com/prettier/prettier/pull/11597>
+## prettier
 
 ```bash
   # global
 npm install --location=global prettier
 npm install --location=global prettier-plugin-md-nocjsp
 ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # エラー回避で必要だった
-  # リポジトリ
-npm install --location=global prettier
-npm install --location=global prettier-plugin-md-nocjsp
-vim ./prettierrc.js  # うまく設定しないと、prettier-plugin-md-nocjspがちゃんとロードされない
 ```
+
+- [prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題](https://github.com/prettier/prettier/pull/11597)
 
 ## markdownlint
 
 ```bash
   # global
 ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
-  # リポジトリ
-  # =>プロジェクトのworkspace_directoryに置く場合は.markdownlint.jsoncという名前にする。
 ```
 
-## vscodeの心得
-
-- textlint拡張は、ワークスペースを開いていないと、サーバーエラーになる
+- リポジトリ内で利用する場合は、.markdownlint.jsoncという名前にする。
 
 ## セキュリティの心得
 
