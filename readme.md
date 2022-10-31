@@ -97,9 +97,11 @@ node -e "console.log(global.module.paths)"
 npm root
 anyenv install nodenv
 nodenv install --list
-nodenv install 18.12.0
-nodenv global 18.12.0
-npm install --location=global yarn
+nodenv versions
+  # => * system (set by /Users/syotaro/.anyenv/envs/nodenv/version)
+nodenv install 16.18.0
+nodenv global 16.18.0
+npm install yarn
   # Verify that nodenv is properly set up using this nodenv-doctor script:
 curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
 
@@ -113,7 +115,7 @@ ln -s ~/GitHub/syotaro/dotfiles/package-lock.json ~/
 
 ```bash
 anyenv install rbenv
-rbenv install --list 
+rbenv install --list
 rbenv install 3.1.2
 rbenv global 3.1.2
 ```
@@ -217,7 +219,7 @@ brew install font-hackgen-nerd
 brew install git ctags
 brew install neovim
 python3 -m pip install --user --upgrade pynvim
-npm install --location=global neovim
+npm install  --location=global neovim
  # NVIMの設定を時短するため、AstroNvimをインストール
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 nvim +PackerSync
@@ -227,24 +229,25 @@ ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/init.lua ~/.config/nvim/lu
  # 必要な設定を確認
 nvim
 :checkhealth provider
+:checkhealth mason
 :Mason
   # =>Installed
-    ✓ cspell                      # => cspellのインストールが必要
-    ✓ cssmodules-language-server  #npm install --global cssmodules-language-server
-    ✓ eslint-lsp                  #npm install --global eslint-lsp
-    ✓ json-lsp                    # npm install --save vscode-json-languageservice
-    ✓ lua-language-server
-    ✓ markdownlint
-    ✓ prettier                    # formatter
-    ✓ rubocop                     # Linter
-    ✓ ruby-lsp
-    ✓ solargraph
-    ✓ spectral-language-server
-    ✓ stylelint-lsp
-    ✓ terraform-ls                # Terraform Formatter
-    ✓ textlint                    # 自然言語Linter
-    ✓ tflint                      # Terraform Linter
-    ✓ typescript-language-server
+  # cspell                      # 前提：globalで cspellコマンドが実行できること
+  # cssmodules-language-server  #
+  # eslint-lsp                  #
+  # json-lsp                    #
+  # lua-language-server
+  # markdownlint                # 
+  # prettier                    # formatter
+  # rubocop                     # Linter
+  # ruby-lsp
+  # solargraph
+  # spectral-language-server
+  # stylelint-lsp
+  # terraform-ls                # Terraform Formatter
+  # textlint                    # 自然言語Linter
+  # tflint                      # Terraform Linter
+  # typescript-language-server
  # Syntax（TreeSitter）の設定確認
 :TSInstallInfo
  # github Copilotの設定確認
@@ -270,6 +273,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 
 ```bash
  # vscodeとnvimのcspellのファイルと辞書ファイル(辞書には機密が記載されている可能性があるので、icloudと同期）
+npm install --location=global cspell
 mkdir ~/.cspell
 ln -s ~/Documents/config/cspell/custom-dictionary-user.txt ~/.cspell/custom-dictionary-user.txt
 ln -s ~/GitHub/syotaro/dotfiles/.cspell/cspell.json        ~/.cspell/cspell.json
@@ -292,8 +296,8 @@ ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
 
 ```bash
   # global
-npm install --location=global prettier
-npm install --location=global prettier-plugin-md-nocjsp
+npm install  --location=global prettier
+npm install  --location=global prettier-plugin-md-nocjsp
 ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # エラー回避で必要だった
 ```
 
@@ -303,7 +307,9 @@ ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # エラー回
 
 ```bash
   # global
+npm install markdownlint-cli2 --global
 ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
+  # => jsonc形式っぽいのに、末尾のカンマがあると、エラーになるので注意
 ```
 
 - リポジトリ内で利用する場合は、.markdownlint.jsoncという名前にする。
@@ -366,8 +372,8 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
 ## Nvimのキャッシュクリア
 
 ```bash
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
+mv ~/.local/share/nvim  /tmp/localsharenvm
+mv ~/.cache/nvim /tmp/cachenvim
 nvim +PackerSync
 ```
 

@@ -1,11 +1,24 @@
 {
+  "name": "syotaro-global-package",
+  "version": "0.0.1",
+  "author": "syotaro",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "16.18.0"
+  },
   "devDependencies": {
     "textlint": "^12.2.2",
     "textlint-rule-preset-ja-technical-writing": "^7.0.0",
-    "textlint-rule-preset-smarthr": "^1.15.1"
+    "textlint-rule-preset-smarthr": "^1.15.2"
   },
   "dependencies": {
+    "cspell": "^6.13.3",
+    "markdownlint": "^0.26.2",
+    "neovim": "^4.10.1",
+    "prettier": "^2.7.1",
     "prettier-plugin-md-nocjsp": "^1.4.0",
-    "textlint-plugin-html": "^0.3.0"
+    "textlint-plugin-html": "^0.3.0",
+    "yarn": "^1.22.19"
   }
 }

@@ -1,16 +1,28 @@
 {
   // Enable all markdownlint rules
   "default": true,
-  // Disable line length check(1文の最大文字数をはtextlintと競合するため無効化)
+
+  // 最初のヘッダーがトップレベルのヘッダーでないことを許容
+  "MD002": false,
+
+  // Set list indent
+  "MD007": {
+    "indent": 2
+  },
+
+  // Disable line length check
   "MD013": false,
-  // // 見出しに.,;:が入ることを許容
-  // "MD026": {
-  //   "no-trailing-punctuation": false,
-  // },
-  // // URLそのままの表記を許容
-  // "MD034": {
-  //   "no-bare-urls": false
-  // },
+
+  // Multiple headings with the same title
+  "MD024": {
+    "siblings_only": true
+  },
+
+  // 
+  "MD025": {
+    "front_matter_title": "title"
+  },
+
   // Set Ordered list item prefix to "ordered" (use 1. 2. 3. not 1. 1. 1.)
   "MD029": {
     "style": "ordered"
@@ -19,21 +31,11 @@
     "ul_multi": 1,
     "ol_multi": 1
   },
-  // Set list indent
-  "MD007": {
-    "indent": 2
-  },
+  // Allow inline HTML
+  "MD033": false,
+
   // Code block style
   "MD046": {
     "style": "fenced"
-  },
-  // Multiple headings with the same title
-  "MD024": {
-    "siblings_only": true
-  },
-  // Allow inline HTML
-  "MD033": false,
-  "MD025": {
-    "front_matter_title": "title"
-    }
+  }
 }
