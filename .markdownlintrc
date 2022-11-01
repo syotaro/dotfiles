@@ -1,28 +1,25 @@
 {
   // Enable all markdownlint rules
   "default": true,
-
   // 最初のヘッダーがトップレベルのヘッダーでないことを許容
   "MD002": false,
-
+  "MD004": {
+    "style": "dash"
+  },
   // Set list indent
   "MD007": {
     "indent": 2
   },
-
   // Disable line length check
   "MD013": false,
-
   // Multiple headings with the same title
   "MD024": {
     "siblings_only": true
   },
-
   // 
   "MD025": {
     "front_matter_title": "title"
   },
-
   // Set Ordered list item prefix to "ordered" (use 1. 2. 3. not 1. 1. 1.)
   "MD029": {
     "style": "ordered"
@@ -33,7 +30,6 @@
   },
   // Allow inline HTML
   "MD033": false,
-
   // Code block style
   "MD046": {
     "style": "fenced"
