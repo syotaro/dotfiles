@@ -361,7 +361,7 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
 - 編集モードで
   - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
   - Escape key: jj, jk
-- Copilotキーマップ ※<M-x>はMetaキー。iTerm2で、Profile>Keys>General>Left Option keyでEsc+設定が事前に必要
+- Copilotキーマップ※<M-x>はMetaキー。
   - 提案を入力する: `<Tab>`
   - 提案を却下する: `<C-]>`
   - 次の提案に移る: `<M-]>`
@@ -386,3 +386,10 @@ nvim +PackerSync
 
 - 以下のショートカットをなにか別のものに変えた後、OSを再起動する。
   - システム環境設定->キーボード->ショートカット->キーボード->次のウインドウを操作対象にする
+
+## iTerm.app設定
+
+- Advanced > Mouse > Always accept first mouse event on terminal windows > Noに変更
+  - これをNoにすると、iTermアクティブ化の為の最初のマウスクリックで、カーソルが移動しない
+- Profile > Keys > General > Left Option keyでEsc+設定
+  - これを設定すると、左OptionキーがVimのMetaキーとして利用できる
