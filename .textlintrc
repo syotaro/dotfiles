@@ -1,7 +1,13 @@
 {
   "filters": {},
   "rules": {
-    "preset-smarthr": true,
+    "preset-smarthr": {
+      "ja-space-between-half-and-full-width": {
+        "space": "always"
+      },
+      "ja-no-mixed-period": false,
+      "ja-no-space-around-parentheses": false,
+    }
   },
   "plugins": [
     "html",

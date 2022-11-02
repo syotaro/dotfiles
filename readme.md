@@ -5,7 +5,7 @@
 - OS update
 - 設定
   - キーボード
-    - CapsLockをControlキーにマッピング
+    - CapsLock を Control キーにマッピング
     - ユーザー辞書
       - 全部チェック外す
     - 入力ソース
@@ -86,7 +86,7 @@ anyenv update
 
 ## CLI(nodenv on anyenv)
 
-- 事前にnodeのLTS（長期サポートバージョン）を確認しておく
+- 事前に node の LTS（長期サポートバージョン）を確認しておく
 
 ```bash
  # global
@@ -139,7 +139,7 @@ xcode-select --install
 brew install exa
 ```
 
-## GUIアプリのインストール
+## GUI アプリのインストール
 
 - AppStore
   - Kaleidoscope.app
@@ -176,12 +176,12 @@ brew install exa
   - iTerm.app
   - zoom.us.app
 
-## GUIアプリ設定
+## GUI アプリ設定
 
 - chrome
   - chrome://flags/#following-feed-sidepanel
   - chrome://flags/#desktop-partial-translate
-- [github CLI設定](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
+- [github CLI 設定](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
 
 ## SSH key(今後は不要かも。ほぼ利用しない)
 
@@ -199,7 +199,7 @@ chmod 600 ~/.ssh/id_*
 
 ```
 
-## AWS 鍵の配置(vscode toolkitなどから利用する)
+## AWS 鍵の配置(vscode toolkit などから利用する)
 
 ```bash
 ln -s ~/Documents/config/aws  ~/.aws
@@ -207,7 +207,7 @@ ln -s ~/Documents/config/aws  ~/.aws
 
 ## NVIM
 
-- 事前にiTerm2をインストールしておく(デフォルトのターミナルだと、TrueColor非対応につき、アイコンが文字化けするため)
+- 事前に iTerm2 をインストールしておく(デフォルトのターミナルだと、TrueColor 非対応につき、アイコンが文字化けするため)
 
 ```bash
  # NERD対応フォントをインストール
@@ -237,7 +237,7 @@ nvim
   # eslint-lsp                  #
   # json-lsp                    #
   # lua-language-server
-  # markdownlint                # 
+  # markdownlint                #
   # prettier                    # formatter
   # rubocop                     # Linter
   # ruby-lsp
@@ -269,7 +269,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 
 ## cspell config
 
-- 事前に、vscodeとnvim側の設定は完了しているものとする
+- 事前に、vscode と nvim 側の設定は完了しているものとする
 
 ```bash
  # vscodeとnvimのcspellのファイルと辞書ファイル(辞書には機密が記載されている可能性があるので、icloudと同期）
@@ -290,18 +290,18 @@ npm install --location=global textlint-rule-preset-ja-technical-writing
 ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
 ```
 
-- textlint拡張は、ワークスペースを開いていないと、サーバーエラーになる
+- textlint 拡張は、ワークスペースを開いていないと、サーバーエラーになる
 
 ## prettier
 
 ```bash
   # global
 npm install  --location=global prettier
-npm install  --location=global prettier-plugin-md-nocjsp
+# npm install  --location=global prettier-plugin-md-nocjsp
 ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # エラー回避で必要だった
 ```
 
-- [prettierでmd自動フォーマット時に日本語と英語の間にスペース入ってしまう問題](https://github.com/prettier/prettier/pull/11597)
+- [prettier で md 自動フォーマット時に日本語と英語の間にスペース入ってしまう問題](https://github.com/prettier/prettier/pull/11597)
 
 ## markdownlint
 
@@ -312,17 +312,18 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   # => jsonc形式っぽいのに、末尾のカンマがあると、エラーになるので注意
 ```
 
-- リポジトリ内で利用する場合は、.markdownlint.jsoncという名前にする。
+- リポジトリ内で利用する場合は、.markdownlint.jsonc という名前にする。
 
 ## セキュリティの心得
 
-- Wifiの自動接続は無効にする（信頼するネットワークだけ自動接続は可能）
-- 暗号化されていないWi-Fiスポットを利用しない
+- Wifi の自動接続は無効にする（信頼するネットワークだけ自動接続は可能）
+- 暗号化されていない Wi-Fi スポットを利用しない
 - ファイアウォールは有効にする
 
 ## AstroNvim 操作のメモ
 
-- NormalModeで
+- NormalMode で
+
   - C-o :元いた場所に戻る
   - C-i :元いた場所に進む
   - K: カーソル位置の関数のドキュメントを表示
@@ -330,13 +331,13 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   - C-q: 強制的に終了
   - [ ] : カーソル操作
   - = : インデントを揃える
-  - iはカーソル位置から入力開始。
-  - aはカーソルの次の位置から入力開始。
-  - oはカーソルの次の行の先頭から入力開始。
-  - Iは行の先頭から入力開始。
-  - Aは行の終わりから入力開始。
-  - Oはカーソルの前の行の先頭から入力開始。
-  - Window操作
+  - i はカーソル位置から入力開始。
+  - a はカーソルの次の位置から入力開始。
+  - o はカーソルの次の行の先頭から入力開始。
+  - I は行の先頭から入力開始。
+  - A は行の終わりから入力開始。
+  - O はカーソルの前の行の先頭から入力開始。
+  - Window 操作
     - left window you need to press Ctrl + h
     - right window you need to press Ctrl + l
   - タブ操作
@@ -361,15 +362,15 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
 - 編集モードで
   - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
   - Escape key: jj, jk
-- Copilotキーマップ※<M-x>はMetaキー。
+- Copilot キーマップ※<M-x>は Meta キー。
   - 提案を入力する: `<Tab>`
   - 提案を却下する: `<C-]>`
   - 次の提案に移る: `<M-]>`
   - 前の提案に移る: `<M-[>`
-- Insertモード
-  - Ctrl+tやCtrl+dでインデント
+- Insert モード
+  - Ctrl+t や Ctrl+d でインデント
 
-## Nvimのキャッシュクリア
+## Nvim のキャッシュクリア
 
 ```bash
 mv ~/.local/share/nvim  /tmp/localsharenvm
@@ -377,19 +378,19 @@ mv ~/.cache/nvim /tmp/cachenvim
 nvim +PackerSync
 ```
 
-## macの操作メモ
+## mac の操作メモ
 
 - opt+cmd+d →OSdock ON/OFF
-- opt+cmd+g →Gdriveランチャー
+- opt+cmd+g →Gdrive ランチャー
 
-## macで、slackやvscodeで`Command + [`や`Shift+Command+[`のショートカットキーが効かなくなる問題
+## mac で、slack や vscode で`Command + [`や`Shift+Command+[`のショートカットキーが効かなくなる問題
 
-- 以下のショートカットをなにか別のものに変えた後、OSを再起動する。
+- 以下のショートカットをなにか別のものに変えた後、OS を再起動する。
   - システム環境設定->キーボード->ショートカット->キーボード->次のウインドウを操作対象にする
 
-## iTerm.app設定
+## iTerm.app 設定
 
-- Advanced > Mouse > Always accept first mouse event on terminal windows > Noに変更
-  - これをNoにすると、iTermアクティブ化の為の最初のマウスクリックで、カーソルが移動しない
-- Profile > Keys > General > Left Option keyでEsc+設定
-  - これを設定すると、左OptionキーがVimのMetaキーとして利用できる
+- Advanced > Mouse > Always accept first mouse event on terminal windows > No に変更
+  - これを No にすると、iTerm アクティブ化の為の最初のマウスクリックで、カーソルが移動しない
+- Profile > Keys > General > Left Option key で Esc+設定
+  - これを設定すると、左 Option キーが Vim の Meta キーとして利用できる
