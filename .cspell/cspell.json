@@ -5,6 +5,7 @@
   // language - current active spelling language
   "language": "en",
   "allowCompoundWords": true, // 複合語を許容
+  "ignoreRegExpList": ["/id: .*/ig", "/\\^.*/ig"], // markdownなどのfrontmatterに入るID行を無視
   "ignorePaths": [
     "node_modules/**",
     "bower_components/**",
@@ -15,7 +16,8 @@
     "temp/**",
     "cache/**",
     "logs/**",
-    "log/**"
+    "log/**",
+    "package.json"
   ],
   "dictionaries": ["user"],
   "dictionaryDefinitions": [
