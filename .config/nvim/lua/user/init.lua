@@ -47,19 +47,19 @@ local config = {
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
-      encoding = "utf-8",
+      -- encoding = "utf-8",
       ambiwidth = "single", -- https://github.com/rbtnn/vim-ambiwidth
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
       backspace = "indent,eol,start", -- インサートモード中の BS、CTRL-W、CTRL-U による文字削除を柔軟にする
       backup = false,
       spell = false, -- sets vim.opt.spell
       clipboard = "unnamedplus", -- クリップボードを共有する
-      fenc = "utf-8", -- ファイルのエンコーディングを指定
+      -- fenc = "utf-8", -- ファイルのエンコーディングを指定
       hidden = true,
       -- helplang = "ja",
       -- title = true,
-      autoindent = true, -- ファイル保存時に、自動でインデントを揃える
-      smartindent = true, -- ファイル保存時に、自動でインデントを揃える
+      -- autoindent = true, -- ファイル保存時に、自動でインデントを揃える
+      -- smartindent = true, -- ファイル保存時に、自動でインデントを揃える
       hlsearch = true,
       list = true, -- 不可視文字表示
       mouse = "a",
@@ -67,7 +67,7 @@ local config = {
       relativenumber = false,
       ruler = false,
       scrolloff = 8,
-      shell = "fish",
+      -- shell = "fish",
       shiftwidth = 2,
       showcmd = true,
       sidescrolloff = 8,
@@ -155,7 +155,7 @@ local config = {
       ["nvim-tree"] = false,
       ["nvim-web-devicons"] = true,
       rainbow = true,
-      symbols_outline = false,
+      symbols_outline = true,
       telescope = true,
       treesitter = true,
       vimwiki = false,
@@ -249,10 +249,10 @@ local config = {
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
       ["<C-e>"] = { "<ESC>$", desc = "End of line" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-      -- ["<C-h>"] = { "<<", desc = "left indent" },
+      ["<"] = { "<<", desc = "left indent" },
       ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
       ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-      -- ["<C-l>"] = { ">>", desc = "right indent" },
+      [">"] = { ">>", desc = "right indent" },
       ["<CR>"] = { "<ESC>o<ESC>i", desc = "ノーマルモードのまま空行を挿入" },
       ["<Esc><Esc>"] = { "<CMD>nohlsearch<CR><ESC>", desc = "ハイライト削除" },
       ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
@@ -542,6 +542,27 @@ local config = {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+
+    -- バッファが無くなると自動的にアルファを開く
+    local function alpha_on_bye(cmd)
+      local bufs = vim.fn.getbufinfo { buflisted = true }
+      vim.cmd(cmd)
+      if require("core.utils").is_available "alpha-nvim" and not bufs[2] then
+        require("alpha").start(true)
+      end
+    end
+
+    vim.keymap.del("n", "<leader>c")
+    if require("core.utils").is_available "bufdelete.nvim" then
+      vim.keymap.set("n", "<leader>c", function()
+        alpha_on_bye "Bdelete!"
+      end, { desc = "Close buffer" })
+    else
+      vim.keymap.set("n", "<leader>c", function()
+        alpha_on_bye "bdelete!"
+      end, { desc = "Close buffer" })
+    end
+
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
