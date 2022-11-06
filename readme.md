@@ -314,7 +314,8 @@ ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
   # global
 npm install  --location=global prettier
 # npm install  --location=global prettier-plugin-md-nocjsp
-ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # エラー回避で必要だった
+ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.js ~/.prettierrc.js   # 日本語と英語の間にスペース入ってしまう問題の回避&quickfix:trueにしないと、nvimがバグるので
+ln -s ~/GitHub/syotaro/dotfiles/.prettierrc.vscode.js ~/.prettierrc.vscode.js  # vscodeでquickfixが有効だと動かないので
 ```
 
 - [prettier で md 自動フォーマット時に日本語と英語の間にスペース入ってしまう問題](https://github.com/prettier/prettier/pull/11597)
