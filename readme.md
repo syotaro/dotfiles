@@ -397,6 +397,8 @@ nvim +PackerSync
 
 - opt+cmd+d →OSdock ON/OFF
 - opt+cmd+g →Gdriveランチャー
+- opt+F1 → 設定(照度調整)
+- opt+F9 → 設定(音声入力)
 
 ## mac で、slack や vscode で`Command + [`や`Shift+Command+[`のショートカットキーが効かなくなる問題
 
