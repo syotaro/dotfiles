@@ -5,7 +5,7 @@
 - OS update
 - 設定
   - キーボード
-    - CapsLock を Control キーにマッピング
+    - CapsLockをControlキーにマッピング
     - ユーザー辞書
       - 全部チェック外す
     - 入力ソース
@@ -86,7 +86,7 @@ anyenv update
 
 ## CLI(nodenv on anyenv)
 
-- 事前に node の LTS（長期サポートバージョン）を確認しておく
+- 事前にnodeのLTS（長期サポートバージョン）を確認しておく
 
 ```bash
  # global
@@ -203,11 +203,27 @@ chmod 600 ~/.ssh/id_*
 
 ```bash
 ln -s ~/Documents/config/aws  ~/.aws
+
+cat ~/.aws/config
+  # [default]
+  # region = ap-northeast-1
+  # # mfa_serial = arn:aws:iam::{account_number}:mfa/{login_user_name}
+  # # role_arn = arn:aws:iam::{account_number}:role/{admin_role_name}
+  # # source_profile = login_user
+  #
+  # # [profile login_user]
+  # # region = ap-northeast-1
+
+cat ~/.aws/credentials
+  # # Created by AWS Toolkit for VS Code. https://aws.amazon.com/visualstudiocode/
+  # [default]
+  # aws_access_key_id = XXXXXXXXXXXXXXXXXX
+  # aws_secret_access_key = XXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## NVIM
 
-- 事前に iTerm2 をインストールしておく(デフォルトのターミナルだと、TrueColor 非対応につき、アイコンが文字化けするため)
+- 事前にiTerm2をインストールしておく(デフォルトのターミナルだと、TrueColor非対応につき、アイコンが文字化けするため)
 
 ```bash
  # NERD対応フォントをインストール
@@ -262,14 +278,14 @@ nvim
  # h、j、k、および l の移動キーを押したままにしても繰り返されない問題の修正
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false  # For vscode
  # スクリーンショットのファイル名固定文字列を削除
-defaults write com.apple.screencapture name ""
+defaults write com.apple.screencapture name "ss"
  # ネットワーク上にDS_Storeファイルを作成しない
 defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 ```
 
 ## cspell config
 
-- 事前に、vscode と nvim 側の設定は完了しているものとする
+- 事前に、vscodeとnvim側の設定は完了しているものとする
 
 ```bash
  # vscodeとnvimのcspellのファイルと辞書ファイル(辞書には機密が記載されている可能性があるので、icloudと同期）
@@ -290,7 +306,7 @@ npm install --location=global textlint-rule-preset-ja-technical-writing
 ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
 ```
 
-- textlint 拡張は、ワークスペースを開いていないと、サーバーエラーになる
+- textlint拡張は、ワークスペースを開いていないと、サーバーエラーになる
 
 ## prettier
 
@@ -312,18 +328,17 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   # => jsonc形式っぽいのに、末尾のカンマがあると、エラーになるので注意
 ```
 
-- リポジトリ内で利用する場合は、.markdownlint.jsonc という名前にする。
+- リポジトリ内で利用する場合は、.markdownlint.jsoncという名前にする。
 
 ## セキュリティの心得
 
-- Wifi の自動接続は無効にする（信頼するネットワークだけ自動接続は可能）
-- 暗号化されていない Wi-Fi スポットを利用しない
+- Wifiの自動接続は無効にする（信頼するネットワークだけ自動接続は可能）
+- 暗号化されていないWi-Fiスポットを利用しない
 - ファイアウォールは有効にする
 
 ## AstroNvim 操作のメモ
 
-- NormalMode で
-
+- NormalModeで
   - C-o :元いた場所に戻る
   - C-i :元いた場所に進む
   - K: カーソル位置の関数のドキュメントを表示
@@ -331,13 +346,13 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
   - C-q: 強制的に終了
   - [ ] : カーソル操作
   - = : インデントを揃える
-  - i はカーソル位置から入力開始。
-  - a はカーソルの次の位置から入力開始。
-  - o はカーソルの次の行の先頭から入力開始。
-  - I は行の先頭から入力開始。
-  - A は行の終わりから入力開始。
-  - O はカーソルの前の行の先頭から入力開始。
-  - Window 操作
+  - iはカーソル位置から入力開始。
+  - aはカーソルの次の位置から入力開始。
+  - oはカーソルの次の行の先頭から入力開始。
+  - Iは行の先頭から入力開始。
+  - Aは行の終わりから入力開始。
+  - Oはカーソルの前の行の先頭から入力開始。
+  - Window操作
     - left window you need to press Ctrl + h
     - right window you need to press Ctrl + l
   - タブ操作
@@ -362,13 +377,13 @@ ln -s ~/GitHub/syotaro/dotfiles/.markdownlintrc ~/.markdownlintrc
 - 編集モードで
   - C-o :一時的にノーマルモードになり、一回だけコマンドを実行できる
   - Escape key: jj, jk
-- Copilot キーマップ※<M-x>は Meta キー。
+- Copilotキーマップ※<M-x>はMetaキー。
   - 提案を入力する: `<Tab>`
   - 提案を却下する: `<C-]>`
   - 次の提案に移る: `<M-]>`
   - 前の提案に移る: `<M-[>`
-- Insert モード
-  - Ctrl+t や Ctrl+d でインデント
+- Insertモード
+  - Ctrl+tやCtrl+dでインデント
 
 ## Nvim のキャッシュクリア
 
@@ -381,16 +396,16 @@ nvim +PackerSync
 ## mac の操作メモ
 
 - opt+cmd+d →OSdock ON/OFF
-- opt+cmd+g →Gdrive ランチャー
+- opt+cmd+g →Gdriveランチャー
 
 ## mac で、slack や vscode で`Command + [`や`Shift+Command+[`のショートカットキーが効かなくなる問題
 
-- 以下のショートカットをなにか別のものに変えた後、OS を再起動する。
+- 以下のショートカットをなにか別のものに変えた後、OSを再起動する。
   - システム環境設定->キーボード->ショートカット->キーボード->次のウインドウを操作対象にする
 
 ## iTerm.app 設定
 
-- Advanced > Mouse > Always accept first mouse event on terminal windows > No に変更
-  - これを No にすると、iTerm アクティブ化の為の最初のマウスクリックで、カーソルが移動しない
-- Profile > Keys > General > Left Option key で Esc+設定
-  - これを設定すると、左 Option キーが Vim の Meta キーとして利用できる
+- Advanced > Mouse > Always accept first mouse event on terminal windows > Noに変更
+  - これをNoにすると、iTermアクティブ化の為の最初のマウスクリックで、カーソルが移動しない
+- Profile > Keys > General > Left Option keyでEsc+設定
+  - これを設定すると、左OptionキーがVimのMetaキーとして利用できる

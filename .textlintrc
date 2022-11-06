@@ -3,7 +3,7 @@
   "rules": {
     "preset-smarthr": {
       "ja-space-between-half-and-full-width": {
-        "space": "always"
+        "space": "never"
       },
       "ja-no-mixed-period": false,
       "ja-no-space-around-parentheses": false,
