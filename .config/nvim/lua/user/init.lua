@@ -263,12 +263,14 @@ local config = {
     },
     t = { -- t:ターミナルモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-      ["<C-e>"] = { "<ESC>$", desc = "End of line" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+      ["<C-e>"] = { "<ESC>$<INS>", desc = "End of line" },
+      ["<C-a>"] = { "<ESC>^<INS>", desc = "Start of line (non-blank)" },
     },
     i = { -- i:インサートモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-      ["<C-e>"] = { "<ESC>$", desc = "End of line" },
+      ["<C-e>"] = { "<ESC>$<INS>", desc = "End of line" },
+      ["<C-a>"] = { "<ESC>^<INS>", desc = "Start of line (non-blank)" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
       ["<C-n>"] = { "<DOWN>", desc = "DOWN" },
       ["<C-p>"] = { "<UP>", desc = "UP" },
@@ -280,6 +282,8 @@ local config = {
     c = { -- c:コマンドモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
+      ["<C-e>"] = { "<ESC>$<INS>", desc = "End of line" },
+      ["<C-a>"] = { "<ESC>^<INS>", desc = "Start of line (non-blank)" },
     },
     v = { -- v:ヴィジュアルモード
       ["1"] = { "^", desc = "Start of line (non-blank)" },

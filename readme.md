@@ -230,6 +230,8 @@ cat ~/.aws/credentials
 brew tap homebrew/cask-fonts
 brew install font-hackgen
 brew install font-hackgen-nerd
+brew font-udev-gothic
+brew font-udev-gothic-nf
 
  # NVIM本体をインストール
 brew install git ctags
