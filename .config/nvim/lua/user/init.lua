@@ -47,19 +47,12 @@ local config = {
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
-      -- encoding = "utf-8",
       ambiwidth = "single", -- https://github.com/rbtnn/vim-ambiwidth
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
       backspace = "indent,eol,start", -- インサートモード中の BS、CTRL-W、CTRL-U による文字削除を柔軟にする
       backup = false,
-      spell = false, -- sets vim.opt.spell
       clipboard = "unnamedplus", -- クリップボードを共有する
-      -- fenc = "utf-8", -- ファイルのエンコーディングを指定
       hidden = true,
-      -- helplang = "ja",
-      -- title = true,
-      -- autoindent = true, -- ファイル保存時に、自動でインデントを揃える
-      -- smartindent = true, -- ファイル保存時に、自動でインデントを揃える
       hlsearch = true,
       list = true, -- 不可視文字表示
       mouse = "a",
@@ -67,19 +60,26 @@ local config = {
       relativenumber = false,
       ruler = false,
       scrolloff = 8,
-      -- shell = "fish",
       shiftwidth = 2,
       showcmd = true,
       sidescrolloff = 8,
+      spell = false, -- sets vim.opt.spell
       swapfile = false,
       tabstop = 2,
       undofile = false,
       whichwrap = "b,s,h,l,[,],<,>", -- カーソルを行頭、行末で止まらないようにする
       wildmenu = true, -- コマンドラインで補完候補をメニュー表示する
-      writebackup = false,
       wrap = false,
+      writebackup = false,
+      -- autoindent = true, -- ファイル保存時に、自動でインデントを揃える
+      encoding = "utf-8",
+      fenc = "utf-8", -- ファイルのエンコーディングを指定
+      -- helplang = "ja",
+      -- shell = "fish",
+      -- smartindent = true, -- ファイル保存時に、自動でインデントを揃える
+      -- title = true,
       -- AstroNVIMでデフォルト設定されているので、あえてやらないでいいやつ
-      -- listchars = "tab:▸ ,trail:_,extends:>,precedes:<,nbsp:%", -- " 不可視文字の表示形式
+      ---- listchars = "tab:▸ ,trail:_,extends:>,precedes:<,nbsp:%", -- " 不可視文字の表示形式
       ---- signcolumn = "true", signcolumnは常に有効にして、ファイル開く直後のガタつき予防
       ---- laststatus = 2,
       ---- cmdheight = 0, -- nvim0.8以降でサポート。かっこいい
@@ -239,27 +239,32 @@ local config = {
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       ["<leader>vf"] = { "<cmd>save ~/Desktop/memo.md<cr>", desc = "メモをサクッと作成" },
+      ["<Leader>."]  = { ":<C-u>edit ~/.config/nvim/lua/user/init.lua<CR>", desc = "" },
       ["<leader>ve"] = {
         "<cmd>e " .. vim.fn.stdpath "config" .. "/lua/user/init.lua<CR>",
         desc = "Open Astronvim config",
       },
-      ["1"] = { "^", desc = "Start of line (non-blank)" },
-      ["9"] = { "$", desc = "End of line" },
-      [";"] = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
-      ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
-      ["<C-e>"] = { "<ESC>$", desc = "End of line" },
-      ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
-      ["<"] = { "<<", desc = "left indent" },
-      ["<C-j>"] = { "<C-e><DOWN>", desc = "1行スクロール" },
-      ["<C-k>"] = { "<C-Y><UP>", desc = "1行スクロール" },
-      [">"] = { ">>", desc = "right indent" },
-      ["<CR>"] = { "<ESC>o<ESC>i", desc = "ノーマルモードのまま空行を挿入" },
+      ["n"]          = { "nzz", desc = "" },
+      ["N"]          = { "Nzz", desc = "" },
+      ["#"]          = { "#zz", desc = "" },
+      ["1"]          = { "^", desc = "Start of line (non-blank)" },
+      ["9"]          = { "$", desc = "End of line" },
+      [";"]          = { ":", desc = ";でコマンド入力( ;と:を入れ替)" },
+      ["<C-b>"]      = { "<LEFT>", desc = "LEFT" },
+      ["<C-e>"]      = { "<ESC>$", desc = "End of line" },
+      ["<C-f>"]      = { "<RIGHT>", desc = "RIGHT" },
+      ["<"]          = { "<<", desc = "left indent" },
+      ["<C-j>"]      = { "<C-e><DOWN>", desc = "1行スクロール" },
+      ["<C-k>"]      = { "<C-Y><UP>", desc = "1行スクロール" },
+      [">"]          = { ">>", desc = "right indent" },
+      ["<CR>"]       = { "<ESC>o<ESC>i", desc = "ノーマルモードのまま空行を挿入" },
+      ["<S-CR>"]     = { "<ESC>O<ESC>i", desc = "ノーマルモードのまま空行を挿入" },
       ["<Esc><Esc>"] = { "<CMD>nohlsearch<CR><ESC>", desc = "ハイライト削除" },
-      ["d"] = { "_d", desc = "選択部分を、ヤンクせずに削除" },
-      ["j"] = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
-      ["k"] = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
-      ["o"] = { "A<CR>", desc = "行末に移動して改行" },
-      ["q"] = { "<CMD>q<CR>", desc = "qだけでエディタを閉じる" },
+      ["d"]          = { "_d", desc = "選択部分を、ヤンクせずに削除" },
+      ["j"]          = { "gj", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+      ["k"]          = { "gk", desc = "折り返されたテキストでも、j/kの移動が自然に振る舞うように" },
+      ["o"]          = { "A<CR>", desc = "行末に移動して改行" },
+      ["q"]          = { "<CMD>q<CR>", desc = "qだけでエディタを閉じる" },
     },
     t = { -- t:ターミナルモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
@@ -277,7 +282,7 @@ local config = {
       ["<C-h>"] = { "<BACKSPACE>", desc = "delete left character" },
       ["<C-l>"] = { "<C-t>", desc = "Right Indent" },
       ["<C-s>"] = { "<ESC><CMD>:w!<CR>", desc = "Save File" },
-      ["kk"] = { "()<LEFT>", desc = "call ()" },
+      ["kk"]    = { "()<LEFT>", desc = "call ()" },
     },
     c = { -- c:コマンドモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
@@ -286,8 +291,8 @@ local config = {
       ["<C-a>"] = { "<ESC>^<INS>", desc = "Start of line (non-blank)" },
     },
     v = { -- v:ヴィジュアルモード
-      ["1"] = { "^", desc = "Start of line (non-blank)" },
-      ["9"] = { "$", desc = "End of line" },
+      ["1"]     = { "^", desc = "Start of line (non-blank)" },
+      ["9"]     = { "$", desc = "End of line" },
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
       ["<C-e>"] = { "$", desc = "End of line" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
@@ -297,10 +302,10 @@ local config = {
       ["<C-l>"] = { ">gv", desc = "Right Indent & v-mode continue" },
     },
     x = { -- x:ヴィジュアルブロックモード
-      ["9"] = { "$", desc = "Start of line (non-blank)" },
-      ["1"] = { "^", desc = "End of line" },
-      ["d"] = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
-      ["p"] = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
+      ["9"]     = { "$", desc = "Start of line (non-blank)" },
+      ["1"]     = { "^", desc = "End of line" },
+      ["d"]     = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
+      ["p"]     = { '"_dP', desc = "ブラックホールレジスタでペースト時ヤンク回避して削除" },
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
       ["<C-e>"] = { "$", desc = "End of line" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
@@ -319,6 +324,7 @@ local config = {
       { "godlygeek/tabular" },
       { "preservim/vim-markdown" },
       { "rbtnn/vim-ambiwidth" },
+      { 'dsznajder/vscode-es7-javascript-react-snippets', run = 'yarn install --frozen-lockfile && yarn compile' } -- https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
 
       -- { "andweeb/presence.nvim" },
       -- {
