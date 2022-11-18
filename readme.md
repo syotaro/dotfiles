@@ -238,6 +238,9 @@ brew install git ctags
 brew install neovim
 python3 -m pip install --user --upgrade pynvim
 npm install  --location=global neovim
+ # NVIM設定をバックアップ
+mv ~/.config/nvim ~/.config/nvim.bak
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
  # NVIMの設定を時短するため、AstroNvimをインストール
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 nvim +PackerSync
@@ -245,10 +248,9 @@ nvim +PackerSync
 mkdir -p ~/.config/nvim/lua/user/
 ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/init.lua ~/.config/nvim/lua/user/init.lua
  # 必要な設定を確認
-nvim
-:checkhealth provider
-:checkhealth mason
-:Mason
+nvim +':checkhealth provider'
+nvim +':checkhealth mason'
+nvim +':Mason'
   # =>Installed
   # cspell                      # 前提：globalで cspellコマンドが実行できること
   # cssmodules-language-server  #
@@ -266,12 +268,14 @@ nvim
   # textlint                    # 自然言語Linter
   # tflint                      # Terraform Linter
   # typescript-language-server
+
  # Syntax（TreeSitter）の設定確認
-:TSInstallInfo
- # github Copilotの設定確認
-:Copilot setup   #=> 自身のgithub ユーザ名が表示されること
-:Copilot status  #=> Copilot: Enabled and online
-:Copilot version #=> Nodeのバージョンが17以上必須
+nvim +':TSInstallInfo'  # => init.luaで指定したものがinstallされているはず
+
+  # github Copilotの設定確認
+nvim +':Copilot setup'   #=> 自身のgithub ユーザ名が表示されること
+nvim +':Copilot status'  #=> Copilot: Enabled and online
+nvim +':Copilot version' #=> Nodeのバージョンが17以上必須
 ```
 
 ## macOS config
@@ -308,7 +312,15 @@ npm install --location=global textlint-rule-preset-ja-technical-writing
 ln -s ~/GitHub/syotaro/dotfiles/.textlintrc ~/.textlintrc
 ```
 
-- textlint拡張は、ワークスペースを開いていないと、サーバーエラーになる
+- vscode上のtextlint拡張は、なぜかワークスペースを開いていないと、サーバーエラーになる
+- bash上と、nvim上で、実行するtextlintのコマンドパスが同じ方が、誤動作が少ない
+
+```bash
+which textlint
+  # => /Users/syotaro/.anyenv/envs/nodenv/shims/textlint
+nvim +'!which textlint'
+  # => /Users/syotaro/.local/share/nvim/mason/bin/textlint
+```
 
 ## prettier
 

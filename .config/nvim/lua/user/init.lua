@@ -47,7 +47,7 @@ local config = {
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
-      ambiwidth = "single", -- https://github.com/rbtnn/vim-ambiwidth
+      -- ambiwidth = "single", -- https://github.com/rbtnn/vim-ambiwidth
       autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
       backspace = "indent,eol,start", -- インサートモード中の BS、CTRL-W、CTRL-U による文字削除を柔軟にする
       backup = false,
@@ -323,10 +323,10 @@ local config = {
       { "github/copilot.vim" },
       { "godlygeek/tabular" },
       { "preservim/vim-markdown" },
-      { "rbtnn/vim-ambiwidth" },
+      -- { "rbtnn/vim-ambiwidth" },  -- これをインストールすると、UIがずれるので入れない方がいい
       { 'dsznajder/vscode-es7-javascript-react-snippets', run = 'yarn install --frozen-lockfile && yarn compile' }, -- https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
       { 'junegunn/vim-easy-align' },
-      -- { "andweeb/presence.nvim" },
+      { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
@@ -466,17 +466,27 @@ local config = {
         "bash",
         "css",
         "dockerfile",
+        "go",
+        "diff",
         "html",
         "hcl",
         "javascript",
         "json",
+        "gitignore",
         "lua",
         "markdown",
+        "markdown_inline",
         "scss",
         "tsx",
+        "jsonc",
         "typescript",
+        "graphql",
         "yaml",
         "toml",
+        "fish",
+        "ruby",
+        "prisma",
+        "php",
         "rust",
       },
     },
