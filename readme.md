@@ -179,8 +179,10 @@ brew install exa
 ## GUI アプリ設定
 
 - chrome
-  - chrome://flags/#following-feed-sidepanel
-  - chrome://flags/#desktop-partial-translate
+  - 拡張
+    - [vimium-c](https://chrome.google.com/webstore/detail/vimium-c/gfjcgcmkmjjlieihflfhjopckgpelofo)
+    - [deepL](https://chrome.google.com/webstore/detail/deepl-translate/ldnnhddmnhbkjipkidpdiheffobcpfmf)
+    - [1password](https://chrome.google.com/webstore/detail/1password-x-%E2%80%93-password-m/nngceckbapebfimnlniiiahkandclblb)
 - [github CLI 設定](https://docs.github.com/ja/desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line)
 
 ## SSH key(今後は不要かも。ほぼ利用しない)
@@ -244,12 +246,10 @@ mv ~/.local/share/nvim ~/.local/share/nvim.bak
  # NVIMの設定を時短するため、AstroNvimをインストール
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 nvim +PackerSync
- # 設定ファイルをコピー
-mkdir -p ~/.config/nvim/lua/user/
-ln -s ~/GitHub/syotaro/dotfiles/.config/nvim/lua/user/init.lua ~/.config/nvim/lua/user/init.lua
+ # 設定ファイルを配置
+git clone https://github.com/syotaro/AstroNvimUserConfiguration ~/.config/nvim/lua/user
  # 必要な設定を確認
-nvim +':checkhealth provider'
-nvim +':checkhealth mason'
+nvim +':checkhealth'
 nvim +':Mason'
   # =>Installed
   # cspell                      # 前提：globalで cspellコマンドが実行できること
@@ -276,6 +276,9 @@ nvim +':TSInstallInfo'  # => init.luaで指定したものがinstallされてい
 nvim +':Copilot setup'   #=> 自身のgithub ユーザ名が表示されること
 nvim +':Copilot status'  #=> Copilot: Enabled and online
 nvim +':Copilot version' #=> Nodeのバージョンが17以上必須
+  # カスタマイズ
+vim .config/nvim/lua/plugins/alpha.lua
+vim .config/nvim/lua/plugins/cmp.lua
 ```
 
 ## macOS config
