@@ -5,36 +5,32 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
   -- Configure AstroNvim updates
   updater = {
-    remote = "origin", -- remote to use
-    channel = "stable", -- "stable" or "nightly"
-    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "main", -- branch name (NIGHTLY ONLY)
-    commit = nil, -- commit hash (NIGHTLY ONLY)
-    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-    skip_prompts = false, -- skip prompts about breaking changes
+    remote = "origin",     -- remote to use
+    channel = "stable",    -- "stable" or "nightly"
+    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+    branch = "main",       -- branch name (NIGHTLY ONLY)
+    commit = nil,          -- commit hash (NIGHTLY ONLY)
+    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
+    skip_prompts = false,  -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
-    auto_reload = false, -- automatically reload and sync packer after a successful update
-    auto_quit = false, -- automatically quit the current session after a successful update
+    auto_reload = false,   -- automatically reload and sync packer after a successful update
+    auto_quit = false,     -- automatically quit the current session after a successful update
     -- remotes = { -- easily add new remotes to track
     --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
     --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
     --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     -- },
   },
-
   -- Set colorscheme to use
   colorscheme = "default_theme",
-
   -- Add highlight groups in any theme
   highlights = {
-    default_theme = function(highlights) -- or a function that returns a new table of colors to set
+    default_theme = function(highlights)                -- or a function that returns a new table of colors to set
       highlights.MatchParen = { fg = C.fg, bg = C.red } -- ペアの括弧のハイライトが灰色で見えにくいので赤色に
       return highlights
     end,
-
     -- init = { -- this table overrides highlights in all themes
     --   Normal = { bg = "#000000" },
     -- }
@@ -43,15 +39,14 @@ local config = {
     --
     -- },
   },
-
   -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
       -- ambiwidth = "single", -- https://github.com/rbtnn/vim-ambiwidth
-      autoread = true, -- ファイルが他で変更されている場合に自動的に読み直します
+      autoread = true,                -- ファイルが他で変更されている場合に自動的に読み直します
       backspace = "indent,eol,start", -- インサートモード中の BS、CTRL-W、CTRL-U による文字削除を柔軟にする
       backup = false,
-      clipboard = "unnamedplus", -- クリップボードを共有する
+      clipboard = "unnamedplus",      -- クリップボードを共有する
       hidden = true,
       hlsearch = true,
       list = true, -- 不可視文字表示
@@ -68,7 +63,7 @@ local config = {
       tabstop = 2,
       undofile = false,
       whichwrap = "b,s,h,l,[,],<,>", -- カーソルを行頭、行末で止まらないようにする
-      wildmenu = true, -- コマンドラインで補完候補をメニュー表示する
+      wildmenu = true,               -- コマンドラインで補完候補をメニュー表示する
       wrap = false,
       writebackup = false,
       -- autoindent = true, -- ファイル保存時に、自動でインデントを揃える
@@ -86,22 +81,22 @@ local config = {
       ---- background = "dark", --デフォルト有効になっている
     },
     g = {
-      mapleader = " ", -- sets vim.g.mapleader
-      autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-      cmp_enabled = true, -- enable completion at start
-      autopairs_enabled = true, -- enable autopairs at start
-      diagnostics_enabled = true, -- enable diagnostics at start
+      mapleader = " ",                   -- sets vim.g.mapleader
+      autoformat_enabled = true,         -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+      cmp_enabled = true,                -- enable completion at start
+      autopairs_enabled = true,          -- enable autopairs at start
+      diagnostics_enabled = true,        -- enable diagnostics at start
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
-      icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+      icons_enabled = true,              -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       copilot_assume_mapped = true,
       copilot_filetypes = {
         ["*"] = true,
         ["php"] = true,
       },
-      vim_markdown_folding_disabled = 1, -- 折り畳みを無効化
-      vim_markdown_conceal_code_blocks = 0, --   "構文隠蔽無効化
-      vim_markdown_conceal = 0, --   "構文隠蔽無効化
-      vim_markdown_frontmatter = 1, --   "frontmatterを強調表示
+      vim_markdown_folding_disabled = 1,     -- 折り畳みを無効化
+      vim_markdown_conceal_code_blocks = 0,  --   "構文隠蔽無効化
+      vim_markdown_conceal = 0,              --   "構文隠蔽無効化
+      vim_markdown_frontmatter = 1,          --   "frontmatterを強調表示
       vim_markdown_new_list_item_indent = 2, -- "listのインデントのスペースの数を4から2へ
       vim_markdown_folding_style_pythonic = 1,
     },
@@ -118,7 +113,6 @@ local config = {
 
   -- Set dashboard header
   header = { "" },
-
   -- Default theme configuration
   default_theme = {
     -- Modify the color palette for the default theme
@@ -162,14 +156,12 @@ local config = {
       ["which-key"] = true,
     },
   },
-
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
     cspell = true,
   },
-
   -- Extend LSP configuration
   lsp = {
     -- enable servers that you already have installed without mason
@@ -179,7 +171,7 @@ local config = {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = true,     -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -199,7 +191,6 @@ local config = {
     mappings = {
       n = {} -- n:ノーマルモード
     },
-
     -- add to the global LSP on_attach function
     -- on_attach = function(client, bufnr)
     -- end,
@@ -225,7 +216,6 @@ local config = {
       -- },
     },
   },
-
   -- Mapping data with "desc" stored directly by vim.keymap.set().
   --
   -- Please use this mappings table to set keyboard mapping since this is the
@@ -233,7 +223,8 @@ local config = {
   -- automatically pick-up stored data by this setting.)
   mappings = {
     -- first key is the mode
-    n = { -- n:ノーマルモード
+    n = {
+          -- n:ノーマルモード
       ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
@@ -266,13 +257,15 @@ local config = {
       ["o"]          = { "A<CR>", desc = "行末に移動して改行" },
       ["q"]          = { "<CMD>q<CR>", desc = "qだけでエディタを閉じる" },
     },
-    t = { -- t:ターミナルモード
+    t = {
+          -- t:ターミナルモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
       ["<C-e>"] = { "<ESC>$<INS>", desc = "End of line" },
       ["<C-a>"] = { "<ESC>^<INS>", desc = "Start of line (non-blank)" },
     },
-    i = { -- i:インサートモード
+    i = {
+          -- i:インサートモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
       ["<C-e>"] = { "<ESC>$<INS>", desc = "End of line" },
       ["<C-a>"] = { "<ESC>^<INS>", desc = "Start of line (non-blank)" },
@@ -284,13 +277,15 @@ local config = {
       ["<C-s>"] = { "<ESC><CMD>:w!<CR>", desc = "Save File" },
       ["kk"]    = { "()<LEFT>", desc = "call ()" },
     },
-    c = { -- c:コマンドモード
+    c = {
+          -- c:コマンドモード
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
       ["<C-e>"] = { "<ESC>$<INS>", desc = "End of line" },
       ["<C-a>"] = { "<ESC>^<INS>", desc = "Start of line (non-blank)" },
     },
-    v = { -- v:ヴィジュアルモード
+    v = {
+          -- v:ヴィジュアルモード
       ["1"]     = { "^", desc = "Start of line (non-blank)" },
       ["9"]     = { "$", desc = "End of line" },
       ["<C-b>"] = { "<LEFT>", desc = "LEFT" },
@@ -301,7 +296,8 @@ local config = {
       ["<C-h>"] = { "<gv", desc = "Left Indent & v-mode continue" },
       ["<C-l>"] = { ">gv", desc = "Right Indent & v-mode continue" },
     },
-    x = { -- x:ヴィジュアルブロックモード
+    x = {
+          -- x:ヴィジュアルブロックモード
       ["9"]     = { "$", desc = "Start of line (non-blank)" },
       ["1"]     = { "^", desc = "End of line" },
       ["d"]     = { '"_d', desc = "ブラックホールレジスタでyankを回避して削除削除" },
@@ -311,7 +307,6 @@ local config = {
       ["<C-f>"] = { "<RIGHT>", desc = "RIGHT" },
     },
   },
-
   -- Configure plugins
   plugins = {
     init = {
@@ -320,7 +315,7 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
-      { "github/copilot.vim" },
+      { "github/copilot.vim",                             run = "make" },
       { "godlygeek/tabular" },
       { "preservim/vim-markdown" },
       -- { "rbtnn/vim-ambiwidth" },  -- これをインストールすると、UIがずれるので入れない方がいい
@@ -456,8 +451,8 @@ local config = {
       }
       return config -- return final config table
     end,
-
-    treesitter = { -- overrides `require("treesitter").setup(...)`
+    treesitter = {
+                   -- overrides `require("treesitter").setup(...)`
       -- highlight = {
       --   enable = true,
       --   disable = { "markdown" },
@@ -516,7 +511,6 @@ local config = {
       },
     },
   },
-
   -- LuaSnip Options
   luasnip = {
     -- Add paths for including more VS Code style snippets in luasnip
@@ -526,7 +520,6 @@ local config = {
       -- javascript = { "javascriptreact" },
     },
   },
-
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
@@ -541,7 +534,6 @@ local config = {
       path = 250,
     },
   },
-
   -- Modify which-key registration (Use this with mappings table in the above.)
   ["which-key"] = {
     -- Add bindings which show up as group name
@@ -557,12 +549,10 @@ local config = {
       },
     },
   },
-
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
-
     -- バッファが無くなると自動的にアルファを開く
     local function alpha_on_bye(cmd)
       local bufs = vim.fn.getbufinfo { buflisted = true }
