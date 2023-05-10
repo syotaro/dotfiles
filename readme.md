@@ -230,13 +230,12 @@ cat ~/.aws/credentials
 ```bash
  # NERD対応フォントをインストール
 brew tap homebrew/cask-fonts
-brew install font-hackgen
-brew install font-hackgen-nerd
 brew install font-udev-gothic
 brew install font-udev-gothic-nf
 
  # AstroNvimで、一部アイコンが文字化けすることの対応
- # https://www.nerdfonts.com/font-downloads -> NerdFontsSymbolsOnly をinstall
+brew install font-symbols-only-nerd-font
+ # もしくは、 https://www.nerdfonts.com/font-downloads -> NerdFontsSymbolsOnly をinstall
 
 
  # NVIM本体をインストール
