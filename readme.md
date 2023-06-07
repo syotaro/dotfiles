@@ -239,6 +239,7 @@ brew install font-symbols-only-nerd-font
 
 
  # NVIM本体をインストール
+   # 参考: https://zenn.dev/chot/articles/72bc7dfbec3b33
 brew install git ctags
 brew install neovim
 python3 -m pip install --user --upgrade pynvim
