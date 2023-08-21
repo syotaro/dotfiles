@@ -2,7 +2,7 @@
 
 ## macOS 関連
 
-- OS update
+- OS update 
 - 設定
   - キーボード
     - CapsLockをControlキーにマッピング
