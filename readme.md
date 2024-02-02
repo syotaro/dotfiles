@@ -2,7 +2,7 @@
 
 ## macOS 関連
 
-- OS update 
+- OS update
 - 設定
   - キーボード
     - CapsLockをControlキーにマッピング
@@ -232,6 +232,8 @@ cat ~/.aws/credentials
 brew tap homebrew/cask-fonts
 brew install font-udev-gothic
 brew install font-udev-gothic-nf
+ # github製のプログラミング特化フォントをインストール
+brew install font-monaspace  font-monaspace-nerd-font
 
  # AstroNvimで、一部アイコンが文字化けすることの対応
 brew install font-symbols-only-nerd-font
