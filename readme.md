@@ -123,6 +123,8 @@ rbenv global 3.1.2
 ## その他の CLI
 
 ```bash
+ # https://aerolite.dev/applite/index.html
+brew install --cask applite
  # github
 brew install gh
 gh auth login
